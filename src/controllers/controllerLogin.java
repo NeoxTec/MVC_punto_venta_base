@@ -15,7 +15,9 @@ import models.modelLogin;
 public class controllerLogin {
      private modelLogin modelLogin;
      private viewLogin viewLogin;
+     
      private Object controllers[];
+     private controllerAdmin controllerAdmin;
      
      
      
