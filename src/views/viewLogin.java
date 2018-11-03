@@ -43,13 +43,16 @@ public class viewLogin extends javax.swing.JFrame {
         jl_icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jl_icono.setMaximumSize(new java.awt.Dimension(200, 250));
 
-        jl_titulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jl_titulo.setFont(new java.awt.Font("AR DARLING", 0, 24)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setText("Bienvenido");
 
-        jl_usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_usuario.setFont(new java.awt.Font("AR DARLING", 0, 14)); // NOI18N
+        jl_usuario.setForeground(new java.awt.Color(255, 102, 0));
         jl_usuario.setText("Usuario: ");
 
-        jl_password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jl_password.setFont(new java.awt.Font("AR DARLING", 0, 14)); // NOI18N
+        jl_password.setForeground(new java.awt.Color(255, 102, 0));
         jl_password.setText("Contraseña: ");
 
         jb_entrar.setText("Entrar");
@@ -64,18 +67,16 @@ public class viewLogin extends javax.swing.JFrame {
                         .addGap(360, 360, 360)
                         .addComponent(jl_icono, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(469, 469, 469)
+                        .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(390, 390, 390)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jl_usuario)
                             .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_password)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(469, 469, 469)
-                        .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(473, 473, 473)
-                        .addComponent(jl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jl_password)
+                            .addComponent(jl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(422, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,8 +84,8 @@ public class viewLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jl_icono, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jl_titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jl_usuario)
                 .addGap(7, 7, 7)
@@ -95,7 +96,7 @@ public class viewLogin extends javax.swing.JFrame {
                 .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jb_entrar)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
