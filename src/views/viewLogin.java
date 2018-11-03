@@ -149,12 +149,12 @@ public class viewLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JButton jb_entrar;
-    public javax.swing.JLabel jl_icono;
-    public javax.swing.JLabel jl_password;
-    public javax.swing.JLabel jl_titulo;
-    public javax.swing.JLabel jl_usuario;
-    public javax.swing.JTextField jtf_password;
+    private javax.swing.JButton jb_entrar;
+    private javax.swing.JLabel jl_icono;
+    private javax.swing.JLabel jl_password;
+    private javax.swing.JLabel jl_titulo;
+    private javax.swing.JLabel jl_usuario;
+    private javax.swing.JTextField jtf_password;
     private javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
 }
