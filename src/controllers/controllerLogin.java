@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import views.viewLogin;
 import models.modelLogin;
 /**
@@ -40,5 +42,32 @@ public class controllerLogin {
         viewLogin.setTitle("Login");
         viewLogin.setLocationRelativeTo(null);
         viewLogin.setVisible(true);
+    }
+    
+    /**
+     * Asigna el actionListener al botón entrar de 
+     * viewLogin.
+     */
+    private void setActionListener() {
+        viewLogin.jb_entrar.addActionListener(actionListener);
+        
+    }
+    
+    /**
+     * Evalua el componente que genero el evento y llama a un método en particular.
+     */
+    private final ActionListener actionListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == viewLogin.jb_entrar) {
+                jb_entrar_actionPerformed();
+            } 
+        }
+    };
+    
+    private void jb_entrar_actionPerformed(){
+        viewLogin.setContentPane(controllerAdmin.viewAdmin);
+        viewLogin.revalidate();
+        viewLogin.repaint();
     }
 }

@@ -47,14 +47,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="286" max="-2" attributes="0"/>
+                          <Component id="jl_icono" min="-2" pref="286" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jl_usuario" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="232" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="232" max="-2" attributes="0"/>
+                              <Component id="jtf_usuario" min="-2" pref="232" max="-2" attributes="0"/>
+                              <Component id="jtf_password" min="-2" pref="232" max="-2" attributes="0"/>
                               <Component id="jl_password" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -64,7 +64,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="473" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="jl_titulo" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="422" max="32767" attributes="0"/>
@@ -75,17 +75,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="223" max="-2" attributes="0"/>
+                  <Component id="jl_icono" min="-2" pref="223" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="jl_titulo" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jl_usuario" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jtf_usuario" min="-2" pref="20" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jl_password" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField2" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jtf_password" min="-2" pref="20" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jb_entrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="58" max="32767" attributes="0"/>
@@ -94,7 +94,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jl_icono">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/images/QuetzalStockNARANJA.png"/>
@@ -103,14 +103,20 @@
               <Dimension value="[200, 250]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jl_titulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bienvenido"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_usuario">
           <Properties>
@@ -119,6 +125,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Usuario: "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jl_password">
           <Properties>
@@ -127,15 +136,24 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a: "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jtf_usuario">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="jtf_password">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jb_entrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Entrar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
