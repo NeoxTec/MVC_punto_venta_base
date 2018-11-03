@@ -38,6 +38,7 @@ public class controllerLogin {
         this.viewLogin = viewLogin;
         this.controllers = controllers;
         setControllers();
+        setActionListener();
         initComponets();
     }
     
