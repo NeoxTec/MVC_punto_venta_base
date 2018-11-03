@@ -27,21 +27,56 @@ public class viewAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jb_sucursales = new javax.swing.JButton();
+        jb_catalogo = new javax.swing.JButton();
+        jb_clientes = new javax.swing.JButton();
+        jb_empleados = new javax.swing.JButton();
+
         setPreferredSize(new java.awt.Dimension(1068, 543));
+
+        jb_sucursales.setText("Sucursales");
+
+        jb_catalogo.setText("Catalogo");
+
+        jb_clientes.setText("Clientes");
+
+        jb_empleados.setText("Empleados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1068, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_catalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_sucursales, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 202, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_empleados, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_sucursales, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_catalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jb_catalogo;
+    public javax.swing.JButton jb_clientes;
+    public javax.swing.JButton jb_empleados;
+    public javax.swing.JButton jb_sucursales;
     // End of variables declaration//GEN-END:variables
 }
