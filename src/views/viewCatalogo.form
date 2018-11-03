@@ -199,12 +199,13 @@
             <Component class="javax.swing.JTable" name="jt_catalogo">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
-                    <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                    <Column editable="true" title="Precio unitario" type="java.lang.Object"/>
-                    <Column editable="true" title="Precio Mayoreo" type="java.lang.Object"/>
-                    <Column editable="true" title="Unidad" type="java.lang.Object"/>
-                    <Column editable="true" title="Capacidad" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="4">
+                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Nombre" type="java.lang.Object"/>
+                    <Column editable="false" title="Precio unitario" type="java.lang.Object"/>
+                    <Column editable="false" title="Precio Mayoreo" type="java.lang.Object"/>
+                    <Column editable="false" title="Unidad" type="java.lang.Object"/>
+                    <Column editable="false" title="Capacidad" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>
@@ -289,7 +290,7 @@
                 <StringItem index="0" value="KILOS"/>
                 <StringItem index="1" value="LITROS"/>
                 <StringItem index="2" value="METRO LINEAL"/>
-                <StringItem index="3" value="PIEZAS&apos;"/>
+                <StringItem index="3" value="PIEZAS"/>
               </StringArray>
             </Property>
           </Properties>

@@ -62,15 +62,23 @@ public class viewCatalogo extends javax.swing.JPanel {
 
         jt_catalogo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Precio unitario", "Precio Mayoreo", "Unidad", "Capacidad"
+                "ID", "Nombre", "Precio unitario", "Precio Mayoreo", "Unidad", "Capacidad"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jt_catalogo);
 
         jl_nombre.setText("Nombre:");
@@ -93,7 +101,7 @@ public class viewCatalogo extends javax.swing.JPanel {
 
         jl_unidadmedida.setText("Unidad de medida:");
 
-        jcb_unidadmedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KILOS", "LITROS", "METRO LINEAL", "PIEZAS'" }));
+        jcb_unidadmedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KILOS", "LITROS", "METRO LINEAL", "PIEZAS" }));
 
         jl_capacidad.setText("Capacidad:");
 
