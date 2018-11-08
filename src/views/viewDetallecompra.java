@@ -223,8 +223,8 @@ public class viewDetallecompra extends javax.swing.JPanel {
     public javax.swing.JLabel jl_numero_factura;
     public javax.swing.JLabel jl_subtotal;
     public javax.swing.JLabel jl_total;
-    private javax.swing.JTable jt_detallecompra;
-    private javax.swing.JTable jt_productos;
+    public javax.swing.JTable jt_detallecompra;
+    public javax.swing.JTable jt_productos;
     public javax.swing.JTextField jtd_subtotal;
     public javax.swing.JTextField jtf_cantidad;
     public javax.swing.JTextField jtf_id_producto;
