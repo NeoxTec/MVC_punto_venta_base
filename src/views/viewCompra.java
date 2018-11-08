@@ -261,7 +261,7 @@ public class viewCompra extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar_compra;
     public javax.swing.JButton jb_modificar_compra;
     public javax.swing.JButton jb_nueva_compra;
-    private javax.swing.JButton jb_volver;
+    public javax.swing.JButton jb_volver;
     public javax.swing.JComboBox<String> jcb_estado_factura;
     public javax.swing.JComboBox<String> jcb_forma_pago;
     public javax.swing.JComboBox<String> jcb_idsucursal;
