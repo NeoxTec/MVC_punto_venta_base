@@ -118,14 +118,14 @@ public class viewVentasConsulta extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jb_volver;
-    private javax.swing.JComboBox<String> jcb_idsucursal;
-    private javax.swing.JLabel jl_empleado_diafin;
-    private javax.swing.JLabel jl_idsucursal;
-    private javax.swing.JLabel jl_producto_diain;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JButton jb_volver;
+    public javax.swing.JComboBox<String> jcb_idsucursal;
+    public javax.swing.JLabel jl_empleado_diafin;
+    public javax.swing.JLabel jl_idsucursal;
+    public javax.swing.JLabel jl_producto_diain;
     private javax.swing.JTable jt_ventas;
-    private javax.swing.JTextField jtf_empleado_diafin;
-    private javax.swing.JTextField jtf_producto_diain;
+    public javax.swing.JTextField jtf_empleado_diafin;
+    public javax.swing.JTextField jtf_producto_diain;
     // End of variables declaration//GEN-END:variables
 }
