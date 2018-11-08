@@ -198,13 +198,14 @@ public class viewCatalogo extends javax.swing.JPanel {
                     .addComponent(jb_agregar)
                     .addComponent(jb_guardar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_codigobarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_codigobarras)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jl_preciom)
-                    .addComponent(jtf_preciom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_modificar)
-                    .addComponent(jb_cancelar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jtf_codigobarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_codigobarras)
+                        .addComponent(jtf_preciom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_modificar)
+                        .addComponent(jb_cancelar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcb_iva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +270,7 @@ public class viewCatalogo extends javax.swing.JPanel {
     private javax.swing.JLabel jl_preciou;
     private javax.swing.JLabel jl_unidadmedida;
     private javax.swing.JTable jt_catalogo;
-    private javax.swing.JTextArea jta_descripcion;
+    public javax.swing.JTextArea jta_descripcion;
     private javax.swing.JTextField jtf_buscar;
     private javax.swing.JTextField jtf_capacidad;
     private javax.swing.JTextField jtf_codigobarras;

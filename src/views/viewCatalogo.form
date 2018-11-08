@@ -142,13 +142,15 @@
                       <Component id="jb_guardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtf_codigobarras" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jl_codigobarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jl_preciom" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtf_preciom" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jb_modificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jb_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jtf_codigobarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jl_codigobarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtf_preciom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jb_modificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jb_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -261,6 +263,9 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
