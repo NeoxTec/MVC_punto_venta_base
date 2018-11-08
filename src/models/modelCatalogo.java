@@ -6,8 +6,11 @@
 package models;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -100,5 +103,15 @@ public class modelCatalogo {
         this.capacidad = capacidad;
     }
     
-    
+     public void conectarDB() {
+        try {
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
+            st = conexion.createStatement();
+            rs = st.executeQuery("SELECT * FROM contactos;");
+            rs.next();
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
+        }
+
+    }
 }
