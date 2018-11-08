@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS cliente(
 	ape_p VARCHAR(25) NOT NULL,
 	ape_m VARCHAR(25) NULL,
 	telefono VARCHAR(12) NOT NULL,
+	genero ENUM('F','M'),
+	correo VARCHAR(40) NULL,
 	rfc CHAR(13) NULL,
 	calle VARCHAR(25) NOT NULL,
 	colonia VARCHAR(25) NOT NULL,
