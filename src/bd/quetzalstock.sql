@@ -73,6 +73,7 @@ CREATE TABLE IF NOT EXISTS venta(
     username CHAR(7) NOT NULL,
     id_cliente SMALLINT ZEROFILL UNSIGNED,
     id_inventario INT UNSIGNED NOT NULL,
+    tipo_pago ENUM('EFECTIVO','CREDITO','DEBITO','OTRO') NOT NULL,
     fecha DATE NOT NULL,
     total DOUBLE NOT NULL,
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
