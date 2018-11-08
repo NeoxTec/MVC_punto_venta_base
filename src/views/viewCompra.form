@@ -31,10 +31,8 @@
                           <Component id="jb_modificar_compra" max="32767" attributes="0"/>
                           <Component id="jb_nueva_compra" alignment="1" max="32767" attributes="0"/>
                           <Component id="jb_guardar_compra" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jb_eliminar_compra" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jb_cancelar_compra" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jb_eliminar_compra" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jb_cancelar_compra" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
@@ -85,6 +83,11 @@
                   </Group>
               </Group>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jb_volver" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -108,48 +111,54 @@
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jl_nofactura" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtf_nofactura" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jl_forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jcb_forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jl_total" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtf_total" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jcb_idsucursal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jl_idsucursal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jl_rfc_proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtf_rfc_proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jl_estado_factura" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jftf_fecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jl_fecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jcb_estado_factura" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="jScrollPane2" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jb_agregar_detalle" min="-2" pref="73" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jl_nofactura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtf_nofactura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jl_forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jcb_forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jl_total" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jtf_total" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jcb_idsucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jl_idsucursal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jl_rfc_proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jtf_rfc_proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jl_estado_factura" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jftf_fecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jl_fecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jcb_estado_factura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <Component id="jb_volver" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -392,5 +401,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jb_volver">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
