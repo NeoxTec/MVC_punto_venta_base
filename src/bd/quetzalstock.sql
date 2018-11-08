@@ -91,11 +91,17 @@ CREATE TABLE IF NOT EXISTS detalle_venta(
     subtotal DOUBLE UNSIGNED NOT NULL,
     total DOUBLE UNSIGNED NOT NULL,
     FOREIGN KEY (id_venta) REFERENCES venta(id));
-    
+
+CREATE TABLE IF NOT EXISTS corte(
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    fecha DATE  NOT NULL,
+    id_sucursal TINYINT(2) UNSIGNED NOT NULL,
+    total DOUBLE UNSIGNED NOT NULL,
+    FOREIGN KEY (id_sucursal) REFERENCES sucursal(id));
 
 CREATE TABLE IF NOT EXISTS proveedor(
 	rfc CHAR(13) PRIMARY KEY,
-    nombre VARCHAR(75) NOT NULL,
+    razons VARCHAR(75) NOT NULL,
     calle VARCHAR(25) NULL,
     colonia VARCHAR(25) NULL,
     no_exterior SMALLINT(3) UNSIGNED NULL,
