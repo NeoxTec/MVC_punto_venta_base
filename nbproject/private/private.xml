@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/views/viewVentasConsulta.java</file>
+=======
+            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/views/viewEmpleado.java</file>
+            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/views/viewCatalogo.java</file>
+            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/views/viewLogin.java</file>
+            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/models/modelEmpleado.java</file>
+            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/views/viewVendedor.java</file>
+>>>>>>> 08add88f384e0d64ae327496eea8e1778b76b575
         </group>
     </open-files>
 </project-private>

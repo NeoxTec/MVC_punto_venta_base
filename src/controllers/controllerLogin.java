@@ -13,9 +13,12 @@ import models.modelLogin;
  * @author Diego
  */
 public class controllerLogin {
-     private modelLogin modelLogin;
-     private viewLogin viewLogin;
+     private final modelLogin modelLogin;
+     private final viewLogin viewLogin;
      
+     /**
+     * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
+     */
      private Object controllers[];
      private controllerAdmin controllerAdmin;
      
@@ -34,7 +37,18 @@ public class controllerLogin {
         this.modelLogin = modelLogin;
         this.viewLogin = viewLogin;
         this.controllers = controllers;
+        setControllers();
+        setActionListener();
         initComponets();
+    }
+    
+    /**
+     * Separa cada uno de los controlladores almacendados en controllers, de
+     * esta forma se puede acceder a todas las variables y métodos publicos
+     * de cada uno.
+     */
+    private void setControllers() {
+        controllerAdmin = (controllerAdmin) controllers[0];
     }
     
     /**
@@ -52,7 +66,6 @@ public class controllerLogin {
      */
     private void setActionListener() {
         viewLogin.jb_entrar.addActionListener(actionListener);
-        
     }
     
     /**
