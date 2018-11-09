@@ -134,4 +134,5 @@ CREATE TABLE IF NOT EXISTS detalle_compra(
 
 CREATE USER 'quetzal'@'localhost' IDENTIFIED BY 'quetzal.2018';
 GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'localhost';
+
 FLUSH PRIVILEGES;
