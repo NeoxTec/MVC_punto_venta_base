@@ -52,12 +52,14 @@ public class controllerLogin {
     }
     
     /**
-     * Muesta la vista principal ViewMain.
+     * Muesta la vista principal ViewLogin
      */
     private void initComponets() {
         viewLogin.setTitle("Login");
         viewLogin.setLocationRelativeTo(null);
         viewLogin.setVisible(true);
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
     }
     
     /**
@@ -84,5 +86,9 @@ public class controllerLogin {
         viewLogin.setContentPane(controllerAdmin.viewAdmin);
         viewLogin.revalidate();
         viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(true);
+        viewLogin.jmi_cambio_validacion.setVisible(true);
+        viewLogin.jmi_olvido.setVisible(false);
+        
     }
 }

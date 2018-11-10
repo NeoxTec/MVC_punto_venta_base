@@ -31,7 +31,6 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_catalogo = new javax.swing.JButton();
         jb_clientes = new javax.swing.JButton();
         jb_empleados = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1068, 543));
         setLayout(null);
@@ -51,15 +50,10 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_empleados.setText("Empleados");
         add(jb_empleados);
         jb_empleados.setBounds(146, 73, 280, 126);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1070, 540);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JButton jb_catalogo;
     public javax.swing.JButton jb_clientes;
     public javax.swing.JButton jb_empleados;
