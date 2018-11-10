@@ -54,9 +54,9 @@ public class viewAdmin extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jb_catalogo;
+    public javax.swing.JButton jb_catalogo;
     private javax.swing.JButton jb_clientes;
-    private javax.swing.JButton jb_empleados;
+    public javax.swing.JButton jb_empleados;
     private javax.swing.JButton jb_sucursales;
     // End of variables declaration//GEN-END:variables
 }

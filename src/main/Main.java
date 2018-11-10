@@ -29,19 +29,17 @@ public class Main {
         viewCatalogo viewCatalogo = new viewCatalogo();
         controllerCatalogo controllerCatalogo =  new controllerCatalogo(modelCatalogo,viewCatalogo);
         
-        Object[] controllers_a = new Object[1];
-        controllers_a[0] = controllerCatalogo;
-        
         modelAdmin modelAdmin = new modelAdmin();
         viewAdmin viewAdmin = new viewAdmin();
-        controllerAdmin controllerAdmin = new controllerAdmin(modelAdmin, viewAdmin, controllers_a);
+        controllerAdmin controllerAdmin = new controllerAdmin(modelAdmin, viewAdmin);
             
-        Object[] controllers = new Object[1];
+        Object[] controllers = new Object[2];
         controllers[0] = controllerAdmin;
+        controllers[1] = controllerCatalogo;
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin, viewLogin,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin, viewLogin,viewAdmin,controllers);
     }
     
 }

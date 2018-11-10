@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import views.viewLogin;
 import models.modelLogin;
+import views.viewAdmin;
 /**
  *
  * @author Diego
@@ -15,12 +16,14 @@ import models.modelLogin;
 public class controllerLogin {
      private final modelLogin modelLogin;
      private final viewLogin viewLogin;
+     private final viewAdmin viewAdmin;
      
      /**
      * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
      */
      private Object controllers[];
      private controllerAdmin controllerAdmin;
+     private controllerCatalogo controllerCatalogo;
      
      
      
@@ -31,11 +34,13 @@ public class controllerLogin {
      * programación desarrollada dentro de cada controller.
      * @param modelLogin 
      * @param viewLogin
+     * * @param viewAdmin
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin, Object[] controllers) {
         this.modelLogin = modelLogin;
         this.viewLogin = viewLogin;
+        this.viewAdmin = viewAdmin;
         this.controllers = controllers;
         setControllers();
         setActionListener();
@@ -49,6 +54,7 @@ public class controllerLogin {
      */
     private void setControllers() {
         controllerAdmin = (controllerAdmin) controllers[0];
+        controllerCatalogo = (controllerCatalogo) controllers[1];
     }
     
     /**
@@ -68,6 +74,7 @@ public class controllerLogin {
      */
     private void setActionListener() {
         viewLogin.jb_entrar.addActionListener(actionListener);
+        viewAdmin.jb_catalogo.addActionListener(actionListener);
     }
     
     /**
@@ -79,8 +86,11 @@ public class controllerLogin {
             if (e.getSource() == viewLogin.jb_entrar) {
                 jb_entrar_actionPerformed();
             } 
+            else if (e.getSource() == viewAdmin.jb_catalogo){
+                catalogo_actionPerformed();        
+            }
         }
-    };
+     };
     
     private void jb_entrar_actionPerformed(){
         viewLogin.setContentPane(controllerAdmin.viewAdmin);
@@ -91,4 +101,15 @@ public class controllerLogin {
         viewLogin.jmi_olvido.setVisible(false);
         
     }
-}
+    
+    /**
+     * Método que hara que se cambie al panel catalogo
+     */
+    private void catalogo_actionPerformed(){
+        viewLogin.setContentPane(controllerCatalogo.viewCatalogo);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jm_opciones.setVisible(false);
+        
+    }
+} 
