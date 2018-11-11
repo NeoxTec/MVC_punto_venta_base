@@ -297,7 +297,7 @@ public class viewEmpleado extends javax.swing.JPanel {
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
-        jl_fondo.setBounds(0, 10, 1020, 570);
+        jl_fondo.setBounds(0, 0, 1140, 630);
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -65,7 +65,7 @@ public class controllerLogin {
      * Muesta la vista principal ViewLogin
      */
     private void initComponets() {
-        viewLogin.setTitle("Login");
+        viewLogin.setTitle("Ferretería ACME");
         viewLogin.setLocationRelativeTo(null);
         viewLogin.setVisible(true);
         viewLogin.jmi_cambio.setVisible(false);

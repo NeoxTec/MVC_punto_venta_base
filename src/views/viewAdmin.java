@@ -47,7 +47,7 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_sucursales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_sucursales.setText("Sucursales");
         add(jb_sucursales);
-        jb_sucursales.setBounds(540, 70, 380, 130);
+        jb_sucursales.setBounds(540, 90, 380, 130);
 
         jb_catalogo.setBackground(new java.awt.Color(255, 102, 0));
         jb_catalogo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -55,7 +55,7 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_catalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_catalogo.setText("Catalogo");
         add(jb_catalogo);
-        jb_catalogo.setBounds(120, 370, 380, 130);
+        jb_catalogo.setBounds(120, 390, 380, 130);
 
         jb_proovedores.setBackground(new java.awt.Color(255, 102, 0));
         jb_proovedores.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -63,7 +63,7 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_proovedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_proovedores.setText("Proveedores");
         add(jb_proovedores);
-        jb_proovedores.setBounds(540, 370, 380, 130);
+        jb_proovedores.setBounds(540, 390, 380, 130);
 
         jb_empleados.setBackground(new java.awt.Color(255, 102, 0));
         jb_empleados.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -71,7 +71,7 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_empleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_empleados.setText("Empleados");
         add(jb_empleados);
-        jb_empleados.setBounds(540, 220, 380, 130);
+        jb_empleados.setBounds(540, 240, 380, 130);
 
         jb_compras.setBackground(new java.awt.Color(255, 102, 0));
         jb_compras.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -79,7 +79,7 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_compras.setText("Compras");
         add(jb_compras);
-        jb_compras.setBounds(120, 220, 380, 130);
+        jb_compras.setBounds(120, 240, 380, 130);
 
         jb_ventas.setBackground(new java.awt.Color(255, 102, 0));
         jb_ventas.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -87,25 +87,25 @@ public class viewAdmin extends javax.swing.JPanel {
         jb_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_ventas.setText("Ventas");
         add(jb_ventas);
-        jb_ventas.setBounds(120, 70, 380, 130);
+        jb_ventas.setBounds(120, 90, 380, 130);
 
         jl_tipo_user.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_tipo_user.setForeground(new java.awt.Color(255, 102, 0));
         jl_tipo_user.setText("Administrador: FABOPD10");
         add(jl_tipo_user);
-        jl_tipo_user.setBounds(30, 30, 220, 20);
+        jl_tipo_user.setBounds(10, 20, 220, 20);
 
-        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 36)); // NOI18N
+        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setText("Ferretería ACME");
         add(jl_titulo);
-        jl_titulo.setBounds(370, 20, 290, 20);
+        jl_titulo.setBounds(260, 30, 550, 40);
 
         jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
         jl_fecha.setText("08/10/2018");
         add(jl_fecha);
-        jl_fecha.setBounds(900, 30, 100, 21);
+        jl_fecha.setBounds(900, 20, 100, 21);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
