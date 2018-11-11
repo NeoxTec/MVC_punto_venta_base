@@ -4,17 +4,10 @@
  * and open the template in the editor.
  */
 package main;
-import controllers.controllerLogin;
-import models.modelLogin;
-import views.viewLogin;
+import controllers.*;
+import models.*;
+import views.*;
 
-import models.modelAdmin;
-import views.viewAdmin;
-import controllers.controllerAdmin;
-
-import models.modelCatalogo;
-import views.viewCatalogo;
-import controllers.controllerCatalogo;
 /**
  *
  * @author Salvador Hernández Mendoza
@@ -25,6 +18,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        modelEmpleado modelEmpleado = new modelEmpleado();
+        viewEmpleado viewEmpleado = new viewEmpleado();
+        controllerEmpleado controllerEmpleado = new controllerEmpleado(modelEmpleado,viewEmpleado);
         modelCatalogo modelCatalogo = new modelCatalogo();
         viewCatalogo viewCatalogo = new viewCatalogo();
         controllerCatalogo controllerCatalogo =  new controllerCatalogo(modelCatalogo,viewCatalogo);
@@ -33,13 +30,14 @@ public class Main {
         viewAdmin viewAdmin = new viewAdmin();
         controllerAdmin controllerAdmin = new controllerAdmin(modelAdmin, viewAdmin);
             
-        Object[] controllers = new Object[2];
+        Object[] controllers = new Object[3];
         controllers[0] = controllerAdmin;
         controllers[1] = controllerCatalogo;
+        controllers[2] = controllerEmpleado;
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin, viewLogin,viewAdmin,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin, viewLogin,viewAdmin,viewEmpleado,controllers);
     }
     
 }
