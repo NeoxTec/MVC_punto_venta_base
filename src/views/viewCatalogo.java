@@ -48,7 +48,6 @@ public class viewCatalogo extends javax.swing.JPanel {
         jb_eliminar = new javax.swing.JButton();
         jb_guardar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
-        jb_volver = new javax.swing.JButton();
         jb_guardar1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jta_descripcion = new javax.swing.JTextArea();
@@ -102,8 +101,6 @@ public class viewCatalogo extends javax.swing.JPanel {
 
         jb_cancelar.setText("Cancelar");
 
-        jb_volver.setText("Volver");
-
         jb_guardar1.setText("Buscar");
 
         jta_descripcion.setColumns(20);
@@ -147,41 +144,39 @@ public class viewCatalogo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jcb_unidadmedida, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(287, 287, 287)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jb_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jb_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtf_codigobarras, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jl_codigobarras)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(jl_nombre))
+                                .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(73, 73, 73)
+                                    .addComponent(jb_guardar)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jb_cancelar)
+                                    .addGap(15, 516, Short.MAX_VALUE))))
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jtf_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(33, 33, 33)
                                     .addComponent(jb_guardar1)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jb_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jb_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jtf_codigobarras, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jl_codigobarras)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jl_nombre))
-                                    .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(73, 73, 73)
-                                        .addComponent(jb_guardar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jb_cancelar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jb_volver)
-                                        .addGap(15, 15, 15)))))
-                        .addGap(0, 47, Short.MAX_VALUE))))
+                            .addGap(0, 47, Short.MAX_VALUE)))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(474, 474, 474)
                 .addComponent(jLabel1)
@@ -228,8 +223,7 @@ public class viewCatalogo extends javax.swing.JPanel {
                     .addComponent(jb_modificar)
                     .addComponent(jb_eliminar)
                     .addComponent(jb_guardar)
-                    .addComponent(jb_cancelar)
-                    .addComponent(jb_volver))
+                    .addComponent(jb_cancelar))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -245,7 +239,6 @@ public class viewCatalogo extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar1;
     public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_nuevo;
-    public javax.swing.JButton jb_volver;
     public javax.swing.JComboBox<String> jcb_iva;
     public javax.swing.JComboBox<String> jcb_unidadmedida;
     public javax.swing.JLabel jl_codigobarras;

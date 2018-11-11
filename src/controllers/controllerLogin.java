@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import views.viewLogin;
 import models.modelLogin;
 import views.viewAdmin;
+
 /**
  *
  * @author Diego
@@ -34,7 +35,7 @@ public class controllerLogin {
      * programación desarrollada dentro de cada controller.
      * @param modelLogin 
      * @param viewLogin
-     * * @param viewAdmin
+     * @param viewAdmin
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
     public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin, Object[] controllers) {
@@ -66,6 +67,7 @@ public class controllerLogin {
         viewLogin.setVisible(true);
         viewLogin.jmi_cambio.setVisible(false);
         viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_volver.setVisible(false);
     }
     
     /**
@@ -75,6 +77,7 @@ public class controllerLogin {
     private void setActionListener() {
         viewLogin.jb_entrar.addActionListener(actionListener);
         viewAdmin.jb_catalogo.addActionListener(actionListener);
+        viewLogin.jmi_volver.addActionListener(actionListener);
     }
     
     /**
@@ -88,6 +91,9 @@ public class controllerLogin {
             } 
             else if (e.getSource() == viewAdmin.jb_catalogo){
                 catalogo_actionPerformed();        
+            }
+            else if(e.getSource() == viewLogin.jmi_volver){
+                jb_entrar_actionPerformed();
             }
         }
      };
@@ -109,7 +115,11 @@ public class controllerLogin {
         viewLogin.setContentPane(controllerCatalogo.viewCatalogo);
         viewLogin.revalidate();
         viewLogin.repaint();
-        viewLogin.jm_opciones.setVisible(false);
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(true);
         
     }
+    
 } 

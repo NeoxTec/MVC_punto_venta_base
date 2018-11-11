@@ -45,6 +45,8 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_cambio = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jmi_cambio_validacion = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jmi_volver = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -154,6 +156,13 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_cambio_validacion.setText("Cambio validación");
         jmi_cambio_validacion.setBorder(null);
         jm_opciones.add(jmi_cambio_validacion);
+        jm_opciones.add(jSeparator4);
+
+        jmi_volver.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_volver.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_volver.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_volver.setText("Volver");
+        jm_opciones.add(jmi_volver);
 
         jMenuBar1.add(jm_opciones);
 
@@ -215,6 +224,7 @@ public class viewLogin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     public javax.swing.JButton jb_entrar;
     public javax.swing.JLabel jl_icono;
     public javax.swing.JLabel jl_password;
@@ -225,7 +235,12 @@ public class viewLogin extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmi_cambio;
     public javax.swing.JMenuItem jmi_cambio_validacion;
     public javax.swing.JMenuItem jmi_olvido;
+    public javax.swing.JMenuItem jmi_volver;
     public javax.swing.JTextField jtf_password;
     private javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
+
+    public void getContentPane(viewLogin viewLogin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
