@@ -18,6 +18,7 @@ public class controllerLogin {
      private final viewLogin viewLogin;
      private final viewAdmin viewAdmin;
      private final viewEmpleado viewEmpleado;
+     private final viewVendedor viewVendedor;
      
      /**
      * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
@@ -26,6 +27,7 @@ public class controllerLogin {
      private controllerAdmin controllerAdmin;
      private controllerCatalogo controllerCatalogo;
      private controllerEmpleado controllerEmpleado;
+     private controllerVendedor controllerVendedor;
      
      
      /**
@@ -39,11 +41,12 @@ public class controllerLogin {
      * @param viewEmpleado
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin,viewEmpleado viewEmpleado, Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor, Object[] controllers) {
         this.modelLogin = modelLogin;
         this.viewLogin = viewLogin;
         this.viewAdmin = viewAdmin;
         this.viewEmpleado = viewEmpleado;
+        this.viewVendedor = viewVendedor;
         this.controllers = controllers;
         setControllers();
         setActionListener();
@@ -59,6 +62,7 @@ public class controllerLogin {
         controllerAdmin = (controllerAdmin) controllers[0];
         controllerCatalogo = (controllerCatalogo) controllers[1];
         controllerEmpleado = (controllerEmpleado) controllers [2];
+        controllerVendedor = (controllerVendedor) controllers [3];
     }
     
     /**
