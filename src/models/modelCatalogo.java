@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import bd.ConnectDatabase;
 
 /**
  *
@@ -30,7 +32,16 @@ public class modelCatalogo {
     private double precio_mayoreo;
     private String unidad_medida;
     private double capacidad;
+    DefaultTableModel modelo = new DefaultTableModel();
 
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
+    }
+    
     public int getId() {
         return id;
     }
@@ -102,16 +113,40 @@ public class modelCatalogo {
     public void setCapacidad(double capacidad) {
         this.capacidad = capacidad;
     }
-    
-     public void conectarDB() {
+     
+ public void conectarDB() {
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
+            conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
-            rs = st.executeQuery("SELECT * FROM contactos;");
+            rs = st.executeQuery("SELECT * FROM catalogo;");
             rs.next();
+           codigo_barras = rs.getInt("codigo_barras");
+            nombre =rs.getString("nombre");
+           iva = rs.getString("iva");
+           descripcion = rs.getString("descripcion");
+           precio_unitario =  rs.getDouble("precio");
+           precio_mayoreo =  rs.getDouble("precio_mayoreo");
+           unidad_medida = rs.getString("unidad");
+           capacidad = rs.getDouble("existencia");
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
         }
-
+    }
+         public void llenartabla(){
+        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad,existencia FROM catalogo");
+        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
+        try {
+           while (rs.next()){
+            modelo.addRow(new Object[]{
+                rs.getInt("id"), 
+                rs.getString("nombre"), 
+                rs.getDouble("precio"),
+                rs.getDouble("precio_mayoreo"),
+                rs.getString("unidad"),
+                rs.getDouble("existencia")});
+        }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo002 " + e.getMessage());
+        }
     }
 }
