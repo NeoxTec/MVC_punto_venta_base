@@ -29,40 +29,100 @@ public class viewAdmin extends javax.swing.JPanel {
 
         jb_sucursales = new javax.swing.JButton();
         jb_catalogo = new javax.swing.JButton();
-        jb_clientes = new javax.swing.JButton();
+        jb_proovedores = new javax.swing.JButton();
         jb_empleados = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jb_compras = new javax.swing.JButton();
+        jb_ventas = new javax.swing.JButton();
+        jl_tipo_user = new javax.swing.JLabel();
+        jl_titulo = new javax.swing.JLabel();
+        jl_fecha = new javax.swing.JLabel();
+        jl_fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1068, 543));
         setLayout(null);
 
+        jb_sucursales.setBackground(new java.awt.Color(255, 102, 0));
+        jb_sucursales.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_sucursales.setForeground(new java.awt.Color(255, 255, 255));
+        jb_sucursales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_sucursales.setText("Sucursales");
         add(jb_sucursales);
-        jb_sucursales.setBounds(586, 73, 280, 126);
+        jb_sucursales.setBounds(540, 90, 380, 130);
 
+        jb_catalogo.setBackground(new java.awt.Color(255, 102, 0));
+        jb_catalogo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_catalogo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_catalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_catalogo.setText("Catalogo");
         add(jb_catalogo);
-        jb_catalogo.setBounds(586, 300, 280, 126);
+        jb_catalogo.setBounds(120, 390, 380, 130);
 
-        jb_clientes.setText("Clientes");
-        add(jb_clientes);
-        jb_clientes.setBounds(146, 300, 280, 126);
+        jb_proovedores.setBackground(new java.awt.Color(255, 102, 0));
+        jb_proovedores.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_proovedores.setForeground(new java.awt.Color(255, 255, 255));
+        jb_proovedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
+        jb_proovedores.setText("Proveedores");
+        add(jb_proovedores);
+        jb_proovedores.setBounds(540, 390, 380, 130);
 
+        jb_empleados.setBackground(new java.awt.Color(255, 102, 0));
+        jb_empleados.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_empleados.setForeground(new java.awt.Color(255, 255, 255));
+        jb_empleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
         jb_empleados.setText("Empleados");
         add(jb_empleados);
-        jb_empleados.setBounds(146, 73, 280, 126);
+        jb_empleados.setBounds(540, 240, 380, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1070, 540);
+        jb_compras.setBackground(new java.awt.Color(255, 102, 0));
+        jb_compras.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_compras.setForeground(new java.awt.Color(255, 255, 255));
+        jb_compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
+        jb_compras.setText("Compras");
+        add(jb_compras);
+        jb_compras.setBounds(120, 240, 380, 130);
+
+        jb_ventas.setBackground(new java.awt.Color(255, 102, 0));
+        jb_ventas.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_ventas.setForeground(new java.awt.Color(255, 255, 255));
+        jb_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
+        jb_ventas.setText("Ventas");
+        add(jb_ventas);
+        jb_ventas.setBounds(120, 90, 380, 130);
+
+        jl_tipo_user.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_tipo_user.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_user.setText("Administrador: FABOPD10");
+        add(jl_tipo_user);
+        jl_tipo_user.setBounds(10, 20, 220, 20);
+
+        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
+        jl_titulo.setText("Ferretería ACME");
+        add(jl_titulo);
+        jl_titulo.setBounds(260, 30, 550, 40);
+
+        jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
+        jl_fecha.setText("08/10/2018");
+        add(jl_fecha);
+        jl_fecha.setBounds(900, 20, 100, 21);
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1120, 620);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JButton jb_catalogo;
-    public javax.swing.JButton jb_clientes;
+    private javax.swing.JButton jb_compras;
     public javax.swing.JButton jb_empleados;
+    public javax.swing.JButton jb_proovedores;
     public javax.swing.JButton jb_sucursales;
+    public javax.swing.JButton jb_ventas;
+    private javax.swing.JLabel jl_fecha;
+    private javax.swing.JLabel jl_fondo;
+    private javax.swing.JLabel jl_tipo_user;
+    private javax.swing.JLabel jl_titulo;
     // End of variables declaration//GEN-END:variables
 }

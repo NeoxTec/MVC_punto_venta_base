@@ -38,9 +38,15 @@ public class viewLogin extends javax.swing.JFrame {
         jb_entrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_opciones = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmi_ayuda = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmi_olvido = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jmi_cambio = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jmi_cambio_validacion = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jmi_volver = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -90,7 +96,7 @@ public class viewLogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(450, 450, 450)
                         .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,30 +115,54 @@ public class viewLogin extends javax.swing.JFrame {
                 .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 102, 0));
         jMenuBar1.setBorder(null);
 
+        jm_opciones.setBackground(new java.awt.Color(255, 102, 0));
         jm_opciones.setForeground(new java.awt.Color(255, 255, 255));
         jm_opciones.setText("Opciones");
         jm_opciones.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
 
-        jMenuItem1.setBackground(new java.awt.Color(255, 102, 0));
-        jMenuItem1.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem1.setText("Ayuda");
-        jMenuItem1.setBorder(null);
-        jm_opciones.add(jMenuItem1);
+        jmi_ayuda.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_ayuda.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_ayuda.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_ayuda.setText("Ayuda");
+        jmi_ayuda.setBorder(null);
+        jm_opciones.add(jmi_ayuda);
         jm_opciones.add(jSeparator1);
 
-        jMenuItem3.setBackground(new java.awt.Color(255, 102, 0));
-        jMenuItem3.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
-        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem3.setText("Olvide contraseña");
-        jMenuItem3.setBorder(null);
-        jm_opciones.add(jMenuItem3);
+        jmi_olvido.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_olvido.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_olvido.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_olvido.setText("Olvide contraseña");
+        jmi_olvido.setBorder(null);
+        jm_opciones.add(jmi_olvido);
+        jm_opciones.add(jSeparator2);
+
+        jmi_cambio.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_cambio.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_cambio.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_cambio.setText("Cambio contraseña");
+        jmi_cambio.setBorder(null);
+        jm_opciones.add(jmi_cambio);
+        jm_opciones.add(jSeparator3);
+
+        jmi_cambio_validacion.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_cambio_validacion.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_cambio_validacion.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_cambio_validacion.setText("Cambio validación");
+        jmi_cambio_validacion.setBorder(null);
+        jm_opciones.add(jmi_cambio_validacion);
+        jm_opciones.add(jSeparator4);
+
+        jmi_volver.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_volver.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_volver.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_volver.setText("Volver");
+        jm_opciones.add(jmi_volver);
 
         jMenuBar1.add(jm_opciones);
 
@@ -146,9 +176,7 @@ public class viewLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,18 +219,28 @@ public class viewLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     public javax.swing.JButton jb_entrar;
     public javax.swing.JLabel jl_icono;
     public javax.swing.JLabel jl_password;
     public javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_usuario;
     public javax.swing.JMenu jm_opciones;
+    private javax.swing.JMenuItem jmi_ayuda;
+    public javax.swing.JMenuItem jmi_cambio;
+    public javax.swing.JMenuItem jmi_cambio_validacion;
+    public javax.swing.JMenuItem jmi_olvido;
+    public javax.swing.JMenuItem jmi_volver;
     public javax.swing.JTextField jtf_password;
     private javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
+
+    public void getContentPane(viewLogin viewLogin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

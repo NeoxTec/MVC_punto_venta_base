@@ -31,7 +31,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jl_rfc = new javax.swing.JLabel();
         jl_calle = new javax.swing.JLabel();
-        jtf_rfc = new javax.swing.JTextField();
+        jtf_correo = new javax.swing.JTextField();
         jcb_genero = new javax.swing.JComboBox<>();
         jtf_nombre = new javax.swing.JTextField();
         jl_nombre = new javax.swing.JLabel();
@@ -43,7 +43,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jtf_telefono = new javax.swing.JTextField();
         jl_correo = new javax.swing.JLabel();
         jl_fecha = new javax.swing.JLabel();
-        jtf_correo = new javax.swing.JFormattedTextField();
+        jtf_fecha = new javax.swing.JFormattedTextField();
         jtf_calle = new javax.swing.JTextField();
         jl_genero = new javax.swing.JLabel();
         jtf_calle1 = new javax.swing.JTextField();
@@ -54,14 +54,25 @@ public class viewEmpleado extends javax.swing.JPanel {
         jtf_no_int = new javax.swing.JTextField();
         jl_cp = new javax.swing.JLabel();
         jtf_cp = new javax.swing.JTextField();
-        jtf_telefono1 = new javax.swing.JTextField();
         jb_agregar = new javax.swing.JButton();
         jb_guardar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
         jb_modificar = new javax.swing.JButton();
         jb_eliminar = new javax.swing.JButton();
-        jb_volver = new javax.swing.JButton();
+        jl_titulo = new javax.swing.JLabel();
+        jtf_buscar = new javax.swing.JTextField();
+        jb_buscar = new javax.swing.JButton();
+        jl_datos = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jtf_rfc = new javax.swing.JTextField();
+        jl_datos1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jl_fondo = new javax.swing.JLabel();
 
+        setLayout(null);
+
+        jTable1.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,227 +86,233 @@ public class viewEmpleado extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jl_rfc.setText("RFC");
+        add(jScrollPane1);
+        jScrollPane1.setBounds(20, 100, 958, 186);
 
-        jl_calle.setText("Calle");
+        jl_rfc.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_rfc.setForeground(new java.awt.Color(255, 102, 0));
+        jl_rfc.setText("RFC:");
+        add(jl_rfc);
+        jl_rfc.setBounds(20, 330, 40, 20);
 
-        jtf_rfc.setEditable(false);
-
-        jcb_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "F", "M" }));
-        jcb_genero.setEnabled(false);
-
-        jtf_nombre.setEditable(false);
-
-        jl_nombre.setText("Nombre");
-
-        jl_ape_p.setText("Apellido paterno");
-
-        jtf_ape_p.setEditable(false);
-
-        jl_ape_m.setText("Apellido materno");
-
-        jtf_ape_m.setEditable(false);
-
-        jl_telefono.setText("Teléfono");
-
-        jtf_telefono.setEditable(false);
-
-        jl_correo.setText("Correo");
-
-        jl_fecha.setText("Fecha de nacimiento");
+        jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_calle.setForeground(new java.awt.Color(255, 102, 0));
+        jl_calle.setText("Calle:");
+        add(jl_calle);
+        jl_calle.setBounds(20, 470, 40, 17);
 
         jtf_correo.setEditable(false);
-        jtf_correo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-mm-dd"))));
+        add(jtf_correo);
+        jtf_correo.setBounds(20, 410, 160, 20);
+
+        jcb_genero.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jcb_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "F", "M" }));
+        jcb_genero.setEnabled(false);
+        add(jcb_genero);
+        jcb_genero.setBounds(370, 410, 50, 23);
+
+        jtf_nombre.setEditable(false);
+        add(jtf_nombre);
+        jtf_nombre.setBounds(190, 350, 178, 20);
+
+        jl_nombre.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_nombre.setForeground(new java.awt.Color(255, 102, 0));
+        jl_nombre.setText("Nombre:");
+        add(jl_nombre);
+        jl_nombre.setBounds(190, 330, 60, 20);
+
+        jl_ape_p.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_ape_p.setForeground(new java.awt.Color(255, 102, 0));
+        jl_ape_p.setText("Apellido paterno:");
+        add(jl_ape_p);
+        jl_ape_p.setBounds(380, 330, 120, 20);
+
+        jtf_ape_p.setEditable(false);
+        add(jtf_ape_p);
+        jtf_ape_p.setBounds(380, 350, 179, 20);
+
+        jl_ape_m.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_ape_m.setForeground(new java.awt.Color(255, 102, 0));
+        jl_ape_m.setText("Apellido materno:");
+        add(jl_ape_m);
+        jl_ape_m.setBounds(570, 330, 130, 20);
+
+        jtf_ape_m.setEditable(false);
+        add(jtf_ape_m);
+        jtf_ape_m.setBounds(570, 350, 179, 20);
+
+        jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
+        jl_telefono.setText("Teléfono:");
+        add(jl_telefono);
+        jl_telefono.setBounds(760, 330, 70, 20);
+
+        jtf_telefono.setEditable(false);
+        add(jtf_telefono);
+        jtf_telefono.setBounds(760, 350, 150, 20);
+
+        jl_correo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_correo.setForeground(new java.awt.Color(255, 102, 0));
+        jl_correo.setText("Correo:");
+        add(jl_correo);
+        jl_correo.setBounds(20, 390, 50, 17);
+
+        jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
+        jl_fecha.setText("Fecha de nacimiento:");
+        add(jl_fecha);
+        jl_fecha.setBounds(190, 390, 150, 17);
+
+        jtf_fecha.setEditable(false);
+        jtf_fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat(""))));
+        add(jtf_fecha);
+        jtf_fecha.setBounds(190, 410, 160, 20);
 
         jtf_calle.setEditable(false);
+        add(jtf_calle);
+        jtf_calle.setBounds(20, 490, 165, 20);
 
-        jl_genero.setText("Género");
+        jl_genero.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_genero.setForeground(new java.awt.Color(255, 102, 0));
+        jl_genero.setText("Género:");
+        add(jl_genero);
+        jl_genero.setBounds(370, 390, 60, 20);
 
         jtf_calle1.setEditable(false);
+        add(jtf_calle1);
+        jtf_calle1.setBounds(190, 490, 165, 20);
 
         jtf_no_ext.setEditable(false);
+        add(jtf_no_ext);
+        jtf_no_ext.setBounds(370, 490, 90, 20);
 
-        jl_colonia.setText("Colonia");
+        jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
+        jl_colonia.setText("Colonia:");
+        add(jl_colonia);
+        jl_colonia.setBounds(190, 470, 60, 17);
 
-        jl_no_ext.setText("No_exterior");
+        jl_no_ext.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_no_ext.setForeground(new java.awt.Color(255, 102, 0));
+        jl_no_ext.setText("No_exterior:");
+        add(jl_no_ext);
+        jl_no_ext.setBounds(370, 470, 90, 20);
 
-        jl_no_int.setText("No_interior");
+        jl_no_int.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_no_int.setForeground(new java.awt.Color(255, 102, 0));
+        jl_no_int.setText("No_interior:");
+        add(jl_no_int);
+        jl_no_int.setBounds(470, 470, 90, 20);
 
         jtf_no_int.setEditable(false);
+        add(jtf_no_int);
+        jtf_no_int.setBounds(470, 490, 90, 20);
 
-        jl_cp.setText("C.P");
+        jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_cp.setForeground(new java.awt.Color(255, 102, 0));
+        jl_cp.setText("C.P:");
+        add(jl_cp);
+        jl_cp.setBounds(580, 470, 70, 20);
 
         jtf_cp.setEditable(false);
+        add(jtf_cp);
+        jtf_cp.setBounds(580, 490, 80, 20);
 
-        jtf_telefono1.setEditable(false);
+        jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_agregar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_agregar.setText("Nuevo");
+        jb_agregar.setBorder(null);
+        add(jb_agregar);
+        jb_agregar.setBounds(20, 530, 130, 40);
 
-        jb_agregar.setText("Agregar");
-
+        jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
         jb_guardar.setText("Guardar");
+        jb_guardar.setBorder(null);
+        add(jb_guardar);
+        jb_guardar.setBounds(320, 530, 130, 40);
 
+        jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         jb_cancelar.setText("Cancelar");
+        jb_cancelar.setBorder(null);
+        add(jb_cancelar);
+        jb_cancelar.setBounds(610, 530, 130, 40);
 
+        jb_modificar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_modificar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_modificar.setForeground(new java.awt.Color(255, 255, 255));
         jb_modificar.setText("Modificar");
+        jb_modificar.setBorder(null);
+        add(jb_modificar);
+        jb_modificar.setBounds(170, 530, 130, 40);
 
+        jb_eliminar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_eliminar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_eliminar.setForeground(new java.awt.Color(255, 255, 255));
         jb_eliminar.setText("Eliminar");
+        jb_eliminar.setBorder(null);
+        add(jb_eliminar);
+        jb_eliminar.setBounds(470, 530, 130, 40);
 
-        jb_volver.setText("Volver");
+        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 48)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
+        jl_titulo.setText("Empleados");
+        add(jl_titulo);
+        jl_titulo.setBounds(380, 20, 250, 30);
+        add(jtf_buscar);
+        jtf_buscar.setBounds(210, 70, 380, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtf_calle, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jl_calle)
-                                    .addComponent(jtf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jl_telefono))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jl_colonia)
-                                    .addComponent(jtf_calle1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jl_correo))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jl_no_ext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jtf_no_ext))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jl_no_int)
-                                    .addComponent(jtf_no_int, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(57, 57, 57)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtf_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jl_cp)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jl_rfc)
-                                    .addComponent(jtf_rfc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jtf_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(42, 42, 42)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jl_fecha)
-                                            .addComponent(jtf_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jcb_genero, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jl_genero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(41, 41, 41)))
-                                        .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jl_nombre)
-                                            .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(14, 14, 14)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtf_ape_p, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jl_ape_p))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jl_ape_m)
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jb_modificar)
-                                            .addComponent(jb_agregar)
-                                            .addComponent(jb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jb_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jb_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(16, 16, 16))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jb_volver))))
-                            .addComponent(jtf_ape_m, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(110, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jl_rfc)
-                    .addComponent(jl_nombre)
-                    .addComponent(jl_ape_p)
-                    .addComponent(jl_ape_m)
-                    .addComponent(jl_genero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtf_rfc)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jcb_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jtf_ape_p, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jtf_ape_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jl_calle)
-                            .addComponent(jl_colonia)
-                            .addComponent(jl_no_ext)
-                            .addComponent(jl_no_int)
-                            .addComponent(jl_cp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtf_calle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_calle1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_no_ext, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_no_int, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jl_telefono)
-                            .addComponent(jl_correo)
-                            .addComponent(jl_fecha))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_telefono1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 81, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jb_agregar)
-                            .addComponent(jb_guardar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jb_modificar)
-                            .addComponent(jb_cancelar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_volver)))
-                .addContainerGap())
-        );
+        jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_buscar.setText("Buscar");
+        jb_buscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_buscar);
+        jb_buscar.setBounds(600, 70, 80, 20);
+
+        jl_datos.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_datos.setForeground(new java.awt.Color(255, 102, 0));
+        jl_datos.setText("Dirección");
+        add(jl_datos);
+        jl_datos.setBounds(20, 440, 160, 21);
+        add(jSeparator1);
+        jSeparator1.setBounds(20, 460, 950, 20);
+
+        jtf_rfc.setEditable(false);
+        add(jtf_rfc);
+        jtf_rfc.setBounds(20, 350, 160, 20);
+
+        jl_datos1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_datos1.setForeground(new java.awt.Color(255, 102, 0));
+        jl_datos1.setText("Datos Personales");
+        add(jl_datos1);
+        jl_datos1.setBounds(20, 300, 160, 21);
+        add(jSeparator2);
+        jSeparator2.setBounds(20, 520, 950, 20);
+        add(jSeparator3);
+        jSeparator3.setBounds(20, 320, 950, 20);
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1140, 630);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_agregar;
+    private javax.swing.JButton jb_buscar;
     private javax.swing.JButton jb_cancelar;
     private javax.swing.JButton jb_eliminar;
     private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_modificar;
-    private javax.swing.JButton jb_volver;
     private javax.swing.JComboBox<String> jcb_genero;
     private javax.swing.JLabel jl_ape_m;
     private javax.swing.JLabel jl_ape_p;
@@ -303,24 +320,29 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jl_colonia;
     private javax.swing.JLabel jl_correo;
     private javax.swing.JLabel jl_cp;
+    private javax.swing.JLabel jl_datos;
+    private javax.swing.JLabel jl_datos1;
     private javax.swing.JLabel jl_fecha;
+    private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_genero;
     private javax.swing.JLabel jl_no_ext;
     private javax.swing.JLabel jl_no_int;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_rfc;
     private javax.swing.JLabel jl_telefono;
+    private javax.swing.JLabel jl_titulo;
     private javax.swing.JTextField jtf_ape_m;
     private javax.swing.JTextField jtf_ape_p;
+    private javax.swing.JTextField jtf_buscar;
     private javax.swing.JTextField jtf_calle;
     private javax.swing.JTextField jtf_calle1;
-    private javax.swing.JFormattedTextField jtf_correo;
+    private javax.swing.JTextField jtf_correo;
     private javax.swing.JTextField jtf_cp;
+    private javax.swing.JFormattedTextField jtf_fecha;
     private javax.swing.JTextField jtf_no_ext;
     private javax.swing.JTextField jtf_no_int;
     private javax.swing.JTextField jtf_nombre;
     private javax.swing.JTextField jtf_rfc;
     private javax.swing.JTextField jtf_telefono;
-    private javax.swing.JTextField jtf_telefono1;
     // End of variables declaration//GEN-END:variables
 }
