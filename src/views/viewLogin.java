@@ -28,6 +28,7 @@ public class viewLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jl_icono = new javax.swing.JLabel();
         jl_titulo = new javax.swing.JLabel();
@@ -46,9 +47,13 @@ public class viewLogin extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jmi_cambio_validacion = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jmi_cerrar = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jmi_volver = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,7 +135,7 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_ayuda.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jmi_ayuda.setForeground(new java.awt.Color(255, 255, 255));
         jmi_ayuda.setText("Ayuda");
-        jmi_ayuda.setBorder(null);
+        jmi_ayuda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jm_opciones.add(jmi_ayuda);
         jm_opciones.add(jSeparator1);
 
@@ -138,7 +143,7 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_olvido.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jmi_olvido.setForeground(new java.awt.Color(255, 255, 255));
         jmi_olvido.setText("Olvide contraseña");
-        jmi_olvido.setBorder(null);
+        jmi_olvido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jm_opciones.add(jmi_olvido);
         jm_opciones.add(jSeparator2);
 
@@ -146,7 +151,7 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_cambio.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jmi_cambio.setForeground(new java.awt.Color(255, 255, 255));
         jmi_cambio.setText("Cambio contraseña");
-        jmi_cambio.setBorder(null);
+        jmi_cambio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jm_opciones.add(jmi_cambio);
         jm_opciones.add(jSeparator3);
 
@@ -154,14 +159,23 @@ public class viewLogin extends javax.swing.JFrame {
         jmi_cambio_validacion.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jmi_cambio_validacion.setForeground(new java.awt.Color(255, 255, 255));
         jmi_cambio_validacion.setText("Cambio validación");
-        jmi_cambio_validacion.setBorder(null);
+        jmi_cambio_validacion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jm_opciones.add(jmi_cambio_validacion);
         jm_opciones.add(jSeparator4);
+
+        jmi_cerrar.setBackground(new java.awt.Color(255, 102, 0));
+        jmi_cerrar.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jmi_cerrar.setForeground(new java.awt.Color(255, 255, 255));
+        jmi_cerrar.setText("Cerrar sesión");
+        jmi_cerrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jm_opciones.add(jmi_cerrar);
+        jm_opciones.add(jSeparator5);
 
         jmi_volver.setBackground(new java.awt.Color(255, 102, 0));
         jmi_volver.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jmi_volver.setForeground(new java.awt.Color(255, 255, 255));
         jmi_volver.setText("Volver");
+        jmi_volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jm_opciones.add(jmi_volver);
 
         jMenuBar1.add(jm_opciones);
@@ -219,12 +233,14 @@ public class viewLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     public javax.swing.JButton jb_entrar;
     public javax.swing.JLabel jl_icono;
     public javax.swing.JLabel jl_password;
@@ -234,6 +250,7 @@ public class viewLogin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_ayuda;
     public javax.swing.JMenuItem jmi_cambio;
     public javax.swing.JMenuItem jmi_cambio_validacion;
+    public javax.swing.JMenuItem jmi_cerrar;
     public javax.swing.JMenuItem jmi_olvido;
     public javax.swing.JMenuItem jmi_volver;
     public javax.swing.JTextField jtf_password;

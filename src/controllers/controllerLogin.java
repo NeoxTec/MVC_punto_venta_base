@@ -71,6 +71,7 @@ public class controllerLogin {
         viewLogin.jmi_cambio.setVisible(false);
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_volver.setVisible(false);
+        viewLogin.jmi_cerrar.setVisible(false);
     }
     
     /**
@@ -112,7 +113,8 @@ public class controllerLogin {
         viewLogin.jmi_cambio.setVisible(true);
         viewLogin.jmi_cambio_validacion.setVisible(true);
         viewLogin.jmi_olvido.setVisible(false);
-        
+        viewLogin.jmi_cerrar.setVisible(true);
+        viewLogin.jmi_volver.setVisible(false);
     }
     
     /**
@@ -126,6 +128,7 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
         
     }
     
@@ -140,7 +143,9 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
         
     }
+    
     
 } 
