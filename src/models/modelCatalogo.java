@@ -113,20 +113,8 @@ public class modelCatalogo {
     public void setCapacidad(double capacidad) {
         this.capacidad = capacidad;
     }
-    
-     public void conectarDB() {
-        try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
-            st = conexion.createStatement();
-            rs = st.executeQuery("SELECT * FROM contactos;");
-            rs.next();
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
-        }
-
-    }
      
- public void conectDB() {
+ public void conectarDB() {
         try {
             conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
@@ -141,7 +129,7 @@ public class modelCatalogo {
            unidad_medida = rs.getString("unidad");
            capacidad = rs.getDouble("existencia");
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelProducto001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
         }
     }
          public void llenartabla(){
@@ -159,7 +147,7 @@ public class modelCatalogo {
                 rs.getDouble("existencia")});
         }
         }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo002 " + e.getMessage());
         }
     }
 }
