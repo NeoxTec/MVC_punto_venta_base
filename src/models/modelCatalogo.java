@@ -133,7 +133,6 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-        
         rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad,existencia FROM catalogo");
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
         try {
