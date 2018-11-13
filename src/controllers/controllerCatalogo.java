@@ -60,7 +60,8 @@ public class controllerCatalogo {
           viewCatalogo.jtf_preciom.setText(String.valueOf(modelCatalogo.getPrecio_mayoreo()));
           viewCatalogo.jtf_preciou.setText(String.valueOf(modelCatalogo.getPrecio_unitario()));
           viewCatalogo.jta_descripcion.setText(modelCatalogo.getDescripcion());
-          
-          
+          viewCatalogo.jcb_unidadmedida.setSelectedItem(modelCatalogo.getUnidad_medida());
+          viewCatalogo.jcb_iva.setSelectedItem(modelCatalogo.getIva());
+          System.out.println(modelCatalogo.getIva());
 }
  }
