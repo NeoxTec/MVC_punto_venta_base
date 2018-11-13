@@ -31,6 +31,19 @@ public class viewVendedor extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jl_titulo = new javax.swing.JLabel();
+        jl_sub = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jtf_buscar = new javax.swing.JTextField();
+        jb_cancelar = new javax.swing.JButton();
+        jb_buscar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jl_sub1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jl_fondo = new javax.swing.JLabel();
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 102, 0));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,16 +75,81 @@ public class viewVendedor extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Clientes", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1063, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
-        );
+        jPanel3.setLayout(null);
+
+        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
+        jl_titulo.setText("Consultar Producto");
+        jPanel3.add(jl_titulo);
+        jl_titulo.setBounds(190, 10, 620, 70);
+
+        jl_sub.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_sub.setForeground(new java.awt.Color(255, 102, 0));
+        jl_sub.setText("Existencias");
+        jPanel3.add(jl_sub);
+        jl_sub.setBounds(10, 310, 110, 20);
+        jPanel3.add(jSeparator1);
+        jSeparator1.setBounds(10, 330, 1000, 10);
+        jPanel3.add(jtf_buscar);
+        jtf_buscar.setBounds(190, 100, 490, 20);
+
+        jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancelar.setText("Cancelar");
+        jb_cancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.add(jb_cancelar);
+        jb_cancelar.setBounds(810, 100, 80, 20);
+
+        jb_buscar1.setBackground(new java.awt.Color(255, 102, 0));
+        jb_buscar1.setForeground(new java.awt.Color(255, 255, 255));
+        jb_buscar1.setText("Buscar");
+        jb_buscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.add(jb_buscar1);
+        jb_buscar1.setBounds(710, 100, 80, 20);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 180, 970, 110);
+
+        jl_sub1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_sub1.setForeground(new java.awt.Color(255, 102, 0));
+        jl_sub1.setText("Producto");
+        jPanel3.add(jl_sub1);
+        jl_sub1.setBounds(10, 140, 90, 20);
+        jPanel3.add(jSeparator2);
+        jSeparator2.setBounds(10, 160, 1000, 10);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 340, 970, 110);
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jPanel3.add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1060, 500);
 
         jTabbedPane1.addTab("Consultar producto", jPanel3);
 
@@ -92,6 +170,19 @@ public class viewVendedor extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JButton jb_buscar1;
+    private javax.swing.JButton jb_cancelar;
+    private javax.swing.JLabel jl_fondo;
+    private javax.swing.JLabel jl_sub;
+    private javax.swing.JLabel jl_sub1;
+    private javax.swing.JLabel jl_titulo;
+    private javax.swing.JTextField jtf_buscar;
     // End of variables declaration//GEN-END:variables
 }
