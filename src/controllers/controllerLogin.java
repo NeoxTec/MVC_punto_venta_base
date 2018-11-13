@@ -19,6 +19,8 @@ public class controllerLogin {
      private final viewAdmin viewAdmin;
      private final viewEmpleado viewEmpleado;
      private final viewVendedor viewVendedor;
+     private final viewProveedor viewProveedor;
+     
      
      /**
      * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
@@ -28,6 +30,7 @@ public class controllerLogin {
      private controllerCatalogo controllerCatalogo;
      private controllerEmpleado controllerEmpleado;
      private controllerVendedor controllerVendedor;
+     private controllerProveedor controllerProveedor;
      
      
      /**
@@ -39,19 +42,22 @@ public class controllerLogin {
      * @param viewLogin
      * @param viewAdmin
      * @param viewEmpleado
+     * @param viewVendedor
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor, Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor , Object[] controllers) {
         this.modelLogin = modelLogin;
         this.viewLogin = viewLogin;
         this.viewAdmin = viewAdmin;
         this.viewEmpleado = viewEmpleado;
         this.viewVendedor = viewVendedor;
+        this.viewProveedor = viewProveedor;
         this.controllers = controllers;
         setControllers();
         setActionListener();
         initComponets();
     }
+
     
     /**
      * Separa cada uno de los controlladores almacendados en controllers, de
@@ -63,6 +69,7 @@ public class controllerLogin {
         controllerCatalogo = (controllerCatalogo) controllers[1];
         controllerEmpleado = (controllerEmpleado) controllers [2];
         controllerVendedor = (controllerVendedor) controllers [3];
+        controllerProveedor = (controllerProveedor) controllers[4];
     }
     
     /**
@@ -107,6 +114,9 @@ public class controllerLogin {
             else if(e.getSource() == viewAdmin.jb_empleados){
                  empleado_actionPerformed();
             }
+            else if(e.getSource() == viewAdmin.jb_proovedores){
+                
+            }
         }
      };
     
@@ -137,10 +147,25 @@ public class controllerLogin {
     }
     
     /**
-     * Método que hara que se cambie al panel catalogo
+     * Método que hara que se cambie al panel empleado
      */
     private void empleado_actionPerformed(){
         viewLogin.setContentPane(controllerEmpleado.viewEmpleado);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+        
+    }
+    
+    /**
+     * Método que hara que se cambie al panel proveedor
+     */
+    private void proveedor_actionPerformed(){
+        viewLogin.setContentPane(controllerProveedor.viewProveedor);
         viewLogin.revalidate();
         viewLogin.repaint();
         viewLogin.jmi_cambio.setVisible(false);
