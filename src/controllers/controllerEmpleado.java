@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import views.viewEmpleado;
 import models.modelEmpleado;
 
@@ -18,5 +20,143 @@ public class controllerEmpleado {
     public controllerEmpleado(modelEmpleado modelEmpleado, viewEmpleado viewEmpleado) {
         this.modelEmpleado = modelEmpleado;
         this.viewEmpleado = viewEmpleado;
+        setMouseListener();
+    }
+    
+    public void initDB(){
+        modelEmpleado.conectarDB();
+    }
+    
+    /**
+     * Método que modifica la propiedad editable a True de los JTextField 
+     */
+    private void editable(){
+        viewEmpleado.jtf_rfc.setEditable(true);
+        viewEmpleado.jtf_nombre.setEditable(true);
+        viewEmpleado.jtf_ape_p.setEditable(true);
+        viewEmpleado.jtf_ape_m.setEditable(true);
+        viewEmpleado.jtf_telefono.setEditable(true);
+        viewEmpleado.jtf_correo.setEditable(true);
+        viewEmpleado.jtf_fecha_nac.setEditable(true);
+        viewEmpleado.jcb_genero.setEnabled(true);
+        viewEmpleado.jtf_calle.setEditable(true);
+        viewEmpleado.jtf_colonia.setEditable(true);
+        viewEmpleado.jtf_no_ext.setEditable(true);
+        viewEmpleado.jtf_no_int.setEditable(true);
+        viewEmpleado.jtf_cp.setEditable(true);
+        
+    }
+    
+    /**
+     * Método que modifica la propiedad editable a False de los JTextField.
+     */
+    private void editableF(){
+       viewEmpleado.jtf_rfc.setEditable(false);
+        viewEmpleado.jtf_nombre.setEditable(false);
+        viewEmpleado.jtf_ape_p.setEditable(false);
+        viewEmpleado.jtf_ape_m.setEditable(false);
+        viewEmpleado.jtf_telefono.setEditable(false);
+        viewEmpleado.jtf_correo.setEditable(false);
+        viewEmpleado.jtf_fecha_nac.setEditable(false);
+        viewEmpleado.jcb_genero.setEnabled(false);
+        viewEmpleado.jtf_calle.setEditable(false);
+        viewEmpleado.jtf_colonia.setEditable(false);
+        viewEmpleado.jtf_no_ext.setEditable(false);
+        viewEmpleado.jtf_no_int.setEditable(false);
+        viewEmpleado.jtf_cp.setEditable(false);
+    }
+    
+    MouseListener ml = new MouseListener(){
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if(e.getSource()== viewEmpleado.jb_nuevo){
+                editable();
+            }
+            else if(e.getSource() == viewEmpleado.jb_modificar){
+                
+            }
+            else if(e.getSource() == viewEmpleado.jb_eliminar){
+                
+            }
+            else if(e.getSource() == viewEmpleado.jb_guardar){
+                obtener_Datos();
+                modelEmpleado.insertarRegistro();
+                editableF();
+            }
+            else if(e.getSource() == viewEmpleado.jb_cancelar){
+                editableF();
+            }
+                
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    
+    };
+    
+    /**
+     * Método para agregar el mouselistener a cada boton de la vista
+     */
+    private void setMouseListener() {
+        viewEmpleado.jb_nuevo.addMouseListener(ml);
+        viewEmpleado.jb_cancelar.addMouseListener(ml);
+        viewEmpleado.jb_guardar.addMouseListener(ml);
+        
+    }
+    
+    /**
+     * Método que obtiene los valores de los JTextField los manda al modelEmpleado
+     */
+    private void obtener_Datos(){
+        modelEmpleado.setRfc(viewEmpleado.jtf_rfc.getText());
+        modelEmpleado.setNombre(viewEmpleado.jtf_nombre.getText());
+        modelEmpleado.setApe_p(viewEmpleado.jtf_ape_p.getText());
+        modelEmpleado.setApe_m(viewEmpleado.jtf_ape_m.getText());
+        modelEmpleado.setCorreo(viewEmpleado.jtf_correo.getText());
+        modelEmpleado.setTelefono(viewEmpleado.jtf_telefono.getText());
+        modelEmpleado.setGenero((String) viewEmpleado.jcb_genero.getSelectedItem());
+        modelEmpleado.setFecha_n(viewEmpleado.jtf_fecha_nac.getText());
+        modelEmpleado.setCalle(viewEmpleado.jtf_calle.getText());
+        modelEmpleado.setColonia(viewEmpleado.jtf_colonia.getText());
+        modelEmpleado.setNo_ext(Integer.parseInt(viewEmpleado.jtf_no_ext.getText()));
+        modelEmpleado.setCp(viewEmpleado.jtf_cp.getText());
+        if (viewEmpleado.jtf_no_int.getText().isEmpty()){
+            modelEmpleado.setNo_int(0);
+        }
+        else{
+            modelEmpleado.setNo_int(Integer.parseInt(viewEmpleado.jtf_no_int.getText()));
+        }
+    }
+    
+    /**
+     * Muestra los valores almacenados en el modelEmpleado al viewEmpleado
+     */
+    private void setValues() {
+        viewEmpleado.jtf_rfc.setText(modelEmpleado.getRfc());
+        viewEmpleado.jtf_nombre.setText(modelEmpleado.getNombre());
+        viewEmpleado.jtf_ape_p.setText(modelEmpleado.getApe_p());
+        viewEmpleado.jtf_ape_m.setText(modelEmpleado.getApe_m());
+        viewEmpleado.jtf_correo.setText(modelEmpleado.getCorreo());
+        viewEmpleado.jtf_telefono.setText(modelEmpleado.getTelefono());
+        viewEmpleado.jcb_genero.setSelectedItem(modelEmpleado.getGenero());
+        viewEmpleado.jtf_fecha_nac.setText(modelEmpleado.getFecha_n());
+        viewEmpleado.jtf_calle.setText(modelEmpleado.getCalle());
+        viewEmpleado.jtf_colonia.setText(modelEmpleado.getColonia());
+        viewEmpleado.jtf_no_ext.setText(String.valueOf(modelEmpleado.getNo_ext()));
+        viewEmpleado.jtf_no_int.setText(String.valueOf(modelEmpleado.getNo_int()));
+        viewEmpleado.jtf_cp.setText(modelEmpleado.getCp());
     }
 }

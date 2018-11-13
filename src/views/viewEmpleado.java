@@ -28,7 +28,7 @@ public class viewEmpleado extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_empleados = new javax.swing.JTable();
         jl_rfc = new javax.swing.JLabel();
         jl_calle = new javax.swing.JLabel();
         jtf_correo = new javax.swing.JTextField();
@@ -43,10 +43,9 @@ public class viewEmpleado extends javax.swing.JPanel {
         jtf_telefono = new javax.swing.JTextField();
         jl_correo = new javax.swing.JLabel();
         jl_fecha = new javax.swing.JLabel();
-        jtf_fecha = new javax.swing.JFormattedTextField();
         jtf_calle = new javax.swing.JTextField();
         jl_genero = new javax.swing.JLabel();
-        jtf_calle1 = new javax.swing.JTextField();
+        jtf_colonia = new javax.swing.JTextField();
         jtf_no_ext = new javax.swing.JTextField();
         jl_colonia = new javax.swing.JLabel();
         jl_no_ext = new javax.swing.JLabel();
@@ -54,7 +53,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jtf_no_int = new javax.swing.JTextField();
         jl_cp = new javax.swing.JLabel();
         jtf_cp = new javax.swing.JTextField();
-        jb_agregar = new javax.swing.JButton();
+        jb_nuevo = new javax.swing.JButton();
         jb_guardar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
         jb_modificar = new javax.swing.JButton();
@@ -68,12 +67,13 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_datos1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jtf_fecha_nac = new javax.swing.JTextField();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
 
-        jTable1.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_empleados.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jt_empleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -84,7 +84,7 @@ public class viewEmpleado extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jt_empleados);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(20, 100, 958, 186);
@@ -163,11 +163,6 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jl_fecha);
         jl_fecha.setBounds(190, 390, 150, 17);
 
-        jtf_fecha.setEditable(false);
-        jtf_fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat(""))));
-        add(jtf_fecha);
-        jtf_fecha.setBounds(190, 410, 160, 20);
-
         jtf_calle.setEditable(false);
         add(jtf_calle);
         jtf_calle.setBounds(20, 490, 165, 20);
@@ -178,9 +173,9 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jl_genero);
         jl_genero.setBounds(370, 390, 60, 20);
 
-        jtf_calle1.setEditable(false);
-        add(jtf_calle1);
-        jtf_calle1.setBounds(190, 490, 165, 20);
+        jtf_colonia.setEditable(false);
+        add(jtf_colonia);
+        jtf_colonia.setBounds(190, 490, 165, 20);
 
         jtf_no_ext.setEditable(false);
         add(jtf_no_ext);
@@ -218,13 +213,13 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jtf_cp);
         jtf_cp.setBounds(580, 490, 80, 20);
 
-        jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_agregar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_agregar.setText("Nuevo");
-        jb_agregar.setBorder(null);
-        add(jb_agregar);
-        jb_agregar.setBounds(20, 530, 130, 40);
+        jb_nuevo.setBackground(new java.awt.Color(255, 102, 0));
+        jb_nuevo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_nuevo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_nuevo.setText("Nuevo");
+        jb_nuevo.setBorder(null);
+        add(jb_nuevo);
+        jb_nuevo.setBounds(20, 530, 130, 40);
 
         jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
         jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -295,6 +290,10 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jSeparator3);
         jSeparator3.setBounds(20, 320, 950, 20);
 
+        jtf_fecha_nac.setEditable(false);
+        add(jtf_fecha_nac);
+        jtf_fecha_nac.setBounds(190, 410, 160, 20);
+
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
         jl_fondo.setBounds(0, 0, 1140, 630);
@@ -306,14 +305,13 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton jb_agregar;
     private javax.swing.JButton jb_buscar;
-    private javax.swing.JButton jb_cancelar;
-    private javax.swing.JButton jb_eliminar;
-    private javax.swing.JButton jb_guardar;
-    private javax.swing.JButton jb_modificar;
-    private javax.swing.JComboBox<String> jcb_genero;
+    public javax.swing.JButton jb_cancelar;
+    public javax.swing.JButton jb_eliminar;
+    public javax.swing.JButton jb_guardar;
+    public javax.swing.JButton jb_modificar;
+    public javax.swing.JButton jb_nuevo;
+    public javax.swing.JComboBox<String> jcb_genero;
     private javax.swing.JLabel jl_ape_m;
     private javax.swing.JLabel jl_ape_p;
     private javax.swing.JLabel jl_calle;
@@ -331,18 +329,19 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jl_rfc;
     private javax.swing.JLabel jl_telefono;
     private javax.swing.JLabel jl_titulo;
-    private javax.swing.JTextField jtf_ape_m;
-    private javax.swing.JTextField jtf_ape_p;
+    private javax.swing.JTable jt_empleados;
+    public javax.swing.JTextField jtf_ape_m;
+    public javax.swing.JTextField jtf_ape_p;
     private javax.swing.JTextField jtf_buscar;
-    private javax.swing.JTextField jtf_calle;
-    private javax.swing.JTextField jtf_calle1;
-    private javax.swing.JTextField jtf_correo;
-    private javax.swing.JTextField jtf_cp;
-    private javax.swing.JFormattedTextField jtf_fecha;
-    private javax.swing.JTextField jtf_no_ext;
-    private javax.swing.JTextField jtf_no_int;
-    private javax.swing.JTextField jtf_nombre;
-    private javax.swing.JTextField jtf_rfc;
-    private javax.swing.JTextField jtf_telefono;
+    public javax.swing.JTextField jtf_calle;
+    public javax.swing.JTextField jtf_colonia;
+    public javax.swing.JTextField jtf_correo;
+    public javax.swing.JTextField jtf_cp;
+    public javax.swing.JTextField jtf_fecha_nac;
+    public javax.swing.JTextField jtf_no_ext;
+    public javax.swing.JTextField jtf_no_int;
+    public javax.swing.JTextField jtf_nombre;
+    public javax.swing.JTextField jtf_rfc;
+    public javax.swing.JTextField jtf_telefono;
     // End of variables declaration//GEN-END:variables
 }
