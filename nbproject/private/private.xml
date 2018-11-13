@@ -3,12 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/bd/quetzalstock.sql</file>
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/views/viewCatalogo.java</file>
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/models/modelCatalogo.java</file>
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/controllers/controllerCatalogo.java</file>
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/bd/ConnectDatabase.java</file>
             <file>file:/C:/Users/manl_/Desktop/Grupo%2041/DAI_II/Aplicaciones/quetzalStock/src/views/viewLogin.java</file>
+=======
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/views/viewProveedor.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/models/modelCatalogo.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/bd/ConnectDatabase.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/controllers/controllerLogin.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/views/viewLogin.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/controllers/controllerProveedor.java</file>
+            <file>file:/C:/Users/Abi%20Montes/Documents/quetzalstock1/quetzalStock/src/models/modelProveedor.java</file>
+>>>>>>> 64a8e752e3060e7fa5c271bc54322d813c71ae4a
         </group>
     </open-files>
 </project-private>
