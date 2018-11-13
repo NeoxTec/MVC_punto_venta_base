@@ -13,6 +13,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,12 +28,11 @@ public class modelCatalogo {
     private int id;
     private int codigo_barras;
     private String nombre;
-    private String iva;
+    private int iva;
     private String descripcion;
     private double precio_unitario;
     private double precio_mayoreo;
     private String unidad_medida;
-    private double capacidad;
     DefaultTableModel modelo = new DefaultTableModel();
 
     public DefaultTableModel getModelo() {
@@ -66,11 +67,11 @@ public class modelCatalogo {
         this.nombre = nombre;
     }
 
-    public String getIva() {
+    public int getIva() {
         return iva;
     }
 
-    public void setIva(String iva) {
+    public void setIva(int iva) {
         this.iva = iva;
     }
 
@@ -106,30 +107,22 @@ public class modelCatalogo {
         this.unidad_medida = unidad_medida;
     }
 
-    public double getCapacidad() {
-        return capacidad;
-    }
-
-    public void setCapacidad(double capacidad) {
-        this.capacidad = capacidad;
-    }
-     
+    
  public void conectarDB() {
         try {
             conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
             rs = st.executeQuery("SELECT * FROM catalogo;");
-            rs.next();
+           rs.next();
            codigo_barras = rs.getInt("codigo_barras");
-            nombre =rs.getString("nombre");
-           iva = rs.getString("iva");
+           nombre =rs.getString("nombre");
            descripcion = rs.getString("descripcion");
            precio_unitario =  rs.getDouble("precio");
            precio_mayoreo =  rs.getDouble("precio_mayoreo");
            unidad_medida = rs.getString("unidad");
-           capacidad = rs.getDouble("existencia");
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
+            System.out.println(err.getMessage());
         }
     }
          public void llenartabla(){
@@ -150,4 +143,19 @@ public class modelCatalogo {
             JOptionPane.showMessageDialog(null, "Error modelCatalogo002 " + e.getMessage());
         }
     }
+         public void datos(){
+ 
+        try {
+            rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
+           rs.first();
+           codigo_barras = rs.getInt("codigo_barras");
+           nombre =rs.getString("nombre");
+           descripcion = rs.getString("descripcion");
+           precio_unitario =  rs.getDouble("precio");
+           precio_mayoreo =  rs.getDouble("precio_mayoreo");
+           unidad_medida = rs.getString("unidad");
+            System.out.println(nombre);
+        } catch (SQLException ex) {
+            Logger.getLogger(modelCatalogo.class.getName()).log(Level.SEVERE, null, ex);}  
+         }
 }

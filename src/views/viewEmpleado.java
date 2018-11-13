@@ -257,7 +257,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setText("Empleados");
         add(jl_titulo);
-        jl_titulo.setBounds(380, 20, 250, 30);
+        jl_titulo.setBounds(380, 20, 250, 40);
         add(jtf_buscar);
         jtf_buscar.setBounds(210, 70, 380, 20);
 
