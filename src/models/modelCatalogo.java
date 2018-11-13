@@ -126,8 +126,8 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad,existencia FROM catalogo");
-        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
+        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
+        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
         try {
            while (rs.next()){
             modelo.addRow(new Object[]{
@@ -135,8 +135,7 @@ public class modelCatalogo {
                 rs.getString("nombre"), 
                 rs.getDouble("precio"),
                 rs.getDouble("precio_mayoreo"),
-                rs.getString("unidad"),
-                rs.getDouble("existencia")});
+                rs.getString("unidad")});
         }
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null, "Error modelCatalogo002 " + e.getMessage());
