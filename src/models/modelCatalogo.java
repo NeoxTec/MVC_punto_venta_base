@@ -28,11 +28,11 @@ public class modelCatalogo {
     private int id;
     private int codigo_barras;
     private String nombre;
-    private int iva;
+    private Object iva;
     private String descripcion;
     private double precio_unitario;
     private double precio_mayoreo;
-    private String unidad_medida;
+    private Object unidad_medida;
     DefaultTableModel modelo = new DefaultTableModel();
 
     public DefaultTableModel getModelo() {
@@ -67,11 +67,11 @@ public class modelCatalogo {
         this.nombre = nombre;
     }
 
-    public int getIva() {
+    public Object getIva() {
         return iva;
     }
 
-    public void setIva(int iva) {
+    public void setIva(Object iva) {
         this.iva = iva;
     }
 
@@ -99,11 +99,11 @@ public class modelCatalogo {
         this.precio_mayoreo = precio_mayoreo;
     }
 
-    public String getUnidad_medida() {
+     public Object getUnidad_medida() {
         return unidad_medida;
     }
 
-    public void setUnidad_medida(String unidad_medida) {
+    public void setUnidad_medida(Object unidad_medida) {
         this.unidad_medida = unidad_medida;
     }
 
@@ -120,14 +120,20 @@ public class modelCatalogo {
            precio_unitario =  rs.getDouble("precio");
            precio_mayoreo =  rs.getDouble("precio_mayoreo");
            unidad_medida = rs.getString("unidad");
+           iva = rs.getObject("iva");
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
             System.out.println(err.getMessage());
         }
     }
          public void llenartabla(){
+<<<<<<< HEAD
         rs = ConnectDatabase.getTabla("SELECT id,nombre,descripcion,iva,precio, precio_mayoreo,unidad FROM catalogo");
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
+=======
+        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
+        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
+>>>>>>> origin/master
         try {
            while (rs.next()){
             modelo.addRow(new Object[]{
@@ -153,9 +159,10 @@ public class modelCatalogo {
            descripcion = rs.getString("descripcion");
            precio_unitario =  rs.getDouble("precio");
            precio_mayoreo =  rs.getDouble("precio_mayoreo");
-           unidad_medida = rs.getString("unidad");
-            System.out.println(nombre);
+           unidad_medida = rs.getObject("unidad");
+           iva = rs.getObject("iva");
+            System.out.println(iva);
         } catch (SQLException ex) {
-            Logger.getLogger(modelCatalogo.class.getName()).log(Level.SEVERE, null, ex);}  
-         }
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage()); 
+         }}
 }
