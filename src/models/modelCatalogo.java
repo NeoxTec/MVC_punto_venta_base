@@ -110,9 +110,9 @@ public class modelCatalogo {
     
  public void conectarDB() {
         try {
-            conexion = ConnectDatabase.getConectar();
-            st = conexion.createStatement();
-            rs = st.executeQuery("SELECT * FROM catalogo;");
+           conexion = ConnectDatabase.getConectar();
+           st = conexion.createStatement();
+           rs = st.executeQuery("SELECT * FROM catalogo;");
            rs.next();
            codigo_barras = rs.getInt("codigo_barras");
            nombre =rs.getString("nombre");
