@@ -29,14 +29,8 @@ public class viewLogin extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
-        jl_icono = new javax.swing.JLabel();
-        jl_titulo = new javax.swing.JLabel();
-        jl_usuario = new javax.swing.JLabel();
-        jl_password = new javax.swing.JLabel();
-        jtf_usuario = new javax.swing.JTextField();
-        jtf_password = new javax.swing.JTextField();
-        jb_entrar = new javax.swing.JButton();
+        jb_vendedor = new javax.swing.JButton();
+        jb_admin = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_opciones = new javax.swing.JMenu();
         jmi_ayuda = new javax.swing.JMenuItem();
@@ -57,71 +51,9 @@ public class viewLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jb_vendedor.setText("Vendedor");
 
-        jl_icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuetzalStockNARANJA.png"))); // NOI18N
-        jl_icono.setMaximumSize(new java.awt.Dimension(200, 250));
-
-        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
-        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
-        jl_titulo.setText("Bienvenido");
-
-        jl_usuario.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_usuario.setForeground(new java.awt.Color(255, 102, 0));
-        jl_usuario.setText("Usuario: ");
-
-        jl_password.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_password.setForeground(new java.awt.Color(255, 102, 0));
-        jl_password.setText("Contraseña: ");
-
-        jb_entrar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_entrar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_entrar.setText("Entrar");
-        jb_entrar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(360, 360, 360)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jl_icono, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jl_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jl_usuario)
-                                        .addComponent(jl_password)
-                                        .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(343, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jl_titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jl_icono, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jl_usuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jl_password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jb_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
+        jb_admin.setText("Admin");
 
         jMenuBar1.setBackground(new java.awt.Color(255, 102, 0));
         jMenuBar1.setBorder(null);
@@ -186,11 +118,21 @@ public class viewLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jb_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(238, 238, 238)
+                .addComponent(jb_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,26 +177,20 @@ public class viewLogin extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    public javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
-    public javax.swing.JButton jb_entrar;
-    public javax.swing.JLabel jl_icono;
-    public javax.swing.JLabel jl_password;
-    public javax.swing.JLabel jl_titulo;
-    public javax.swing.JLabel jl_usuario;
+    public javax.swing.JButton jb_admin;
+    public javax.swing.JButton jb_vendedor;
     public javax.swing.JMenu jm_opciones;
-    private javax.swing.JMenuItem jmi_ayuda;
+    public javax.swing.JMenuItem jmi_ayuda;
     public javax.swing.JMenuItem jmi_cambio;
     public javax.swing.JMenuItem jmi_cambio_validacion;
     public javax.swing.JMenuItem jmi_cerrar;
     public javax.swing.JMenuItem jmi_olvido;
     public javax.swing.JMenuItem jmi_volver;
-    public javax.swing.JTextField jtf_password;
-    private javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
 
     public void getContentPane(viewLogin viewLogin) {

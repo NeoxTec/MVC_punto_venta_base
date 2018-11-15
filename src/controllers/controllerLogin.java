@@ -16,6 +16,7 @@ import views.*;
 public class controllerLogin {
      private final modelLogin modelLogin;
      private final viewLogin viewLogin;
+     private final viewInicio viewInicio;
      private final viewAdmin viewAdmin;
      private final viewEmpleado viewEmpleado;
      private final viewVendedor viewVendedor;
@@ -26,6 +27,7 @@ public class controllerLogin {
      * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
      */
      private Object controllers[];
+     private controllerInicio controllerInicio;
      private controllerAdmin controllerAdmin;
      private controllerCatalogo controllerCatalogo;
      private controllerEmpleado controllerEmpleado;
@@ -40,13 +42,16 @@ public class controllerLogin {
      * programación desarrollada dentro de cada controller.
      * @param modelLogin 
      * @param viewLogin
+     * @param viewInicio
      * @param viewAdmin
      * @param viewEmpleado
      * @param viewVendedor
+     * @param viewProveedor
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor , Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin,viewInicio viewInicio, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor , Object[] controllers) {
         this.modelLogin = modelLogin;
+        this.viewInicio = viewInicio;
         this.viewLogin = viewLogin;
         this.viewAdmin = viewAdmin;
         this.viewEmpleado = viewEmpleado;
@@ -65,13 +70,25 @@ public class controllerLogin {
      * de cada uno.
      */
     private void setControllers() {
-        controllerAdmin = (controllerAdmin) controllers[0];
-        controllerCatalogo = (controllerCatalogo) controllers[1];
-        controllerEmpleado = (controllerEmpleado) controllers [2];
-        controllerVendedor = (controllerVendedor) controllers [3];
-        controllerProveedor = (controllerProveedor) controllers[4];
+        controllerInicio = (controllerInicio) controllers[0];
+        controllerAdmin = (controllerAdmin) controllers[1];
+        controllerCatalogo = (controllerCatalogo) controllers[2];
+        controllerEmpleado = (controllerEmpleado) controllers [3];
+        controllerVendedor = (controllerVendedor) controllers [4];
+        controllerProveedor = (controllerProveedor) controllers[5];
     }
-    
+    /*
+    * Método que oculta el JMenu al iniciar el JFrame
+    */
+    private void ocultar(){
+        viewLogin.jm_opciones.setVisible(false);
+    }
+    /*
+    * Método para descoltar el JMenu 
+    */
+    private void desocultar(){
+        viewLogin.jm_opciones.setVisible(true);
+    }
     /**
      * Muesta la vista principal ViewLogin
      */
@@ -79,10 +96,7 @@ public class controllerLogin {
         viewLogin.setTitle("Ferretería ACME");
         viewLogin.setLocationRelativeTo(null);
         viewLogin.setVisible(true);
-        viewLogin.jmi_cambio.setVisible(false);
-        viewLogin.jmi_cambio_validacion.setVisible(false);
-        viewLogin.jmi_volver.setVisible(false);
-        viewLogin.jmi_cerrar.setVisible(false);
+        ocultar();
     }
     
     /**
@@ -90,10 +104,13 @@ public class controllerLogin {
      * viewLogin.
      */
     private void setActionListener() {
-        viewLogin.jb_entrar.addActionListener(actionListener);
+        viewLogin.jmi_cerrar.addActionListener(actionListener);
+        viewInicio.jb_entrar.addActionListener(actionListener);
         viewAdmin.jb_catalogo.addActionListener(actionListener);
         viewLogin.jmi_volver.addActionListener(actionListener);
         viewAdmin.jb_empleados.addActionListener(actionListener);
+        viewLogin.jb_admin.addActionListener(actionListener);
+        viewLogin.jb_vendedor.addActionListener(actionListener);
     }
     
     /**
@@ -102,14 +119,14 @@ public class controllerLogin {
     private final ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == viewLogin.jb_entrar) {
-                jb_entrar_actionPerformed();
+            if (e.getSource() == viewInicio.jb_entrar) {
+                
             } 
             else if (e.getSource() == viewAdmin.jb_catalogo){
                 catalogo_actionPerformed();        
             }
             else if(e.getSource() == viewLogin.jmi_volver){
-                jb_entrar_actionPerformed();
+                admin_actionPerformed();
             }
             else if(e.getSource() == viewAdmin.jb_empleados){
                  empleado_actionPerformed();
@@ -117,11 +134,50 @@ public class controllerLogin {
             else if(e.getSource() == viewAdmin.jb_proovedores){
                 
             }
+            else if(e.getSource() == viewLogin.jmi_cerrar){
+                inicio_actionPerformed();
+            }
+            else if(e.getSource() == viewLogin.jb_admin){
+                admin_actionPerformed();
+                desocultar();
+            }
+            else if(e.getSource() == viewLogin.jb_vendedor){
+                vendedor_actionPerformed();
+                desocultar();
+            }
         }
      };
     
-    private void jb_entrar_actionPerformed(){
+    /**
+     * Método para iniciar el frame con el panel Inicio y al momento de cerrar sesión
+     */
+    private void inicio_actionPerformed(){
+        viewLogin.setContentPane(controllerInicio.viewInicio);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_volver.setVisible(false);
+        viewLogin.jmi_cerrar.setVisible(false);
+    }
+    /**
+     * Método para hacer cambio al panel Admin
+     */
+    private void admin_actionPerformed(){
         viewLogin.setContentPane(controllerAdmin.viewAdmin);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(true);
+        viewLogin.jmi_cambio_validacion.setVisible(true);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_cerrar.setVisible(true);
+        viewLogin.jmi_volver.setVisible(false);
+    }
+    /*
+    * Método para hacer cambio al panel Vendedor
+    */
+    private void vendedor_actionPerformed(){
+        viewLogin.setContentPane(controllerVendedor.viewVendedor);
         viewLogin.revalidate();
         viewLogin.repaint();
         viewLogin.jmi_cambio.setVisible(true);

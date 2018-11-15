@@ -127,13 +127,8 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-<<<<<<< HEAD
-        rs = ConnectDatabase.getTabla("SELECT id,nombre,descripcion,iva,precio, precio_mayoreo,unidad FROM catalogo");
-        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
-=======
         rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
->>>>>>> origin/master
         try {
            while (rs.next()){
             modelo.addRow(new Object[]{
