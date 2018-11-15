@@ -21,6 +21,7 @@ public class controllerLogin {
      private final viewEmpleado viewEmpleado;
      private final viewVendedor viewVendedor;
      private final viewProveedor viewProveedor;
+     private final viewCompra viewCompra;
      
      
      /**
@@ -33,6 +34,7 @@ public class controllerLogin {
      private controllerEmpleado controllerEmpleado;
      private controllerVendedor controllerVendedor;
      private controllerProveedor controllerProveedor;
+     private controllerCompras controllerCompras;
      
      
      /**
@@ -49,7 +51,7 @@ public class controllerLogin {
      * @param viewProveedor
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin,viewInicio viewInicio, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor , Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin,viewInicio viewInicio, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor, viewCompra viewCompra, Object[] controllers) {
         this.modelLogin = modelLogin;
         this.viewInicio = viewInicio;
         this.viewLogin = viewLogin;
@@ -57,6 +59,7 @@ public class controllerLogin {
         this.viewEmpleado = viewEmpleado;
         this.viewVendedor = viewVendedor;
         this.viewProveedor = viewProveedor;
+        this.viewCompra = viewCompra;
         this.controllers = controllers;
         setControllers();
         setActionListener();
@@ -76,6 +79,7 @@ public class controllerLogin {
         controllerEmpleado = (controllerEmpleado) controllers [3];
         controllerVendedor = (controllerVendedor) controllers [4];
         controllerProveedor = (controllerProveedor) controllers[5];
+        controllerCompras = (controllerCompras) controllers [6];
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -112,6 +116,7 @@ public class controllerLogin {
         viewLogin.jb_admin.addActionListener(actionListener);
         viewLogin.jb_vendedor.addActionListener(actionListener);
         viewAdmin.jb_proovedores.addActionListener(actionListener);
+        viewAdmin.jb_compras.addActionListener(actionListener);
     }
     
     /**
@@ -145,6 +150,9 @@ public class controllerLogin {
             else if (e.getSource() == viewLogin.jb_vendedor) {
                 vendedor_actionPerformed();
                 desocultar();
+            }
+            else if(e.getSource() == viewAdmin.jb_compras){
+                compras_actionPerformed();
             }
         }
      };
@@ -223,6 +231,21 @@ public class controllerLogin {
      */
     private void proveedor_actionPerformed(){
         viewLogin.setContentPane(controllerProveedor.viewProveedor);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+    }
+    
+    /**
+     * Método que hara que se cambie al panel compras
+     */
+    
+    private void compras_actionPerformed(){
+        viewLogin.setContentPane(controllerCompras.viewCompra);
         viewLogin.revalidate();
         viewLogin.repaint();
         viewLogin.jmi_cambio.setVisible(false);

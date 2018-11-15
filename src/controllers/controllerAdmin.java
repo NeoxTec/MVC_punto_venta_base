@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package controllers;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import views.viewAdmin;
 import models.modelAdmin;
 

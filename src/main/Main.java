@@ -50,18 +50,23 @@ public class Main {
          viewInicio viewInicio = new viewInicio();
          controllerInicio controllerInicio = new controllerInicio(modelInicio,viewInicio);
          
-        Object[] controllers = new Object[6];
+         modelCompras modelCompras = new modelCompras();
+         viewCompra viewCompra = new viewCompra();
+         controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
+         
+        Object[] controllers = new Object[7];
         controllers[0] = controllerInicio;
         controllers[1] = controllerAdmin;
         controllers[2] = controllerCatalogo;
         controllers[3] = controllerEmpleado;
         controllers[4] = controllerVendedor;
         controllers[5] = controllerProveedor;
+        controllers [6] = controllerCompras;
         
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,viewInicio,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,viewInicio,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,viewCompra,controllers);
     }
     
 }
