@@ -1,0 +1,531 @@
+commit a61be9d87c7fcb11b5dbeddcde0f9daa69618d99
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 15 13:47:20 2018 -0600
+
+    Conflicto solucionado
+
+commit 825e4752192751ae640208d6972f6710495afc70
+Merge: 1779f68 db6043f
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 15 13:41:37 2018 -0600
+
+    Conflicto solucionado
+
+commit 1779f6839ac3e722f8672c4cc4b9a977b015a550
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 15 13:38:42 2018 -0600
+
+    Se genera cambio en el controllerLogin y main, se desarrolla el controller, model y view Inicio y se ingresan botones provicionales vendedor y admin en el viewLogin para cambio de paneles
+
+commit db6043f846dcad2c385f09f090c728f09c29a5e1
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 15 13:21:20 2018 -0600
+
+    Preparacion para realizar busqueda en catalogo
+
+commit 0f49143ef2a4daaefc4d935827f570a70801636d
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Wed Nov 14 18:04:11 2018 -0600
+
+    Actualizacion generel y correccion de detalles en el modelo y vista de catalogo
+
+commit e93ba0cb7f4ab42d9ecd682d4ccaee3afabc101e
+Merge: 76a7056 a56b73f
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 13 19:10:02 2018 -0600
+
+    Correccion de conflicto
+
+commit 76a70569c92f81f882e0b0090123777edc697e2f
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 13 19:07:22 2018 -0600
+
+    Correccion en el nombre de usuario de la base de datos del archivo ConnectDatabase
+
+commit a56b73f3dac8354aa45c73ea3c4555b2ca269fb5
+Merge: 61acdcb 64a8e75
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 14:01:04 2018 -0600
+
+    Proyecto actualizado
+
+commit 61acdcbff3c40e62facebbbe25c3ca1ff5cd8680
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 14:00:30 2018 -0600
+
+    Actualizando cambios
+
+commit 190840e9146bc9f6b5169cee73ae3a39106c2555
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 13:02:44 2018 -0600
+
+    variable iva y unidad_medida correccion de tipo de variable.
+
+commit 74f78bc8c2201df4fc224bc8011898b29b7dfe66
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 13:02:06 2018 -0600
+
+    Jcombobox es visible los cambios al hacer el mouseClicked.
+
+commit ab4b60eba0a84a7b17a5d75032196b55e99522e6
+Merge: ae21cfd 64a8e75
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 13 12:30:39 2018 -0600
+
+    Se soluciona conflicto
+
+commit 0dd4f4a0c54b85dbd93faaa22d1a35eb3b32ac65
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 12:27:46 2018 -0600
+
+    Correccion de errores al solicitar tabla, eliminando campos no existentes de la variable anteriormente innecesaria.
+
+commit 64a8e752e3060e7fa5c271bc54322d813c71ae4a
+Author: Abigailnm <1717110627@utectulancingo.edu.mx>
+Date:   Tue Nov 13 12:23:01 2018 -0600
+
+    Se termino el diseño de la viewProveedor y view Sucursal, se creo el controller Proveedor y se configuro el cambio de panel en el controllerLogin
+
+commit ae21cfd5bb85079baf9e4d6ef10c74814007e305
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 13 12:00:45 2018 -0600
+
+    Se desarrollan los metodos para mandar datos, obtener datos, insertar y conectar a base en el model y controller Empleado
+
+commit f25672511544fb4db97c2d711317f537d4ecb02e
+Merge: cc28b97 58fe925
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 11:48:12 2018 -0600
+
+    Merge remote-tracking branch 'origin/master'
+
+commit cc28b97d75a7f45a4395dc465d071d9e78ae2590
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 11:45:24 2018 -0600
+
+    Se crea el metodo mouse clicked que al  seleccionar un dato de la tabal permitira ver mas a detalle el registro por medio de los campos
+
+commit 35bfb1a3ab231971baa2e9b2e989439c57fd0a8c
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Tue Nov 13 11:44:13 2018 -0600
+
+    Se crea el metodo datos el cual permitira mostrar los datos en los campos de la vista
+    y se elimina una variable que no debia existir
+
+commit 73749814223a526e2d10a586448216834ba584c1
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 23:48:32 2018 -0600
+
+    Se crea el panel Consultar producto dentro de la viewVendedor
+
+commit 58fe9257a61144ca37264834b3fcfe7e9f775416
+Author: Abigailnm <39100453+Abigailnm@users.noreply.github.com>
+Date:   Mon Nov 12 20:54:47 2018 -0600
+
+    Diagrama Top-Down
+
+commit 384851ea0d5e393a8549e0d8f8dee332e646301e
+Merge: 918f1c4 c60965b
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 13:32:31 2018 -0600
+
+    Conflicto arreglado
+
+commit 918f1c421c365a5cbd25a92f7f88397c9b5501fe
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 13:32:02 2018 -0600
+
+    Conflicto arreglado
+
+commit c60965b628804670ed4c2e9419dbfb6a3c798104
+Merge: ee6a80d 317e9e4
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:28:05 2018 -0600
+
+    Correcion de conflicto
+
+commit ee6a80d72a76531411b9070979d12a8c1e73d1cb
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:26:46 2018 -0600
+
+    Se eliminan lineas y se actualiza el proyecto
+
+commit 6d76252dcb2aaf09674b8383abdff5c70c4a2435
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:15:45 2018 -0600
+
+    Se crea la clase ConnectDatabase para acceder a la base de datos de forma rapida.
+
+commit 04bc565127eeae0a35fdb62ba4af00c35dc0b20b
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:14:49 2018 -0600
+
+    Correccion de error en modelCatalogo, metodo connectarDB tenia repeticion
+
+commit 2f7edc249963f9538a7182edb3e5bfd7f2a5d42f
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:06:08 2018 -0600
+
+    Se realiza los metodos para iniciar la conexion a la base de datos, llenar la tabla y mostrarla en el jtable de la vista.
+    Se preparan los mouseListener para que al hacer click en un dato de la tabla se llenen los campos de los jtextfield, jcombobox y jtextarea
+
+commit b163f8ce141f2efb5353d94ff06832622c5498b6
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 12 13:03:17 2018 -0600
+
+    Se hacen los metodos para acceder a la base de datos.
+    Se hace el metodo para llenar la tabla de la vista
+
+commit 317e9e4af9f678a39dcf2b0a5c5fba85f2536684
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 12:58:01 2018 -0600
+
+    Se crea la vista, controlador y modelo de Vendedor y se codifica en el controllerLogin y Main
+
+commit 7699b16d8a2b11c27c75bdc8bf6c8df280aec01a
+Merge: 77502cb e6856d6
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 12:03:46 2018 -0600
+
+    conflicto corregido
+
+commit 77502cb2bbbd68e9e1f191f2544f42cba38c5992
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 12 12:01:08 2018 -0600
+
+    Se añadio al menu opciones el jmi_cerrar y se dio diseño, y se corrigio programacion para el jmi_volver
+
+commit e6856d68f4447c09b9a5a9ba305e3a2b9bc5d364
+Merge: 4619bde e9d9ef4
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Sun Nov 11 23:00:00 2018 -0600
+
+    Merge branch 'master' of https://github.com/NeoxTec/quetzalStock
+
+commit 4619bde0374706f98322b4316ed1689513ec9c2c
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Sun Nov 11 22:46:47 2018 -0600
+
+    Se actualiza el proyecto
+
+commit e9d9ef4b6f39d8a310879daec143178e84ecd9eb
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 19:27:48 2018 -0600
+
+    Se realizan modificaciones en el tamaño de viewLogin, viewAdmin, viewEmpleado y cambio en el titulo del JFrame en el controllerLogin
+
+commit aff5b3d5d5e1e664a7106bf64e145ab573b2dbc4
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 19:21:11 2018 -0600
+
+    Se realizan modificaciones en el controller Login y Admin, asi como en el main, para poder mostar el panel Empleado
+
+commit 648f2d200ce6e1c71e373f95f4ff013750946cb3
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 19:11:26 2018 -0600
+
+    Diseño de la viewEmpleados terminado
+
+commit 5c16ef4669e8d140e93977cad729859223b00b9b
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 18:34:16 2018 -0600
+
+    Diseño de la viewAdmin terminado, modificacion de tamaño de la viewLogin e imagen fondo agregada a images
+
+commit d4d593f5dd0457fa3508a4ab34af9402e9d9b0e3
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 18:08:25 2018 -0600
+
+    Se añade al menu opciones la opcion volver y se codifica su accion en el controllerLogin
+
+commit ecc08553a47d79162cde0f37e6c7b51b549d9a9a
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 17:55:13 2018 -0600
+
+    Se realizan modificaciones en el controller Loging y Admin, asi como en el main, para poder mostar el panel Catalogo
+
+commit a76595339acdd6b61c49576f07d5185edb33da93
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 17:42:15 2018 -0600
+
+    Se crea el controllerCatalogo, se codifica el controller Admin para mostrar la viewCatalogo, se codifica el main para el cambio al catalogo
+
+commit 95e57e3dbd253911edb14e5be74d1c20a9813828
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 10 16:30:53 2018 -0600
+
+    Se añaden funciones al menu de opciones y se programa su visualizacion en el controllerLogin
+
+commit b899bca829e70e89de75b0fc5ceca6dbab310ba5
+Merge: 4dcbf59 9535aad
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 9 23:29:56 2018 -0600
+
+    Problema corregido
+
+commit 4dcbf5921f04c157e55ae0646692cafd34259720
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 9 00:38:26 2018 -0600
+
+    Cambios en el private xml
+
+commit 9535aade50be4a2ea4ee7680f1f4ea5f235fde55
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Fri Nov 9 00:31:19 2018 -0600
+
+    Se crea la vista Catalogo el cual se modifica la posicion de los atributos de la vista haciendolos iguales al wireframe
+
+commit f4a074058182a81a445dea60747fe783405bce3a
+Merge: 5f3a958 d08a194
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 23:42:01 2018 -0600
+
+    Merge branch 'master' of https://github.com/NeoxTec/quetzalStock
+
+commit 5f3a958bb274797421e310b244904ccc5b2b5747
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 23:41:26 2018 -0600
+
+    Se actualiza la vista VentaConsulta
+
+commit d08a194b4ed2eb5761c283103c01e387969538f4
+Author: Diego Bolaños Pardo <37430615+DiegoBP12@users.noreply.github.com>
+Date:   Thu Nov 8 20:20:30 2018 -0600
+
+    WireFrames
+    
+    Documento que contiene todos los WireFrames del sistema Quetzalstock
+
+commit 36333aacfde4767bf0293ddc17b750d5a5119afa
+Author: Diego Bolaños Pardo <37430615+DiegoBP12@users.noreply.github.com>
+Date:   Thu Nov 8 20:19:27 2018 -0600
+
+    Cambio de documento
+
+commit 991bc4f3cd6ddc278e8b8745f5c4f6db70e49371
+Author: Diego Bolaños Pardo <37430615+DiegoBP12@users.noreply.github.com>
+Date:   Thu Nov 8 18:53:36 2018 -0600
+
+    Archivo PDF de los WireFrames
+    
+    Archivo que contiene los wireframes del sistema quetzalstock
+
+commit 19ee6bef0091bf8c690fb7edd4c5ae15d4b5d6f0
+Merge: f3f3ae9 01fb781
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 8 18:00:25 2018 -0600
+
+    Se arreglaron los conflictos
+
+commit f3f3ae905bb43efc8004947be85e3c3cfbfb76ab
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 8 17:13:54 2018 -0600
+
+    Se realizo modificacion en la base y se agrega la tabla corte
+
+commit 770cd672cce7e61ffe6d7462c3c38a9008950986
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 13:33:48 2018 -0600
+
+    La vista se le asigna radio buttons para poder realizar diversas consultas en el mismo panel
+
+commit 01fb7815ce99dd1656a3bf5e02c175d73de5911d
+Merge: 1433276 08add88
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 10:07:19 2018 -0600
+
+    Merge branch 'master' of https://github.com/NeoxTec/quetzalStock
+
+commit 14332765d88a6fafb6cfad4960b22bbeafc8eaf7
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:59:20 2018 -0600
+
+    Se realiza el modelo catalogo y se ingresa las variables con los get y set iniciales
+
+commit 71f3f3f715476da8f6fd0c5e24fb23caccf1fed4
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Thu Nov 8 09:32:16 2018 -0600
+
+    Se realizo modificacion en la base y pruebas en algunas vistas
+
+commit 0ede6945949fc9ef68621b06dce1e7cdef08e98d
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:20:28 2018 -0600
+
+    Las tablas ahora son publicas
+
+commit 367d23596e18689459ea504a33a5da0a4bce6310
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:18:37 2018 -0600
+
+    Los campos de la vista detalle compra ya se les asigno nombres para su uso y son publicas
+
+commit 20bcdc46a5dc7f53019b175d50df102daaed710e
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:11:58 2018 -0600
+
+    Los campos de la vista ventas consulta ahora son publicos
+
+commit cf5911ad9b5def82db1c7cfce6cd6c486a08e24d
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:11:07 2018 -0600
+
+    Los campos de la vista ahora son publicos
+
+commit 58ca7763513436bf01250ca9fa289a3f7c6a608e
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:08:04 2018 -0600
+
+    Campos de la vista ahora son publicos
+
+commit 3569bb00046867f3f62972a791b793225b1dd495
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:06:30 2018 -0600
+
+    Vista detalles de compra finalizada
+
+commit 881cb66f4b09e37babc7a869556ac707c4a497eb
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 09:05:11 2018 -0600
+
+    Se agrega boton para regresar al panel anterior
+
+commit d26328dec2401e4e397ff8cc4433ecaa1e39a29d
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 08:37:23 2018 -0600
+
+    Vista de las compras finalizada
+
+commit 7a522ac360eebaf22794b7a1015d43f4e96571a3
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Thu Nov 8 01:04:49 2018 -0600
+
+    Vista para consultas de ventas elaborada.
+
+commit 08add88f384e0d64ae327496eea8e1778b76b575
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Wed Nov 7 23:28:29 2018 -0600
+
+    Se realiza una modificación al script
+
+commit 560bcf5e1c7d731be7af49a48e772410e5628a62
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 6 12:29:27 2018 -0600
+
+    Vista Login Terminada
+
+commit d602c6e2e20695c85e68ce18ce721ce39a18ca11
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Tue Nov 6 12:18:50 2018 -0600
+
+    Vista Login Terminada
+
+commit 6c493307b5559f5c8ab081892c12e7440111c2e4
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Mon Nov 5 13:20:59 2018 -0600
+
+    Script de la base de datos terminado
+
+commit fff1f335bfdf03912dc4418e169178eb17a446ca
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Mon Nov 5 10:47:08 2018 -0600
+
+    Se crea el modelo del Catalogo y se agregan las variables con las que se trabajara, asi como sus respectivos getters y setters
+
+commit 60bd38f1da5521afa5df20c26d0d49d5efeb2b7c
+Merge: 76e75ae ae5af68
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sun Nov 4 20:05:42 2018 -0600
+
+    Estructura vista empleado terminada
+
+commit ae5af680d04146d3577883c8fda45d4c113c89f3
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Sat Nov 3 00:16:16 2018 -0600
+
+    Vista terminada
+
+commit 388b8daf7fa7f2cfb56e701957c4ae11249e4bb3
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Sat Nov 3 00:11:36 2018 -0600
+
+    Se establece nombres a los identificadores y a la vista asi mismo se agrega los campos que tendran los jcombobox
+
+commit 76e75aec47a429d6900cb2f3a00b8d3272571f8d
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Sat Nov 3 00:07:33 2018 -0600
+
+    Se añaden el model,view y controller de Empleado
+
+commit c631e54c04f0919c9bc418a39f325f1f98ae88c9
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 23:52:18 2018 -0600
+
+    Se añade al metodo controllerLogin la llamada al metodo setActionListener
+
+commit 6c2d8fdcbe89041b351c48e46f4dfb330193a107
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Fri Nov 2 23:50:14 2018 -0600
+
+    Se crea la vista del catalogo.
+    Se desarrolla el boceto de la vista
+
+commit 2c39dfce7547af6a2a19888090c36cf051b94ef9
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 23:43:06 2018 -0600
+
+    Se agrega el metodo SetControllers al controllerLogin
+
+commit fa50f57e12feb02aa78d77a27ad27c008861721b
+Author: MarioAlbertoNL1799 <37378931+MarioAlbertoNL1799@users.noreply.github.com>
+Date:   Fri Nov 2 23:20:45 2018 -0600
+
+    Modificacion y revision de base de datos
+
+commit 32887ebc6363e260014218c00c16e093fdcc197c
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 21:30:48 2018 -0600
+
+    Se añade el script de la base de datos
+
+commit cf9375402dbfda13a02b1fc2931c004826a9f5d1
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 19:28:48 2018 -0600
+
+    Se codifica en el main el controllerAdmin para poder hacer el cambio de panel
+
+commit ba8e1d453e23a591a722b39169c0079cf5795731
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 19:22:05 2018 -0600
+
+    Se codifica el controllerAdmin y el viewAdmin
+
+commit bb827ba37eac6307805a0d1acfa19033bb01eba7
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 19:08:09 2018 -0600
+
+    Se crea el controllerAdmin y viewAdmin
+
+commit 9c418f53d1f171b2168b674b81c5547bc8003fd6
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 19:03:28 2018 -0600
+
+    Se codifica el boton entrar para poder cambiarl al panel a crear de viewAdmin
+
+commit 8b82ee68bdce0074ae8a14a4c0988b2948f4b8a0
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 18:53:31 2018 -0600
+
+    Se comienza a codificar el controller login para poder ver la viewLogin
+
+commit a97f295c51394512c8cca375312f15d1ce87cb1c
+Author: DiegoBP12 <1717110611@utectulancingo.edu.mx>
+Date:   Fri Nov 2 18:36:55 2018 -0600
+
+    Se añaden los paquetes clave de mvc (models,views y controllers), asi como el paquete images donde se almacena el icono
+
+commit ff8bdf9d51cf15f8356b13b13bfc291a26ed8a9a
+Author: Salvador HM <salvadorhm@utec-tgo.edu.mx>
+Date:   Mon Oct 15 08:39:33 2018 -0500
+
+    Estructura para un proyecto de punto de venta

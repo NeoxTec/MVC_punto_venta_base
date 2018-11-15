@@ -111,6 +111,7 @@ public class controllerLogin {
         viewAdmin.jb_empleados.addActionListener(actionListener);
         viewLogin.jb_admin.addActionListener(actionListener);
         viewLogin.jb_vendedor.addActionListener(actionListener);
+        viewAdmin.jb_proovedores.addActionListener(actionListener);
     }
     
     /**
@@ -132,16 +133,16 @@ public class controllerLogin {
                  empleado_actionPerformed();
             }
             else if(e.getSource() == viewAdmin.jb_proovedores){
-                
+                proveedor_actionPerformed();
             }
             else if(e.getSource() == viewLogin.jmi_cerrar){
                 inicio_actionPerformed();
             }
-            else if(e.getSource() == viewLogin.jb_admin){
+            else if (e.getSource() == viewLogin.jb_admin){
                 admin_actionPerformed();
                 desocultar();
-            }
-            else if(e.getSource() == viewLogin.jb_vendedor){
+             }
+            else if (e.getSource() == viewLogin.jb_vendedor) {
                 vendedor_actionPerformed();
                 desocultar();
             }
@@ -229,7 +230,6 @@ public class controllerLogin {
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
-        
     }
     
     
