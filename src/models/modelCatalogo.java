@@ -6,15 +6,13 @@
 package models;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -119,7 +117,7 @@ public class modelCatalogo {
            descripcion = rs.getString("descripcion");
            precio_unitario =  rs.getDouble("precio");
            precio_mayoreo =  rs.getDouble("precio_mayoreo");
-           unidad_medida = rs.getString("unidad");
+           unidad_medida = rs.getObject("unidad");
            iva = rs.getObject("iva");
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
@@ -127,20 +125,13 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-<<<<<<< HEAD
-        rs = ConnectDatabase.getTabla("SELECT id,nombre,descripcion,iva,precio, precio_mayoreo,unidad FROM catalogo");
-        modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida", "Capacidad"});
-=======
         rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
->>>>>>> origin/master
         try {
            while (rs.next()){
             modelo.addRow(new Object[]{
                 rs.getInt("id"), 
                 rs.getString("nombre"), 
-                rs.getString("descripcion"),
-                rs.getString("iva"),
                 rs.getDouble("precio"),
                 rs.getDouble("precio_mayoreo"),
                 rs.getString("unidad")});
