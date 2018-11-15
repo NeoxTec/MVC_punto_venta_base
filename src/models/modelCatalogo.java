@@ -6,15 +6,13 @@
 package models;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -119,7 +117,7 @@ public class modelCatalogo {
            descripcion = rs.getString("descripcion");
            precio_unitario =  rs.getDouble("precio");
            precio_mayoreo =  rs.getDouble("precio_mayoreo");
-           unidad_medida = rs.getString("unidad");
+           unidad_medida = rs.getObject("unidad");
            iva = rs.getObject("iva");
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
@@ -134,8 +132,6 @@ public class modelCatalogo {
             modelo.addRow(new Object[]{
                 rs.getInt("id"), 
                 rs.getString("nombre"), 
-                rs.getString("descripcion"),
-                rs.getString("iva"),
                 rs.getDouble("precio"),
                 rs.getDouble("precio_mayoreo"),
                 rs.getString("unidad")});
