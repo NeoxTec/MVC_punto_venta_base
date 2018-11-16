@@ -126,76 +126,16 @@ public class modelSucursal {
 
     //COMIENZA EL CODIGO A BASE DE DATOS Y TERMINAN SETTERS Y GETTERS 
 
-    public Connection ConectarBD() { //metodo para conexion a la base de datos 
-        try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
-            actualizarSucursal();
-            setValues();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en conexion" + e.getMessage());
-        }
-        return conexion;
-    }
+   
 
-    public void actualizarSucursal() {
-        try {
-            String sql = "SELECT * FROM sucursal;";
-            ps = conexion.prepareStatement(sql);
-            System.out.println(sql);
-            rs = ps.executeQuery(sql);
-            rs.next();
-            setValues();
+    
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error_Actualizar_tabla" + e.getMessage());
-        }
-    }
+   
 
-    public void setValues() {
-        try {
-            id = rs.getString("id");
-            calle = rs.getString("calle");
-            colonia = rs.getString("colonia");
-            no_ext = rs.getString("no_ext");
-            no_int = rs.getString("no_int");
-            cp = rs.getString("cp");
-            telefono = rs.getString("telefono");
-            
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error model 102: " + e.getMessage());
-
-        }
-    }
-
-    public void guardarRegistro( String calle, String colonia, String no_ext, String no_int, String cp, String telefono) {
-        try {
-            conexion = null;
-            conexion = ConectarBD();
-            ps = conexion.prepareStatement("INSERT INTO sucursal (calle, colonia, no_ext, no_int, cp,telefono) VALUES (?,?,?,?,?,?)");
-            ps.setString(1, calle);
-            ps.setString(2, colonia);
-            ps.setString(3, no_ext);
-            ps.setString(4, no_int);
-            ps.setString(5, cp);
-            ps.setString(6, telefono);
-            int devuelto = ps.executeUpdate();
-            if (devuelto > 0) {
-                JOptionPane.showMessageDialog(null, "Datos guardados...");
-
-                actualizarSucursal();
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Datos NO registrados");
-            }
-
-        } catch (SQLException e) {
-            Logger.getLogger(modelSucursal.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
+   
 public void guardarRegistro() {
          try {
-            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ no_ext+"','"+ not +"','"+ cp +"','"+ telefono +"','"+ correo +"');";
+            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_int, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ no_ext+"','"+ no_int +"','"+ cp +"','"+ telefono +"');";
             System.out.println(sql);
             st.executeUpdate(sql);
     
