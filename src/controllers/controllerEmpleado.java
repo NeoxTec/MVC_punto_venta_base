@@ -37,7 +37,7 @@ public class controllerEmpleado {
         viewEmpleado.jtf_ape_m.setEditable(true);
         viewEmpleado.jtf_telefono.setEditable(true);
         viewEmpleado.jtf_correo.setEditable(true);
-        viewEmpleado.jtf_fecha_nac.setEditable(true);
+        viewEmpleado.jft_fecha.setEditable(true);
         viewEmpleado.jcb_genero.setEnabled(true);
         viewEmpleado.jtf_calle.setEditable(true);
         viewEmpleado.jtf_colonia.setEditable(true);
@@ -57,7 +57,8 @@ public class controllerEmpleado {
         viewEmpleado.jtf_ape_m.setEditable(false);
         viewEmpleado.jtf_telefono.setEditable(false);
         viewEmpleado.jtf_correo.setEditable(false);
-        viewEmpleado.jtf_fecha_nac.setEditable(false);
+        viewEmpleado.jft_fecha.setEditable(false);
+        viewEmpleado.jft_fecha.setText("aaaa/mm/dd");
         viewEmpleado.jcb_genero.setEnabled(false);
         viewEmpleado.jtf_calle.setEditable(false);
         viewEmpleado.jtf_colonia.setEditable(false);
@@ -128,7 +129,7 @@ public class controllerEmpleado {
         modelEmpleado.setCorreo(viewEmpleado.jtf_correo.getText());
         modelEmpleado.setTelefono(viewEmpleado.jtf_telefono.getText());
         modelEmpleado.setGenero((String) viewEmpleado.jcb_genero.getSelectedItem());
-        modelEmpleado.setFecha_n(viewEmpleado.jtf_fecha_nac.getText());
+        modelEmpleado.setFecha_n(viewEmpleado.jft_fecha.getText());
         modelEmpleado.setCalle(viewEmpleado.jtf_calle.getText());
         modelEmpleado.setColonia(viewEmpleado.jtf_colonia.getText());
         modelEmpleado.setNo_ext(Integer.parseInt(viewEmpleado.jtf_no_ext.getText()));
@@ -152,7 +153,7 @@ public class controllerEmpleado {
         viewEmpleado.jtf_correo.setText(modelEmpleado.getCorreo());
         viewEmpleado.jtf_telefono.setText(modelEmpleado.getTelefono());
         viewEmpleado.jcb_genero.setSelectedItem(modelEmpleado.getGenero());
-        viewEmpleado.jtf_fecha_nac.setText(modelEmpleado.getFecha_n());
+        viewEmpleado.jft_fecha.setText(modelEmpleado.getFecha_n());
         viewEmpleado.jtf_calle.setText(modelEmpleado.getCalle());
         viewEmpleado.jtf_colonia.setText(modelEmpleado.getColonia());
         viewEmpleado.jtf_no_ext.setText(String.valueOf(modelEmpleado.getNo_ext()));
