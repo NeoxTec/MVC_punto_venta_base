@@ -73,23 +73,6 @@ public void setActionlistener() {
     };
     
 
-    /**
-     * Método para ver el registro anterior de la tabla contactos
-     */
-   
-    /**
-     * Método para ver el siguiente registro de la tabla contactos
-     */
-    
-    
-    /**
-     * Método para ver el último registro de la tabla contactos
-     */
-    
-    
-    /**
-     * Método para preparar la interfaz para colocar un nuevo registro en la tabla contactos
-     */
     public void jb_nuevo_actionPerformed() {
         viewProveedor.jtf_rfc.setText(""); 
         viewProveedor.jtf_calle.setText("");
