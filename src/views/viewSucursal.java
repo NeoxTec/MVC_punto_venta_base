@@ -197,6 +197,11 @@ public class viewSucursal extends javax.swing.JPanel {
         jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
         jb_guardar.setText("Guardar");
         jb_guardar.setBorder(null);
+        jb_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_guardarActionPerformed(evt);
+            }
+        });
         add(jb_guardar);
         jb_guardar.setBounds(335, 470, 130, 40);
 
@@ -238,18 +243,22 @@ public class viewSucursal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_idActionPerformed
 
+    private void jb_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_guardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton jb_agregar;
+    public javax.swing.JButton jb_agregar;
     private javax.swing.JButton jb_buscar;
-    private javax.swing.JButton jb_cancelar;
-    private javax.swing.JButton jb_eliminar;
-    private javax.swing.JButton jb_guardar;
-    private javax.swing.JButton jb_modificar;
+    public javax.swing.JButton jb_cancelar;
+    public javax.swing.JButton jb_eliminar;
+    public javax.swing.JButton jb_guardar;
+    public javax.swing.JButton jb_modificar;
     private javax.swing.JLabel jl_calle;
     private javax.swing.JLabel jl_colonia;
     private javax.swing.JLabel jl_cp;

@@ -115,91 +115,20 @@ public class modelProveedor {
             JOptionPane.showMessageDialog(null, "Error ModelProveedor 001: " + err.getMessage());
         }
     }
-     public void moverPrimerRegistro(){
-        try {
-            if (rs.isFirst() == false) {
-                rs.first(); //Primer registro
-                this.setRfc(rs.getString("rfc"));
-                this.setNombre(rs.getString("nombre"));
-                this.setCalle(rs.getString("calle"));
-                this.setColonia(rs.getString("colonia"));
-                this.setNoext(rs.getString("noext"));
-                this.setCp(rs.getString("cp"));
-                this.setTelefono(rs.getString("telefono"));
-                this.setCorreo(rs.getString("Correo"));
-                
-            }
-        } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
-        }
-    }
-     public void moverAnteriorRegistro(){
-        try {
-            if (rs.isFirst() == false) {
-                rs.previous(); //Registro anterior
-
-                this.setRfc(rs.getString("rfc"));
-                this.setNombre(rs.getString("nombre"));
-                this.setCalle(rs.getString("calle"));
-                this.setColonia(rs.getString("colonia"));
-                this.setNoext(rs.getString("noext"));
-                this.setCp(rs.getString("cp"));
-                this.setTelefono(rs.getString("telefono"));
-                this.setCorreo(rs.getString("Correo"));
-            }
-        } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
-        }
-    }
- public void moverSiguienteRegistro(){
-        try{
-            if(rs.isLast()==false) {
-                rs.next(); // Siguiente registro 
-                
-                 this.setRfc(rs.getString("rfc"));
-                this.setNombre(rs.getString("nombre"));
-                this.setCalle(rs.getString("calle"));
-                this.setColonia(rs.getString("colonia"));
-                this.setNoext(rs.getString("noext"));
-                this.setCp(rs.getString("cp"));
-                this.setTelefono(rs.getString("telefono"));
-                this.setCorreo(rs.getString("Correo"));
-            }
-        } catch(Exception err) {
-            JOptionPane.showMessageDialog(null,"Error " + err.getMessage());
-        }
-    }
-  public void moverUltimoRegistro(){
-        try {
-            if (rs.isLast() == false) {
-                rs.last(); //Último registro
-
-                this.setRfc(rs.getString("rfc"));
-                this.setNombre(rs.getString("nombre"));
-                this.setCalle(rs.getString("calle"));
-                this.setColonia(rs.getString("colonia"));
-                this.setNoext(rs.getString("noext"));
-                this.setCp(rs.getString("cp"));
-                this.setTelefono(rs.getString("telefono"));
-                this.setCorreo(rs.getString("Correo"));
-            }
-        } catch (Exception err) {
-            JOptionPane.showMessageDialog(null, "Error " + err.getMessage());
-        }
-    }
    public void eliRegistro() {
         try {
+            String sql = "DELETE FROM proveedor WHERE rfc = "+ rfc +"; ";
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar este registro?", "Borrar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
                 rfc = rs.getString("rfc");
-                st.executeUpdate("DELETE FROM proveedor WHERE rfc = "+ rfc +"; ");
+                st.executeUpdate(sql);
                 
                 this.conectarDB();
-                this.moverUltimoRegistro();
+                
             }
             else {
                 this.conectarDB();
-                this.moverUltimoRegistro();
+                
             }
         }
         catch(SQLException err) { 
@@ -208,18 +137,13 @@ public class modelProveedor {
     }
     public void insertarRegistro() {
         try {
-            rfc = this.getRfc();
-            nombre = this.getNombre();
-            calle=this.getCalle();
-            colonia=this.getColonia();
-            noext=this.getNoext();
-            cp=this.getCp();
-            telefono=this.getTelefono();
-            correo=this.getCorreo();
-            st.executeUpdate("INSERT INTO proveedor (rfc, nombre, calle,colonia, noext, cp, telefono,correo)" + " VALUES ('"+ rfc +"','"+nombre +"','"+calle +"','"+ colonia +"','"+ noext +"','"+ cp +"','"+ telefono +"','"+ correo +"');");
+            String sql =  "INSERT INTO proveedor (rfc, nombre, calle,colonia, noext, cp, telefono,correo)" + " VALUES ('"+ rfc +"','"+nombre +"','"+calle +"','"+ colonia +"','"+ noext +"','"+ cp +"','"+ telefono +"','"+ correo +"');";
+            System.out.println(sql);
+            st.executeUpdate(sql);
+            
             JOptionPane.showMessageDialog(null, "Felicidades registro guardado.");
             this.conectarDB();
-            this.moverUltimoRegistro();
+            
         }
         catch(SQLException err) { 
             JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
@@ -227,18 +151,12 @@ public class modelProveedor {
     }
      public void modiRegistro() {
         try {
-            rfc = this.getRfc();
-            nombre = this.getNombre();
-            calle=this.getCalle();
-            colonia=this.getColonia();
-            noext=this.getNoext();
-            cp=this.getCp();
-            telefono=this.getTelefono();
-            correo=this.getCorreo();
-            st.executeUpdate("UPDATE proveedor SET nombre = '"+ nombre +"', calle = '"+ calle +"',colonia = '"+ colonia +"',noext = '"+ noext +"',cp = '"+ cp +"', telefono = '"+ telefono +"',correo = '"+ correo +"' WHERE rfc = "+ rfc +"; ");
+          String sql = "UPDATE proveedor SET nombre = '"+ nombre +"', calle = '"+ calle +"',colonia = '"+ colonia +"',noext = '"+ noext +"',cp = '"+ cp +"', telefono = '"+ telefono +"',correo = '"+ correo +"' WHERE rfc = "+ rfc +"; ";
+            System.out.println(sql);
+          st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se modifico correctamente el registro.");
             this.conectarDB();
-            this.moverUltimoRegistro();
+            
         }
         catch(SQLException err) { 
             JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
