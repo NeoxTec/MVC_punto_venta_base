@@ -34,7 +34,7 @@ public class viewVendedor extends javax.swing.JPanel {
         jl_tipo_user = new javax.swing.JLabel();
         jl_fecha1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_venta = new javax.swing.JTable();
         jb_buscar = new javax.swing.JButton();
         jb_cobrar = new javax.swing.JButton();
         jb_cancel_venta = new javax.swing.JButton();
@@ -45,13 +45,16 @@ public class viewVendedor extends javax.swing.JPanel {
         jtf_captura = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         js_2 = new javax.swing.JSeparator();
-        jl_tipo_pago = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jl_cambio = new javax.swing.JLabel();
+        jrb_tarjeta = new javax.swing.JRadioButton();
         jrb_Efectivo = new javax.swing.JRadioButton();
         js_3 = new javax.swing.JSeparator();
         jl_tipo_pago1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtf_tarjeta = new javax.swing.JTextField();
+        jl_tipo_pago2 = new javax.swing.JLabel();
+        jl_num_tarjeta = new javax.swing.JLabel();
+        jtf_total1 = new javax.swing.JTextField();
+        jl_tipo_pago4 = new javax.swing.JLabel();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -82,8 +85,8 @@ public class viewVendedor extends javax.swing.JPanel {
         add(jl_fecha1);
         jl_fecha1.setBounds(760, 20, 100, 21);
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_venta.setBackground(new java.awt.Color(204, 204, 204));
+        jt_venta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -102,7 +105,7 @@ public class viewVendedor extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jt_venta);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(10, 120, 790, 280);
@@ -186,23 +189,17 @@ public class viewVendedor extends javax.swing.JPanel {
         add(js_2);
         js_2.setBounds(10, 60, 1040, 20);
 
-        jl_tipo_pago.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
-        jl_tipo_pago.setForeground(new java.awt.Color(255, 102, 0));
-        jl_tipo_pago.setText("TOTAL");
-        add(jl_tipo_pago);
-        jl_tipo_pago.setBounds(10, 520, 120, 21);
+        jl_cambio.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_cambio.setForeground(new java.awt.Color(255, 102, 0));
+        jl_cambio.setText("$ 0.00");
+        add(jl_cambio);
+        jl_cambio.setBounds(360, 520, 120, 21);
 
-        jRadioButton1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jRadioButton1.setText("Tarjeta");
-        add(jRadioButton1);
-        jRadioButton1.setBounds(170, 460, 89, 29);
-
-        jRadioButton2.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jRadioButton2.setText("Vale");
-        add(jRadioButton2);
-        jRadioButton2.setBounds(320, 460, 61, 29);
+        jrb_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jrb_tarjeta.setForeground(new java.awt.Color(255, 102, 0));
+        jrb_tarjeta.setText("Tarjeta");
+        add(jrb_tarjeta);
+        jrb_tarjeta.setBounds(170, 460, 89, 29);
 
         jrb_Efectivo.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jrb_Efectivo.setForeground(new java.awt.Color(255, 102, 0));
@@ -218,10 +215,32 @@ public class viewVendedor extends javax.swing.JPanel {
         add(jl_tipo_pago1);
         jl_tipo_pago1.setBounds(10, 410, 120, 21);
 
-        jTextField2.setFont(new java.awt.Font("AR DESTINE", 0, 16)); // NOI18N
-        jTextField2.setText("$ 0. 00");
-        add(jTextField2);
-        jTextField2.setBounds(110, 510, 130, 30);
+        jtf_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 16)); // NOI18N
+        add(jtf_tarjeta);
+        jtf_tarjeta.setBounds(620, 460, 400, 30);
+
+        jl_tipo_pago2.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_tipo_pago2.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_pago2.setText("TOTAL");
+        add(jl_tipo_pago2);
+        jl_tipo_pago2.setBounds(10, 520, 120, 21);
+
+        jl_num_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_num_tarjeta.setForeground(new java.awt.Color(255, 102, 0));
+        jl_num_tarjeta.setText("Número de Tarjeta");
+        add(jl_num_tarjeta);
+        jl_num_tarjeta.setBounds(380, 460, 230, 21);
+
+        jtf_total1.setFont(new java.awt.Font("AR DESTINE", 0, 16)); // NOI18N
+        jtf_total1.setText("$ 0. 00");
+        add(jtf_total1);
+        jtf_total1.setBounds(110, 510, 130, 30);
+
+        jl_tipo_pago4.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_tipo_pago4.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_pago4.setText("CAMBIO");
+        add(jl_tipo_pago4);
+        jl_tipo_pago4.setBounds(260, 520, 120, 21);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
@@ -236,29 +255,32 @@ public class viewVendedor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_pago;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField1;
     public javax.swing.JButton jb_buscar;
     public javax.swing.JButton jb_cancel_venta;
     public javax.swing.JButton jb_cancelar;
     public javax.swing.JButton jb_clientes;
     public javax.swing.JButton jb_cobrar;
     public javax.swing.JButton jb_corte;
+    public javax.swing.JLabel jl_cambio;
     private javax.swing.JLabel jl_fecha;
     private javax.swing.JLabel jl_fecha1;
     private javax.swing.JLabel jl_fondo;
-    private javax.swing.JLabel jl_tipo_pago;
+    private javax.swing.JLabel jl_num_tarjeta;
     private javax.swing.JLabel jl_tipo_pago1;
+    private javax.swing.JLabel jl_tipo_pago2;
+    private javax.swing.JLabel jl_tipo_pago4;
     private javax.swing.JLabel jl_tipo_user;
     private javax.swing.JLabel jl_titulo1;
-    private javax.swing.JRadioButton jrb_Efectivo;
+    public javax.swing.JRadioButton jrb_Efectivo;
+    public javax.swing.JRadioButton jrb_tarjeta;
     private javax.swing.JSeparator js_1;
     private javax.swing.JSeparator js_2;
     private javax.swing.JSeparator js_3;
-    private javax.swing.JTextField jtf_captura;
+    public javax.swing.JTable jt_venta;
+    public javax.swing.JTextField jtf_captura;
+    public javax.swing.JTextField jtf_tarjeta;
+    public javax.swing.JTextField jtf_total1;
     // End of variables declaration//GEN-END:variables
 }
