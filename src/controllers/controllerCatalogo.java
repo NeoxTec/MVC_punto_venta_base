@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import views.viewCatalogo;
@@ -20,6 +22,7 @@ public class controllerCatalogo {
         this.modelCatalogo = modelCatalogo;
         this.viewCatalogo = viewCatalogo;
         this.viewCatalogo.jt_catalogo.addMouseListener(ml);
+        this.viewCatalogo.jtf_buscar.addKeyListener(kl);
         initDB();
         viewCatalogo.setVisible(true);
     }
@@ -49,6 +52,20 @@ public class controllerCatalogo {
         @Override
         public void mouseExited(MouseEvent e) { }
     };
+     
+     KeyListener kl = new KeyListener(){
+         @Override
+        public void keyTyped(KeyEvent e) {
+            jb_buscar_keytyped();
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {
+        }
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+     };
+     
      public void jt_catalogo_mouseClicked(){
           int linea;
           linea = viewCatalogo.jt_catalogo.getSelectedRow();
@@ -60,7 +77,11 @@ public class controllerCatalogo {
           viewCatalogo.jtf_preciom.setText(String.valueOf(modelCatalogo.getPrecio_mayoreo()));
           viewCatalogo.jtf_preciou.setText(String.valueOf(modelCatalogo.getPrecio_unitario()));
           viewCatalogo.jta_descripcion.setText(modelCatalogo.getDescripcion());
-          
-          
+          viewCatalogo.jcb_unidadmedida.setSelectedItem(modelCatalogo.getUnidad_medida());
+          viewCatalogo.jcb_iva.setSelectedItem(modelCatalogo.getIva());
+          System.out.println(modelCatalogo.getIva());
 }
+     public void jb_buscar_keytyped(){
+         
+     }
  }

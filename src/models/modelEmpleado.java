@@ -5,8 +5,8 @@
  */
 package models;
 
+import bd.ConnectDatabase;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +20,7 @@ public class modelEmpleado {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
-
+    
     private String rfc;
     private String nombre;
     private String ape_p;
@@ -34,30 +34,6 @@ public class modelEmpleado {
     private String correo;
     private String genero;
     private String fecha_n;
-
-    public Connection getConexion() {
-        return conexion;
-    }
-
-    public void setConexion(Connection conexion) {
-        this.conexion = conexion;
-    }
-
-    public Statement getSt() {
-        return st;
-    }
-
-    public void setSt(Statement st) {
-        this.st = st;
-    }
-
-    public ResultSet getRs() {
-        return rs;
-    }
-
-    public void setRs(ResultSet rs) {
-        this.rs = rs;
-    }
 
     public String getRfc() {
         return rfc;
@@ -170,15 +146,10 @@ public class modelEmpleado {
      */
     public void conectarDB() {
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
+            conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
-            String sql = "SELECT * FROM empleados;";
-            System.out.println(sql);
-            rs = st.executeQuery(sql);
-            rs.next();
-            setValues();
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error modelEmpleado 001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
         }
     }
     
@@ -193,8 +164,8 @@ public class modelEmpleado {
             ape_m = rs.getString("ape_m");
             calle = rs.getString("calle");
             colonia = rs.getString("colonia");
-            no_ext = rs.getInt("no_ext");
-            no_int = rs.getInt("no_int");
+            no_ext = rs.getInt("no_exterior");
+            no_int = rs.getInt("no_interior");
             cp = rs.getString("cp");
             telefono = rs.getString("telefono");
             correo = rs.getString("correo");
@@ -205,6 +176,39 @@ public class modelEmpleado {
 
         }
     }
+    /**
+     * Método que realiza lo siguiente:
+     * 1.- Inserta en la tabla un nuevo registro con los valores de las variables
+     * 2.- Ejecuta una consulta de datos.
+     */
+    public void insertarRegistro(){
+        try{
+            String sql = "INSERT INTO empleado(rfc,nombre,ape_p,ape_m,calle,colonia,no_exterior,no_interior,cp,telefono,correo,genero,fecha_nac)" + "VALUES ('"+ rfc +"','"+ nombre +"','"+ ape_p +"','"+ ape_m +"','"+ calle +"','"+ colonia +"',"+ no_ext +","+ no_int +",'"+cp+"','"+telefono+"','"+correo+"','"+genero+"','"+fecha_n+"');";
+            System.out.println(sql);
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Se ha insertado correctamente");
+        }catch(SQLException err){
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda Inserción: " + err.getMessage());
+        }
+    }
+    
+    /**
+     * Método que realiza lo siguiente:
+     * 1.- Almacena un nuevo registro
+     * 2.- Manda un mensaje de que se actualizo correctamente
+     
+    public void guardarRegistro(){
+        try{
+            String sql = "UPDATE contactos SET nombre ='" + nombre + "', email = '" + email + "', telefono = '" + telefono + "' where id_contacto = '" + id + "';";
+            System.out.println(sql);
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Se ha actualizado correctamente");
+            rs = st.executeQuery("SELECT * FROM contactos;");
+        }catch(SQLException err){
+            
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda Actualizacion: " + err.getMessage());
+        }
+    }*/
 
     
 }

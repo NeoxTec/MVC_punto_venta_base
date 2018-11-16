@@ -35,6 +35,7 @@ public class Main {
         viewCatalogo viewCatalogo = new viewCatalogo();
         controllerCatalogo controllerCatalogo =  new controllerCatalogo(modelCatalogo,viewCatalogo);
         
+        
         modelAdmin modelAdmin = new modelAdmin();
         viewAdmin viewAdmin = new viewAdmin();
         controllerAdmin controllerAdmin = new controllerAdmin(modelAdmin, viewAdmin);
@@ -45,18 +46,27 @@ public class Main {
         //controllerSucursal controllerSucursal = new controllerSucursal(modelSucursal, viewSucursal);
     
       
-            
-        Object[] controllers = new Object[5];
-        controllers[0] = controllerAdmin;
-        controllers[1] = controllerCatalogo;
-        controllers[2] = controllerEmpleado;
-        controllers[3] = controllerVendedor;
-        controllers[4] = controllerProveedor;
+         modelInicio modelInicio = new modelInicio();
+         viewInicio viewInicio = new viewInicio();
+         controllerInicio controllerInicio = new controllerInicio(modelInicio,viewInicio);
+         
+         modelCompras modelCompras = new modelCompras();
+         viewCompra viewCompra = new viewCompra();
+         controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
+         
+        Object[] controllers = new Object[7];
+        controllers[0] = controllerInicio;
+        controllers[1] = controllerAdmin;
+        controllers[2] = controllerCatalogo;
+        controllers[3] = controllerEmpleado;
+        controllers[4] = controllerVendedor;
+        controllers[5] = controllerProveedor;
+        controllers [6] = controllerCompras;
         
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin, viewLogin,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,viewInicio,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,viewCompra,controllers);
     }
     
 }
