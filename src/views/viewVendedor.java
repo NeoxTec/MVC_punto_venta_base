@@ -165,7 +165,6 @@ public class viewVendedor extends javax.swing.JPanel {
         jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         jb_cancelar.setText("Cancelar Producto");
-        jb_cancelar.setAutoscrolls(true);
         jb_cancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jb_cancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jb_cancelar.setName(""); // NOI18N
@@ -245,7 +244,7 @@ public class viewVendedor extends javax.swing.JPanel {
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 1100, 580);
+        jl_fondo.setBounds(0, 0, 1100, 550);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscarActionPerformed
