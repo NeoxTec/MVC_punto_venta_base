@@ -27,162 +27,260 @@ public class viewVendedor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jl_titulo = new javax.swing.JLabel();
-        jl_sub = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jtf_buscar = new javax.swing.JTextField();
-        jb_cancelar = new javax.swing.JButton();
-        jb_buscar1 = new javax.swing.JButton();
+        bg_pago = new javax.swing.ButtonGroup();
+        js_1 = new javax.swing.JSeparator();
+        jl_fecha = new javax.swing.JLabel();
+        jl_titulo1 = new javax.swing.JLabel();
+        jl_tipo_user = new javax.swing.JLabel();
+        jl_fecha1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jl_sub1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jt_venta = new javax.swing.JTable();
+        jb_buscar = new javax.swing.JButton();
+        jb_cobrar = new javax.swing.JButton();
+        jb_cancel_venta = new javax.swing.JButton();
+        jb_clientes = new javax.swing.JButton();
+        jb_corte = new javax.swing.JButton();
+        jb_cancelar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jtf_captura = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        js_2 = new javax.swing.JSeparator();
+        jl_cambio = new javax.swing.JLabel();
+        jrb_tarjeta = new javax.swing.JRadioButton();
+        jrb_Efectivo = new javax.swing.JRadioButton();
+        js_3 = new javax.swing.JSeparator();
+        jl_tipo_pago1 = new javax.swing.JLabel();
+        jtf_tarjeta = new javax.swing.JTextField();
+        jl_tipo_pago2 = new javax.swing.JLabel();
+        jl_num_tarjeta = new javax.swing.JLabel();
+        jtf_total1 = new javax.swing.JTextField();
+        jl_tipo_pago4 = new javax.swing.JLabel();
         jl_fondo = new javax.swing.JLabel();
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 102, 0));
-        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
-        jTabbedPane1.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        setLayout(null);
+        add(js_1);
+        js_1.setBounds(10, 500, 1040, 20);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1063, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
-        );
+        jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
+        jl_fecha.setText("08/10/2018");
+        add(jl_fecha);
+        jl_fecha.setBounds(940, 20, 100, 21);
 
-        jTabbedPane1.addTab("Home", jPanel1);
+        jl_titulo1.setFont(new java.awt.Font("AR DESTINE", 0, 58)); // NOI18N
+        jl_titulo1.setForeground(new java.awt.Color(255, 102, 0));
+        jl_titulo1.setText("Ferretería ACME");
+        add(jl_titulo1);
+        jl_titulo1.setBounds(250, 10, 480, 40);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1063, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
-        );
+        jl_tipo_user.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_tipo_user.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_user.setText("Vendedor: NILMA01");
+        add(jl_tipo_user);
+        jl_tipo_user.setBounds(10, 20, 220, 20);
 
-        jTabbedPane1.addTab("Clientes", jPanel2);
+        jl_fecha1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_fecha1.setForeground(new java.awt.Color(255, 102, 0));
+        jl_fecha1.setText("Sucursal: 1");
+        add(jl_fecha1);
+        jl_fecha1.setBounds(760, 20, 100, 21);
 
-        jPanel3.setLayout(null);
+        jt_venta.setBackground(new java.awt.Color(204, 204, 204));
+        jt_venta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
 
-        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
-        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
-        jl_titulo.setText("Consultar Producto");
-        jPanel3.add(jl_titulo);
-        jl_titulo.setBounds(190, 10, 620, 70);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jt_venta);
 
-        jl_sub.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_sub.setForeground(new java.awt.Color(255, 102, 0));
-        jl_sub.setText("Existencias");
-        jPanel3.add(jl_sub);
-        jl_sub.setBounds(10, 310, 110, 20);
-        jPanel3.add(jSeparator1);
-        jSeparator1.setBounds(10, 330, 1000, 10);
-        jPanel3.add(jtf_buscar);
-        jtf_buscar.setBounds(190, 100, 490, 20);
+        add(jScrollPane1);
+        jScrollPane1.setBounds(10, 120, 790, 280);
+
+        jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_buscar.setText("Buscar Producto");
+        jb_buscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_buscarActionPerformed(evt);
+            }
+        });
+        add(jb_buscar);
+        jb_buscar.setBounds(940, 80, 121, 60);
+
+        jb_cobrar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cobrar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_cobrar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cobrar.setText("Cobrar");
+        jb_cobrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_cobrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_cobrar.setName(""); // NOI18N
+        add(jb_cobrar);
+        jb_cobrar.setBounds(810, 250, 120, 60);
+
+        jb_cancel_venta.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancel_venta.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_cancel_venta.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cancel_venta.setText("Cancelar Venta");
+        jb_cancel_venta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_cancel_venta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jb_cancel_venta);
+        jb_cancel_venta.setBounds(940, 160, 120, 60);
+
+        jb_clientes.setBackground(new java.awt.Color(255, 102, 0));
+        jb_clientes.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_clientes.setForeground(new java.awt.Color(255, 255, 255));
+        jb_clientes.setText("Clientes");
+        jb_clientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_clientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jb_clientes);
+        jb_clientes.setBounds(810, 80, 120, 60);
+
+        jb_corte.setBackground(new java.awt.Color(255, 102, 0));
+        jb_corte.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_corte.setForeground(new java.awt.Color(255, 255, 255));
+        jb_corte.setText("Corte de caja");
+        jb_corte.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_corte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_corte.setName(""); // NOI18N
+        add(jb_corte);
+        jb_corte.setBounds(940, 250, 120, 60);
 
         jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_cancelar.setText("Cancelar");
+        jb_cancelar.setText("Cancelar Producto");
         jb_cancelar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.add(jb_cancelar);
-        jb_cancelar.setBounds(810, 100, 80, 20);
+        jb_cancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_cancelar.setName(""); // NOI18N
+        add(jb_cancelar);
+        jb_cancelar.setBounds(810, 160, 120, 60);
 
-        jb_buscar1.setBackground(new java.awt.Color(255, 102, 0));
-        jb_buscar1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_buscar1.setText("Buscar");
-        jb_buscar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.add(jb_buscar1);
-        jb_buscar1.setBounds(710, 100, 80, 20);
+        jTextField1.setEnabled(false);
+        add(jTextField1);
+        jTextField1.setBounds(810, 350, 240, 20);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jtf_captura.setBackground(new java.awt.Color(153, 153, 153));
+        jtf_captura.setText("Ingresa código de Producto");
+        jtf_captura.setToolTipText("");
+        add(jtf_captura);
+        jtf_captura.setBounds(10, 70, 790, 50);
 
-        jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 180, 970, 110);
+        jLabel2.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel2.setText("Cliente");
+        add(jLabel2);
+        jLabel2.setBounds(810, 320, 100, 20);
+        add(js_2);
+        js_2.setBounds(10, 60, 1040, 20);
 
-        jl_sub1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_sub1.setForeground(new java.awt.Color(255, 102, 0));
-        jl_sub1.setText("Producto");
-        jPanel3.add(jl_sub1);
-        jl_sub1.setBounds(10, 140, 90, 20);
-        jPanel3.add(jSeparator2);
-        jSeparator2.setBounds(10, 160, 1000, 10);
+        jl_cambio.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_cambio.setForeground(new java.awt.Color(255, 102, 0));
+        jl_cambio.setText("$ 0.00");
+        add(jl_cambio);
+        jl_cambio.setBounds(360, 520, 120, 21);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        jrb_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jrb_tarjeta.setForeground(new java.awt.Color(255, 102, 0));
+        jrb_tarjeta.setText("Tarjeta");
+        add(jrb_tarjeta);
+        jrb_tarjeta.setBounds(170, 460, 89, 29);
 
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 340, 970, 110);
+        jrb_Efectivo.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jrb_Efectivo.setForeground(new java.awt.Color(255, 102, 0));
+        jrb_Efectivo.setText("Efectivo");
+        add(jrb_Efectivo);
+        jrb_Efectivo.setBounds(20, 460, 93, 29);
+        add(js_3);
+        js_3.setBounds(10, 440, 1040, 20);
+
+        jl_tipo_pago1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_tipo_pago1.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_pago1.setText("Tipo de pago");
+        add(jl_tipo_pago1);
+        jl_tipo_pago1.setBounds(10, 410, 120, 21);
+
+        jtf_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 16)); // NOI18N
+        add(jtf_tarjeta);
+        jtf_tarjeta.setBounds(620, 460, 400, 30);
+
+        jl_tipo_pago2.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_tipo_pago2.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_pago2.setText("TOTAL");
+        add(jl_tipo_pago2);
+        jl_tipo_pago2.setBounds(10, 520, 120, 21);
+
+        jl_num_tarjeta.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_num_tarjeta.setForeground(new java.awt.Color(255, 102, 0));
+        jl_num_tarjeta.setText("Número de Tarjeta");
+        add(jl_num_tarjeta);
+        jl_num_tarjeta.setBounds(380, 460, 230, 21);
+
+        jtf_total1.setFont(new java.awt.Font("AR DESTINE", 0, 16)); // NOI18N
+        jtf_total1.setText("$ 0. 00");
+        add(jtf_total1);
+        jtf_total1.setBounds(110, 510, 130, 30);
+
+        jl_tipo_pago4.setFont(new java.awt.Font("AR DESTINE", 0, 24)); // NOI18N
+        jl_tipo_pago4.setForeground(new java.awt.Color(255, 102, 0));
+        jl_tipo_pago4.setText("CAMBIO");
+        add(jl_tipo_pago4);
+        jl_tipo_pago4.setBounds(260, 520, 120, 21);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        jPanel3.add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 1060, 500);
-
-        jTabbedPane1.addTab("Consultar producto", jPanel3);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
+        add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1100, 550);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_buscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.ButtonGroup bg_pago;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JButton jb_buscar1;
-    private javax.swing.JButton jb_cancelar;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JButton jb_buscar;
+    public javax.swing.JButton jb_cancel_venta;
+    public javax.swing.JButton jb_cancelar;
+    public javax.swing.JButton jb_clientes;
+    public javax.swing.JButton jb_cobrar;
+    public javax.swing.JButton jb_corte;
+    public javax.swing.JLabel jl_cambio;
+    private javax.swing.JLabel jl_fecha;
+    private javax.swing.JLabel jl_fecha1;
     private javax.swing.JLabel jl_fondo;
-    private javax.swing.JLabel jl_sub;
-    private javax.swing.JLabel jl_sub1;
-    private javax.swing.JLabel jl_titulo;
-    private javax.swing.JTextField jtf_buscar;
+    private javax.swing.JLabel jl_num_tarjeta;
+    private javax.swing.JLabel jl_tipo_pago1;
+    private javax.swing.JLabel jl_tipo_pago2;
+    private javax.swing.JLabel jl_tipo_pago4;
+    private javax.swing.JLabel jl_tipo_user;
+    private javax.swing.JLabel jl_titulo1;
+    public javax.swing.JRadioButton jrb_Efectivo;
+    public javax.swing.JRadioButton jrb_tarjeta;
+    private javax.swing.JSeparator js_1;
+    private javax.swing.JSeparator js_2;
+    private javax.swing.JSeparator js_3;
+    public javax.swing.JTable jt_venta;
+    public javax.swing.JTextField jtf_captura;
+    public javax.swing.JTextField jtf_tarjeta;
+    public javax.swing.JTextField jtf_total1;
     // End of variables declaration//GEN-END:variables
 }
