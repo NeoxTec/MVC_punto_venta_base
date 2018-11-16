@@ -96,15 +96,24 @@ public class controllerSucursal {
     public void guardar() {
         enviarDatos();
         if ("nuevo".equals(des)) {
-            modelSucursal.guardarRegistro(viewSucursal.jtf_calle.getText(),viewSucursal.jtf_colonia.getText(),
-                    viewSucursal.jtf_noexterior.getText(), viewSucursal.jtf_nointerior.getText(),
-                    viewSucursal.jtf_cp.getText(), viewSucursal.jtf_telefono.getText());
+            modelSucursal.guardarRegistro();
+                    viewSucursal.jtf_calle.getText();
+                    viewSucursal.jtf_colonia.getText();
+                    viewSucursal.jtf_noexterior.getText();
+                    viewSucursal.jtf_nointerior.getText();
+                    viewSucursal.jtf_cp.getText();
+                    viewSucursal.jtf_telefono.getText();
                     
 
         } else if ("actualizar".equals(des)) {
-            modelSucursal.editarRegistro(viewSucursal.jtf_calle.getText(),viewSucursal.jtf_colonia.getText(),
-                    viewSucursal.jtf_noexterior.getText(), viewSucursal.jtf_nointerior.getText(),
-                    viewSucursal.jtf_cp.getText(), viewSucursal.jtf_telefono.getText(),viewSucursal.jtf_id.getText());
+            modelSucursal.editarRegistro();
+                    viewSucursal.jtf_calle.getText();
+                    viewSucursal.jtf_colonia.getText();
+                    viewSucursal.jtf_noexterior.getText();
+                    viewSucursal.jtf_nointerior.getText();
+                    viewSucursal.jtf_cp.getText();
+                    viewSucursal.jtf_telefono.getText();
+                    viewSucursal.jtf_id.getText();
         }
         getValues();
         deshabilitarCampos();
@@ -129,8 +138,8 @@ public class controllerSucursal {
 
     public void eliminar() {
         enviarDatos();
-        modelSucursal.eliminarRegistro(viewSucursal.jtf_id.getText());
-        modelSucursal.actualizarSucursal();
+        modelSucursal.eliminarRegistro();
+        viewSucursal.jtf_id.getText();
         getValues();
     }
 

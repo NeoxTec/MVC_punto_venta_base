@@ -187,7 +187,7 @@ public void guardarRegistro() {
             JOptionPane.showMessageDialog(null, "Error ModelSucursal 001: " + err.getMessage());
         }
     }
-public void EditarRegistro() {
+public void editarRegistro() {
         try {
           String sql = "UPDATE sucursal SET calle = '"+ calle +"', colonia = '"+ colonia +"',no_ext = '"+ no_ext +"',no_int = '"+ no_int +"',cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = "+ id +"; ";
             System.out.println(sql);
