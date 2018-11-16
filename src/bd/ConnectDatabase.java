@@ -17,11 +17,7 @@ public class ConnectDatabase {
     public static Connection getConectar(){
         Connection conexion = null;
         try{
-<<<<<<< HEAD
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "root", "");
-=======
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
->>>>>>> origin/master
         }catch(SQLException ex){
             System.out.println(String.valueOf(ex));
         }
