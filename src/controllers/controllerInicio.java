@@ -16,6 +16,6 @@ public class controllerInicio {
     
     public controllerInicio(modelInicio modelInicio, viewInicio viewInicio) {
         this.modelInicio = modelInicio;
-        this.modelInicio = modelInicio;
+        this.viewInicio = viewInicio;
     }
 }

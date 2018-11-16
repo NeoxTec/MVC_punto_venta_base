@@ -28,13 +28,13 @@ public class controllerLogin {
      * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
      */
      private Object controllers[];
-     private controllerInicio controllerInicio;
      private controllerAdmin controllerAdmin;
      private controllerCatalogo controllerCatalogo;
      private controllerEmpleado controllerEmpleado;
      private controllerVendedor controllerVendedor;
      private controllerProveedor controllerProveedor;
      private controllerCompras controllerCompras;
+     private controllerInicio controllerInicio;
      
      
      /**
@@ -64,7 +64,6 @@ public class controllerLogin {
         setControllers();
         setActionListener();
         initComponets();
-        inicio_actionPerformed();
     }
 
     
@@ -74,13 +73,13 @@ public class controllerLogin {
      * de cada uno.
      */
     private void setControllers() {
-        controllerInicio = (controllerInicio) controllers[0];
-        controllerAdmin = (controllerAdmin) controllers[1];
-        controllerCatalogo = (controllerCatalogo) controllers[2];
-        controllerEmpleado = (controllerEmpleado) controllers [3];
-        controllerVendedor = (controllerVendedor) controllers [4];
-        controllerProveedor = (controllerProveedor) controllers[5];
-        controllerCompras = (controllerCompras) controllers [6];
+        controllerAdmin = (controllerAdmin) controllers[0];
+        controllerCatalogo = (controllerCatalogo) controllers[1];
+        controllerEmpleado = (controllerEmpleado) controllers [2];
+        controllerVendedor = (controllerVendedor) controllers [3];
+        controllerProveedor = (controllerProveedor) controllers[4];
+        controllerCompras = (controllerCompras) controllers [5];
+        controllerInicio = (controllerInicio) controllers[6];
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -143,6 +142,7 @@ public class controllerLogin {
             }
             else if(e.getSource() == viewLogin.jmi_cerrar){
                 inicio_actionPerformed();
+                desocultar();
             }
             else if (e.getSource() == viewLogin.jb_admin){
                 admin_actionPerformed();
@@ -165,10 +165,11 @@ public class controllerLogin {
         viewLogin.setContentPane(controllerInicio.viewInicio);
         viewLogin.revalidate();
         viewLogin.repaint();
-        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio.setVisible(true);
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
+
     }
     /**
      * Método para hacer cambio al panel Admin

@@ -55,13 +55,13 @@ public class Main {
          controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
          
         Object[] controllers = new Object[7];
-        controllers[0] = controllerInicio;
-        controllers[1] = controllerAdmin;
-        controllers[2] = controllerCatalogo;
-        controllers[3] = controllerEmpleado;
-        controllers[4] = controllerVendedor;
-        controllers[5] = controllerProveedor;
-        controllers [6] = controllerCompras;
+        controllers[0] = controllerAdmin;
+        controllers[1] = controllerCatalogo;
+        controllers[2] = controllerEmpleado;
+        controllers[3] = controllerVendedor;
+        controllers[4] = controllerProveedor;
+        controllers [5] = controllerCompras;
+        controllers[6] = controllerInicio;
         
          
         modelLogin modelLogin = new modelLogin();
