@@ -133,6 +133,6 @@ CREATE TABLE IF NOT EXISTS detalle_compra(
     FOREIGN KEY (id_producto) REFERENCES catalogo(id));
 
 CREATE USER 'quetzal'@'localhost' IDENTIFIED BY 'quetzal.2018';
-GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'localhost';
+GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'%';
 
 FLUSH PRIVILEGES;
