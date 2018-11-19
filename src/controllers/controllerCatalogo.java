@@ -84,7 +84,15 @@ public class controllerCatalogo {
 }
      public void jb_buscar_keypresseed(){
          modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo where nombre like '%"+viewCatalogo.jtf_buscar.getText()+"%'");
+         limpiar();
          modelCatalogo.llenartabla();
          viewCatalogo.jt_catalogo.setModel(modelCatalogo.getModelo());
      }
+     public void limpiar(){
+          for (int i = 0; i < viewCatalogo.jt_catalogo.getRowCount(); i++) {
+            modelCatalogo.getModelo().removeRow(i);
+            i -= 1;
+        }
+     }
+
  }
