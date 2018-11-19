@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import models.ModelClientes;
 import views.viewCliente;
 
-public class ControllerClientes implements ActionListener{
+public class controllerClientes implements ActionListener{
     public ModelClientes modelClientes;
     public viewCliente viewCliente;
 
-    public ControllerClientes(ModelClientes modelClientes, viewCliente viewClientes) {
+    public controllerClientes(ModelClientes modelClientes, viewCliente viewClientes) {
         this.modelClientes = modelClientes;
         this.viewCliente = viewClientes;
     }
