@@ -64,6 +64,7 @@ public class controllerLogin {
         setControllers();
         setActionListener();
         initComponets();
+        inicio_actionPerformed();
     }
 
     
