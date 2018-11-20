@@ -12,6 +12,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -163,4 +165,25 @@ public class modelCatalogo {
     public void setSentencia(String sentencia) {
         this.sentencia = sentencia;
     }
+    public void modificar(){
+        try {
+           String prueba=  "update catalogo set nombre ='"+nombre+"', descripcion = '"+descripcion+"', codigo_barras = "+codigo_barras+", precio = "+precio_unitario+", precio_mayoreo ="+precio_mayoreo+", unidad ='"+unidad_medida+"', iva ='"+iva+"' where id ="+id+";";
+           st.executeUpdate(prueba);
+           System.out.println(prueba);
+            JOptionPane.showMessageDialog(null, "Producto actualizado");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo004" + ex.getMessage());
+        }
+    }
+    public void insertar(){
+        try {
+            String prueba = "Insert into catalogo(nombre, descripcion, codigo_barras,precio, precio_mayoreo,unidad,iva) values('"+nombre+"','"+descripcion+"',"+codigo_barras+","+precio_unitario+","+precio_mayoreo+",'"+unidad_medida+"','"+iva+"');";
+            st.executeUpdate(prueba);
+            System.out.println(prueba);
+            JOptionPane.showMessageDialog(null, "Producto registrado");
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());
+        }
+        
+        }
 }
