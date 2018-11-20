@@ -31,6 +31,7 @@ public class modelCatalogo {
     private double precio_unitario;
     private double precio_mayoreo;
     private Object unidad_medida;
+    private String sentencia;
     DefaultTableModel modelo = new DefaultTableModel();
 
     public DefaultTableModel getModelo() {
@@ -125,7 +126,7 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
+        rs = ConnectDatabase.getTabla(sentencia);
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
         try {
            while (rs.next()){
@@ -141,19 +142,25 @@ public class modelCatalogo {
         }
     }
          public void datos(){
- 
-        try {
-            rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
-           rs.first();
-           codigo_barras = rs.getInt("codigo_barras");
-           nombre =rs.getString("nombre");
-           descripcion = rs.getString("descripcion");
-           precio_unitario =  rs.getDouble("precio");
-           precio_mayoreo =  rs.getDouble("precio_mayoreo");
-           unidad_medida = rs.getObject("unidad");
-           iva = rs.getObject("iva");
-            System.out.println(iva);
+            try {
+               rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
+               rs.first();
+               codigo_barras = rs.getInt("codigo_barras");
+               nombre =rs.getString("nombre");
+               descripcion = rs.getString("descripcion");
+               precio_unitario =  rs.getDouble("precio");
+               precio_mayoreo =  rs.getDouble("precio_mayoreo");
+               unidad_medida = rs.getObject("unidad");
+               iva = rs.getObject("iva");
+               System.out.println(iva);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage()); 
-         }}
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage());}
+         }
+
+    public String getSentencia() {
+        return sentencia;
+    }
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
 }

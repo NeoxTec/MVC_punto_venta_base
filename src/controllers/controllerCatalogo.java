@@ -29,6 +29,7 @@ public class controllerCatalogo {
     
         public void initDB(){
         modelCatalogo.conectarDB();
+        modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
         modelCatalogo.llenartabla();
         viewCatalogo.jt_catalogo.setModel(modelCatalogo.getModelo());
     }
@@ -56,10 +57,10 @@ public class controllerCatalogo {
      KeyListener kl = new KeyListener(){
          @Override
         public void keyTyped(KeyEvent e) {
-            jb_buscar_keytyped();
         }
         @Override
         public void keyPressed(KeyEvent e) {
+            jb_buscar_keypresseed();
         }
         @Override
         public void keyReleased(KeyEvent e) {
@@ -81,7 +82,17 @@ public class controllerCatalogo {
           viewCatalogo.jcb_iva.setSelectedItem(modelCatalogo.getIva());
           System.out.println(modelCatalogo.getIva());
 }
-     public void jb_buscar_keytyped(){
-         
+     public void jb_buscar_keypresseed(){
+         modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo where nombre like '%"+viewCatalogo.jtf_buscar.getText()+"%'");
+         limpiar();
+         modelCatalogo.llenartabla();
+         viewCatalogo.jt_catalogo.setModel(modelCatalogo.getModelo());
      }
+     public void limpiar(){
+          for (int i = 0; i < viewCatalogo.jt_catalogo.getRowCount(); i++) {
+            modelCatalogo.getModelo().removeRow(i);
+            i -= 1;
+        }
+     }
+
  }
