@@ -63,10 +63,19 @@ public class Main {
         controllers [5] = controllerCompras;
         controllers[6] = controllerInicio;
         
+        Object[] views = new Object [7];
+        views[0] = viewAdmin;
+        views[1] = viewCatalogo;
+        views[2] = viewEmpleado;
+        views[3] = viewVendedor;
+        views[4] = viewProveedor;
+        views[5] = viewCompra;
+        views[6] = viewInicio;
+        
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,viewInicio,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,viewCompra,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,views,controllers);
     }
     
 }

@@ -16,16 +16,11 @@ import views.*;
 public class controllerLogin {
      private final modelLogin modelLogin;
      private final viewLogin viewLogin;
-     private final viewInicio viewInicio;
-     private final viewAdmin viewAdmin;
-     private final viewEmpleado viewEmpleado;
-     private final viewVendedor viewVendedor;
-     private final viewProveedor viewProveedor;
-     private final viewCompra viewCompra;
+     
      
      
      /**
-     * Esta variable almacena el controllerAdmin para ser utilizado dentro del mismo JFrame
+     * Esta variable almacena los controllers para ser utilizados dentro del mismo JFrame
      */
      private Object controllers[];
      private controllerAdmin controllerAdmin;
@@ -36,31 +31,35 @@ public class controllerLogin {
      private controllerCompras controllerCompras;
      private controllerInicio controllerInicio;
      
+     /*
+     * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
+     */
+     private Object views[];
+     private  viewAdmin viewAdmin;
+     private  viewCatalogo viewCatalogo;
+     private  viewEmpleado viewEmpleado;
+     private  viewVendedor viewVendedor;
+     private  viewProveedor viewProveedor;
+     private  viewCompra viewCompra;
+     private  viewInicio viewInicio;
      
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
      * dentro del arreglo controllers, con esto se puede tener acceso a toda la
      * programación desarrollada dentro de cada controller.
-     * @param modelLogin 
+     * 
+     * @param modelLogin
      * @param viewLogin
-     * @param viewInicio
-     * @param viewAdmin
-     * @param viewEmpleado
-     * @param viewVendedor
-     * @param viewProveedor
+     * @param views arreglo con todas las vistas del proyecto.
      * @param controllers arreglo con todos los controladores del proyecto. 
      */
-    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin,viewInicio viewInicio, viewAdmin viewAdmin,viewEmpleado viewEmpleado,viewVendedor viewVendedor,viewProveedor viewProveedor, viewCompra viewCompra, Object[] controllers) {
+    public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, Object [] views, Object[] controllers) {
         this.modelLogin = modelLogin;
-        this.viewInicio = viewInicio;
         this.viewLogin = viewLogin;
-        this.viewAdmin = viewAdmin;
-        this.viewEmpleado = viewEmpleado;
-        this.viewVendedor = viewVendedor;
-        this.viewProveedor = viewProveedor;
-        this.viewCompra = viewCompra;
+        this.views = views;
         this.controllers = controllers;
+        setViews();
         setControllers();
         setActionListener();
         initComponets();
@@ -82,6 +81,19 @@ public class controllerLogin {
         controllerInicio = (controllerInicio) controllers[6];
     }
     /*
+    * Separa cada uno de los views almacendados en views, de
+     * esta forma se puede acceder a todas los objetos dentro de cada panel
+    */
+    private void setViews(){
+        viewAdmin = (viewAdmin) views[0];
+        viewCatalogo = (viewCatalogo) views[1];
+        viewEmpleado = (viewEmpleado) views[2];
+        viewVendedor  = (viewVendedor) views[3];
+        viewProveedor = (viewProveedor) views[4];
+        viewCompra = (viewCompra) views [5];
+        viewInicio = (viewInicio) views[6];
+    }
+    /*
     * Método que oculta el JMenu al iniciar el JFrame
     */
     private void ocultar(){
@@ -99,8 +111,8 @@ public class controllerLogin {
     private void initComponets() {
         viewLogin.setTitle("Ferretería ACME");
         viewLogin.setLocationRelativeTo(null);
+        inicio_actionPerformed();
         viewLogin.setVisible(true);
-        ocultar();
     }
     
     /**
@@ -126,7 +138,7 @@ public class controllerLogin {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == viewInicio.jb_entrar) {
-                
+                admin_actionPerformed();
             } 
             else if (e.getSource() == viewAdmin.jb_catalogo){
                 catalogo_actionPerformed();        
@@ -142,6 +154,7 @@ public class controllerLogin {
             }
             else if(e.getSource() == viewLogin.jmi_cerrar){
                 inicio_actionPerformed();
+                viewLogin.jmi_olvido.setVisible(true);
                 desocultar();
             }
             else if (e.getSource() == viewLogin.jb_admin){
@@ -165,7 +178,7 @@ public class controllerLogin {
         viewLogin.setContentPane(controllerInicio.viewInicio);
         viewLogin.revalidate();
         viewLogin.repaint();
-        viewLogin.jmi_cambio.setVisible(true);
+        viewLogin.jmi_cambio.setVisible(false);
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
