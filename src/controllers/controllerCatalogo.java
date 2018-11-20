@@ -52,7 +52,6 @@ public class controllerCatalogo {
                 habilitar(true);
                 modelCatalogo.setId(0);
                 limpiar_campos();
-                System.out.println(modelCatalogo.getId());
             }
             else if(e.getSource() == viewCatalogo.jb_modificar){
                 botones_p(false);
@@ -65,6 +64,14 @@ public class controllerCatalogo {
             }
             else if(e.getSource()==viewCatalogo.jb_guardar){
             jb_guardar_mouseClicked();
+            limpiar_campos();
+            }
+            else if(e.getSource()==viewCatalogo.jb_eliminar){
+                modelCatalogo.borrar();
+                limpiar_campos();
+                limpiar();
+                initDB();
+                
             }
         }
 
@@ -107,7 +114,6 @@ public class controllerCatalogo {
           viewCatalogo.jta_descripcion.setText(modelCatalogo.getDescripcion());
           viewCatalogo.jcb_unidadmedida.setSelectedItem(modelCatalogo.getUnidad_medida());
           viewCatalogo.jcb_iva.setSelectedItem(modelCatalogo.getIva());
-          System.out.println(modelCatalogo.getIva());
 }
      public void jb_buscar_keypresseed(){
          modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo where nombre like '%"+viewCatalogo.jtf_buscar.getText()+"%'");
