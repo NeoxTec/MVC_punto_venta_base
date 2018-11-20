@@ -182,8 +182,17 @@ public class modelCatalogo {
             System.out.println(prueba);
             JOptionPane.showMessageDialog(null, "Producto registrado");
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());
+           JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());}
         }
-        
+    public void borrar(){
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el producto?");
+        if(JOptionPane.OK_OPTION == confirmado){
+            try{
+                st.executeUpdate("delete from catalogo where id = " + id + "; ");
+                JOptionPane.showMessageDialog(null, "Lista de productos actualizada, el producto ha sido eliminado");
+            }
+            catch(SQLException err){
+               JOptionPane.showMessageDialog(null, "Error modelCatalogo 006:" + err.getMessage()); }
         }
+    }
 }
