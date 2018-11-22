@@ -12,6 +12,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
+import java.sql.DriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
