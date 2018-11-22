@@ -36,7 +36,6 @@ public class viewVentasConsulta extends javax.swing.JPanel {
         jtf_producto_diain = new javax.swing.JTextField();
         jl_empleado_diafin = new javax.swing.JLabel();
         jtf_empleado_diafin = new javax.swing.JTextField();
-        jb_volver = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -45,6 +44,9 @@ public class viewVentasConsulta extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jRadioButton6 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jt_ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,123 +69,78 @@ public class viewVentasConsulta extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jt_ventas);
 
+        add(jScrollPane2);
+        jScrollPane2.setBounds(71, 122, 969, 363);
+
         jl_idsucursal.setText("Id Sucursal:");
+        add(jl_idsucursal);
+        jl_idsucursal.setBounds(71, 61, 57, 15);
 
         jcb_idsucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        add(jcb_idsucursal);
+        jcb_idsucursal.setBounds(140, 56, 40, 24);
 
         jl_producto_diain.setText("Buscar producto/dia: ");
+        add(jl_producto_diain);
+        jl_producto_diain.setBounds(301, 61, 104, 15);
+        add(jtf_producto_diain);
+        jtf_producto_diain.setBounds(423, 59, 257, 19);
 
         jl_empleado_diafin.setText("Buscar empleado/dia_final:");
+        add(jl_empleado_diafin);
+        jl_empleado_diafin.setBounds(275, 88, 130, 15);
+        add(jtf_empleado_diafin);
+        jtf_empleado_diafin.setBounds(423, 86, 257, 19);
 
-        jb_volver.setText("Volver");
-
+        jRadioButton1.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton1);
         jRadioButton1.setText("Día");
+        add(jRadioButton1);
+        jRadioButton1.setBounds(314, 17, 40, 23);
 
+        jRadioButton2.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton2);
         jRadioButton2.setText("Rango de días");
+        add(jRadioButton2);
+        jRadioButton2.setBounds(378, 17, 94, 23);
 
+        jRadioButton3.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton3);
         jRadioButton3.setText("Sucursal");
+        add(jRadioButton3);
+        jRadioButton3.setBounds(490, 17, 68, 23);
 
+        jRadioButton4.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton4);
         jRadioButton4.setText("Empleado");
+        add(jRadioButton4);
+        jRadioButton4.setBounds(576, 17, 71, 23);
 
+        jRadioButton5.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton5);
         jRadioButton5.setText("Producto");
+        add(jRadioButton5);
+        jRadioButton5.setBounds(665, 17, 68, 23);
 
         jLabel1.setText("Consulta por:");
+        add(jLabel1);
+        jLabel1.setBounds(116, 21, 64, 15);
 
+        jRadioButton6.setBackground(new java.awt.Color(252, 252, 252));
         bg_consulta.add(jRadioButton6);
         jRadioButton6.setSelected(true);
         jRadioButton6.setText("General");
+        add(jRadioButton6);
+        jRadioButton6.setBounds(233, 17, 63, 23);
 
         jButton1.setText("Buscar");
+        add(jButton1);
+        jButton1.setBounds(713, 79, 69, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jl_empleado_diafin)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jl_idsucursal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jcb_idsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(121, 121, 121)
-                                        .addComponent(jl_producto_diain))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jRadioButton6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton1)
-                                        .addGap(51, 51, 51)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtf_empleado_diafin, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton1))
-                            .addComponent(jtf_producto_diain, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addComponent(jRadioButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5)))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jb_volver)
-                .addGap(32, 32, 32))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jLabel1)
-                    .addComponent(jRadioButton6))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 16, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtf_producto_diain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_producto_diain)
-                            .addComponent(jcb_idsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jl_idsucursal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jl_empleado_diafin)
-                            .addComponent(jtf_empleado_diafin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jb_volver)
-                .addGap(20, 20, 20))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        jLabel2.setText(" ");
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 1100, 540);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -191,6 +148,7 @@ public class viewVentasConsulta extends javax.swing.JPanel {
     private javax.swing.ButtonGroup bg_consulta;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JRadioButton jRadioButton1;
     public javax.swing.JRadioButton jRadioButton2;
     public javax.swing.JRadioButton jRadioButton3;
@@ -198,7 +156,6 @@ public class viewVentasConsulta extends javax.swing.JPanel {
     public javax.swing.JRadioButton jRadioButton5;
     public javax.swing.JRadioButton jRadioButton6;
     public javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JButton jb_volver;
     public javax.swing.JComboBox<String> jcb_idsucursal;
     public javax.swing.JLabel jl_empleado_diafin;
     public javax.swing.JLabel jl_idsucursal;
