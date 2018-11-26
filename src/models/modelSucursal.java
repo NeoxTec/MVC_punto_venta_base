@@ -83,22 +83,6 @@ public class modelSucursal {
         this.colonia = colonia;
     }
 
-    public String getNo_ext() {
-        return no_ext;
-    }
-
-    public void setNo_ext(String no_ext) {
-        this.no_ext = no_ext;
-    }
-
-    public String getNo_int() {
-        return no_int;
-    }
-
-    public void setNo_int(String no_int) {
-        this.no_int = no_int;
-    }
-
     public String getCp() {
         return cp;
     }
@@ -118,40 +102,55 @@ public class modelSucursal {
     private String id;
     private String calle;
     private String colonia;
-    private String no_ext;
-    private String no_int;
+    private String noexterior;
+    private String nointerior;
     private String cp;
     private String telefono;
 
 
     //COMIENZA EL CODIGO A BASE DE DATOS Y TERMINAN SETTERS Y GETTERS 
 
-   
+    public String getNoexterior() {
+        return noexterior;
+    }
 
-    
+    public void setNoexterior(String noexterior) {
+        this.noexterior = noexterior;
+    }
 
-   
+    public String getNointerior() {
+        return nointerior;
+    }
 
-   
-public void guardarRegistro() {
-         try {
-            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_int, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ no_ext+"','"+ no_int +"','"+ cp +"','"+ telefono +"');";
-            System.out.println(sql);
-            st.executeUpdate(sql);
-    
-            JOptionPane.showMessageDialog(null, "Felicidades registro guardado.");
-            this.conectarDB();
+    public void setNointerior(String nointerior) {
+        this.nointerior = nointerior;
+    }
+
+    public void conectarDB() {
+        try {
+          //  conexion = ConnectDatabase.getConectar();
+            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net/quetzalstock", "quetzal", "quetzal.2018");
+            st = conexion.createStatement();
+            rs = st.executeQuery("SELECT * FROM sucursal;");
+            rs.next();
+            id = rs.getString("id");
+           
+            calle=rs.getString("calle");
+            colonia=rs.getString("colonia");
+            noexterior=rs.getString("noexterior");
+            nointerior=rs.getString("nointerior");
+            cp=rs.getString("cp");
+            telefono=rs.getString("telefono");
             
-        }
-        catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+            
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error ModelSucursal 001: " + err.getMessage());
+       System.out.println(err.getMessage());
         }
     }
-   
-
-    public void eliminarRegistro() {
+public void eliRegistro() {
         try {
-            String sql = "DELETE FROM sucursal WHERE id = "+ id +"; ";
+            String sql = "DELETE FROM sucursal  WHERE id = '"+ id +"'; ";
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar este registro?", "Borrar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
                 id = rs.getString("id");
@@ -169,27 +168,28 @@ public void guardarRegistro() {
             JOptionPane.showMessageDialog(null,"Error en metodo eliminar"+err.getMessage()); 
         }
     }
-     public void conectarDB() {
+public void insertarRegistro() {
+        
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/quetzalstock", "root", "");
-            st = conexion.createStatement();
-            rs = st.executeQuery("SELECT * FROM sucursal;");
-            rs.next();
-            id = rs.getString("id");
-            calle=rs.getString("calle");
-            colonia=rs.getString("colonia");
-            no_ext=rs.getString("no_ext");
-           no_int = rs.getString("no_int");
-            cp=rs.getString("cp");
-            telefono=rs.getString("telefono");
             
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelSucursal 001: " + err.getMessage());
+            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_int, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ noexterior+"','"+ nointerior +"','"+ cp +"','"+ telefono +"');";
+            System.out.println(sql);
+            st.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Felicidades registro guardado.");
+            //this.conectarDB();
+            
         }
+        catch(SQLException err) { 
+            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+        }
+        System.out.println("registro guardado");
     }
-public void EditarRegistro() {
+    
+ public void modiRegistro() {
+         System.out.println("registro modificado");
         try {
-          String sql = "UPDATE sucursal SET calle = '"+ calle +"', colonia = '"+ colonia +"',no_ext = '"+ no_ext +"',no_int = '"+ no_int +"',cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = "+ id +"; ";
+          String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',noexterior = '"+ noexterior +"',nointerior = '"+ nointerior +"'cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = '"+ id +"'; ";
             System.out.println(sql);
           st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se modifico correctamente el registro.");
@@ -197,8 +197,8 @@ public void EditarRegistro() {
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error al modificar registr9 "+err.getMessage()); 
         }
-    }
+ }
 }
 
