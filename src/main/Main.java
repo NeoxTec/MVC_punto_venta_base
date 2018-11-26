@@ -19,6 +19,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        modelDetalleCompra modelDetalleCompra = new modelDetalleCompra();
+        viewDetallecompra viewDetallecompra = new viewDetallecompra();
+        controllerDetalleCompra controllerDetalleCompra = new controllerDetalleCompra(modelDetalleCompra,viewDetallecompra);
+        
         modelProveedor modelProveedor = new modelProveedor();
         viewProveedor viewProveedor = new viewProveedor();
         controllerProveedor controllerProveedor = new controllerProveedor(modelProveedor, viewProveedor);
@@ -54,7 +58,7 @@ public class Main {
          viewCompra viewCompra = new viewCompra();
          controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
          
-        Object[] controllers = new Object[7];
+        Object[] controllers = new Object[8];
         controllers[0] = controllerAdmin;
         controllers[1] = controllerCatalogo;
         controllers[2] = controllerEmpleado;
@@ -62,8 +66,9 @@ public class Main {
         controllers[4] = controllerProveedor;
         controllers [5] = controllerCompras;
         controllers[6] = controllerInicio;
+        controllers[7] = controllerDetalleCompra;
         
-        Object[] views = new Object [7];
+        Object[] views = new Object [8];
         views[0] = viewAdmin;
         views[1] = viewCatalogo;
         views[2] = viewEmpleado;
@@ -71,6 +76,7 @@ public class Main {
         views[4] = viewProveedor;
         views[5] = viewCompra;
         views[6] = viewInicio;
+        views[7] = viewDetallecompra;
         
          
         modelLogin modelLogin = new modelLogin();

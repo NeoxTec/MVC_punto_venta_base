@@ -30,6 +30,7 @@ public class controllerLogin {
      private controllerProveedor controllerProveedor;
      private controllerCompras controllerCompras;
      private controllerInicio controllerInicio;
+     private controllerDetalleCompra controllerDetalleCompra;
      
      /*
      * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
@@ -42,6 +43,7 @@ public class controllerLogin {
      private  viewProveedor viewProveedor;
      private  viewCompra viewCompra;
      private  viewInicio viewInicio;
+     private viewDetallecompra viewDetallecompra;
      
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
@@ -79,6 +81,7 @@ public class controllerLogin {
         controllerProveedor = (controllerProveedor) controllers[4];
         controllerCompras = (controllerCompras) controllers [5];
         controllerInicio = (controllerInicio) controllers[6];
+        controllerDetalleCompra = (controllerDetalleCompra) controllers[7];
     }
     /*
     * Separa cada uno de los views almacendados en views, de
@@ -92,6 +95,7 @@ public class controllerLogin {
         viewProveedor = (viewProveedor) views[4];
         viewCompra = (viewCompra) views [5];
         viewInicio = (viewInicio) views[6];
+        viewDetallecompra = (viewDetallecompra) views[7];
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -129,6 +133,8 @@ public class controllerLogin {
         viewLogin.jb_vendedor.addActionListener(actionListener);
         viewAdmin.jb_proovedores.addActionListener(actionListener);
         viewAdmin.jb_compras.addActionListener(actionListener);
+        viewCompra.jb_agregar_detalle.addActionListener(actionListener);
+        viewDetallecompra.jb_finalizar.addActionListener(actionListener);
     }
     
     /**
@@ -166,6 +172,12 @@ public class controllerLogin {
                 desocultar();
             }
             else if(e.getSource() == viewAdmin.jb_compras){
+                compras_actionPerformed();
+            }
+            else if(e.getSource() == viewCompra.jb_agregar_detalle){
+                detalle_compras_actionPerformed();
+            }
+            else if(e.getSource() == viewDetallecompra.jb_finalizar){
                 compras_actionPerformed();
             }
         }
@@ -270,5 +282,18 @@ public class controllerLogin {
         viewLogin.jmi_cerrar.setVisible(false);
     }
     
+    /*
+    * Método que hara que se cambie al panel de detalle compra
+    */
+     private void detalle_compras_actionPerformed(){
+        viewLogin.setContentPane(controllerDetalleCompra.viewDetallecompra);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(false);
+        viewLogin.jmi_cerrar.setVisible(false);
+     }
     
 } 
