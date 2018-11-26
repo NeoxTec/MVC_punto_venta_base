@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 
 /**
- *
+ *metodo con las variables a utilizar para la interaccion de catalogo.
  * @author manl_
  */
 public class modelCatalogo {
@@ -108,7 +108,10 @@ public class modelCatalogo {
         this.unidad_medida = unidad_medida;
     }
 
-    
+ /**
+  * Metodo para crear una conexion a la base de datos y ver registros de la tabla catalogo.
+  * Permite tener los valores del primer registro del catalogo.
+  */
  public void conectarDB() {
         try {
            conexion = ConnectDatabase.getConectar();
@@ -127,6 +130,10 @@ public class modelCatalogo {
             System.out.println(err.getMessage());
         }
     }
+ 
+ /**
+  * Metodo que llena la tabla con los registros existentes de la base de datos.
+  */
          public void llenartabla(){
         rs = ConnectDatabase.getTabla(sentencia);
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
@@ -143,6 +150,10 @@ public class modelCatalogo {
             JOptionPane.showMessageDialog(null, "Error modelCatalogo002 " + e.getMessage());
         }
     }
+         
+         /**
+          * Metodo que obtiene datos de un registro especifico de la base de datos.
+          */
          public void datos(){
             try {
                rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
@@ -165,6 +176,10 @@ public class modelCatalogo {
     public void setSentencia(String sentencia) {
         this.sentencia = sentencia;
     }
+    
+    /**
+     * Metodo que actualiza los datos un registro de la base de datos.
+     */
     public void modificar(){
         try {
            String prueba=  "update catalogo set nombre ='"+nombre+"', descripcion = '"+descripcion+"', codigo_barras = "+codigo_barras+", precio = "+precio_unitario+", precio_mayoreo ="+precio_mayoreo+", unidad ='"+unidad_medida+"', iva ='"+iva+"' where id ="+id+";";
@@ -175,6 +190,9 @@ public class modelCatalogo {
             JOptionPane.showMessageDialog(null, "Error modelCatalogo004" + ex.getMessage());
         }
     }
+    /**
+     * Metodo que ingresa un nuevo registro a la base de datos.
+     */
     public void insertar(){
         try {
             String prueba = "Insert into catalogo(nombre, descripcion, codigo_barras,precio, precio_mayoreo,unidad,iva) values('"+nombre+"','"+descripcion+"',"+codigo_barras+","+precio_unitario+","+precio_mayoreo+",'"+unidad_medida+"','"+iva+"');";
@@ -184,6 +202,9 @@ public class modelCatalogo {
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());}
         }
+    /**
+     * Metodo que elimina un registro de la base de datos.
+     */
     public void borrar(){
         int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el producto?");
         if(JOptionPane.OK_OPTION == confirmado){
