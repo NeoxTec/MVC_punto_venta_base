@@ -87,12 +87,10 @@ public void initDB(){
                
                jb_cancelar_actionPerformed();
                
-
             }
             
         }
     };
-    
 
     public void jb_nuevo_actionPerformed() {
         viewSucursal.jtf_id.setText(""); 

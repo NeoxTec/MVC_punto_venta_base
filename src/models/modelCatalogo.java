@@ -12,6 +12,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -31,6 +33,7 @@ public class modelCatalogo {
     private double precio_unitario;
     private double precio_mayoreo;
     private Object unidad_medida;
+    private String sentencia;
     DefaultTableModel modelo = new DefaultTableModel();
 
     public DefaultTableModel getModelo() {
@@ -125,7 +128,7 @@ public class modelCatalogo {
         }
     }
          public void llenartabla(){
-        rs = ConnectDatabase.getTabla("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
+        rs = ConnectDatabase.getTabla(sentencia);
         modelo.setColumnIdentifiers(new Object[]{"Id","Nombre", "Precio unitario", "Precio mayoreo", "Unidad de medida"});
         try {
            while (rs.next()){
@@ -141,19 +144,55 @@ public class modelCatalogo {
         }
     }
          public void datos(){
- 
-        try {
-            rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
-           rs.first();
-           codigo_barras = rs.getInt("codigo_barras");
-           nombre =rs.getString("nombre");
-           descripcion = rs.getString("descripcion");
-           precio_unitario =  rs.getDouble("precio");
-           precio_mayoreo =  rs.getDouble("precio_mayoreo");
-           unidad_medida = rs.getObject("unidad");
-           iva = rs.getObject("iva");
-            System.out.println(iva);
+            try {
+               rs = st.executeQuery("SELECT * FROM catalogo where id ="+id+";");
+               rs.first();
+               codigo_barras = rs.getInt("codigo_barras");
+               nombre =rs.getString("nombre");
+               descripcion = rs.getString("descripcion");
+               precio_unitario =  rs.getDouble("precio");
+               precio_mayoreo =  rs.getDouble("precio_mayoreo");
+               unidad_medida = rs.getObject("unidad");
+               iva = rs.getObject("iva");
+               System.out.println(iva);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage()); 
-         }}
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage());}
+         }
+
+    public String getSentencia() {
+        return sentencia;
+    }
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
+    public void modificar(){
+        try {
+           String prueba=  "update catalogo set nombre ='"+nombre+"', descripcion = '"+descripcion+"', codigo_barras = "+codigo_barras+", precio = "+precio_unitario+", precio_mayoreo ="+precio_mayoreo+", unidad ='"+unidad_medida+"', iva ='"+iva+"' where id ="+id+";";
+           st.executeUpdate(prueba);
+           System.out.println(prueba);
+            JOptionPane.showMessageDialog(null, "Producto actualizado");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo004" + ex.getMessage());
+        }
+    }
+    public void insertar(){
+        try {
+            String prueba = "Insert into catalogo(nombre, descripcion, codigo_barras,precio, precio_mayoreo,unidad,iva) values('"+nombre+"','"+descripcion+"',"+codigo_barras+","+precio_unitario+","+precio_mayoreo+",'"+unidad_medida+"','"+iva+"');";
+            st.executeUpdate(prueba);
+            System.out.println(prueba);
+            JOptionPane.showMessageDialog(null, "Producto registrado");
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());}
+        }
+    public void borrar(){
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el producto?");
+        if(JOptionPane.OK_OPTION == confirmado){
+            try{
+                st.executeUpdate("delete from catalogo where id = " + id + "; ");
+                JOptionPane.showMessageDialog(null, "Lista de productos actualizada, el producto ha sido eliminado");
+            }
+            catch(SQLException err){
+               JOptionPane.showMessageDialog(null, "Error modelCatalogo 006:" + err.getMessage()); }
+        }
+    }
 }

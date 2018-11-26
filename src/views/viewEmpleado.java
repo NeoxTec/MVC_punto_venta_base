@@ -67,7 +67,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_datos1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jtf_fecha_nac = new javax.swing.JTextField();
+        jft_fecha = new javax.swing.JFormattedTextField();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -290,9 +290,11 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jSeparator3);
         jSeparator3.setBounds(20, 320, 950, 20);
 
-        jtf_fecha_nac.setEditable(false);
-        add(jtf_fecha_nac);
-        jtf_fecha_nac.setBounds(190, 410, 160, 20);
+        jft_fecha.setEditable(false);
+        jft_fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
+        jft_fecha.setText("aaaa/mm/dd");
+        add(jft_fecha);
+        jft_fecha.setBounds(190, 410, 150, 20);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
@@ -312,6 +314,7 @@ public class viewEmpleado extends javax.swing.JPanel {
     public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_nuevo;
     public javax.swing.JComboBox<String> jcb_genero;
+    public javax.swing.JFormattedTextField jft_fecha;
     private javax.swing.JLabel jl_ape_m;
     private javax.swing.JLabel jl_ape_p;
     private javax.swing.JLabel jl_calle;
@@ -337,7 +340,6 @@ public class viewEmpleado extends javax.swing.JPanel {
     public javax.swing.JTextField jtf_colonia;
     public javax.swing.JTextField jtf_correo;
     public javax.swing.JTextField jtf_cp;
-    public javax.swing.JTextField jtf_fecha_nac;
     public javax.swing.JTextField jtf_no_ext;
     public javax.swing.JTextField jtf_no_int;
     public javax.swing.JTextField jtf_nombre;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bd;
 
 import java.sql.Connection;
@@ -17,7 +13,8 @@ public class ConnectDatabase {
     public static Connection getConectar(){
         Connection conexion = null;
         try{
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");
+            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net:3306/quetzalstock", "quetzal", "quetzal.2018");  //conexion remota WAN
+            //conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/quetzalstock", "quetzal", "quetzal.2018");  //conexion mysql
         }catch(SQLException ex){
             System.out.println(String.valueOf(ex));
         }

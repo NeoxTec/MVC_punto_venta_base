@@ -79,6 +79,8 @@ CREATE TABLE IF NOT EXISTS venta(
     fecha DATE NOT NULL,
     total DOUBLE NOT NULL,
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
+    id_corte id INT UNSIGNED NULL,
+    FOREIGN KEY (id_corte) REFERENCES corte(id),
     FOREIGN KEY (username) REFERENCES usuario(username),
     FOREIGN KEY (id_cliente) REFERENCES cliente(id),
     FOREIGN KEY (id_inventario) REFERENCES inventario(id));
@@ -93,11 +95,10 @@ CREATE TABLE IF NOT EXISTS detalle_venta(
     FOREIGN KEY (id_venta) REFERENCES venta(id));
 
 CREATE TABLE IF NOT EXISTS corte(
-	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     fecha DATE  NOT NULL,
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
-    total DOUBLE UNSIGNED NOT NULL,
-    FOREIGN KEY (id_sucursal) REFERENCES sucursal(id));
+    total DOUBLE UNSIGNED NOT NULL);
 
 CREATE TABLE IF NOT EXISTS proveedor(
 	rfc CHAR(13) PRIMARY KEY,
@@ -132,7 +133,12 @@ CREATE TABLE IF NOT EXISTS detalle_compra(
     FOREIGN KEY (no_factura) REFERENCES compra(no_factura),
     FOREIGN KEY (id_producto) REFERENCES catalogo(id));
 
+<<<<<<< HEAD
 CREATE USER 'quetzal'@'localhost' IDENTIFIED BY 'quetzal.2018';
+GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'%';
+=======
+CREATE USER 'quetzal'@'%' IDENTIFIED BY 'quetzal.2018';
 GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'localhost';
+>>>>>>> d5d88a8ecbd5fea68b4c903f6ea22b6cc7628222
 
 FLUSH PRIVILEGES;

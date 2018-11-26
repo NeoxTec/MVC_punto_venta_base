@@ -185,9 +185,10 @@ public void insertarRegistro() {
         }
         System.out.println("registro guardado");
     }
-    
+
  public void modiRegistro() {
          System.out.println("registro modificado");
+
         try {
           String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',noexterior = '"+ noexterior +"',nointerior = '"+ nointerior +"'cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = '"+ id +"'; ";
             System.out.println(sql);
