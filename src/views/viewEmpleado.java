@@ -60,19 +60,24 @@ public class viewEmpleado extends javax.swing.JPanel {
         jb_eliminar = new javax.swing.JButton();
         jl_titulo = new javax.swing.JLabel();
         jtf_buscar = new javax.swing.JTextField();
-        jb_buscar = new javax.swing.JButton();
         jl_datos = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jtf_rfc = new javax.swing.JTextField();
-        jl_datos1 = new javax.swing.JLabel();
+        jl_buscar = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jft_fecha = new javax.swing.JFormattedTextField();
+        jl_datos2 = new javax.swing.JLabel();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
 
-        jt_empleados.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jt_empleados = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }
+        };
+        jt_empleados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jt_empleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,7 +92,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jt_empleados);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(20, 100, 958, 186);
+        jScrollPane1.setBounds(20, 100, 1000, 186);
 
         jl_rfc.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_rfc.setForeground(new java.awt.Color(255, 102, 0));
@@ -227,7 +232,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jb_guardar.setText("Guardar");
         jb_guardar.setBorder(null);
         add(jb_guardar);
-        jb_guardar.setBounds(320, 530, 130, 40);
+        jb_guardar.setBounds(600, 530, 130, 40);
 
         jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -235,7 +240,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jb_cancelar.setText("Cancelar");
         jb_cancelar.setBorder(null);
         add(jb_cancelar);
-        jb_cancelar.setBounds(610, 530, 130, 40);
+        jb_cancelar.setBounds(740, 530, 130, 40);
 
         jb_modificar.setBackground(new java.awt.Color(255, 102, 0));
         jb_modificar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -251,7 +256,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jb_eliminar.setText("Eliminar");
         jb_eliminar.setBorder(null);
         add(jb_eliminar);
-        jb_eliminar.setBounds(470, 530, 130, 40);
+        jb_eliminar.setBounds(320, 530, 130, 40);
 
         jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 48)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
@@ -259,14 +264,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jl_titulo);
         jl_titulo.setBounds(380, 20, 250, 40);
         add(jtf_buscar);
-        jtf_buscar.setBounds(210, 70, 380, 20);
-
-        jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_buscar.setText("Buscar");
-        jb_buscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jb_buscar);
-        jb_buscar.setBounds(600, 70, 80, 20);
+        jtf_buscar.setBounds(100, 70, 380, 20);
 
         jl_datos.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_datos.setForeground(new java.awt.Color(255, 102, 0));
@@ -280,11 +278,11 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jtf_rfc);
         jtf_rfc.setBounds(20, 350, 160, 20);
 
-        jl_datos1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_datos1.setForeground(new java.awt.Color(255, 102, 0));
-        jl_datos1.setText("Datos Personales");
-        add(jl_datos1);
-        jl_datos1.setBounds(20, 300, 160, 21);
+        jl_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_buscar.setForeground(new java.awt.Color(255, 102, 0));
+        jl_buscar.setText("BUSCAR:");
+        add(jl_buscar);
+        jl_buscar.setBounds(20, 70, 80, 21);
         add(jSeparator2);
         jSeparator2.setBounds(20, 520, 950, 20);
         add(jSeparator3);
@@ -295,6 +293,12 @@ public class viewEmpleado extends javax.swing.JPanel {
         jft_fecha.setText("aaaa/mm/dd");
         add(jft_fecha);
         jft_fecha.setBounds(190, 410, 150, 20);
+
+        jl_datos2.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_datos2.setForeground(new java.awt.Color(255, 102, 0));
+        jl_datos2.setText("Datos Personales");
+        add(jl_datos2);
+        jl_datos2.setBounds(20, 300, 160, 21);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
@@ -307,7 +311,6 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JButton jb_buscar;
     public javax.swing.JButton jb_cancelar;
     public javax.swing.JButton jb_eliminar;
     public javax.swing.JButton jb_guardar;
@@ -317,12 +320,13 @@ public class viewEmpleado extends javax.swing.JPanel {
     public javax.swing.JFormattedTextField jft_fecha;
     private javax.swing.JLabel jl_ape_m;
     private javax.swing.JLabel jl_ape_p;
+    private javax.swing.JLabel jl_buscar;
     private javax.swing.JLabel jl_calle;
     private javax.swing.JLabel jl_colonia;
     private javax.swing.JLabel jl_correo;
     private javax.swing.JLabel jl_cp;
     private javax.swing.JLabel jl_datos;
-    private javax.swing.JLabel jl_datos1;
+    private javax.swing.JLabel jl_datos2;
     private javax.swing.JLabel jl_fecha;
     private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_genero;
@@ -332,10 +336,10 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jl_rfc;
     private javax.swing.JLabel jl_telefono;
     private javax.swing.JLabel jl_titulo;
-    private javax.swing.JTable jt_empleados;
+    public javax.swing.JTable jt_empleados;
     public javax.swing.JTextField jtf_ape_m;
     public javax.swing.JTextField jtf_ape_p;
-    private javax.swing.JTextField jtf_buscar;
+    public javax.swing.JTextField jtf_buscar;
     public javax.swing.JTextField jtf_calle;
     public javax.swing.JTextField jtf_colonia;
     public javax.swing.JTextField jtf_correo;

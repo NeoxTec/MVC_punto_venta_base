@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,8 +33,19 @@ public class modelEmpleado {
     private String cp;
     private String telefono;
     private String correo;
-    private String genero;
+    private Object genero;
     private String fecha_n;
+    
+    private String sentencia;
+    DefaultTableModel modelo = new DefaultTableModel();
+
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
+    }
 
     public String getRfc() {
         return rfc;
@@ -115,11 +127,11 @@ public class modelEmpleado {
         this.correo = correo;
     }
 
-    public String getGenero() {
+    public Object getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(Object genero) {
         this.genero = genero;
     }
 
@@ -138,6 +150,14 @@ public class modelEmpleado {
         this.cp = cp;
     }
     
+     public String getSentencia() {
+        return sentencia;
+    }
+
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
+    
     /**
      * Método que realiza las siguietnes acciones: 
      * 1- Conecta con la base quetzalstock
@@ -148,8 +168,11 @@ public class modelEmpleado {
         try {
             conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
+            rs = st.executeQuery("SELECT * FROM empleado;");
+            rs.next();
+            setValues();
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ModelEmpleado01: " + err.getMessage());
         }
     }
     
@@ -172,8 +195,44 @@ public class modelEmpleado {
             genero = rs.getString("genero");
             fecha_n = rs.getString("fecha_nac");
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error model 102: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error modelEmpleado002: " + err.getMessage());
 
+        }
+    }
+    /*
+    *Método para llenar la tabla jt_empleados 
+    */
+    public void llenarTabla(){
+        rs =  ConnectDatabase.getTabla(sentencia);
+        modelo.setColumnIdentifiers(new Object [] {"RFC","Nombre","Apellido paterno","Apellido materno","colonia","calle","no exterior","no interior","cp","telefono","correo","genero","fecha de nacimiento"});
+        try{
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("rfc"),
+                    rs.getString("nombre"),
+                    rs.getString("ape_p"),
+                    rs.getString("ape_m"),
+                    rs.getString("calle"),
+                    rs.getString("colonia"),
+                    rs.getInt("no_exterior"),
+                    rs.getInt("no_interior"),
+                    rs.getString("cp"),
+                    rs.getString("telefono"),
+                    rs.getString("correo"),
+                    rs.getString("genero"),
+                    rs.getString("fecha_nac")});
+            }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelEmpleado003 " + e.getMessage());
+        }
+    }
+    public void datos(){
+        try{
+            rs = st.executeQuery("SELECT * FROM empleado WHERE rfc ="+rfc+";");
+            rs.first();
+            setValues();
+        }catch(SQLException e){
+            
         }
     }
     /**

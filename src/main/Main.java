@@ -19,6 +19,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        modelDetalleCompra modelDetalleCompra = new modelDetalleCompra();
+        viewDetallecompra viewDetallecompra = new viewDetallecompra();
+        controllerDetalleCompra controllerDetalleCompra = new controllerDetalleCompra(modelDetalleCompra,viewDetallecompra);
+        
         modelProveedor modelProveedor = new modelProveedor();
         viewProveedor viewProveedor = new viewProveedor();
         controllerProveedor controllerProveedor = new controllerProveedor(modelProveedor, viewProveedor);
@@ -54,19 +58,30 @@ public class Main {
          viewCompra viewCompra = new viewCompra();
          controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
          
-        Object[] controllers = new Object[7];
-        controllers[0] = controllerInicio;
-        controllers[1] = controllerAdmin;
-        controllers[2] = controllerCatalogo;
-        controllers[3] = controllerEmpleado;
-        controllers[4] = controllerVendedor;
-        controllers[5] = controllerProveedor;
-        controllers [6] = controllerCompras;
+        Object[] controllers = new Object[8];
+        controllers[0] = controllerAdmin;
+        controllers[1] = controllerCatalogo;
+        controllers[2] = controllerEmpleado;
+        controllers[3] = controllerVendedor;
+        controllers[4] = controllerProveedor;
+        controllers [5] = controllerCompras;
+        controllers[6] = controllerInicio;
+        controllers[7] = controllerDetalleCompra;
+        
+        Object[] views = new Object [8];
+        views[0] = viewAdmin;
+        views[1] = viewCatalogo;
+        views[2] = viewEmpleado;
+        views[3] = viewVendedor;
+        views[4] = viewProveedor;
+        views[5] = viewCompra;
+        views[6] = viewInicio;
+        views[7] = viewDetallecompra;
         
          
         modelLogin modelLogin = new modelLogin();
         viewLogin viewLogin = new viewLogin();
-        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,viewInicio,viewAdmin,viewEmpleado,viewVendedor,viewProveedor,viewCompra,controllers);
+        controllerLogin controllerLogin = new controllerLogin(modelLogin,viewLogin,views,controllers);
     }
     
 }

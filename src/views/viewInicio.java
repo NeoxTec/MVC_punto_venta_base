@@ -32,9 +32,9 @@ public class viewInicio extends javax.swing.JPanel {
         jl_usuario = new javax.swing.JLabel();
         jl_password = new javax.swing.JLabel();
         jtf_usuario = new javax.swing.JTextField();
-        jtf_password = new javax.swing.JTextField();
         jb_entrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jpf_password = new javax.swing.JPasswordField();
+        jl_fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1055, 575));
         setLayout(null);
@@ -63,8 +63,6 @@ public class viewInicio extends javax.swing.JPanel {
         jl_password.setBounds(388, 386, 110, 21);
         add(jtf_usuario);
         jtf_usuario.setBounds(388, 360, 232, 20);
-        add(jtf_password);
-        jtf_password.setBounds(388, 413, 232, 20);
 
         jb_entrar.setBackground(new java.awt.Color(255, 102, 0));
         jb_entrar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -73,20 +71,24 @@ public class viewInicio extends javax.swing.JPanel {
         add(jb_entrar);
         jb_entrar.setBounds(450, 451, 151, 33);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1020, 540);
+        jpf_password.setText("jPasswordField1");
+        add(jpf_password);
+        jpf_password.setBounds(390, 420, 230, 20);
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1090, 600);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JButton jb_entrar;
+    public javax.swing.JLabel jl_fondo;
     public javax.swing.JLabel jl_icono;
     public javax.swing.JLabel jl_password;
     public javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_usuario;
-    public javax.swing.JTextField jtf_password;
-    private javax.swing.JTextField jtf_usuario;
+    public javax.swing.JPasswordField jpf_password;
+    public javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
 }
