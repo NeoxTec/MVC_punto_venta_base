@@ -4,11 +4,27 @@
  * and open the template in the editor.
  */
 package models;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author Diego
  */
 public class modelAdmin {
+    private Date fecha;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     
+    public void imprimir(){
+        System.out.println(fecha);
+    }
+    
+   
 }

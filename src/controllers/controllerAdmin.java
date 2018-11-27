@@ -6,6 +6,8 @@
 package controllers;
 import views.viewAdmin;
 import models.modelAdmin;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -15,13 +17,20 @@ import models.modelAdmin;
 public class controllerAdmin {
     public modelAdmin modelAdmin;
     public viewAdmin viewAdmin;
+    Date fecha = new Date();
     
     
     public controllerAdmin(modelAdmin modelAdmin, viewAdmin viewAdmin) {
         this.modelAdmin = modelAdmin;
         this.viewAdmin = viewAdmin;
+        fecha();
+        modelAdmin.imprimir();
     }
     
-    
+    private void fecha(){
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY/MM/dd");
+        viewAdmin.jl_fecha.setText(formatoFecha.format(fecha));
+        modelAdmin.setFecha(fecha);
+    }
  }
 
