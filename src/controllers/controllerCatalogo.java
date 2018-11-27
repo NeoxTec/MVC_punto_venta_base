@@ -18,7 +18,11 @@ import models.modelCatalogo;
 public class controllerCatalogo {
     public viewCatalogo viewCatalogo;
     public modelCatalogo modelCatalogo;
-    
+    /**
+     * Se crea el constructor del controlador que permite hacer las acciones de la vista y modelo del catalogo.
+     * @param modelCatalogo
+     * @param viewCatalogo 
+     */
     public controllerCatalogo(modelCatalogo modelCatalogo, viewCatalogo viewCatalogo) {
         this.modelCatalogo = modelCatalogo;
         this.viewCatalogo = viewCatalogo;
@@ -33,6 +37,9 @@ public class controllerCatalogo {
         viewCatalogo.setVisible(true);
     }
     
+    /**
+     * Metodo que hace la conexion a la base de datos, muestra los registros en la tabla y habilita o deshabilita los botones de la vista
+     */
         public void initDB(){
         modelCatalogo.conectarDB();
         modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo");
@@ -41,6 +48,9 @@ public class controllerCatalogo {
         habilitar(false);
         botones_p(true);
     }
+       /**
+        * Constructor que permite realizar las acciones a los botones de la vista
+        */ 
      MouseListener ml = new MouseListener(){
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -87,7 +97,9 @@ public class controllerCatalogo {
         @Override
         public void mouseExited(MouseEvent e) { }
     };
-     
+     /**
+      * Constructor que realiza las acciones del buscador
+      */
      KeyListener kl = new KeyListener(){
          @Override
         public void keyTyped(KeyEvent e) {
@@ -101,6 +113,9 @@ public class controllerCatalogo {
         }
      };
      
+     /**
+      * Metodo que permite mostrar los datos de la base de datos en los campos al seleccionar la tabla de la vista.
+      */
      public void jt_catalogo_mouseClicked(){
           int linea;
           linea = viewCatalogo.jt_catalogo.getSelectedRow();
@@ -115,12 +130,21 @@ public class controllerCatalogo {
           viewCatalogo.jcb_unidadmedida.setSelectedItem(modelCatalogo.getUnidad_medida());
           viewCatalogo.jcb_iva.setSelectedItem(modelCatalogo.getIva());
 }
+     /**
+      * Metodo que vacia la tabla de la vista catalogo y la vuelve a llenar los datos que coincidan con el jtf_buscar.
+      * Por cada tecla escrita en el jtf_buscar se repetira la accion. 
+      */
      public void jb_buscar_keypresseed(){
          modelCatalogo.setSentencia("SELECT id,nombre,precio, precio_mayoreo,unidad FROM catalogo where nombre like '%"+viewCatalogo.jtf_buscar.getText()+"%'");
          limpiar();
          modelCatalogo.llenartabla();
          viewCatalogo.jt_catalogo.setModel(modelCatalogo.getModelo());
      }
+     
+     /**
+      * Metodo que habilita los campos de la vista y los botones para guardado de datos.
+      * @param f variable boleana para habilirar o deshabilitar los campos y botones. 
+      */
      public void habilitar(boolean f){
      viewCatalogo.jta_descripcion.setEditable(f);
      viewCatalogo.jtf_codigobarras.setEditable(f);
@@ -132,17 +156,29 @@ public class controllerCatalogo {
      viewCatalogo.jb_guardar.setEnabled(f);
      viewCatalogo.jb_cancelar.setEnabled(f);
      }
+     
+     /**
+      * Metodo para habilitar o deshabilitar los botones de modificacion de registros de la base de datos.
+      * @param p variable de habilitar o deshabilitar los botones de la vista.
+      */
      public void botones_p(boolean p){
      viewCatalogo.jb_nuevo.setEnabled(p);
      viewCatalogo.jb_eliminar.setEnabled(p);
      viewCatalogo.jb_modificar.setEnabled(p);
      }
+     
+     /**
+      * Metodo que elimina los registros de la tabla de catalogo.
+      */
      public void limpiar(){
           for (int i = 0; i < viewCatalogo.jt_catalogo.getRowCount(); i++) {
             modelCatalogo.getModelo().removeRow(i);
             i -= 1;
         }
      }
+     /**
+      * Metodo que vacia los campos da vista.
+      */
      public void limpiar_campos(){
      viewCatalogo.jta_descripcion.setText(null);
      viewCatalogo.jtf_codigobarras.setText(null);
@@ -153,6 +189,11 @@ public class controllerCatalogo {
      viewCatalogo.jcb_unidadmedida.setSelectedIndex(0);
      }
      
+     /**
+      * Metodo que verifica lo registrado en los campos y con ello permitira ingresar un nuevo dato a la base de datos o actualizar un registro de la base de datos.
+      * Además deshabilita los botones secundarios y habilita los esenciales.
+      * Metodo que vacia la tabla y muestra nuevamente todos los registros con los cambios tenidos desde la base de datos.
+      */
      public void jb_guardar_mouseClicked(){
          if (viewCatalogo.jtf_codigobarras.getText().isEmpty())
              modelCatalogo.setCodigo_barras(0);
