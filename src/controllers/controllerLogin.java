@@ -31,6 +31,8 @@ public class controllerLogin {
      private controllerCompras controllerCompras;
      private controllerInicio controllerInicio;
      private controllerDetalleCompra controllerDetalleCompra;
+     private controllerVentasConsulta controllerVentasConsulta;
+     private controllerSucursal controllerSucursal;
      
      /*
      * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
@@ -44,7 +46,8 @@ public class controllerLogin {
      private  viewCompra viewCompra;
      private  viewInicio viewInicio;
      private viewDetallecompra viewDetallecompra;
-     
+     private viewVentasConsulta viewVentasConsulta;
+     private viewSucursal viewSucursal;
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
@@ -82,6 +85,8 @@ public class controllerLogin {
         controllerCompras = (controllerCompras) controllers [5];
         controllerInicio = (controllerInicio) controllers[6];
         controllerDetalleCompra = (controllerDetalleCompra) controllers[7];
+        controllerVentasConsulta = (controllerVentasConsulta) controllers[8];
+        controllerSucursal = (controllerSucursal) controllers[9];
     }
     /*
     * Separa cada uno de los views almacendados en views, de
@@ -96,6 +101,8 @@ public class controllerLogin {
         viewCompra = (viewCompra) views [5];
         viewInicio = (viewInicio) views[6];
         viewDetallecompra = (viewDetallecompra) views[7];
+        viewVentasConsulta = (viewVentasConsulta) views[8];
+        viewSucursal = (viewSucursal) views[9];
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -135,6 +142,8 @@ public class controllerLogin {
         viewAdmin.jb_compras.addActionListener(actionListener);
         viewCompra.jb_agregar_detalle.addActionListener(actionListener);
         viewDetallecompra.jb_finalizar.addActionListener(actionListener);
+        viewAdmin.jb_ventas.addActionListener(actionListener);
+        viewAdmin.jb_sucursales.addActionListener(actionListener);
     }
     
     /**
@@ -179,6 +188,12 @@ public class controllerLogin {
             }
             else if(e.getSource() == viewDetallecompra.jb_finalizar){
                 compras_actionPerformed();
+            }
+            else if(e.getSource() == viewAdmin.jb_ventas){
+                venta_consulta_actionPerformed();
+            }
+            else if(e.getSource() == viewAdmin.jb_sucursales){
+                sucursal_actionPerformed();
             }
         }
      };
@@ -296,4 +311,31 @@ public class controllerLogin {
         viewLogin.jmi_cerrar.setVisible(false);
      }
     
+     /*
+     * Método que hara que se cambie al panel de Consulta de Ventas
+     */
+     private void venta_consulta_actionPerformed(){
+        viewLogin.setContentPane(controllerVentasConsulta.viewVentasConsulta);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+     }
+     
+     /*
+     * Método que hara que se cambie al panel de Sucrusales
+     */
+     private void sucursal_actionPerformed(){
+        viewLogin.setContentPane(controllerSucursal.viewSucursal);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+     }
 } 

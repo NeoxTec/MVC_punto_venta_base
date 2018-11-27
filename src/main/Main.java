@@ -19,6 +19,14 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        modelSucursal modelSucursal = new modelSucursal();
+        viewSucursal viewSucursal = new viewSucursal();
+        controllerSucursal controllerSucursal = new controllerSucursal(modelSucursal,viewSucursal);
+        
+        modelVentasConsulta modelVentasConsulta = new modelVentasConsulta();
+        viewVentasConsulta viewVentasConsulta = new viewVentasConsulta();
+        controllerVentasConsulta controllerVentasConsulta = new controllerVentasConsulta(modelVentasConsulta,viewVentasConsulta);
+        
         modelDetalleCompra modelDetalleCompra = new modelDetalleCompra();
         viewDetallecompra viewDetallecompra = new viewDetallecompra();
         controllerDetalleCompra controllerDetalleCompra = new controllerDetalleCompra(modelDetalleCompra,viewDetallecompra);
@@ -58,7 +66,7 @@ public class Main {
          viewCompra viewCompra = new viewCompra();
          controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
          
-        Object[] controllers = new Object[8];
+        Object[] controllers = new Object[10];
         controllers[0] = controllerAdmin;
         controllers[1] = controllerCatalogo;
         controllers[2] = controllerEmpleado;
@@ -67,8 +75,10 @@ public class Main {
         controllers [5] = controllerCompras;
         controllers[6] = controllerInicio;
         controllers[7] = controllerDetalleCompra;
+        controllers[8] =  controllerVentasConsulta;
+        controllers[9] = controllerSucursal;
         
-        Object[] views = new Object [8];
+        Object[] views = new Object [10];
         views[0] = viewAdmin;
         views[1] = viewCatalogo;
         views[2] = viewEmpleado;
@@ -77,6 +87,8 @@ public class Main {
         views[5] = viewCompra;
         views[6] = viewInicio;
         views[7] = viewDetallecompra;
+        views[8]  = viewVentasConsulta;
+        views[9] = viewSucursal;
         
          
         modelLogin modelLogin = new modelLogin();

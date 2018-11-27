@@ -82,7 +82,7 @@ public class modelInicio {
         try {
            conexion = ConnectDatabase.getConectar();
            st = conexion.createStatement();
-           rs = st.executeQuery("SELECT tipo FROM empleado;");
+           rs = st.executeQuery("SELECT tipo FROM usuario;");
            rs.next();
            tipo = rs.getString("tipo");
         } catch (SQLException err) {
