@@ -68,7 +68,7 @@ public class viewProveedor extends javax.swing.JPanel {
         add(jl_titulo);
         jl_titulo.setBounds(100, 10, 672, 77);
         add(jtf_buscar);
-        jtf_buscar.setBounds(90, 90, 590, 20);
+        jtf_buscar.setBounds(90, 90, 590, 19);
 
         jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
         jb_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -93,7 +93,7 @@ public class viewProveedor extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 130, 810, 92);
+        jScrollPane1.setBounds(10, 130, 930, 92);
 
         jl_datospersonales.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_datospersonales.setForeground(new java.awt.Color(255, 102, 0));
@@ -103,7 +103,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
         add(jSeparator1);
-        jSeparator1.setBounds(10, 262, 810, 10);
+        jSeparator1.setBounds(10, 262, 910, 10);
 
         jl_rfc.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_rfc.setForeground(new java.awt.Color(255, 102, 0));
@@ -113,11 +113,11 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_rfc.setEditable(false);
         add(jtf_rfc);
-        jtf_rfc.setBounds(10, 309, 160, 20);
+        jtf_rfc.setBounds(10, 309, 160, 19);
 
         jtf_correo.setEditable(false);
         add(jtf_correo);
-        jtf_correo.setBounds(366, 309, 148, 20);
+        jtf_correo.setBounds(366, 309, 148, 19);
 
         jl_correo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_correo.setForeground(new java.awt.Color(255, 102, 0));
@@ -127,7 +127,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_calle.setEditable(false);
         add(jtf_calle);
-        jtf_calle.setBounds(10, 436, 165, 20);
+        jtf_calle.setBounds(10, 436, 165, 19);
 
         jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_calle.setForeground(new java.awt.Color(255, 102, 0));
@@ -137,7 +137,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_colonia.setEditable(false);
         add(jtf_colonia);
-        jtf_colonia.setBounds(183, 436, 165, 20);
+        jtf_colonia.setBounds(183, 436, 165, 19);
 
         jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
@@ -147,7 +147,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_no_ext.setEditable(false);
         add(jtf_no_ext);
-        jtf_no_ext.setBounds(366, 436, 90, 20);
+        jtf_no_ext.setBounds(366, 436, 90, 19);
 
         jl_no_ext.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_no_ext.setForeground(new java.awt.Color(255, 102, 0));
@@ -157,7 +157,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_cp.setEditable(false);
         add(jtf_cp);
-        jtf_cp.setBounds(511, 436, 80, 20);
+        jtf_cp.setBounds(511, 436, 80, 19);
 
         jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_cp.setForeground(new java.awt.Color(255, 102, 0));
@@ -181,7 +181,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_razons.setEditable(false);
         add(jtf_razons);
-        jtf_razons.setBounds(188, 309, 160, 20);
+        jtf_razons.setBounds(188, 309, 160, 19);
 
         jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
@@ -191,7 +191,7 @@ public class viewProveedor extends javax.swing.JPanel {
 
         jtf_telefono.setEditable(false);
         add(jtf_telefono);
-        jtf_telefono.setBounds(532, 309, 150, 20);
+        jtf_telefono.setBounds(532, 309, 150, 19);
 
         jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
         jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -236,7 +236,7 @@ public class viewProveedor extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 840, 550);
+        jLabel1.setBounds(0, 0, 1080, 560);
     }// </editor-fold>//GEN-END:initComponents
 
 
