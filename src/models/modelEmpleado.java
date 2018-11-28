@@ -243,7 +243,6 @@ public class modelEmpleado {
     public void insertarRegistro(){
         try{
             String sql = "INSERT INTO empleado(rfc,nombre,ape_p,ape_m,calle,colonia,no_exterior,no_interior,cp,telefono,correo,genero,fecha_nac)" + "VALUES ('"+ rfc +"','"+ nombre +"','"+ ape_p +"','"+ ape_m +"','"+ calle +"','"+ colonia +"',"+ no_ext +","+ no_int +",'"+cp+"','"+telefono+"','"+correo+"','"+genero+"','"+fecha_n+"');";
-            System.out.println(sql);
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se ha insertado correctamente");
         }catch(SQLException err){
@@ -268,6 +267,20 @@ public class modelEmpleado {
             JOptionPane.showMessageDialog(null, "Error ModelAgenda Actualizacion: " + err.getMessage());
         }
     }*/
+    
+    public void eliminarRegistro(){
+        int confirmar = JOptionPane.showConfirmDialog(null, "¿Desea eiminar el registro?");
+        if (JOptionPane.OK_OPTION== confirmar){
+        try{
+            String sql = "DELETE  FROM empleado WHERE rfc = '" + rfc + "';";
+            st.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente");
+        }catch(SQLException err){
+            
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda Eliminar: " + err.getMessage());
+        }
+    }
+   }
 
     
 }

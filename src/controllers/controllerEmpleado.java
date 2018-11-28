@@ -84,13 +84,18 @@ public class controllerEmpleado {
                 
             }
             else if(e.getSource() == viewEmpleado.jb_eliminar){
-                
+                eliminar();
             }
             else if(e.getSource() == viewEmpleado.jb_guardar){
                 guardar();
             }
             else if(e.getSource() == viewEmpleado.jb_cancelar){
+                limpiarcampos();
                 editableF();
+                
+            }
+            else if(e.getSource() == viewEmpleado.jt_empleados){
+                jt_empleado_mouseClicked();
             }
                 
         }
@@ -133,6 +138,8 @@ public class controllerEmpleado {
         viewEmpleado.jb_nuevo.addMouseListener(ml);
         viewEmpleado.jb_cancelar.addMouseListener(ml);
         viewEmpleado.jb_guardar.addMouseListener(ml);
+        viewEmpleado.jt_empleados.addMouseListener(ml);
+        viewEmpleado.jb_eliminar.addMouseListener(ml);
         
     }
     
@@ -142,6 +149,19 @@ public class controllerEmpleado {
     private void setKeyListener(){
         viewEmpleado.jtf_buscar.addKeyListener(kl);
     }
+    
+    /**
+      * Metodo que permite mostrar los datos de la base de datos en los campos al seleccionar la tabla de la vista.
+    */
+    private void jt_empleado_mouseClicked(){
+        int linea;
+        linea = viewEmpleado.jt_empleados.getSelectedRow();
+        modelEmpleado.setRfc((String) viewEmpleado.jt_empleados.getValueAt(linea, 0));
+        modelEmpleado.datos();
+        setValues();
+        
+    }
+    
     
     /*
     * Método que permite realizar la busqueda en el campo por medio de las teclas que se van tecleando
@@ -188,13 +208,45 @@ public class controllerEmpleado {
     }
     
     /*
+    * Método para limpiar los campos
+    */
+    private void limpiarcampos(){
+        viewEmpleado.jtf_rfc.setText(null);
+        viewEmpleado.jtf_nombre.setText(null);
+        viewEmpleado.jtf_ape_p.setText(null);
+        viewEmpleado.jtf_ape_m.setText(null);
+        viewEmpleado.jtf_telefono.setText(null);
+        viewEmpleado.jtf_correo.setText(null);
+        viewEmpleado.jft_fecha.setText("aaaa/mm/dd");
+        viewEmpleado.jcb_genero.setSelectedIndex(0);
+        viewEmpleado.jtf_calle.setText(null);
+        viewEmpleado.jtf_colonia.setText(null);
+        viewEmpleado.jtf_no_ext.setText(null);
+        viewEmpleado.jtf_no_int.setText(null);
+        viewEmpleado.jtf_cp.setText(null);
+    }
+    
+    /*
     * Método para guardar los registros o modificaciones de los registros dentro de la tabla empleado.
     */
     public void guardar(){
         obtener_Datos();
         modelEmpleado.insertarRegistro();
         editableF();
+        limpiar();
         initDB();
+        limpiarcampos();
+        
+    }
+    /*
+    * Método para eliminar los registros dentro de la tabla empleado.
+    */
+    public void eliminar(){
+        obtener_Datos();
+        modelEmpleado.eliminarRegistro();
+        limpiar();
+        initDB();
+        limpiarcampos();
     }
     /**
      * Muestra los valores almacenados en el modelEmpleado al viewEmpleado
