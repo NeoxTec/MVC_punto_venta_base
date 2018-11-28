@@ -70,8 +70,6 @@ public class viewInicio extends javax.swing.JPanel {
         jb_entrar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add(jb_entrar);
         jb_entrar.setBounds(450, 451, 151, 33);
-
-        jpf_password.setText("jPasswordField1");
         add(jpf_password);
         jpf_password.setBounds(390, 420, 230, 20);
 

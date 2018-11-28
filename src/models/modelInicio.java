@@ -78,22 +78,10 @@ public class modelInicio {
     public void setRfc_e(String rfc_e) {
         this.rfc_e = rfc_e;
     }
-    public void conectarDB() {
-        try {
-           conexion = ConnectDatabase.getConectar();
-           st = conexion.createStatement();
-           rs = st.executeQuery("SELECT tipo FROM usuario;");
-           rs.next();
-           tipo = rs.getString("tipo");
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelCatalogo001: " + err.getMessage());
-            System.out.println(err.getMessage());
-        }
-    }
+    
     public int Login(){
-        
-        ConnectDatabase.getConectar();
-        String sql = "SELECT username,pass  FROM usuario WHERE username = ? AND password = ?";
+        conexion = ConnectDatabase.getConectar();
+        String sql = "SELECT count(username) FROM usuario WHERE username = ? AND pass = ?";
         try{
                ps = conexion.prepareStatement(sql);
                ps.setString(1,username);

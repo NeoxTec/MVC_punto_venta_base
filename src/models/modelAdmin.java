@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
  */
 public class modelAdmin {
     private Date fecha;
+    public String username;
+   
 
     public Date getFecha() {
         return fecha;
@@ -24,6 +26,14 @@ public class modelAdmin {
     
     public void imprimir(){
         System.out.println(fecha);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
    

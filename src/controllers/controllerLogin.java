@@ -6,6 +6,7 @@
 package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import models.modelLogin;
 import views.*;
 
@@ -153,7 +154,7 @@ public class controllerLogin {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == viewInicio.jb_entrar) {
-                admin_actionPerformed();
+                login();
             } 
             else if (e.getSource() == viewAdmin.jb_catalogo){
                 catalogo_actionPerformed();        
@@ -198,6 +199,7 @@ public class controllerLogin {
         }
      };
     
+    
     /**
      * Método para iniciar el frame con el panel Inicio y al momento de cerrar sesión
      */
@@ -209,7 +211,21 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
-
+    }
+    /*
+    *
+    */
+    private void login(){
+        controllerInicio.Datos();
+        controllerAdmin.modelAdmin.setUsername(controllerInicio.viewInicio.jtf_usuario.getText());
+        
+        if(controllerInicio.modelInicio.Login() == 1){
+            admin_actionPerformed();
+        }           
+        else if (controllerInicio.modelInicio.Login() != 1){
+               JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+        }
+        
     }
     /**
      * Método para hacer cambio al panel Admin

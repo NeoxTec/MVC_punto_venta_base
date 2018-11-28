@@ -24,13 +24,17 @@ public class controllerAdmin {
         this.modelAdmin = modelAdmin;
         this.viewAdmin = viewAdmin;
         fecha();
-        modelAdmin.imprimir();
+        usuario();
     }
     
     private void fecha(){
         SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY/MM/dd");
         viewAdmin.jl_fecha.setText(formatoFecha.format(fecha));
         modelAdmin.setFecha(fecha);
+    }
+    
+    private void usuario(){
+        viewAdmin.jl_tipo_user.setText("Administrador: " + modelAdmin.getUsername());
     }
  }
 

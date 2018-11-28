@@ -10,5 +10,14 @@ package models;
  * @author Diego
  */
 public class modelLogin {
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     
 }
