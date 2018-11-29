@@ -30,7 +30,7 @@ public class viewSucursal extends javax.swing.JPanel {
         jl_titulo = new javax.swing.JLabel();
         jtf_buscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_sucursales = new javax.swing.JTable();
         jl_id = new javax.swing.JLabel();
         jtf_id = new javax.swing.JTextField();
         jl_colonia = new javax.swing.JLabel();
@@ -53,191 +53,192 @@ public class viewSucursal extends javax.swing.JPanel {
         jb_eliminar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        jb_buscar = new javax.swing.JButton();
-        jl_fondo = new javax.swing.JLabel();
+        jl_nointerior1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
         jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_titulo.setText("SUCURSALES");
+        jl_titulo.setText("Sucursales");
         add(jl_titulo);
-        jl_titulo.setBounds(10, 11, 754, 77);
+        jl_titulo.setBounds(150, 10, 754, 77);
         add(jtf_buscar);
-        jtf_buscar.setBounds(10, 94, 661, 20);
+        jtf_buscar.setBounds(230, 90, 661, 19);
 
-        jTable1.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Id", "Calle", "Colonia", "No ext", "No int", "Cp", "Telefono"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jt_sucursales = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }};
+            jt_sucursales.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jt_sucursales.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null},
+                    {null, null, null, null, null, null, null}
+                },
+                new String [] {
+                    "Id", "Calle", "Colonia", "No ext", "No int", "Cp", "Telefono"
+                }
+            ));
+            jScrollPane1.setViewportView(jt_sucursales);
 
-        add(jScrollPane1);
-        jScrollPane1.setBounds(10, 120, 743, 92);
+            add(jScrollPane1);
+            jScrollPane1.setBounds(20, 130, 1050, 92);
 
-        jl_id.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_id.setForeground(new java.awt.Color(255, 102, 0));
-        jl_id.setText("Id");
-        add(jl_id);
-        jl_id.setBounds(10, 286, 42, 21);
+            jl_id.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_id.setForeground(new java.awt.Color(255, 102, 0));
+            jl_id.setText("Id");
+            add(jl_id);
+            jl_id.setBounds(100, 300, 42, 21);
 
-        jtf_id.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_id.setForeground(new java.awt.Color(255, 102, 0));
-        jtf_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtf_idActionPerformed(evt);
-            }
-        });
-        add(jtf_id);
-        jtf_id.setBounds(70, 283, 115, 27);
+            jtf_id.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_id.setForeground(new java.awt.Color(255, 102, 0));
+            jtf_id.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jtf_idActionPerformed(evt);
+                }
+            });
+            add(jtf_id);
+            jtf_id.setBounds(140, 300, 115, 25);
 
-        jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
-        jl_colonia.setText("Colonia");
-        add(jl_colonia);
-        jl_colonia.setBounds(458, 286, 72, 21);
+            jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
+            jl_colonia.setText("Colonia");
+            add(jl_colonia);
+            jl_colonia.setBounds(630, 290, 72, 21);
 
-        jtf_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_colonia.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_colonia);
-        jtf_colonia.setBounds(540, 283, 213, 27);
+            jtf_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_colonia.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_colonia);
+            jtf_colonia.setBounds(720, 290, 213, 25);
 
-        jl_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_nointerior.setForeground(new java.awt.Color(255, 102, 0));
-        jl_nointerior.setText("No interior");
-        add(jl_nointerior);
-        jl_nointerior.setBounds(10, 346, 109, 21);
+            jl_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_nointerior.setForeground(new java.awt.Color(255, 102, 0));
+            jl_nointerior.setText("No interior");
+            add(jl_nointerior);
+            jl_nointerior.setBounds(20, 360, 109, 21);
 
-        jtf_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_nointerior.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_nointerior);
-        jtf_nointerior.setBounds(123, 343, 140, 27);
+            jtf_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_nointerior.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_nointerior);
+            jtf_nointerior.setBounds(130, 360, 140, 25);
 
-        jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
-        jl_telefono.setText("Telefono");
-        add(jl_telefono);
-        jl_telefono.setBounds(10, 407, 73, 21);
+            jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
+            jl_telefono.setText("Telefono");
+            add(jl_telefono);
+            jl_telefono.setBounds(20, 420, 73, 21);
 
-        jtf_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_telefono.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_telefono);
-        jtf_telefono.setBounds(123, 404, 162, 27);
+            jtf_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_telefono.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_telefono);
+            jtf_telefono.setBounds(130, 420, 162, 25);
 
-        jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_calle.setForeground(new java.awt.Color(255, 102, 0));
-        jl_calle.setText("Calle");
-        add(jl_calle);
-        jl_calle.setBounds(219, 286, 54, 21);
+            jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_calle.setForeground(new java.awt.Color(255, 102, 0));
+            jl_calle.setText("Calle");
+            add(jl_calle);
+            jl_calle.setBounds(340, 290, 54, 21);
 
-        jtf_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_calle.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_calle);
-        jtf_calle.setBounds(283, 283, 147, 27);
+            jtf_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_calle.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_calle);
+            jtf_calle.setBounds(410, 290, 147, 25);
 
-        jl_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_noexterior.setForeground(new java.awt.Color(255, 102, 0));
-        jl_noexterior.setText("No exterior");
-        add(jl_noexterior);
-        jl_noexterior.setBounds(281, 346, 100, 21);
+            jl_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_noexterior.setForeground(new java.awt.Color(255, 102, 0));
+            jl_noexterior.setText("No exterior");
+            add(jl_noexterior);
+            jl_noexterior.setBounds(310, 360, 100, 21);
 
-        jtf_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_noexterior.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_noexterior);
-        jtf_noexterior.setBounds(399, 343, 131, 27);
+            jtf_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_noexterior.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_noexterior);
+            jtf_noexterior.setBounds(430, 360, 131, 25);
 
-        jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_cp.setForeground(new java.awt.Color(255, 102, 0));
-        jl_cp.setText("Cp");
-        add(jl_cp);
-        jl_cp.setBounds(540, 346, 42, 21);
+            jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_cp.setForeground(new java.awt.Color(255, 102, 0));
+            jl_cp.setText("Cp");
+            add(jl_cp);
+            jl_cp.setBounds(660, 360, 42, 21);
 
-        jtf_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jtf_cp.setForeground(new java.awt.Color(255, 102, 0));
-        add(jtf_cp);
-        jtf_cp.setBounds(592, 343, 156, 27);
+            jtf_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jtf_cp.setForeground(new java.awt.Color(255, 102, 0));
+            add(jtf_cp);
+            jtf_cp.setBounds(730, 360, 156, 25);
 
-        jl_datospersonales.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_datospersonales.setForeground(new java.awt.Color(255, 102, 0));
-        jl_datospersonales.setText("Datos Sucursal");
-        add(jl_datospersonales);
-        jl_datospersonales.setBounds(10, 223, 172, 21);
+            jl_datospersonales.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_datospersonales.setForeground(new java.awt.Color(255, 102, 0));
+            jl_datospersonales.setText("Datos Sucursal");
+            add(jl_datospersonales);
+            jl_datospersonales.setBounds(20, 240, 172, 21);
 
-        jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
-        add(jSeparator1);
-        jSeparator1.setBounds(10, 255, 743, 10);
+            jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
+            add(jSeparator1);
+            jSeparator1.setBounds(20, 270, 1040, 10);
 
-        jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_agregar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_agregar.setText("Nuevo");
-        jb_agregar.setBorder(null);
-        add(jb_agregar);
-        jb_agregar.setBounds(10, 470, 130, 40);
+            jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
+            jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jb_agregar.setForeground(new java.awt.Color(255, 255, 255));
+            jb_agregar.setText("Nuevo");
+            jb_agregar.setBorder(null);
+            add(jb_agregar);
+            jb_agregar.setBounds(20, 480, 130, 40);
 
-        jb_modificar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_modificar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_modificar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_modificar.setText("Modificar");
-        jb_modificar.setBorder(null);
-        add(jb_modificar);
-        jb_modificar.setBounds(175, 470, 130, 40);
+            jb_modificar.setBackground(new java.awt.Color(255, 102, 0));
+            jb_modificar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jb_modificar.setForeground(new java.awt.Color(255, 255, 255));
+            jb_modificar.setText("Modificar");
+            jb_modificar.setBorder(null);
+            add(jb_modificar);
+            jb_modificar.setBounds(190, 480, 130, 40);
 
-        jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_guardar.setText("Guardar");
-        jb_guardar.setBorder(null);
-        jb_guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_guardarActionPerformed(evt);
-            }
-        });
-        add(jb_guardar);
-        jb_guardar.setBounds(335, 470, 130, 40);
+            jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
+            jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
+            jb_guardar.setText("Guardar");
+            jb_guardar.setBorder(null);
+            jb_guardar.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jb_guardarActionPerformed(evt);
+                }
+            });
+            add(jb_guardar);
+            jb_guardar.setBounds(630, 480, 130, 40);
 
-        jb_eliminar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_eliminar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_eliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_eliminar.setText("Eliminar");
-        jb_eliminar.setBorder(null);
-        add(jb_eliminar);
-        jb_eliminar.setBounds(483, 470, 130, 40);
+            jb_eliminar.setBackground(new java.awt.Color(255, 102, 0));
+            jb_eliminar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jb_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+            jb_eliminar.setText("Eliminar");
+            jb_eliminar.setBorder(null);
+            add(jb_eliminar);
+            jb_eliminar.setBounds(350, 480, 130, 40);
 
-        jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_cancelar.setText("Cancelar");
-        jb_cancelar.setBorder(null);
-        add(jb_cancelar);
-        jb_cancelar.setBounds(623, 470, 130, 40);
+            jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
+            jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+            jb_cancelar.setForeground(new java.awt.Color(255, 255, 255));
+            jb_cancelar.setText("Cancelar");
+            jb_cancelar.setBorder(null);
+            add(jb_cancelar);
+            jb_cancelar.setBounds(800, 480, 130, 40);
 
-        jSeparator2.setForeground(new java.awt.Color(255, 102, 0));
-        add(jSeparator2);
-        jSeparator2.setBounds(10, 442, 754, 10);
+            jSeparator2.setForeground(new java.awt.Color(255, 102, 0));
+            add(jSeparator2);
+            jSeparator2.setBounds(20, 460, 1040, 10);
 
-        jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_buscar.setText("Buscar");
-        jb_buscar.setBorder(null);
-        add(jb_buscar);
-        jb_buscar.setBounds(681, 95, 72, 17);
+            jl_nointerior1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+            jl_nointerior1.setForeground(new java.awt.Color(255, 102, 0));
+            jl_nointerior1.setText("Buscar:");
+            add(jl_nointerior1);
+            jl_nointerior1.setBounds(160, 90, 109, 21);
 
-        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        jl_fondo.setText("jLabel1");
-        add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 770, 520);
-    }// </editor-fold>//GEN-END:initComponents
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+            add(jLabel1);
+            jLabel1.setBounds(0, -10, 1100, 590);
+        }// </editor-fold>//GEN-END:initComponents
 
     private void jtf_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_idActionPerformed
         // TODO add your handling code here:
@@ -249,12 +250,11 @@ public class viewSucursal extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
     public javax.swing.JButton jb_agregar;
-    private javax.swing.JButton jb_buscar;
     public javax.swing.JButton jb_cancelar;
     public javax.swing.JButton jb_eliminar;
     public javax.swing.JButton jb_guardar;
@@ -263,12 +263,13 @@ public class viewSucursal extends javax.swing.JPanel {
     private javax.swing.JLabel jl_colonia;
     private javax.swing.JLabel jl_cp;
     private javax.swing.JLabel jl_datospersonales;
-    private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_id;
     private javax.swing.JLabel jl_noexterior;
     private javax.swing.JLabel jl_nointerior;
+    private javax.swing.JLabel jl_nointerior1;
     private javax.swing.JLabel jl_telefono;
     private javax.swing.JLabel jl_titulo;
+    public javax.swing.JTable jt_sucursales;
     private javax.swing.JTextField jtf_buscar;
     public javax.swing.JTextField jtf_calle;
     public javax.swing.JTextField jtf_colonia;
