@@ -217,7 +217,7 @@ public class controllerLogin {
     */
     private void login(){
         controllerInicio.Datos();
-        controllerAdmin.modelAdmin.setUsername(controllerInicio.viewInicio.jtf_usuario.getText());
+        controllerAdmin.viewAdmin.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
         
         if(controllerInicio.modelInicio.Login() == 1){
             admin_actionPerformed();

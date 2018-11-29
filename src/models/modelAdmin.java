@@ -12,15 +12,15 @@ import java.text.SimpleDateFormat;
  * @author Diego
  */
 public class modelAdmin {
-    private Date fecha;
-    public String username;
+    private String fecha;
+    
    
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
     
@@ -28,13 +28,6 @@ public class modelAdmin {
         System.out.println(fecha);
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
     
    
 }
