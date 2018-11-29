@@ -167,7 +167,7 @@ public class controllerEmpleado {
     * Método que permite realizar la busqueda en el campo por medio de las teclas que se van tecleando
     */
     private void buscar_keypressed(){
-        modelEmpleado.setSentencia("SELECT * FROM empleado where nombre like '%" + viewEmpleado.jtf_buscar.getText()+"%'");
+        modelEmpleado.setSentencia("SELECT * FROM empleado WHERE nombre like '%" + viewEmpleado.jtf_buscar.getText()+"%'");
         limpiar();
         modelEmpleado.llenarTabla();
         viewEmpleado.jt_empleados.setModel(modelEmpleado.getModelo());

@@ -228,7 +228,7 @@ public class modelEmpleado {
     }
     public void datos(){
         try{
-            rs = st.executeQuery("SELECT * FROM empleado WHERE rfc ="+rfc+";");
+            rs = st.executeQuery("SELECT * FROM empleado WHERE rfc = '"+rfc+"';");
             rs.first();
             setValues();
         }catch(SQLException e){
