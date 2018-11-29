@@ -22,9 +22,10 @@ public class controllerEmpleado {
     public controllerEmpleado(modelEmpleado modelEmpleado, viewEmpleado viewEmpleado) {
         this.modelEmpleado = modelEmpleado;
         this.viewEmpleado = viewEmpleado;
+        setKeyListener();
         initDB();
         setMouseListener();
-        setKeyListener();
+        
     }
     
     public void initDB(){

@@ -221,9 +221,11 @@ public class controllerLogin {
         
         if(controllerInicio.modelInicio.Login() == 1){
             admin_actionPerformed();
+            controllerInicio.limpiar();
         }           
         else if (controllerInicio.modelInicio.Login() != 1){
                JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+               controllerInicio.limpiar();
         }
         
     }

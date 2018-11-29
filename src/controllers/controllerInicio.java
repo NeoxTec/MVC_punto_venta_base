@@ -25,7 +25,7 @@ public class controllerInicio {
     }
     
     public void limpiar(){
-        viewInicio.jtf_usuario.setText(" ");
-        viewInicio.jpf_password.setText("hola");
+        viewInicio.jtf_usuario.setText(null);
+        viewInicio.jpf_password.setText(null);
     }
 }
