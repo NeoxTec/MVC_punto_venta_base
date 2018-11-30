@@ -225,6 +225,8 @@ public class controllerLogin {
         }
         else if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("VENDEDOR")){
             controllerVendedor.viewVendedor.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
+            controllerVendedor.modelVendedor.setSucursal(controllerInicio.modelInicio.getId_sucursal());
+            controllerVendedor.viewVendedor.jl_sucursal.setText("Sucursal: "+controllerVendedor.modelVendedor.getSucursal());
             vendedor_actionPerformed();
             controllerInicio.limpiar();
         }

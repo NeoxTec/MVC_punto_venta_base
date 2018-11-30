@@ -122,13 +122,14 @@ public class modelInicio {
     
     public void consulta(){
         conexion = ConnectDatabase.getConectar();
-        String sql = "SELECT tipo FROM usuario WHERE username = ?";
+        String sql = "SELECT tipo,id_sucursal FROM usuario WHERE username = ?";
         try{
            ps = conexion.prepareStatement(sql);
            ps.setString(1,username);
            rs = ps.executeQuery();
            rs.next();
            tipo = rs.getString("tipo"); 
+           id_sucursal =rs.getInt("id_sucursal");
         }catch(SQLException ex){
             
         }
