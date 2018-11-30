@@ -26,6 +26,7 @@ public class modelInicio {
     
     private String username;
     private String pass;
+    private String pass1;
     private String tipo;
     private int validacion;
     private int id_sucursal;
@@ -79,13 +80,12 @@ public class modelInicio {
         this.rfc_e = rfc_e;
     }
     
-    public int Login(){
+    public int LoginUser(){
         conexion = ConnectDatabase.getConectar();
-        String sql = "SELECT count(username) FROM usuario WHERE username = ? AND pass = ?";
+        String sql = "SELECT count(username) FROM usuario WHERE username = ?";
         try{
                ps = conexion.prepareStatement(sql);
                ps.setString(1,username);
-               ps.setString(2,pass);
                rs = ps.executeQuery();
                
                if(rs.next()){
@@ -94,8 +94,43 @@ public class modelInicio {
                    return 1;
                
            } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null, "Error inicio_sesión: " + ex.getMessage());
-               return 1;
+               JOptionPane.showMessageDialog(null, "Error inicio_sesión001: " + ex.getMessage());
+               return 0;
            }
     } 
+    
+    public boolean LoginPass(){
+        if (LoginUser() == 1){
+        conexion = ConnectDatabase.getConectar();
+        String sql = "SELECT pass FROM usuario WHERE username = ?";
+        try{
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            rs.next();
+            pass1 = rs.getString("pass");
+            if (pass1.equals(pass)){
+                 return true;
+            }      
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error inicio_sesión002: " + ex.getMessage());
+        }
+        
+      }
+        return false;
+    }
+    
+    public void consulta(){
+        conexion = ConnectDatabase.getConectar();
+        String sql = "SELECT tipo FROM usuario WHERE username = ?";
+        try{
+           ps = conexion.prepareStatement(sql);
+           ps.setString(1,username);
+           rs = ps.executeQuery();
+           rs.next();
+           tipo = rs.getString("tipo"); 
+        }catch(SQLException ex){
+            
+        }
+    }
 }

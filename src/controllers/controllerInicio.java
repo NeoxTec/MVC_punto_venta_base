@@ -22,6 +22,7 @@ public class controllerInicio {
     public void Datos(){
         modelInicio.setUsername(viewInicio.jtf_usuario.getText());
         modelInicio.setPass(new String(viewInicio.jpf_password.getPassword()));
+        modelInicio.consulta();
     }
     
     public void limpiar(){
