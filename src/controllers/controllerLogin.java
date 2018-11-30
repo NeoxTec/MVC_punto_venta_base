@@ -217,15 +217,16 @@ public class controllerLogin {
     */
     private void login(){
         controllerInicio.Datos();
-        controllerAdmin.viewAdmin.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
         modelLogin.setTipo(controllerInicio.modelInicio.getTipo());
         if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("ADMIN")){
+            controllerAdmin.viewAdmin.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
                 admin_actionPerformed();
                 controllerInicio.limpiar();
         }
         else if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("VENDEDOR")){
-             vendedor_actionPerformed();
-             controllerInicio.limpiar();
+            controllerVendedor.viewVendedor.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
+            vendedor_actionPerformed();
+            controllerInicio.limpiar();
         }
         else {
                JOptionPane.showMessageDialog(null, "Ingrese datos validos");
