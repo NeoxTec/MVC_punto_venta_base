@@ -10,5 +10,23 @@ package models;
  * @author Diego
  */
 public class modelVendedor {
+    private String fecha;
+    private int sucursal;
+    
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(int sucursal) {
+        this.sucursal = sucursal;
+    }
     
 }
