@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -21,6 +22,7 @@ public class modelEmpleado {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
+    private PreparedStatement ps;
     
     private String rfc;
     private String nombre;
@@ -35,6 +37,14 @@ public class modelEmpleado {
     private String correo;
     private Object genero;
     private String fecha_n;
+    
+    private String username;
+    private String pass = "ferreteria";
+    private String passh;
+    private int validacion = 123;
+    private Object sucursal;
+    private Object puesto;
+    
     
     private String sentencia;
     DefaultTableModel modelo = new DefaultTableModel();
@@ -158,6 +168,23 @@ public class modelEmpleado {
         this.sentencia = sentencia;
     }
     
+    public Object getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Object sucursal) {
+        this.sucursal = sucursal;
+    }
+
+    public Object getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(Object puesto) {
+        this.puesto = puesto;
+    }
+
+    
     /**
      * Método que realiza las siguietnes acciones: 
      * 1- Conecta con la base quetzalstock
@@ -244,10 +271,28 @@ public class modelEmpleado {
         try{
             String sql = "INSERT INTO empleado(rfc,nombre,ape_p,ape_m,calle,colonia,no_exterior,no_interior,cp,telefono,correo,genero,fecha_nac)" + "VALUES ('"+ rfc +"','"+ nombre +"','"+ ape_p +"','"+ ape_m +"','"+ calle +"','"+ colonia +"',"+ no_ext +","+ no_int +",'"+cp+"','"+telefono+"','"+correo+"','"+genero+"','"+fecha_n+"');";
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Se ha insertado correctamente");
+            if (insertarUsuario() == true){
+                JOptionPane.showMessageDialog(null, "Se ha insertado correctamente");
+            }
         }catch(SQLException err){
-            JOptionPane.showMessageDialog(null, "Error ModelAgenda Inserción: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error modelEmpleado Inserción: " + err.getMessage());
         }
+    }
+    
+    
+    
+    private boolean insertarUsuario(){
+        passh = hash.sha1(pass);
+        String usuario = rfc.trim().substring(0,3);
+        username = "FA"+usuario+ sucursal;
+        try{
+            String sql = "INSERT INTO usuario (username,pass,tipo,validacion,id_sucursal,rfc_e)" + "VALUES ('"+ username +"','"+ passh +"','"+ puesto + "'," + validacion +","+ sucursal + ",'"+rfc + "');";
+            st.executeUpdate(sql);
+            return true;
+        }catch(SQLException err){
+            JOptionPane.showMessageDialog(null, "Error modelEmpleado Inserción Usuario: " + err.getMessage());
+        }
+        return false;
     }
     
     /**
@@ -272,6 +317,8 @@ public class modelEmpleado {
         int confirmar = JOptionPane.showConfirmDialog(null, "¿Desea eiminar el registro?");
         if (JOptionPane.OK_OPTION== confirmar){
         try{
+            String sql1 = "DELETE FROM usuario WHERE rfc_e = '" + rfc + "';";
+            st.executeUpdate(sql1);
             String sql = "DELETE  FROM empleado WHERE rfc = '" + rfc + "';";
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente");
@@ -282,5 +329,6 @@ public class modelEmpleado {
     }
    }
 
+    
     
 }
