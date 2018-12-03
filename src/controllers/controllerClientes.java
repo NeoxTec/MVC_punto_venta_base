@@ -6,8 +6,8 @@ import models.ModelClientes;
 import views.viewCliente;
 
 public class controllerClientes implements ActionListener{
-    public ModelClientes modelClientes;
-    public viewCliente viewCliente;
+     ModelClientes modelClientes;
+     viewCliente viewCliente;
 
     public controllerClientes(ModelClientes modelClientes, viewCliente viewClientes) {
         this.modelClientes = modelClientes;
@@ -17,7 +17,7 @@ public class controllerClientes implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == viewCliente.jb_Guardar_Cliente) {
-                jb_guardar_cliente_actionPerformed();
+                jb_insertar_cliente_actionPerformed();
             } else if (e.getSource() == viewCliente.jb_Nuevo_Cliente) {
                 jb_nuevo_actionPerformed();
             } else if (e.getSource() == viewCliente.jb_Modificar_Cliente) {
@@ -52,7 +52,7 @@ public class controllerClientes implements ActionListener{
         viewCliente.jb_Eliminar_Cliente.addActionListener(actionListener);
         
     }
-    private void jb_guardar_cliente_actionPerformed(){
+    private void jb_insertar_cliente_actionPerformed(){
     System.out.println("Action del boton jbtn_guardar");
     modelClientes.setNombre(viewCliente.jtf_Nombre_Cliente.getText());
     modelClientes.setApe_p(viewCliente.jtf_Ap_Paterno_Cliente.getText());
@@ -66,7 +66,7 @@ public class controllerClientes implements ActionListener{
     modelClientes.setCp(viewCliente.jtf_Codigo_Postal_Cliente.getText());
     modelClientes.setGenero((String) viewCliente.jcb_Genero_Cliente.getSelectedItem());
     modelClientes.setCorreo(viewCliente.jtf_Correo_Cliente.getText());
-    modelClientes.guardar();
+    modelClientes.insertar();
     }
     private void jb_nuevo_actionPerformed(){
     System.out.println("Action del boton jb_nuevo");
