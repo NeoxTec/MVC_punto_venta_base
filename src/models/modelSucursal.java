@@ -15,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import bd.ConnectDatabase;
-import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -191,7 +190,7 @@ public void insertarRegistro() {
         
         try {
             
-            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_int, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ noexterior+"','"+ nointerior +"','"+ cp +"','"+ telefono +"');";
+            String sql =  "INSERT INTO sucursal (calle, colonia, no_exterior,no_interior, cp, telefono)" + " VALUES ('"+calle+"','"+colonia +"',"+ noexterior+","+ nointerior +",'"+ cp +"','"+ telefono +"');";
             System.out.println(sql);
             st.executeUpdate(sql);
             
@@ -208,7 +207,7 @@ public void insertarRegistro() {
          System.out.println("registro modificado");
 
         try {
-          String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',noexterior = '"+ noexterior +"',nointerior = '"+ nointerior +"'cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = '"+ id +"'; ";
+          String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',no_exterior = "+ noexterior +",no_interior = "+ nointerior +",cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = "+ id +"; ";
             System.out.println(sql);
           st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se modifico correctamente el registro.");
@@ -216,14 +215,14 @@ public void insertarRegistro() {
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error al modificar registr9 "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error al modificar registro "+err.getMessage()); 
         }
  }
     
 /**
   * Metodo que llena la tabla con los registros existentes de la base de datos.
   */
-         public void llenartabla(){
+public void llenartabla(){
         rs = ConnectDatabase.getTabla(sentencia);
         t_sucursal.setColumnIdentifiers(new Object[]{"Id","Calle", "Colonia", "No. Exterior", "No. Interior","Código Postal", "Teléfono"});
         try {
@@ -242,11 +241,11 @@ public void insertarRegistro() {
         }
     }    
 
-           /**
-          * Metodo que obtiene datos de un registro especifico de la base de datos.
-          */
-         public void datos(){
-            try {
+ /**
+* Metodo que obtiene datos de un registro especifico de la base de datos.
+*/
+public void datos(){
+      try {
                rs = st.executeQuery("SELECT * FROM sucursal where id ="+id+";");
                rs.first();
                calle =rs.getString("calle");
@@ -257,7 +256,6 @@ public void insertarRegistro() {
                telefono = rs.getString("telefono"); 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage());}
-         }
- 
+         } 
 }
 
