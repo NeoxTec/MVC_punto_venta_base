@@ -16,6 +16,17 @@ public class controllerInicio {
     
     public controllerInicio(modelInicio modelInicio, viewInicio viewInicio) {
         this.modelInicio = modelInicio;
-        this.modelInicio = modelInicio;
+        this.viewInicio = viewInicio;
+    }
+    
+    public void Datos(){
+        modelInicio.setUsername(viewInicio.jtf_usuario.getText());
+        modelInicio.setPass(new String(viewInicio.jpf_password.getPassword()));
+        modelInicio.consulta();
+    }
+    
+    public void limpiar(){
+        viewInicio.jtf_usuario.setText(null);
+        viewInicio.jpf_password.setText(null);
     }
 }

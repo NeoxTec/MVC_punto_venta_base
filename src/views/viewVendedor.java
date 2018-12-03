@@ -32,7 +32,7 @@ public class viewVendedor extends javax.swing.JPanel {
         jl_fecha = new javax.swing.JLabel();
         jl_titulo1 = new javax.swing.JLabel();
         jl_tipo_user = new javax.swing.JLabel();
-        jl_fecha1 = new javax.swing.JLabel();
+        jl_sucursal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_venta = new javax.swing.JTable();
         jb_buscar = new javax.swing.JButton();
@@ -79,11 +79,11 @@ public class viewVendedor extends javax.swing.JPanel {
         add(jl_tipo_user);
         jl_tipo_user.setBounds(10, 20, 220, 20);
 
-        jl_fecha1.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
-        jl_fecha1.setForeground(new java.awt.Color(255, 102, 0));
-        jl_fecha1.setText("Sucursal: 1");
-        add(jl_fecha1);
-        jl_fecha1.setBounds(760, 20, 100, 21);
+        jl_sucursal.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_sucursal.setForeground(new java.awt.Color(255, 102, 0));
+        jl_sucursal.setText("Sucursal: 1");
+        add(jl_sucursal);
+        jl_sucursal.setBounds(760, 20, 100, 21);
 
         jt_venta.setBackground(new java.awt.Color(204, 204, 204));
         jt_venta.setModel(new javax.swing.table.DefaultTableModel(
@@ -244,7 +244,7 @@ public class viewVendedor extends javax.swing.JPanel {
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 1100, 550);
+        jl_fondo.setBounds(0, 0, 1100, 570);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscarActionPerformed
@@ -264,14 +264,14 @@ public class viewVendedor extends javax.swing.JPanel {
     public javax.swing.JButton jb_cobrar;
     public javax.swing.JButton jb_corte;
     public javax.swing.JLabel jl_cambio;
-    private javax.swing.JLabel jl_fecha;
-    private javax.swing.JLabel jl_fecha1;
+    public javax.swing.JLabel jl_fecha;
     private javax.swing.JLabel jl_fondo;
     private javax.swing.JLabel jl_num_tarjeta;
+    public javax.swing.JLabel jl_sucursal;
     private javax.swing.JLabel jl_tipo_pago1;
     private javax.swing.JLabel jl_tipo_pago2;
     private javax.swing.JLabel jl_tipo_pago4;
-    private javax.swing.JLabel jl_tipo_user;
+    public javax.swing.JLabel jl_tipo_user;
     private javax.swing.JLabel jl_titulo1;
     public javax.swing.JRadioButton jrb_Efectivo;
     public javax.swing.JRadioButton jrb_tarjeta;

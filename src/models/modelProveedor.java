@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package models;
+import bd.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import controllers.controllerProveedor;
 import views.viewSucursal;
+import views.viewProveedor;
 /**
  *
  * @author Abi Montes
@@ -24,13 +26,55 @@ public class modelProveedor {
     private ResultSet rs;
 
     private String rfc;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     private String nombre;
     private String calle;
     private String colonia;
     private String noext;
     private String cp;
+    
     private String telefono;
     private String correo;
+
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
+    }
+
+    public Statement getSt() {
+        return st;
+    }
+
+    public void setSt(Statement st) {
+        this.st = st;
+    }
+
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    public void setRs(ResultSet rs) {
+        this.rs = rs;
+    }
+
+    public String getRazons() {
+        return razons;
+    }
+
+    public void setRazons(String razons) {
+        this.razons = razons;
+    }
+    private String razons;
 
 
 
@@ -42,13 +86,6 @@ public class modelProveedor {
         this.rfc = rfc;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String getCalle() {
         return calle;
@@ -99,25 +136,28 @@ public class modelProveedor {
     }
     public void conectarDB() {
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/quetzalstock", "root", "");
+          //  conexion = ConnectDatabase.getConectar();
+            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net/quetzalstock", "quetzal", "quetzal.2018");
             st = conexion.createStatement();
             rs = st.executeQuery("SELECT * FROM proveedor;");
             rs.next();
             rfc = rs.getString("rfc");
-            nombre = rs.getString("nombre");
+            razons = rs.getString("razons");
             calle=rs.getString("calle");
             colonia=rs.getString("colonia");
-            noext=rs.getString("noext");
+            noext=rs.getString("no_exterior");
             cp=rs.getString("cp");
             telefono=rs.getString("telefono");
             correo=rs.getString("correo");
+            
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelProveedor 001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error ModelSucursal 001: " + err.getMessage());
+       System.out.println(err.getMessage());
         }
     }
    public void eliRegistro() {
         try {
-            String sql = "DELETE FROM proveedor WHERE rfc = "+ rfc +"; ";
+            String sql = "DELETE FROM proveedor  WHERE rfc = '"+ rfc +"'; ";
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar este registro?", "Borrar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
                 rfc = rs.getString("rfc");
@@ -136,22 +176,26 @@ public class modelProveedor {
         }
     }
     public void insertarRegistro() {
+        
         try {
-            String sql =  "INSERT INTO proveedor (rfc, nombre, calle,colonia, noext, cp, telefono,correo)" + " VALUES ('"+ rfc +"','"+nombre +"','"+calle +"','"+ colonia +"','"+ noext +"','"+ cp +"','"+ telefono +"','"+ correo +"');";
+            
+            String sql =  "INSERT INTO proveedor (rfc, razons, calle,colonia, no_exterior, Cp, telefono,correo)" + " VALUES ('"+ rfc +"','"+razons +"','"+calle +"','"+ colonia +"','"+ noext +"','"+ cp +"','"+ telefono +"','"+ correo +"');";
             System.out.println(sql);
             st.executeUpdate(sql);
             
             JOptionPane.showMessageDialog(null, "Felicidades registro guardado.");
-            this.conectarDB();
+            //this.conectarDB();
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error al guardar registro "+err.getMessage()); 
         }
+        System.out.println("registro guardado");
     }
      public void modiRegistro() {
+         System.out.println("registro modificado");
         try {
-          String sql = "UPDATE proveedor SET nombre = '"+ nombre +"', calle = '"+ calle +"',colonia = '"+ colonia +"',noext = '"+ noext +"',cp = '"+ cp +"', telefono = '"+ telefono +"',correo = '"+ correo +"' WHERE rfc = "+ rfc +"; ";
+          String sql = "UPDATE proveedor SET razons = '"+ razons +"', calle = '"+ calle +"',colonia = '"+ colonia +"',no_exterior = '"+ noext +"',cp = '"+ cp +"', telefono = '"+ telefono +"',correo = '"+ correo +"' WHERE rfc = '"+ rfc +"'; ";
             System.out.println(sql);
           st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se modifico correctamente el registro.");
@@ -159,7 +203,7 @@ public class modelProveedor {
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error1 "+err.getMessage()); 
         }
     }
     

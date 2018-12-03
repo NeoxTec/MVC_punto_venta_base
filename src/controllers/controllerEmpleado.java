@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import views.viewEmpleado;
@@ -20,11 +22,17 @@ public class controllerEmpleado {
     public controllerEmpleado(modelEmpleado modelEmpleado, viewEmpleado viewEmpleado) {
         this.modelEmpleado = modelEmpleado;
         this.viewEmpleado = viewEmpleado;
+        setKeyListener();
+        initDB();
         setMouseListener();
+        
     }
     
     public void initDB(){
         modelEmpleado.conectarDB();
+        modelEmpleado.setSentencia("SELECT * FROM empleado");
+        modelEmpleado.llenarTabla();
+        viewEmpleado.jt_empleados.setModel(modelEmpleado.getModelo());
     }
     
     /**
@@ -77,15 +85,18 @@ public class controllerEmpleado {
                 
             }
             else if(e.getSource() == viewEmpleado.jb_eliminar){
-                
+                eliminar();
             }
             else if(e.getSource() == viewEmpleado.jb_guardar){
-                obtener_Datos();
-                modelEmpleado.insertarRegistro();
-                editableF();
+                guardar();
             }
             else if(e.getSource() == viewEmpleado.jb_cancelar){
+                limpiarcampos();
                 editableF();
+                
+            }
+            else if(e.getSource() == viewEmpleado.jt_empleados){
+                jt_empleado_mouseClicked();
             }
                 
         }
@@ -108,6 +119,19 @@ public class controllerEmpleado {
     
     };
     
+    KeyListener kl = new KeyListener(){
+         @Override
+        public void keyTyped(KeyEvent e) {
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {
+            buscar_keypressed();
+        }
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+     };
+    
     /**
      * Método para agregar el mouselistener a cada boton de la vista
      */
@@ -115,7 +139,49 @@ public class controllerEmpleado {
         viewEmpleado.jb_nuevo.addMouseListener(ml);
         viewEmpleado.jb_cancelar.addMouseListener(ml);
         viewEmpleado.jb_guardar.addMouseListener(ml);
+        viewEmpleado.jt_empleados.addMouseListener(ml);
+        viewEmpleado.jb_eliminar.addMouseListener(ml);
         
+    }
+    
+    /**
+     * Método para agregar el keylistener al jtf_buscar
+     */
+    private void setKeyListener(){
+        viewEmpleado.jtf_buscar.addKeyListener(kl);
+    }
+    
+    /**
+      * Metodo que permite mostrar los datos de la base de datos en los campos al seleccionar la tabla de la vista.
+    */
+    private void jt_empleado_mouseClicked(){
+        int linea;
+        linea = viewEmpleado.jt_empleados.getSelectedRow();
+        modelEmpleado.setRfc((String) viewEmpleado.jt_empleados.getValueAt(linea, 0));
+        modelEmpleado.datos();
+        setValues();
+        
+    }
+    
+    
+    /*
+    * Método que permite realizar la busqueda en el campo por medio de las teclas que se van tecleando
+    */
+    private void buscar_keypressed(){
+        modelEmpleado.setSentencia("SELECT * FROM empleado WHERE nombre like '%" + viewEmpleado.jtf_buscar.getText()+"%'");
+        limpiar();
+        modelEmpleado.llenarTabla();
+        viewEmpleado.jt_empleados.setModel(modelEmpleado.getModelo());
+    }
+    
+    /*
+    * Método que va depurando la tabla a la hora de la busqueda
+    */
+    private void limpiar(){
+        for (int i = 0; i < viewEmpleado.jt_empleados.getRowCount(); i++){
+            modelEmpleado.getModelo().removeRow(i);
+            i -=1;
+        }
     }
     
     /**
@@ -128,7 +194,7 @@ public class controllerEmpleado {
         modelEmpleado.setApe_m(viewEmpleado.jtf_ape_m.getText());
         modelEmpleado.setCorreo(viewEmpleado.jtf_correo.getText());
         modelEmpleado.setTelefono(viewEmpleado.jtf_telefono.getText());
-        modelEmpleado.setGenero((String) viewEmpleado.jcb_genero.getSelectedItem());
+        modelEmpleado.setGenero(viewEmpleado.jcb_genero.getSelectedItem());
         modelEmpleado.setFecha_n(viewEmpleado.jft_fecha.getText());
         modelEmpleado.setCalle(viewEmpleado.jtf_calle.getText());
         modelEmpleado.setColonia(viewEmpleado.jtf_colonia.getText());
@@ -142,6 +208,47 @@ public class controllerEmpleado {
         }
     }
     
+    /*
+    * Método para limpiar los campos
+    */
+    private void limpiarcampos(){
+        viewEmpleado.jtf_rfc.setText(null);
+        viewEmpleado.jtf_nombre.setText(null);
+        viewEmpleado.jtf_ape_p.setText(null);
+        viewEmpleado.jtf_ape_m.setText(null);
+        viewEmpleado.jtf_telefono.setText(null);
+        viewEmpleado.jtf_correo.setText(null);
+        viewEmpleado.jft_fecha.setText("aaaa/mm/dd");
+        viewEmpleado.jcb_genero.setSelectedIndex(0);
+        viewEmpleado.jtf_calle.setText(null);
+        viewEmpleado.jtf_colonia.setText(null);
+        viewEmpleado.jtf_no_ext.setText(null);
+        viewEmpleado.jtf_no_int.setText(null);
+        viewEmpleado.jtf_cp.setText(null);
+    }
+    
+    /*
+    * Método para guardar los registros o modificaciones de los registros dentro de la tabla empleado.
+    */
+    public void guardar(){
+        obtener_Datos();
+        modelEmpleado.insertarRegistro();
+        editableF();
+        limpiar();
+        initDB();
+        limpiarcampos();
+        
+    }
+    /*
+    * Método para eliminar los registros dentro de la tabla empleado.
+    */
+    public void eliminar(){
+        obtener_Datos();
+        modelEmpleado.eliminarRegistro();
+        limpiar();
+        initDB();
+        limpiarcampos();
+    }
     /**
      * Muestra los valores almacenados en el modelEmpleado al viewEmpleado
      */

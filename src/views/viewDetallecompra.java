@@ -47,6 +47,10 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_productos = new javax.swing.JTable();
         jb_finalizar = new javax.swing.JButton();
+        jl_titulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jt_detallecompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,27 +65,82 @@ public class viewDetallecompra extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jt_detallecompra);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(50, 80, 813, 220);
+
+        jb_ingresar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_ingresar_detalle.setText("Ingresar detalle");
+        jb_ingresar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_ingresar_detalle);
+        jb_ingresar_detalle.setBounds(880, 100, 117, 21);
 
+        jb_modificar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_modificar_detalle.setText("Modificar detalle");
+        jb_modificar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_modificar_detalle);
+        jb_modificar_detalle.setBounds(880, 130, 117, 21);
 
+        jb_guardar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_guardar_detalle.setText("Guardar detalle");
+        jb_guardar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_guardar_detalle);
+        jb_guardar_detalle.setBounds(880, 170, 117, 21);
 
+        jb_cancelar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar_detalle.setText("Cancelar detalle");
+        jb_cancelar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_cancelar_detalle);
+        jb_cancelar_detalle.setBounds(880, 200, 117, 21);
 
+        jb_eliminar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_eliminar_detalle.setText("Eliminar detalle");
+        jb_eliminar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_eliminar_detalle);
+        jb_eliminar_detalle.setBounds(880, 240, 117, 21);
 
+        jl_numero_factura.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_numero_factura.setForeground(new java.awt.Color(255, 102, 0));
         jl_numero_factura.setText("Numero de factura:");
+        add(jl_numero_factura);
+        jl_numero_factura.setBounds(60, 340, 136, 17);
 
+        jl_nombre_factura.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_nombre_factura.setForeground(new java.awt.Color(255, 102, 0));
         jl_nombre_factura.setText(" ");
+        add(jl_nombre_factura);
+        jl_nombre_factura.setBounds(210, 340, 180, 17);
 
+        jl_id_producto.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_id_producto.setForeground(new java.awt.Color(255, 102, 0));
         jl_id_producto.setText("id producto:");
+        add(jl_id_producto);
+        jl_id_producto.setBounds(93, 372, 84, 17);
+        add(jtf_id_producto);
+        jtf_id_producto.setBounds(190, 370, 50, 19);
 
+        jl_cantidad.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_cantidad.setForeground(new java.awt.Color(255, 102, 0));
         jl_cantidad.setText("Cantidad:");
+        add(jl_cantidad);
+        jl_cantidad.setBounds(105, 405, 62, 17);
+        add(jtf_cantidad);
+        jtf_cantidad.setBounds(190, 400, 50, 19);
 
+        jl_subtotal.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_subtotal.setForeground(new java.awt.Color(255, 102, 0));
         jl_subtotal.setText("Subtotal:");
+        add(jl_subtotal);
+        jl_subtotal.setBounds(269, 374, 60, 17);
+        add(jtd_subtotal);
+        jtd_subtotal.setBounds(340, 370, 63, 19);
 
+        jl_total.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_total.setForeground(new java.awt.Color(255, 102, 0));
         jl_total.setText("Total:");
+        add(jl_total);
+        jl_total.setBounds(285, 405, 38, 17);
+        add(jtf_total);
+        jtf_total.setBounds(340, 400, 63, 19);
 
         jt_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,111 +163,29 @@ public class viewDetallecompra extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jt_productos);
 
-        jb_finalizar.setText("Finalizar");
+        add(jScrollPane2);
+        jScrollPane2.setBounds(590, 330, 269, 133);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jl_id_producto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtf_id_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jl_subtotal)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jl_numero_factura)
-                                            .addGap(11, 11, 11))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jl_cantidad)
-                                            .addGap(17, 17, 17)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jl_nombre_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jtf_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jl_total))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtd_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtf_total, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jb_modificar_detalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_ingresar_detalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_guardar_detalle, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(jb_eliminar_detalle, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(jb_cancelar_detalle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_finalizar)
-                        .addGap(27, 27, 27))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jl_numero_factura)
-                                    .addComponent(jl_nombre_factura))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtf_id_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jl_id_producto))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jl_cantidad)
-                                            .addComponent(jtf_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jl_subtotal)
-                                            .addComponent(jtd_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jl_total)
-                                            .addComponent(jtf_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jb_ingresar_detalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_modificar_detalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_guardar_detalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_cancelar_detalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_eliminar_detalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_finalizar)))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        jb_finalizar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_finalizar.setText("Finalizar");
+        jb_finalizar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_finalizar);
+        jb_finalizar.setBounds(922, 453, 46, 21);
+
+        jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 46)); // NOI18N
+        jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
+        jl_titulo.setText("Detalle de compra");
+        add(jl_titulo);
+        jl_titulo.setBounds(290, 10, 410, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(-10, -10, 1040, 560);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JButton jb_cancelar_detalle;
@@ -219,9 +196,10 @@ public class viewDetallecompra extends javax.swing.JPanel {
     public javax.swing.JButton jb_modificar_detalle;
     public javax.swing.JLabel jl_cantidad;
     public javax.swing.JLabel jl_id_producto;
-    public javax.swing.JLabel jl_nombre_factura;
+    private javax.swing.JLabel jl_nombre_factura;
     public javax.swing.JLabel jl_numero_factura;
     public javax.swing.JLabel jl_subtotal;
+    private javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_total;
     public javax.swing.JTable jt_detallecompra;
     public javax.swing.JTable jt_productos;

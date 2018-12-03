@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS empleado(
 	correo VARCHAR(40) NULL,
 	genero ENUM('F','M'),
 	fecha_nac DATE NOT NULL);
+
+
     
 CREATE TABLE IF NOT EXISTS usuario(
 	username CHAR(7) PRIMARY KEY,
@@ -25,6 +27,8 @@ CREATE TABLE IF NOT EXISTS usuario(
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
     rfc_e CHAR(13) NOT NULL,
     FOREIGN KEY (rfc_e) REFERENCES empleado(rfc));
+
+
 
 CREATE TABLE IF NOT EXISTS cliente(
 	id SMALLINT(3) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -79,7 +83,7 @@ CREATE TABLE IF NOT EXISTS venta(
     fecha DATE NOT NULL,
     total DOUBLE NOT NULL,
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
-    id_corte id INT UNSIGNED NULL,
+    id_corte INT UNSIGNED NULL,
     FOREIGN KEY (id_corte) REFERENCES corte(id),
     FOREIGN KEY (username) REFERENCES usuario(username),
     FOREIGN KEY (id_cliente) REFERENCES cliente(id),
@@ -95,10 +99,11 @@ CREATE TABLE IF NOT EXISTS detalle_venta(
     FOREIGN KEY (id_venta) REFERENCES venta(id));
 
 CREATE TABLE IF NOT EXISTS corte(
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     fecha DATE  NOT NULL,
     id_sucursal TINYINT(2) UNSIGNED NOT NULL,
-    total DOUBLE UNSIGNED NOT NULL);
+    total DOUBLE UNSIGNED NOT NULL,
+    FOREIGN KEY (id_sucursal) REFERENCES sucursal(id));
 
 CREATE TABLE IF NOT EXISTS proveedor(
 	rfc CHAR(13) PRIMARY KEY,
@@ -133,7 +138,17 @@ CREATE TABLE IF NOT EXISTS detalle_compra(
     FOREIGN KEY (no_factura) REFERENCES compra(no_factura),
     FOREIGN KEY (id_producto) REFERENCES catalogo(id));
 
-CREATE USER 'quetzal'@'%' IDENTIFIED BY 'quetzal.2018';
+CREATE USER 'quetzal'@'localhost' IDENTIFIED BY 'quetzal.2018';
+<<<<<<< HEAD
 GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'localhost';
+=======
+GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'%';
+>>>>>>> origin/master
 
 FLUSH PRIVILEGES;
+
+
+
+
+
+
