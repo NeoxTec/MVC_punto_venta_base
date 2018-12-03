@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class ModelClientes {
+public class modelClientes {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
@@ -175,7 +175,7 @@ public class ModelClientes {
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"¡Registro exitoso!");
             } catch (SQLException ex) {
-           Logger.getLogger(ModelClientes.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     
@@ -187,7 +187,7 @@ public class ModelClientes {
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"¡Registro Modificado!");
             } catch (SQLException ex) {
-            Logger.getLogger(ModelClientes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
             }
             }
     public void eliminar(){
@@ -196,7 +196,7 @@ public class ModelClientes {
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"¡Registro eliminado!");
             } catch (SQLException ex) {
-            Logger.getLogger(ModelClientes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 

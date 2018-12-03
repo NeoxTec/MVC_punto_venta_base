@@ -19,6 +19,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        modelClientes modelClientes = new modelClientes();
+        viewCliente viewCliente = new viewCliente();
+        controllerClientes controllerClientes = new controllerClientes(modelClientes,viewCliente);
+        
         modelUsuario modelUsuario = new modelUsuario();
         viewUsuario viewUsuario = new viewUsuario();
         controllerUsuario controllerUsuario = new controllerUsuario(modelUsuario,viewUsuario);
@@ -70,7 +74,7 @@ public class Main {
          viewCompra viewCompra = new viewCompra();
          controllerCompras controllerCompras = new controllerCompras (modelCompras,viewCompra);
          
-        Object[] controllers = new Object[11];
+        Object[] controllers = new Object[12];
         controllers[0] = controllerAdmin;
         controllers[1] = controllerCatalogo;
         controllers[2] = controllerEmpleado;
@@ -82,8 +86,9 @@ public class Main {
         controllers[8] =  controllerVentasConsulta;
         controllers[9] = controllerSucursal;
         controllers[10] = controllerUsuario;
+        controllers[11] = controllerClientes;
         
-        Object[] views = new Object [11];
+        Object[] views = new Object [12];
         views[0] = viewAdmin;
         views[1] = viewCatalogo;
         views[2] = viewEmpleado;
@@ -95,6 +100,7 @@ public class Main {
         views[8]  = viewVentasConsulta;
         views[9] = viewSucursal;
         views[10] =  viewUsuario;
+        views[11] = viewCliente;
         
          
         modelLogin modelLogin = new modelLogin();
