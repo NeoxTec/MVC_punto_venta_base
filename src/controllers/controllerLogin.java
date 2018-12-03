@@ -6,6 +6,7 @@
 package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import models.modelLogin;
 import views.*;
 
@@ -153,7 +154,7 @@ public class controllerLogin {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == viewInicio.jb_entrar) {
-                admin_actionPerformed();
+                login();
             } 
             else if (e.getSource() == viewAdmin.jb_catalogo){
                 catalogo_actionPerformed();        
@@ -198,6 +199,7 @@ public class controllerLogin {
         }
      };
     
+    
     /**
      * Método para iniciar el frame con el panel Inicio y al momento de cerrar sesión
      */
@@ -209,7 +211,30 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
-
+    }
+    /*
+    *
+    */
+    private void login(){
+        controllerInicio.Datos();
+        modelLogin.setTipo(controllerInicio.modelInicio.getTipo());
+        if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("ADMIN")){
+            controllerAdmin.viewAdmin.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
+                admin_actionPerformed();
+                controllerInicio.limpiar();
+        }
+        else if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("VENDEDOR")){
+            controllerVendedor.viewVendedor.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
+            controllerVendedor.modelVendedor.setSucursal(controllerInicio.modelInicio.getId_sucursal());
+            controllerVendedor.viewVendedor.jl_sucursal.setText("Sucursal: "+controllerVendedor.modelVendedor.getSucursal());
+            vendedor_actionPerformed();
+            controllerInicio.limpiar();
+        }
+        else {
+               JOptionPane.showMessageDialog(null, "Ingrese datos validos");
+               controllerInicio.limpiar();
+        }
+        
     }
     /**
      * Método para hacer cambio al panel Admin

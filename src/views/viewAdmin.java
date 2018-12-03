@@ -120,9 +120,9 @@ public class viewAdmin extends javax.swing.JPanel {
     public javax.swing.JButton jb_proovedores;
     public javax.swing.JButton jb_sucursales;
     public javax.swing.JButton jb_ventas;
-    private javax.swing.JLabel jl_fecha;
+    public javax.swing.JLabel jl_fecha;
     private javax.swing.JLabel jl_fondo;
-    private javax.swing.JLabel jl_tipo_user;
+    public javax.swing.JLabel jl_tipo_user;
     private javax.swing.JLabel jl_titulo;
     // End of variables declaration//GEN-END:variables
 }
