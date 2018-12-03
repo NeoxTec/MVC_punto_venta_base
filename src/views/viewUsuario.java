@@ -44,7 +44,7 @@ public class viewUsuario extends javax.swing.JPanel {
         jb_modificar = new javax.swing.JButton();
         jb_guardar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jl_salir = new javax.swing.JLabel();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -146,19 +146,18 @@ public class viewUsuario extends javax.swing.JPanel {
         add(jb_cancelar);
         jb_cancelar.setBounds(350, 460, 130, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(960, 460, 50, 50);
+        jl_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/salir.png"))); // NOI18N
+        add(jl_salir);
+        jl_salir.setBounds(1010, 470, 50, 50);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 1060, 540);
+        jl_fondo.setBounds(0, 0, 1090, 580);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -171,6 +170,7 @@ public class viewUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jl_fondo;
     public javax.swing.JLabel jl_puesto;
     private javax.swing.JLabel jl_rfc;
+    public javax.swing.JLabel jl_salir;
     public javax.swing.JLabel jl_sucursal;
     private javax.swing.JLabel jl_titulo;
     private javax.swing.JTable jt_usuarios;

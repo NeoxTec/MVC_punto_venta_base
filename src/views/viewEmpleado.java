@@ -72,7 +72,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_sucursal = new javax.swing.JLabel();
         jcb_sucursal = new javax.swing.JComboBox<>();
         jcb_puesto = new javax.swing.JComboBox<>();
-        jb_guardar1 = new javax.swing.JButton();
+        jb_guardar = new javax.swing.JButton();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -327,13 +327,13 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jcb_puesto);
         jcb_puesto.setBounds(540, 410, 100, 20);
 
-        jb_guardar1.setBackground(new java.awt.Color(255, 102, 0));
-        jb_guardar1.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_guardar1.setForeground(new java.awt.Color(255, 255, 255));
-        jb_guardar1.setText("Guardar");
-        jb_guardar1.setBorder(null);
-        add(jb_guardar1);
-        jb_guardar1.setBounds(560, 530, 130, 40);
+        jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_guardar.setText("Guardar");
+        jb_guardar.setBorder(null);
+        add(jb_guardar);
+        jb_guardar.setBounds(560, 530, 130, 40);
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
@@ -348,7 +348,7 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     public javax.swing.JButton jb_cancelar;
     public javax.swing.JButton jb_eliminar;
-    public javax.swing.JButton jb_guardar1;
+    public javax.swing.JButton jb_guardar;
     public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_nuevo;
     public javax.swing.JButton jb_usuario;

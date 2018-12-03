@@ -6,6 +6,8 @@
 package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import models.modelLogin;
 import views.*;
@@ -149,7 +151,41 @@ public class controllerLogin {
         viewDetallecompra.jb_finalizar.addActionListener(actionListener);
         viewAdmin.jb_ventas.addActionListener(actionListener);
         viewAdmin.jb_sucursales.addActionListener(actionListener);
+        viewEmpleado.jb_usuario.addActionListener(actionListener);
+        viewUsuario.jl_salir.addMouseListener(ml);
+        
+        
     }
+    
+    private final MouseListener ml = new MouseListener(){
+         @Override
+         public void mouseClicked(MouseEvent e) {
+             if(e.getSource() == viewUsuario.jl_salir){
+                 empleado_actionPerformed();
+             }
+         }
+
+         @Override
+         public void mousePressed(MouseEvent e) {
+             
+         }
+
+         @Override
+         public void mouseReleased(MouseEvent e) {
+             
+         }
+
+         @Override
+         public void mouseEntered(MouseEvent e) {
+             
+         }
+
+         @Override
+         public void mouseExited(MouseEvent e) {
+             
+         }
+        
+    };
     
     /**
      * Evalua el componente que genero el evento y llama a un método en particular.
@@ -206,6 +242,7 @@ public class controllerLogin {
         }
      };
     
+        
     
     /**
      * Método para iniciar el frame con el panel Inicio y al momento de cerrar sesión
