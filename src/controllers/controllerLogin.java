@@ -34,6 +34,7 @@ public class controllerLogin {
      private controllerDetalleCompra controllerDetalleCompra;
      private controllerVentasConsulta controllerVentasConsulta;
      private controllerSucursal controllerSucursal;
+     private controllerUsuario controllerUsuario;
      
      /*
      * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
@@ -49,6 +50,7 @@ public class controllerLogin {
      private viewDetallecompra viewDetallecompra;
      private viewVentasConsulta viewVentasConsulta;
      private viewSucursal viewSucursal;
+     private viewUsuario viewUsuario;
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
@@ -88,6 +90,7 @@ public class controllerLogin {
         controllerDetalleCompra = (controllerDetalleCompra) controllers[7];
         controllerVentasConsulta = (controllerVentasConsulta) controllers[8];
         controllerSucursal = (controllerSucursal) controllers[9];
+        controllerUsuario = (controllerUsuario) controllers [10];
     }
     /*
     * Separa cada uno de los views almacendados en views, de
@@ -104,6 +107,7 @@ public class controllerLogin {
         viewDetallecompra = (viewDetallecompra) views[7];
         viewVentasConsulta = (viewVentasConsulta) views[8];
         viewSucursal = (viewSucursal) views[9];
+        viewUsuario = (viewUsuario) views [10];
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -196,6 +200,9 @@ public class controllerLogin {
             else if(e.getSource() == viewAdmin.jb_sucursales){
                 sucursal_actionPerformed();
             }
+            else if(e.getSource() == viewEmpleado.jb_usuario){
+                usuario_actionPerformed();
+            }
         }
      };
     
@@ -213,7 +220,7 @@ public class controllerLogin {
         viewLogin.jmi_cerrar.setVisible(false);
     }
     /*
-    *
+    * Método para iniciar sesión y cambiar al panel de Admin o Vendedor segun el usuario
     */
     private void login(){
         controllerInicio.Datos();
@@ -361,6 +368,20 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+     }
+     
+     /*
+     *  Método para mostrar el panel de Usuario
+     */
+     private void usuario_actionPerformed(){
+        viewLogin.setContentPane(controllerUsuario.viewUsuario);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
      }
 } 
