@@ -64,11 +64,11 @@ public class viewProveedor extends javax.swing.JPanel {
         jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 68)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jl_titulo.setText("PROVEEDORES");
+        jl_titulo.setText("Proveedores");
         add(jl_titulo);
-        jl_titulo.setBounds(100, 10, 672, 77);
+        jl_titulo.setBounds(250, 10, 672, 77);
         add(jtf_buscar);
-        jtf_buscar.setBounds(90, 90, 590, 20);
+        jtf_buscar.setBounds(90, 90, 590, 19);
 
         jb_buscar.setBackground(new java.awt.Color(255, 102, 0));
         jb_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -93,105 +93,105 @@ public class viewProveedor extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 130, 810, 92);
+        jScrollPane1.setBounds(80, 130, 930, 120);
 
         jl_datospersonales.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_datospersonales.setForeground(new java.awt.Color(255, 102, 0));
         jl_datospersonales.setText("Datos Personales");
         add(jl_datospersonales);
-        jl_datospersonales.setBounds(10, 235, 172, 21);
+        jl_datospersonales.setBounds(10, 260, 172, 21);
 
         jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
         add(jSeparator1);
-        jSeparator1.setBounds(10, 262, 810, 10);
+        jSeparator1.setBounds(10, 290, 1020, 10);
 
         jl_rfc.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_rfc.setForeground(new java.awt.Color(255, 102, 0));
         jl_rfc.setText("RFC:");
         add(jl_rfc);
-        jl_rfc.setBounds(10, 283, 40, 20);
+        jl_rfc.setBounds(90, 310, 40, 20);
 
         jtf_rfc.setEditable(false);
         add(jtf_rfc);
-        jtf_rfc.setBounds(10, 309, 160, 20);
+        jtf_rfc.setBounds(80, 330, 160, 19);
 
         jtf_correo.setEditable(false);
         add(jtf_correo);
-        jtf_correo.setBounds(366, 309, 148, 20);
+        jtf_correo.setBounds(540, 330, 148, 19);
 
         jl_correo.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_correo.setForeground(new java.awt.Color(255, 102, 0));
         jl_correo.setText("Correo:");
         add(jl_correo);
-        jl_correo.setBounds(367, 285, 50, 17);
+        jl_correo.setBounds(530, 300, 50, 17);
 
         jtf_calle.setEditable(false);
         add(jtf_calle);
-        jtf_calle.setBounds(10, 436, 165, 20);
+        jtf_calle.setBounds(60, 430, 165, 19);
 
         jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_calle.setForeground(new java.awt.Color(255, 102, 0));
         jl_calle.setText("Calle:");
         add(jl_calle);
-        jl_calle.setBounds(10, 402, 40, 17);
+        jl_calle.setBounds(60, 400, 40, 17);
 
         jtf_colonia.setEditable(false);
         add(jtf_colonia);
-        jtf_colonia.setBounds(183, 436, 165, 20);
+        jtf_colonia.setBounds(280, 430, 165, 19);
 
         jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
         jl_colonia.setText("Colonia:");
         add(jl_colonia);
-        jl_colonia.setBounds(198, 402, 60, 17);
+        jl_colonia.setBounds(280, 400, 60, 17);
 
         jtf_no_ext.setEditable(false);
         add(jtf_no_ext);
-        jtf_no_ext.setBounds(366, 436, 90, 20);
+        jtf_no_ext.setBounds(540, 430, 90, 19);
 
         jl_no_ext.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_no_ext.setForeground(new java.awt.Color(255, 102, 0));
         jl_no_ext.setText("No_exterior:");
         add(jl_no_ext);
-        jl_no_ext.setBounds(366, 400, 90, 20);
+        jl_no_ext.setBounds(540, 400, 90, 20);
 
         jtf_cp.setEditable(false);
         add(jtf_cp);
-        jtf_cp.setBounds(511, 436, 80, 20);
+        jtf_cp.setBounds(760, 430, 80, 19);
 
         jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_cp.setForeground(new java.awt.Color(255, 102, 0));
         jl_cp.setText("C.P:");
         add(jl_cp);
-        jl_cp.setBounds(521, 400, 70, 20);
+        jl_cp.setBounds(760, 400, 70, 20);
 
         jl_datos.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_datos.setForeground(new java.awt.Color(255, 102, 0));
         jl_datos.setText("Dirección");
         add(jl_datos);
-        jl_datos.setBounds(10, 347, 160, 21);
+        jl_datos.setBounds(10, 360, 160, 21);
         add(jSeparator2);
-        jSeparator2.setBounds(10, 372, 810, 20);
+        jSeparator2.setBounds(10, 382, 1020, 10);
 
         jl_razons.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_razons.setForeground(new java.awt.Color(255, 102, 0));
         jl_razons.setText("Razón Social");
         add(jl_razons);
-        jl_razons.setBounds(188, 285, 86, 17);
+        jl_razons.setBounds(290, 310, 86, 17);
 
         jtf_razons.setEditable(false);
         add(jtf_razons);
-        jtf_razons.setBounds(188, 309, 160, 20);
+        jtf_razons.setBounds(290, 330, 160, 19);
 
         jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
         jl_telefono.setText("Teléfono:");
         add(jl_telefono);
-        jl_telefono.setBounds(532, 289, 70, 20);
+        jl_telefono.setBounds(760, 300, 70, 20);
 
         jtf_telefono.setEditable(false);
         add(jtf_telefono);
-        jtf_telefono.setBounds(532, 309, 150, 20);
+        jtf_telefono.setBounds(760, 330, 150, 19);
 
         jb_agregar.setBackground(new java.awt.Color(255, 102, 0));
         jb_agregar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -207,7 +207,7 @@ public class viewProveedor extends javax.swing.JPanel {
         jb_modificar.setText("Modificar");
         jb_modificar.setBorder(null);
         add(jb_modificar);
-        jb_modificar.setBounds(200, 490, 110, 40);
+        jb_modificar.setBounds(160, 490, 110, 40);
 
         jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
         jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -215,7 +215,7 @@ public class viewProveedor extends javax.swing.JPanel {
         jb_guardar.setText("Guardar");
         jb_guardar.setBorder(null);
         add(jb_guardar);
-        jb_guardar.setBounds(380, 490, 110, 40);
+        jb_guardar.setBounds(630, 490, 110, 40);
 
         jb_eliminar.setBackground(new java.awt.Color(255, 102, 0));
         jb_eliminar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -223,7 +223,7 @@ public class viewProveedor extends javax.swing.JPanel {
         jb_eliminar.setText("Eliminar");
         jb_eliminar.setBorder(null);
         add(jb_eliminar);
-        jb_eliminar.setBounds(540, 490, 110, 40);
+        jb_eliminar.setBounds(290, 490, 110, 40);
 
         jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -231,12 +231,12 @@ public class viewProveedor extends javax.swing.JPanel {
         jb_cancelar.setText("Cancelar");
         jb_cancelar.setBorder(null);
         add(jb_cancelar);
-        jb_cancelar.setBounds(680, 490, 130, 40);
+        jb_cancelar.setBounds(750, 490, 130, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 840, 550);
+        jLabel1.setBounds(0, 0, 1080, 560);
     }// </editor-fold>//GEN-END:initComponents
 
 

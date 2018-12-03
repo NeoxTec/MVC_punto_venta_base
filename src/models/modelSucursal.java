@@ -14,7 +14,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.*;
+import bd.ConnectDatabase;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +27,7 @@ public class modelSucursal {
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
+    private DefaultTableModel t_sucursal = new DefaultTableModel();
 
     public Connection getConexion() {
         return conexion;
@@ -59,11 +61,11 @@ public class modelSucursal {
         this.ps = ps;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -99,46 +101,62 @@ public class modelSucursal {
         this.telefono = telefono;
     }
 
-    private String id;
+    
+    public DefaultTableModel getT_sucursal() {
+        return t_sucursal;
+    }
+
+    public void setT_sucursal(DefaultTableModel t_sucursal) {
+        this.t_sucursal = t_sucursal;
+    }
+    
+     public String getSentencia() {
+        return sentencia;
+    }
+
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
+    
+    private int id;
     private String calle;
     private String colonia;
-    private String noexterior;
-    private String nointerior;
+    private int noexterior;
+    private int nointerior;
     private String cp;
     private String telefono;
+    private String sentencia;
 
 
     //COMIENZA EL CODIGO A BASE DE DATOS Y TERMINAN SETTERS Y GETTERS 
 
-    public String getNoexterior() {
+    public int getNoexterior() {
         return noexterior;
     }
 
-    public void setNoexterior(String noexterior) {
+    public void setNoexterior(int noexterior) {
         this.noexterior = noexterior;
     }
 
-    public String getNointerior() {
+    public int getNointerior() {
         return nointerior;
     }
 
-    public void setNointerior(String nointerior) {
+    public void setNointerior(int nointerior) {
         this.nointerior = nointerior;
     }
 
     public void conectarDB() {
         try {
-          //  conexion = ConnectDatabase.getConectar();
-            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net/quetzalstock", "quetzal", "quetzal.2018");
+           conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
             rs = st.executeQuery("SELECT * FROM sucursal;");
             rs.next();
-            id = rs.getString("id");
-           
+            id = rs.getInt("id");
             calle=rs.getString("calle");
             colonia=rs.getString("colonia");
-            noexterior=rs.getString("noexterior");
-            nointerior=rs.getString("nointerior");
+            noexterior=rs.getInt("no_exterior");
+            nointerior=rs.getInt("no_interior");
             cp=rs.getString("cp");
             telefono=rs.getString("telefono");
             
@@ -150,10 +168,10 @@ public class modelSucursal {
     }
 public void eliRegistro() {
         try {
-            String sql = "DELETE FROM sucursal  WHERE id = '"+ id +"'; ";
+            String sql = "DELETE FROM sucursal  WHERE id = "+ id +"; ";
             int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro de eliminar este registro?", "Borrar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
-                id = rs.getString("id");
+                id = rs.getInt("id");
                 st.executeUpdate(sql);
                 
                 this.conectarDB();
@@ -172,7 +190,7 @@ public void insertarRegistro() {
         
         try {
             
-            String sql =  "INSERT INTO sucursal (id, calle, colonia, no_ext,no_int, cp, telefono)" + " VALUES ('"+ id +"','"+calle+"','"+colonia +"','"+ noexterior+"','"+ nointerior +"','"+ cp +"','"+ telefono +"');";
+            String sql =  "INSERT INTO sucursal (calle, colonia, no_exterior,no_interior, cp, telefono)" + " VALUES ('"+calle+"','"+colonia +"',"+ noexterior+","+ nointerior +",'"+ cp +"','"+ telefono +"');";
             System.out.println(sql);
             st.executeUpdate(sql);
             
@@ -185,12 +203,11 @@ public void insertarRegistro() {
         }
         System.out.println("registro guardado");
     }
-
  public void modiRegistro() {
          System.out.println("registro modificado");
 
         try {
-          String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',noexterior = '"+ noexterior +"',nointerior = '"+ nointerior +"'cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = '"+ id +"'; ";
+          String sql = "UPDATE sucursal SET calle = '"+ calle +"',colonia = '"+ colonia +"',no_exterior = "+ noexterior +",no_interior = "+ nointerior +",cp = '"+ cp +"', telefono = '"+ telefono +"' WHERE id = "+ id +"; ";
             System.out.println(sql);
           st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Se modifico correctamente el registro.");
@@ -198,8 +215,47 @@ public void insertarRegistro() {
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error al modificar registr9 "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error al modificar registro "+err.getMessage()); 
         }
  }
+    
+/**
+  * Metodo que llena la tabla con los registros existentes de la base de datos.
+  */
+public void llenartabla(){
+        rs = ConnectDatabase.getTabla(sentencia);
+        t_sucursal.setColumnIdentifiers(new Object[]{"Id","Calle", "Colonia", "No. Exterior", "No. Interior","Código Postal", "Teléfono"});
+        try {
+           while (rs.next()){
+                 t_sucursal.addRow(new Object[]{
+                rs.getInt("id"), 
+                rs.getString("calle"), 
+                rs.getString("colonia"),
+                rs.getInt("no_exterior"),
+                rs.getInt("no_interior"),
+                rs.getString("cp"),
+                rs.getString("telefono")});
+        }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelSucursal010 " + e.getMessage());
+        }
+    }    
+
+ /**
+* Metodo que obtiene datos de un registro especifico de la base de datos.
+*/
+public void datos(){
+      try {
+               rs = st.executeQuery("SELECT * FROM sucursal where id ="+id+";");
+               rs.first();
+               calle =rs.getString("calle");
+               colonia = rs.getString("colonia");
+               noexterior =  rs.getInt("no_exterior");
+               nointerior =  rs.getInt("no_interior");
+               cp = rs.getString("cp");
+               telefono = rs.getString("telefono"); 
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCatalogo003 " + ex.getMessage());}
+         } 
 }
 

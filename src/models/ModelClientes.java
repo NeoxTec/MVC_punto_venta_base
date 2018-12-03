@@ -1,5 +1,6 @@
 
 package models;
+import bd.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -28,6 +29,7 @@ public class ModelClientes {
     private String cp;
     private String genero;
     private String correo;
+    private String no_compras;
     public Connection getConexion() {
         return conexion;
     }
@@ -142,19 +144,11 @@ public class ModelClientes {
 
     public void conectarDB() {
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/quetzalstock", "quetzal", "quetzal.2018");
+            conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
-            String sql = "SELECT * FROM cliente;";
-            System.out.println(sql);
-            rs = st.executeQuery(sql);
+            rs= st.executeQuery( "SELECT * FROM cliente;");
             rs.next();
-            setValues();
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
-        }
-    }
-    public void setValues() {
-        try {
+             id= rs.getString("id");
             nombre = rs.getString("nombre");
             ape_p = rs.getString("apellido_paterno");
             ape_m = rs.getString("apellido_materno");
@@ -167,16 +161,16 @@ public class ModelClientes {
             cp = rs.getString("codigo_postal");
             genero = (String) rs.getObject("genero");
             correo = rs.getString("coreo");
-            
+            no_compras= rs.getString("numero_compras");
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error model 102: " + err.getMessage());
-
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
+            System.out.println(err.getMessage());
         }
     }
-    public void guardar(){
+    public void insertar(){
         try {
 
-            String sql = "INSERT INTO cliente (id, nombre, apellido_paterno, apellido_materno, telefono, rfc, calle, colonia, numero_exterior, numero_interior, codigo_postal, numero_compras, genero, correo)" + "values('"+nombre+"', '"+ape_p+"', '"+ape_m+"', , '"+telefono+"', '"+rfc+"', '"+calle+"', '"+colonia+"', '"+no_exterior+"', '"+no_interior+"', '"+cp+"', "+genero+", "+correo+");";
+            String sql = "INSERT INTO cliente (id, nombre, apellido_paterno, apellido_materno, telefono, rfc, calle, colonia, numero_exterior, numero_interior, codigo_postal, numero_compras, genero, correo)" + "values('"+id+", "+nombre+"', '"+ape_p+"', '"+ape_m+"', , '"+telefono+"', '"+rfc+"', '"+calle+"', '"+colonia+"', '"+no_exterior+"', '"+no_interior+"', '"+cp+"', "+genero+", "+correo+", "+no_compras+");";
             System.out.println(sql);
             st.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"¡Registro exitoso!");
@@ -199,9 +193,7 @@ public class ModelClientes {
     public void eliminar(){
         try {
             String sql= "DELETE from cliente where nombre = '"+nombre+"' and telefono= '"+telefono+"';";
-            System.out.println(sql);
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "¿Seguro que quiere Elminar el Cliente?");
             JOptionPane.showMessageDialog(null,"¡Registro eliminado!");
             } catch (SQLException ex) {
             Logger.getLogger(ModelClientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -222,5 +214,17 @@ public class ModelClientes {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getNo_compras() {
+        return no_compras;
+    }
+
+    public void setNo_compras(String no_compras) {
+        this.no_compras = no_compras;
+    }
+
+    public void setSentencia(String select__id_nombre_apellido_paterno_apelli) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
