@@ -13,9 +13,21 @@ import views.viewUsuario;
 public class controllerUsuario {
     public modelUsuario modelUsuario;
     public viewUsuario viewUsuario;
+    
     public controllerUsuario(modelUsuario modelUsuario, viewUsuario viewUsuario) {
         this.modelUsuario = modelUsuario;
         this.viewUsuario = viewUsuario;
+        initDB();
+    }
+    
+    /**
+     * Metodo que hace la conexion a la base de datos, muestra los registros en la tabla y habilita o deshabilita los botones de la vista
+     */
+        public void initDB(){
+        modelUsuario.conectarDB();
+        modelUsuario.setSentencia("SELECT username,tipo,id_sucursal,rfc_e FROM usuario");
+        modelUsuario.llenartabla();
+        viewUsuario.jt_usuarios.setModel(modelUsuario.getModelo());
     }
     
 }

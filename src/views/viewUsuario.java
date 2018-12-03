@@ -173,7 +173,7 @@ public class viewUsuario extends javax.swing.JPanel {
     public javax.swing.JLabel jl_salir;
     public javax.swing.JLabel jl_sucursal;
     private javax.swing.JLabel jl_titulo;
-    private javax.swing.JTable jt_usuarios;
+    public javax.swing.JTable jt_usuarios;
     private javax.swing.JTextField jtf_buscar;
     public javax.swing.JTextField jtf_rfc;
     // End of variables declaration//GEN-END:variables

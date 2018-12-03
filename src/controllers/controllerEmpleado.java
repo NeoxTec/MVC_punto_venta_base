@@ -102,9 +102,6 @@ public class controllerEmpleado {
             else if(e.getSource() == viewEmpleado.jb_eliminar){
                 eliminar();
             }
-            else if(e.getSource() == viewEmpleado.jb_usuario){
-                guardar();
-            }
             else if(e.getSource() == viewEmpleado.jb_cancelar){
                 limpiarcampos();
                 editableF();
@@ -113,6 +110,9 @@ public class controllerEmpleado {
             }
             else if(e.getSource() == viewEmpleado.jt_empleados){
                 jt_empleado_mouseClicked();
+            }
+            else if (e.getSource() == viewEmpleado.jb_guardar){
+                guardar();
             }
                 
         }
@@ -154,7 +154,7 @@ public class controllerEmpleado {
     private void setMouseListener() {
         viewEmpleado.jb_nuevo.addMouseListener(ml);
         viewEmpleado.jb_cancelar.addMouseListener(ml);
-        viewEmpleado.jb_usuario.addMouseListener(ml);
+        viewEmpleado.jb_guardar.addMouseListener(ml);
         viewEmpleado.jt_empleados.addMouseListener(ml);
         viewEmpleado.jb_eliminar.addMouseListener(ml);
         
