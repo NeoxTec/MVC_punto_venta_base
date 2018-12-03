@@ -44,7 +44,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_correo = new javax.swing.JLabel();
         jl_fecha = new javax.swing.JLabel();
         jtf_calle = new javax.swing.JTextField();
-        jl_genero = new javax.swing.JLabel();
+        jl_puesto = new javax.swing.JLabel();
         jtf_colonia = new javax.swing.JTextField();
         jtf_no_ext = new javax.swing.JTextField();
         jl_colonia = new javax.swing.JLabel();
@@ -54,7 +54,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jl_cp = new javax.swing.JLabel();
         jtf_cp = new javax.swing.JTextField();
         jb_nuevo = new javax.swing.JButton();
-        jb_guardar = new javax.swing.JButton();
+        jb_usuario = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
         jb_modificar = new javax.swing.JButton();
         jb_eliminar = new javax.swing.JButton();
@@ -68,6 +68,11 @@ public class viewEmpleado extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jft_fecha = new javax.swing.JFormattedTextField();
         jl_datos2 = new javax.swing.JLabel();
+        jl_genero = new javax.swing.JLabel();
+        jl_sucursal = new javax.swing.JLabel();
+        jcb_sucursal = new javax.swing.JComboBox<>();
+        jcb_puesto = new javax.swing.JComboBox<>();
+        jb_guardar = new javax.swing.JButton();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -114,7 +119,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jcb_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "F", "M" }));
         jcb_genero.setEnabled(false);
         add(jcb_genero);
-        jcb_genero.setBounds(370, 410, 50, 23);
+        jcb_genero.setBounds(370, 410, 50, 20);
 
         jtf_nombre.setEditable(false);
         add(jtf_nombre);
@@ -172,11 +177,11 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jtf_calle);
         jtf_calle.setBounds(20, 490, 165, 20);
 
-        jl_genero.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jl_genero.setForeground(new java.awt.Color(255, 102, 0));
-        jl_genero.setText("Género:");
-        add(jl_genero);
-        jl_genero.setBounds(370, 390, 60, 20);
+        jl_puesto.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_puesto.setForeground(new java.awt.Color(255, 102, 0));
+        jl_puesto.setText("Puesto:");
+        add(jl_puesto);
+        jl_puesto.setBounds(540, 390, 70, 20);
 
         jtf_colonia.setEditable(false);
         add(jtf_colonia);
@@ -226,13 +231,13 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jb_nuevo);
         jb_nuevo.setBounds(20, 530, 130, 40);
 
-        jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
-        jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
-        jb_guardar.setText("Guardar");
-        jb_guardar.setBorder(null);
-        add(jb_guardar);
-        jb_guardar.setBounds(600, 530, 130, 40);
+        jb_usuario.setBackground(new java.awt.Color(255, 102, 0));
+        jb_usuario.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        jb_usuario.setText("Usuarios");
+        jb_usuario.setBorder(null);
+        add(jb_usuario);
+        jb_usuario.setBounds(740, 390, 200, 60);
 
         jb_cancelar.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -240,7 +245,7 @@ public class viewEmpleado extends javax.swing.JPanel {
         jb_cancelar.setText("Cancelar");
         jb_cancelar.setBorder(null);
         add(jb_cancelar);
-        jb_cancelar.setBounds(740, 530, 130, 40);
+        jb_cancelar.setBounds(710, 530, 130, 40);
 
         jb_modificar.setBackground(new java.awt.Color(255, 102, 0));
         jb_modificar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -300,6 +305,36 @@ public class viewEmpleado extends javax.swing.JPanel {
         add(jl_datos2);
         jl_datos2.setBounds(20, 300, 160, 21);
 
+        jl_genero.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_genero.setForeground(new java.awt.Color(255, 102, 0));
+        jl_genero.setText("Género:");
+        add(jl_genero);
+        jl_genero.setBounds(370, 390, 60, 20);
+
+        jl_sucursal.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_sucursal.setForeground(new java.awt.Color(255, 102, 0));
+        jl_sucursal.setText("Sucursal:");
+        add(jl_sucursal);
+        jl_sucursal.setBounds(450, 390, 70, 20);
+
+        jcb_sucursal.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jcb_sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        add(jcb_sucursal);
+        jcb_sucursal.setBounds(450, 410, 50, 20);
+
+        jcb_puesto.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
+        jcb_puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ADMIN" }));
+        add(jcb_puesto);
+        jcb_puesto.setBounds(540, 410, 100, 20);
+
+        jb_guardar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_guardar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_guardar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_guardar.setText("Guardar");
+        jb_guardar.setBorder(null);
+        add(jb_guardar);
+        jb_guardar.setBounds(560, 530, 130, 40);
+
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
         jl_fondo.setBounds(0, 0, 1140, 630);
@@ -316,7 +351,10 @@ public class viewEmpleado extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar;
     public javax.swing.JButton jb_modificar;
     public javax.swing.JButton jb_nuevo;
+    public javax.swing.JButton jb_usuario;
     public javax.swing.JComboBox<String> jcb_genero;
+    public javax.swing.JComboBox<String> jcb_puesto;
+    public javax.swing.JComboBox<String> jcb_sucursal;
     public javax.swing.JFormattedTextField jft_fecha;
     private javax.swing.JLabel jl_ape_m;
     private javax.swing.JLabel jl_ape_p;
@@ -333,7 +371,9 @@ public class viewEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jl_no_ext;
     private javax.swing.JLabel jl_no_int;
     private javax.swing.JLabel jl_nombre;
+    public javax.swing.JLabel jl_puesto;
     private javax.swing.JLabel jl_rfc;
+    public javax.swing.JLabel jl_sucursal;
     private javax.swing.JLabel jl_telefono;
     private javax.swing.JLabel jl_titulo;
     public javax.swing.JTable jt_empleados;
