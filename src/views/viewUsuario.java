@@ -37,7 +37,6 @@ public class viewUsuario extends javax.swing.JPanel {
         jl_rfc = new javax.swing.JLabel();
         jtf_rfc = new javax.swing.JTextField();
         jl_sucursal = new javax.swing.JLabel();
-        jcb_sucursal = new javax.swing.JComboBox<>();
         jl_puesto = new javax.swing.JLabel();
         jcb_puesto = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
@@ -45,6 +44,7 @@ public class viewUsuario extends javax.swing.JPanel {
         jb_guardar = new javax.swing.JButton();
         jb_cancelar = new javax.swing.JButton();
         jl_salir = new javax.swing.JLabel();
+        jtf_sucursal = new javax.swing.JTextField();
         jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
@@ -55,6 +55,11 @@ public class viewUsuario extends javax.swing.JPanel {
         add(jl_titulo);
         jl_titulo.setBounds(380, 20, 280, 40);
 
+        jt_usuarios = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }
+        };
         jt_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -94,7 +99,6 @@ public class viewUsuario extends javax.swing.JPanel {
         jl_rfc.setBounds(20, 390, 40, 20);
 
         jtf_rfc.setEditable(false);
-        jtf_rfc.setEnabled(false);
         add(jtf_rfc);
         jtf_rfc.setBounds(20, 410, 160, 20);
 
@@ -104,11 +108,6 @@ public class viewUsuario extends javax.swing.JPanel {
         add(jl_sucursal);
         jl_sucursal.setBounds(210, 390, 70, 20);
 
-        jcb_sucursal.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
-        jcb_sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        add(jcb_sucursal);
-        jcb_sucursal.setBounds(210, 410, 50, 20);
-
         jl_puesto.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_puesto.setForeground(new java.awt.Color(255, 102, 0));
         jl_puesto.setText("Puesto:");
@@ -117,6 +116,7 @@ public class viewUsuario extends javax.swing.JPanel {
 
         jcb_puesto.setFont(new java.awt.Font("AR DESTINE", 0, 12)); // NOI18N
         jcb_puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ADMIN" }));
+        jcb_puesto.setEnabled(false);
         add(jcb_puesto);
         jcb_puesto.setBounds(300, 410, 100, 20);
         add(jSeparator4);
@@ -150,6 +150,10 @@ public class viewUsuario extends javax.swing.JPanel {
         add(jl_salir);
         jl_salir.setBounds(1010, 470, 50, 50);
 
+        jtf_sucursal.setEditable(false);
+        add(jtf_sucursal);
+        jtf_sucursal.setBounds(210, 410, 70, 20);
+
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
         jl_fondo.setBounds(0, 0, 1090, 580);
@@ -165,7 +169,6 @@ public class viewUsuario extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar;
     public javax.swing.JButton jb_modificar;
     public javax.swing.JComboBox<String> jcb_puesto;
-    public javax.swing.JComboBox<String> jcb_sucursal;
     private javax.swing.JLabel jl_datos2;
     private javax.swing.JLabel jl_fondo;
     public javax.swing.JLabel jl_puesto;
@@ -176,5 +179,6 @@ public class viewUsuario extends javax.swing.JPanel {
     public javax.swing.JTable jt_usuarios;
     private javax.swing.JTextField jtf_buscar;
     public javax.swing.JTextField jtf_rfc;
+    public javax.swing.JTextField jtf_sucursal;
     // End of variables declaration//GEN-END:variables
 }

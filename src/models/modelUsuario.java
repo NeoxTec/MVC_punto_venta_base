@@ -24,7 +24,7 @@ public class modelUsuario {
     
     private String username;
     private Object tipo;
-    private Object sucursal;
+    private int sucursal;
     private String rfc_e;
     
     private String sentencia;
@@ -46,11 +46,11 @@ public class modelUsuario {
         this.tipo = tipo;
     }
 
-    public Object getSucursal() {
+    public int getSucursal() {
         return sucursal;
     }
 
-    public void setSucursal(Object sucursal) {
+    public void setSucursal(int sucursal) {
         this.sucursal = sucursal;
     }
 
@@ -87,10 +87,7 @@ public class modelUsuario {
            st = conexion.createStatement();
            rs = st.executeQuery("SELECT username,tipo,id_sucursal,rfc_e FROM usuario;");
            rs.next();
-           username = rs.getString("username");
-           tipo =rs.getObject("tipo");
-           sucursal = rs.getObject("id_sucursal");
-           rfc_e = rs.getString("rfc_e");
+           setValues();
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, "Error ModelUsuario001: " + err.getMessage());
             System.out.println(err.getMessage());
@@ -116,4 +113,27 @@ public class modelUsuario {
         }
     }
  
+    /*
+    * Método que     
+    */
+    public void setValues(){
+        try{
+            username = rs.getString("username");
+            tipo = rs.getObject("tipo");
+            sucursal = rs.getInt("id_sucursal");
+            rfc_e = rs.getString("rfc_e");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelUsuario003" + e.getMessage());
+        }
+    }
+    
+    public void datos(){
+        try{
+            rs = st.executeQuery("SELECT username,tipo,id_sucursal,rfc_e FROM usuario WHERE username = '"+username+"';");
+            rs.first();
+            setValues();
+        }catch(SQLException e){   
+        }
+        
+    }
 }
