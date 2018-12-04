@@ -17,5 +17,16 @@ public class controllerCompras {
     public controllerCompras(modelCompras modelCompras, viewCompra viewCompra) {
         this.modelCompras = modelCompras;
         this.viewCompra = viewCompra;
+        viewCompra.setVisible(true);
+        modelCompras.llenarprov();
+        viewCompra.jt_proveedor.setModel(modelCompras.getTable_prov());
+        init();
     }
-}
+    
+    public void init(){
+    modelCompras.conectarDB();
+    modelCompras.setSentencia("Select * from compra;");
+    modelCompras.llenarcompras();
+    viewCompra.jt_compra.setModel(modelCompras.getTable_compra());
+    }
+    }
