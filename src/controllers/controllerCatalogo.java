@@ -69,7 +69,7 @@ public class controllerCatalogo {
                 habilitar(true);
             }
             else if(e.getSource()== viewCatalogo.jb_actu_inv){
-                actualizar_inventarios_mouseClicked()
+                actualizar_inventarios_mouseClicked();
             }
             else if(e.getSource()==viewCatalogo.jb_cancelar){
             botones_p(true);
