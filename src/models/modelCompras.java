@@ -10,6 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,8 +31,12 @@ public class modelCompras {
     private Object estado_factura;
     private double total;
     private int sucursal;
+    private String tiendas;
+    private String sentencia;
+    private String sentencia_prov;
     DefaultTableModel table_compra = new DefaultTableModel();
     DefaultTableModel table_prov = new DefaultTableModel();
+    ArrayList sucursales = new ArrayList();
 
     public String getNo_factura() {
         return no_factura;
@@ -103,6 +110,36 @@ public class modelCompras {
         this.table_prov = table_prov;
     }
     
+        public String getSentencia() {
+        return sentencia;
+    }
+
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
+
+    public String getSentencia_prov() {
+        return sentencia_prov;
+    }
+
+    public void setSentencia_prov(String sentencia_prov) {
+        this.sentencia_prov = sentencia_prov;
+    }
+        public String getTiendas() {
+        return tiendas;
+    }
+
+    public void setTiendas(String tiendas) {
+        this.tiendas = tiendas;
+    }
+        public ArrayList getSucursales() {
+        return sucursales;
+    }
+
+    public void setSucursales(ArrayList sucursales) {
+        this.sucursales = sucursales;
+    }
+    
     
      public void conectarDB() {
         try {
@@ -121,5 +158,103 @@ public class modelCompras {
             JOptionPane.showMessageDialog(null, "Error ModelCompra001: " + err.getMessage());
             System.out.println(err.getMessage());
         }
+     }
+     
+       public void llenarcompras(){
+        rs = ConnectDatabase.getTabla(sentencia);
+        table_compra.setColumnIdentifiers(new Object[]{"Factura","Sucursal", "Fecha", "Forma de pago", "Estado de factura"});
+        try {
+           while (rs.next()){
+            table_compra.addRow(new Object[]{
+                rs.getString("no_factura"), 
+                rs.getInt("id_sucursal"), 
+                rs.getString("fecha"),
+                rs.getObject("forma_pago"),
+                rs.getObject("estado_factura")});
+        }}catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelCompra002 " + e.getMessage());}
     }
-}
+       
+       public void llenarprov(){
+        rs = ConnectDatabase.getTabla("select * from proveedor;");
+        table_prov.setColumnIdentifiers(new Object[]{"RFC","Razon social"});
+        try {
+           while (rs.next()){
+            table_prov.addRow(new Object[]{
+                rs.getString("rfc"), 
+                rs.getString("razons")});
+        } }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelCompra002-1 " + e.getMessage());}
+    }
+       
+         public void datos_compra(){
+            try {
+               rs = st.executeQuery("SELECT * FROM compra where  no_factura ='"+no_factura+"';");
+               rs.first();
+               sucursal = rs.getInt("id_sucursal");
+               no_factura =rs.getString("no_factura");
+               rfc_prov = rs.getString("rfc_proveedor");
+               fecha =  rs.getString("fecha");
+               total =  rs.getDouble("total");
+               forma_pago = rs.getObject("forma_pago");
+               estado_factura = rs.getObject("estado_factura");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCompra003 " + ex.getMessage());}
+         }
+                  
+         public void sucursales_combobox(){
+        try {
+            rs = st.executeQuery("Select * from sucursales;");
+            while(rs.next()){
+                tiendas = (rs.getString("id")+" - "+rs.getString("calle"));
+                sucursales.add(tiendas);
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error modelCombobox " + ex.getMessage());
+        }
+
+         }
+         
+ /**
+ * Metodo que actualiza los datos un registro de la base de datos.
+ */
+    public void modificar(){
+        //try {
+           String prueba=  "update compras set fecha ='"+fecha+"', rfc_proveedor = '"+rfc_prov+"', forma_pago = '"+forma_pago+"', estado_factura = '"+estado_factura+"' where no_factura = '"+no_factura+"';";
+           //st.executeUpdate(prueba);
+           System.out.println(prueba);
+            JOptionPane.showMessageDialog(null, "Producto actualizado");
+        //}catch (SQLException ex) {
+          //  JOptionPane.showMessageDialog(null, "Error modelCompra004" + ex.getMessage());
+       // }
+    }
+    /**
+     * Metodo que ingresa un nuevo registro a la base de datos.
+     */
+    public void insertar(){
+        try {
+            String prueba = "Insert into compra(no_factura, id_sucursal, rfc_proveedor, total, fecha, forma_pago, estado_factura) values('"+no_factura+"',"+sucursal+",'"+rfc_prov+"', "+total+",'"+fecha+"' ,'"+forma_pago+"','"+estado_factura+"');";
+            //st.executeUpdate(prueba);
+            System.out.println(prueba);
+            rs = st.executeQuery("Select * from compra;");
+            JOptionPane.showMessageDialog(null, "Compra registrada, ingrese detalles");
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error modelCompra005" + ex.getMessage());}
+        }
+    
+    /**
+     * Metodo que elimina un registro de la base de datos.
+     */
+    public void borrar(){
+        int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la compra?","Eliminar",JOptionPane.YES_NO_OPTION);
+        if(confirmado == JOptionPane.YES_OPTION){
+            try{
+                st.executeUpdate("delete from compra where no_factura = '" + no_factura + "'; ");
+                JOptionPane.showMessageDialog(null, "Lista de productos actualizada, el producto ha sido eliminado");
+            }
+            catch(SQLException err){
+               JOptionPane.showMessageDialog(null, "Error modelCatalogo 006:" + err.getMessage()); }
+        }
+    }
+
+    }
