@@ -28,5 +28,10 @@ public class controllerCompras {
     modelCompras.setSentencia("Select * from compra;");
     modelCompras.llenarcompras();
     viewCompra.jt_compra.setModel(modelCompras.getTable_compra());
+    viewCompra.jcb_idsucursal.removeAllItems();
+    modelCompras.sucursales_combobox();
+    for(int x = 0; x < modelCompras.getSucursales().size(); x++){
+        viewCompra.jcb_idsucursal.addItem((String) modelCompras.getSucursales().get(x));
     }
+    };
     }
