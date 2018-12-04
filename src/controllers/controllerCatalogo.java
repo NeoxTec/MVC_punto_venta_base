@@ -205,7 +205,7 @@ public class controllerCatalogo {
          else
                 modelCatalogo.setCodigo_barras(Integer.parseInt(viewCatalogo.jtf_codigobarras.getText()));
          if (viewCatalogo.jtf_preciom.getText().isEmpty())
-                 modelCatalogo.setPrecio_mayoreo(0);
+                 modelCatalogo.setPrecio_mayoreo(Double.parseDouble(viewCatalogo.jtf_preciou.getText()));
          else
                   modelCatalogo.setPrecio_mayoreo(Double.parseDouble(viewCatalogo.jtf_preciom.getText()));
          if (viewCatalogo.jtf_nombre.getText().isEmpty() || viewCatalogo.jta_descripcion.getText().isEmpty() || viewCatalogo.jtf_preciou.getText().isEmpty())
