@@ -87,110 +87,116 @@ public class viewCompra extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jt_compra);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(25, 79, 840, 304);
+        jScrollPane1.setBounds(25, 79, 840, 290);
 
         jb_nueva_compra.setBackground(new java.awt.Color(255, 102, 0));
         jb_nueva_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_nueva_compra.setForeground(new java.awt.Color(255, 255, 255));
         jb_nueva_compra.setText("Nueva compra");
         jb_nueva_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_nueva_compra);
-        jb_nueva_compra.setBounds(960, 90, 153, 30);
+        jb_nueva_compra.setBounds(900, 90, 150, 50);
 
         jb_modificar_compra.setBackground(new java.awt.Color(255, 102, 0));
         jb_modificar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_modificar_compra.setForeground(new java.awt.Color(255, 255, 255));
         jb_modificar_compra.setText("Modificar compra");
         jb_modificar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_modificar_compra);
-        jb_modificar_compra.setBounds(960, 130, 150, 30);
+        jb_modificar_compra.setBounds(900, 140, 150, 50);
 
         jb_guardar_compra.setBackground(new java.awt.Color(255, 102, 0));
         jb_guardar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_guardar_compra.setForeground(new java.awt.Color(255, 255, 255));
         jb_guardar_compra.setText("Guardar compra");
         jb_guardar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_guardar_compra);
-        jb_guardar_compra.setBounds(960, 240, 150, 30);
+        jb_guardar_compra.setBounds(900, 260, 150, 50);
 
         jb_cancelar_compra.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_cancelar_compra.setForeground(new java.awt.Color(255, 255, 255));
         jb_cancelar_compra.setText("Cancelar compra");
         jb_cancelar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_cancelar_compra);
-        jb_cancelar_compra.setBounds(960, 290, 150, 30);
+        jb_cancelar_compra.setBounds(900, 310, 150, 50);
 
         jb_eliminar_compra.setBackground(new java.awt.Color(255, 102, 0));
         jb_eliminar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_eliminar_compra.setForeground(new java.awt.Color(255, 255, 255));
         jb_eliminar_compra.setText("Eliminar compra");
         jb_eliminar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_eliminar_compra);
-        jb_eliminar_compra.setBounds(960, 170, 153, 30);
+        jb_eliminar_compra.setBounds(900, 190, 150, 50);
 
         jl_nofactura.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_nofactura.setForeground(new java.awt.Color(255, 102, 0));
         jl_nofactura.setText("Numero de factura:");
         add(jl_nofactura);
-        jl_nofactura.setBounds(25, 409, 168, 21);
+        jl_nofactura.setBounds(30, 390, 168, 21);
         add(jtf_nofactura);
-        jtf_nofactura.setBounds(205, 411, 148, 19);
+        jtf_nofactura.setBounds(210, 390, 160, 19);
 
         jl_idsucursal.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_idsucursal.setForeground(new java.awt.Color(255, 102, 0));
-        jl_idsucursal.setText("Id sucursal:");
+        jl_idsucursal.setText("Sucursal:");
         add(jl_idsucursal);
-        jl_idsucursal.setBounds(90, 440, 102, 21);
+        jl_idsucursal.setBounds(90, 420, 77, 21);
 
         add(jcb_idsucursal);
-        jcb_idsucursal.setBounds(210, 440, 210, 24);
+        jcb_idsucursal.setBounds(210, 420, 160, 24);
 
         jl_rfc_proveedor.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_rfc_proveedor.setForeground(new java.awt.Color(255, 102, 0));
         jl_rfc_proveedor.setText("RFC proveedor:");
         add(jl_rfc_proveedor);
-        jl_rfc_proveedor.setBounds(60, 480, 130, 21);
+        jl_rfc_proveedor.setBounds(60, 450, 130, 21);
         add(jtf_rfc_proveedor);
-        jtf_rfc_proveedor.setBounds(210, 480, 154, 19);
+        jtf_rfc_proveedor.setBounds(210, 450, 160, 19);
 
         jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
         jl_fecha.setText("Fecha:");
         add(jl_fecha);
-        jl_fecha.setBounds(118, 524, 54, 21);
+        jl_fecha.setBounds(140, 500, 54, 21);
 
         jl_forma_pago.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_forma_pago.setForeground(new java.awt.Color(255, 102, 0));
         jl_forma_pago.setText("Forma de pago:");
         add(jl_forma_pago);
-        jl_forma_pago.setBounds(460, 410, 135, 21);
+        jl_forma_pago.setBounds(470, 390, 135, 21);
 
         jcb_forma_pago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "CREDITO", "DEBITO", "OTRO" }));
         add(jcb_forma_pago);
-        jcb_forma_pago.setBounds(610, 410, 77, 24);
+        jcb_forma_pago.setBounds(610, 390, 77, 24);
 
         jl_total.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_total.setForeground(new java.awt.Color(255, 102, 0));
         jl_total.setText("Total:");
         add(jl_total);
-        jl_total.setBounds(550, 450, 48, 21);
+        jl_total.setBounds(550, 430, 48, 21);
 
         jtf_total.setText("0.00");
         add(jtf_total);
-        jtf_total.setBounds(610, 450, 77, 19);
+        jtf_total.setBounds(610, 430, 77, 19);
 
         jl_estado_factura.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
         jl_estado_factura.setForeground(new java.awt.Color(255, 102, 0));
         jl_estado_factura.setText("Estado de factura:");
         add(jl_estado_factura);
-        jl_estado_factura.setBounds(440, 480, 163, 21);
+        jl_estado_factura.setBounds(440, 460, 163, 21);
 
         jcb_estado_factura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FISICA", "CORREO", "PENDIENTE" }));
         add(jcb_estado_factura);
-        jcb_estado_factura.setBounds(610, 480, 81, 24);
+        jcb_estado_factura.setBounds(610, 460, 81, 24);
 
         jb_agregar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_agregar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jb_agregar_detalle.setForeground(new java.awt.Color(255, 255, 255));
         jb_agregar_detalle.setText("Agregar detalles");
         jb_agregar_detalle.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_agregar_detalle);
-        jb_agregar_detalle.setBounds(730, 430, 121, 73);
+        jb_agregar_detalle.setBounds(470, 500, 200, 40);
 
         jt_proveedor = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int ColumnIndex){
@@ -218,17 +224,19 @@ public class viewCompra extends javax.swing.JPanel {
             jScrollPane2.setViewportView(jt_proveedor);
 
             add(jScrollPane2);
-            jScrollPane2.setBounds(898, 408, 260, 125);
+            jScrollPane2.setBounds(760, 410, 260, 125);
             add(jtf_dia);
-            jtf_dia.setBounds(184, 526, 30, 19);
+            jtf_dia.setBounds(210, 500, 30, 19);
             add(jtf_mes);
-            jtf_mes.setBounds(226, 526, 28, 19);
+            jtf_mes.setBounds(258, 500, 40, 19);
             add(jtf_anio);
-            jtf_anio.setBounds(266, 526, 48, 19);
+            jtf_anio.setBounds(308, 500, 60, 19);
 
-            jl_fecha1.setText(" dia     /     mes   /    año");
+            jl_fecha1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+            jl_fecha1.setForeground(new java.awt.Color(255, 255, 255));
+            jl_fecha1.setText(" dia       /     mes     /      año");
             add(jl_fecha1);
-            jl_fecha1.setBounds(184, 507, 130, 15);
+            jl_fecha1.setBounds(210, 480, 150, 16);
 
             jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 48)); // NOI18N
             jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
@@ -253,7 +261,7 @@ public class viewCompra extends javax.swing.JPanel {
     public javax.swing.JButton jb_nueva_compra;
     public javax.swing.JComboBox<String> jcb_estado_factura;
     public javax.swing.JComboBox<String> jcb_forma_pago;
-    private javax.swing.JComboBox<String> jcb_idsucursal;
+    public javax.swing.JComboBox<String> jcb_idsucursal;
     public javax.swing.JLabel jl_estado_factura;
     public javax.swing.JLabel jl_fecha;
     public javax.swing.JLabel jl_fecha1;
