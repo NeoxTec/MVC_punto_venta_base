@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import bd.ConnectDatabase;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -216,5 +217,33 @@ public class modelCatalogo {
             catch(SQLException err){
                JOptionPane.showMessageDialog(null, "Error modelCatalogo 006:" + err.getMessage()); }
         }
+    }
+
+    public void insertando(){
+        ArrayList sucursales = new ArrayList();
+        ArrayList productos = new ArrayList();
+        try {
+            rs = st.executeQuery("Select * from sucursal;");
+            while (rs.next()){
+                sucursales.add(rs.getInt("id"));
+            }
+            rs = st.executeQuery("Select * from catalogo;");
+            while (rs.next()){
+                  productos.add(rs.getInt("id"));
+            }
+            System.out.print(sucursales);
+            System.out.print(productos);
+            for (int x = 0; x < sucursales.size(); x++){
+                for (int y = 0; y < productos.size(); y++){
+            rs = st.executeQuery("Select * from inventario where id_sucursal = "+sucursales.get(x) +" and id_producto = "+ productos.get(y)+";");
+            if (rs.wasNull() == false){
+               st.executeUpdate("Insert into inventario(id_sucursal, id_producto,existencias) values ("+sucursales.get(x)+","+productos.get(y)+",0);");
+            }
+            } 
+        }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    
     }
 }
