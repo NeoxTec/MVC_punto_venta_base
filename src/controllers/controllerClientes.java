@@ -3,13 +3,13 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.modelClientes;
-import views.viewCliente;
+import views.viewClientes;
 
 public class controllerClientes implements ActionListener{
      modelClientes modelClientes;
-     viewCliente viewCliente;
+     viewClientes viewCliente;
 
-    public controllerClientes(modelClientes modelClientes, viewCliente viewClientes) {
+    public controllerClientes(modelClientes modelClientes, viewClientes viewClientes) {
         this.modelClientes = modelClientes;
         this.viewCliente = viewClientes;
     }

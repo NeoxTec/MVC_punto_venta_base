@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Jireh%20Castillo/Documents/quetzalstock1/quetzalStock/src/bd/ConnectDatabase.java</file>
             <file>file:/C:/Users/Jireh%20Castillo/Documents/quetzalstock1/quetzalStock/src/main/Main.java</file>
-=======
-            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/controllers/controllerLogin.java</file>
-            <file>file:/C:/Users/Diego/Documents/NeoxTec/quetzalStock/src/main/Main.java</file>
->>>>>>> origin/master
+            <file>file:/C:/Users/Jireh%20Castillo/Documents/quetzalstock1/quetzalStock/src/controllers/controllerClientes.java</file>
+            <file>file:/C:/Users/Jireh%20Castillo/Documents/quetzalstock1/quetzalStock/src/models/modelClientes.java</file>
+            <file>file:/C:/Users/Jireh%20Castillo/Documents/quetzalstock1/quetzalStock/src/views/viewClientes.java</file>
         </group>
     </open-files>
 </project-private>
