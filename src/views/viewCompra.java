@@ -41,7 +41,6 @@ public class viewCompra extends javax.swing.JPanel {
         jl_rfc_proveedor = new javax.swing.JLabel();
         jtf_rfc_proveedor = new javax.swing.JTextField();
         jl_fecha = new javax.swing.JLabel();
-        jftf_fecha = new javax.swing.JFormattedTextField();
         jl_forma_pago = new javax.swing.JLabel();
         jcb_forma_pago = new javax.swing.JComboBox<>();
         jl_total = new javax.swing.JLabel();
@@ -51,10 +50,21 @@ public class viewCompra extends javax.swing.JPanel {
         jb_agregar_detalle = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_proveedor = new javax.swing.JTable();
-        jb_volver = new javax.swing.JButton();
+        jtf_dia = new javax.swing.JTextField();
+        jtf_mes = new javax.swing.JTextField();
+        jtf_anio = new javax.swing.JTextField();
+        jl_fecha1 = new javax.swing.JLabel();
+        jl_titulo = new javax.swing.JLabel();
+        jl_fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1092, 567));
+        setLayout(null);
 
+        jt_compra = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }
+        };
         jt_compra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -76,180 +86,160 @@ public class viewCompra extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jt_compra);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(25, 79, 840, 304);
+
+        jb_nueva_compra.setBackground(new java.awt.Color(255, 102, 0));
+        jb_nueva_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_nueva_compra.setText("Nueva compra");
+        jb_nueva_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_nueva_compra);
+        jb_nueva_compra.setBounds(960, 90, 153, 30);
 
+        jb_modificar_compra.setBackground(new java.awt.Color(255, 102, 0));
+        jb_modificar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_modificar_compra.setText("Modificar compra");
+        jb_modificar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_modificar_compra);
+        jb_modificar_compra.setBounds(960, 130, 150, 30);
 
+        jb_guardar_compra.setBackground(new java.awt.Color(255, 102, 0));
+        jb_guardar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_guardar_compra.setText("Guardar compra");
+        jb_guardar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_guardar_compra);
+        jb_guardar_compra.setBounds(960, 240, 150, 30);
 
+        jb_cancelar_compra.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancelar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_cancelar_compra.setText("Cancelar compra");
+        jb_cancelar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_cancelar_compra);
+        jb_cancelar_compra.setBounds(960, 290, 150, 30);
 
+        jb_eliminar_compra.setBackground(new java.awt.Color(255, 102, 0));
+        jb_eliminar_compra.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_eliminar_compra.setText("Eliminar compra");
+        jb_eliminar_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_eliminar_compra);
+        jb_eliminar_compra.setBounds(960, 170, 153, 30);
 
+        jl_nofactura.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_nofactura.setForeground(new java.awt.Color(255, 102, 0));
         jl_nofactura.setText("Numero de factura:");
+        add(jl_nofactura);
+        jl_nofactura.setBounds(25, 409, 168, 21);
+        add(jtf_nofactura);
+        jtf_nofactura.setBounds(205, 411, 148, 19);
 
+        jl_idsucursal.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_idsucursal.setForeground(new java.awt.Color(255, 102, 0));
         jl_idsucursal.setText("Id sucursal:");
+        add(jl_idsucursal);
+        jl_idsucursal.setBounds(90, 440, 102, 21);
 
-        jcb_idsucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        add(jcb_idsucursal);
+        jcb_idsucursal.setBounds(210, 440, 210, 24);
 
+        jl_rfc_proveedor.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_rfc_proveedor.setForeground(new java.awt.Color(255, 102, 0));
         jl_rfc_proveedor.setText("RFC proveedor:");
+        add(jl_rfc_proveedor);
+        jl_rfc_proveedor.setBounds(60, 480, 130, 21);
+        add(jtf_rfc_proveedor);
+        jtf_rfc_proveedor.setBounds(210, 480, 154, 19);
 
+        jl_fecha.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_fecha.setForeground(new java.awt.Color(255, 102, 0));
         jl_fecha.setText("Fecha:");
+        add(jl_fecha);
+        jl_fecha.setBounds(118, 524, 54, 21);
 
-        jftf_fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        jftf_fecha.setText("01/10/2018");
-
+        jl_forma_pago.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_forma_pago.setForeground(new java.awt.Color(255, 102, 0));
         jl_forma_pago.setText("Forma de pago:");
+        add(jl_forma_pago);
+        jl_forma_pago.setBounds(460, 410, 135, 21);
 
         jcb_forma_pago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "CREDITO", "DEBITO", "OTRO" }));
+        add(jcb_forma_pago);
+        jcb_forma_pago.setBounds(610, 410, 77, 24);
 
+        jl_total.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_total.setForeground(new java.awt.Color(255, 102, 0));
         jl_total.setText("Total:");
+        add(jl_total);
+        jl_total.setBounds(550, 450, 48, 21);
 
         jtf_total.setText("0.00");
+        add(jtf_total);
+        jtf_total.setBounds(610, 450, 77, 19);
 
+        jl_estado_factura.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
+        jl_estado_factura.setForeground(new java.awt.Color(255, 102, 0));
         jl_estado_factura.setText("Estado de factura:");
+        add(jl_estado_factura);
+        jl_estado_factura.setBounds(440, 480, 163, 21);
 
         jcb_estado_factura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FISICA", "CORREO", "PENDIENTE" }));
+        add(jcb_estado_factura);
+        jcb_estado_factura.setBounds(610, 480, 81, 24);
 
+        jb_agregar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_agregar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_agregar_detalle.setText("Agregar detalles");
+        jb_agregar_detalle.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(jb_agregar_detalle);
+        jb_agregar_detalle.setBounds(730, 430, 121, 73);
 
-        jt_proveedor.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "RFC proveedor", "Nombre proveedor"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+        jt_proveedor = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }};
+            jt_proveedor.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null},
+                    {null, null},
+                    {null, null},
+                    {null, null}
+                },
+                new String [] {
+                    "RFC proveedor", "Nombre proveedor"
+                }
+            ) {
+                boolean[] canEdit = new boolean [] {
+                    false, false
+                };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jt_proveedor);
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
+            jScrollPane2.setViewportView(jt_proveedor);
 
-        jb_volver.setText("Volver");
+            add(jScrollPane2);
+            jScrollPane2.setBounds(898, 408, 260, 125);
+            add(jtf_dia);
+            jtf_dia.setBounds(184, 526, 30, 19);
+            add(jtf_mes);
+            jtf_mes.setBounds(226, 526, 28, 19);
+            add(jtf_anio);
+            jtf_anio.setBounds(266, 526, 48, 19);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jb_modificar_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_nueva_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_guardar_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jb_eliminar_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_cancelar_compra))
-                        .addGap(48, 48, 48))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jl_nofactura)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtf_nofactura, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79)
-                                .addComponent(jl_forma_pago)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jcb_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jl_rfc_proveedor)
-                                    .addComponent(jl_idsucursal)
-                                    .addComponent(jl_fecha))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jcb_idsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtf_rfc_proveedor)
-                                    .addComponent(jftf_fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
-                                .addGap(71, 71, 71)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jl_total)
-                                    .addComponent(jl_estado_factura))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jcb_estado_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtf_total)
-                                        .addGap(4, 4, 4)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_agregar_detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jb_volver)
-                .addGap(33, 33, 33))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jb_nueva_compra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_modificar_compra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_guardar_compra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_cancelar_compra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_eliminar_compra)))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jb_agregar_detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jl_nofactura)
-                                    .addComponent(jtf_nofactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jl_forma_pago)
-                                    .addComponent(jcb_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jl_total)
-                                        .addComponent(jtf_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jcb_idsucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jl_idsucursal)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jl_rfc_proveedor)
-                                            .addComponent(jtf_rfc_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jl_estado_factura))
-                                        .addGap(23, 23, 23)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jftf_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jl_fecha)))
-                                    .addComponent(jcb_estado_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addComponent(jb_volver)
-                        .addGap(22, 22, 22))))
-        );
-    }// </editor-fold>//GEN-END:initComponents
+            jl_fecha1.setText(" dia     /     mes   /    año");
+            add(jl_fecha1);
+            jl_fecha1.setBounds(184, 507, 130, 15);
+
+            jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 48)); // NOI18N
+            jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
+            jl_titulo.setText("Compras");
+            add(jl_titulo);
+            jl_titulo.setBounds(422, 12, 185, 55);
+
+            jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+            add(jl_fondo);
+            jl_fondo.setBounds(0, 0, 1190, 600);
+        }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,20 +251,24 @@ public class viewCompra extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar_compra;
     public javax.swing.JButton jb_modificar_compra;
     public javax.swing.JButton jb_nueva_compra;
-    public javax.swing.JButton jb_volver;
     public javax.swing.JComboBox<String> jcb_estado_factura;
     public javax.swing.JComboBox<String> jcb_forma_pago;
-    public javax.swing.JComboBox<String> jcb_idsucursal;
-    public javax.swing.JFormattedTextField jftf_fecha;
+    private javax.swing.JComboBox<String> jcb_idsucursal;
     public javax.swing.JLabel jl_estado_factura;
     public javax.swing.JLabel jl_fecha;
+    public javax.swing.JLabel jl_fecha1;
+    private javax.swing.JLabel jl_fondo;
     public javax.swing.JLabel jl_forma_pago;
     public javax.swing.JLabel jl_idsucursal;
     public javax.swing.JLabel jl_nofactura;
     public javax.swing.JLabel jl_rfc_proveedor;
+    public javax.swing.JLabel jl_titulo;
     public javax.swing.JLabel jl_total;
     public javax.swing.JTable jt_compra;
     public javax.swing.JTable jt_proveedor;
+    public javax.swing.JTextField jtf_anio;
+    public javax.swing.JTextField jtf_dia;
+    public javax.swing.JTextField jtf_mes;
     public javax.swing.JTextField jtf_nofactura;
     public javax.swing.JTextField jtf_rfc_proveedor;
     public javax.swing.JTextField jtf_total;
