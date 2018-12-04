@@ -196,11 +196,22 @@ public class modelCatalogo {
      * Metodo que ingresa un nuevo registro a la base de datos.
      */
     public void insertar(){
+        ArrayList inventario = new ArrayList();
         try {
             String prueba = "Insert into catalogo(nombre, descripcion, codigo_barras,precio, precio_mayoreo,unidad,iva) values('"+nombre+"','"+descripcion+"',"+codigo_barras+","+precio_unitario+","+precio_mayoreo+",'"+unidad_medida+"','"+iva+"');";
             st.executeUpdate(prueba);
             System.out.println(prueba);
-            JOptionPane.showMessageDialog(null, "Producto registrado");
+            rs.last();
+            id = rs.getInt("id")+1;
+            rs = st.executeQuery("Select * from sucursal;");
+            while (rs.next()){
+                inventario.add(rs.getInt("id"));
+            }
+            System.out.println(inventario);
+            for (int x = 0; x < inventario.size(); x++){
+                st.executeUpdate("Insert into inventario(id_sucursal, id_producto,existencias) values ("+inventario.get(x)+","+id+",0);");
+            }
+            JOptionPane.showMessageDialog(null, "Producto registrado, agregando a inventarios");
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error modelCatalogo005" + ex.getMessage());}
         }
@@ -236,11 +247,12 @@ public class modelCatalogo {
             for (int x = 0; x < sucursales.size(); x++){
                 for (int y = 0; y < productos.size(); y++){
             rs = st.executeQuery("Select * from inventario where id_sucursal = "+sucursales.get(x) +" and id_producto = "+ productos.get(y)+";");
-            if (rs.wasNull() == false){
-               st.executeUpdate("Insert into inventario(id_sucursal, id_producto,existencias) values ("+sucursales.get(x)+","+productos.get(y)+",0);");
-            }
+            System.out.print(rs.getRow()+" lineas");
+           if (rs.first() == false)//si no hay algun dato hace insercion de lo contrario hace otra prueba.
+           st.executeUpdate("Insert into inventario(id_sucursal, id_producto,existencias) values ("+sucursales.get(x)+","+productos.get(y)+",0);");
+            
             } 
-        }
+        }JOptionPane.showMessageDialog(null, "Inventarios actualizados, las sucursales ahora cuentan con inventario propio");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
