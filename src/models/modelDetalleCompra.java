@@ -5,10 +5,13 @@
  */
 package models;
 
+import bd.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,7 +27,7 @@ public class modelDetalleCompra {
     private int producto;
     private double subtotal;
     private double total;
-    private int cantidad;
+    private double cantidad;
     private double total_final;
     private String sentencia;
     DefaultTableModel productos = new DefaultTableModel();
@@ -63,11 +66,11 @@ public class modelDetalleCompra {
         this.total = total;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -110,4 +113,48 @@ public class modelDetalleCompra {
     public void setListar_reg(ArrayList listar_reg) {
         this.listar_reg = listar_reg;
     }
+    
+         public void conectarDB() {
+        try {
+           conexion = ConnectDatabase.getConectar();
+           st = conexion.createStatement();
+           rs = st.executeQuery("SELECT * FROM  detalle_compra where no_factura = '"+factura+"';");
+           rs.next();
+           producto = rs.getInt("id_producto");
+           cantidad = rs.getDouble("cantidad");
+           subtotal = rs.getDouble("subtotal");
+           total = rs.getDouble("total");
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, "Error ModelDetalleC001: " + err.getMessage());
+            System.out.println(err.getMessage());
+        }
+     }
+    
+         public void mostrardetalles(){
+        rs = ConnectDatabase.getTabla("Select * from detalle_compra where no_factura = '"+factura+"';");
+        registros.setColumnIdentifiers(new Object[]{"Factura","Producto", "Cantidad", "Subtotal", "Total"});
+        try {
+           while (rs.next()){
+            registros.addRow(new Object[]{
+            rs.getString("factura"),
+            rs.getInt("id_producto"),
+            rs.getDouble("cantidad"),
+            rs.getDouble("subtotal"),
+            rs.getDouble("total")});
+        }}catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error ModelDetalleC002 " + e.getMessage());}
+    }
+         
+       public void llenarprov(){
+        rs = ConnectDatabase.getTabla("select * from catalogo");
+        productos.setColumnIdentifiers(new Object[]{"id","Nombre"});
+        try {
+           while (rs.next()){
+            productos.addRow(new Object[]{
+                rs.getInt("id"), 
+                rs.getString("nombre")});
+        } }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error ModelDetalleC002-1 " + e.getMessage());}
+    }
+         
 }
