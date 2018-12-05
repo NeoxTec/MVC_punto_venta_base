@@ -34,6 +34,7 @@ public class modelCompras {
     private String tiendas;
     private String sentencia;
     private String sentencia_prov;
+    private boolean validar;
     DefaultTableModel table_compra = new DefaultTableModel();
     DefaultTableModel table_prov = new DefaultTableModel();
     ArrayList sucursales = new ArrayList();
@@ -140,6 +141,14 @@ public class modelCompras {
         this.sucursales = sucursales;
     }
     
+        public boolean isValidar() {
+        return validar;
+    }
+
+    public void setValidar(boolean validar) {
+        this.validar = validar;
+    }
+    
     
      public void conectarDB() {
         try {
@@ -162,7 +171,7 @@ public class modelCompras {
      
        public void llenarcompras(){
         rs = ConnectDatabase.getTabla(sentencia);
-        table_compra.setColumnIdentifiers(new Object[]{"Factura","Sucursal", "Fecha", "Forma de pago", "Estado de factura"});
+        table_compra.setColumnIdentifiers(new Object[]{"Factura","Sucursal", "Fecha", "Forma de pago", "Estado de factura","RFC proveedor"});
         try {
            while (rs.next()){
             table_compra.addRow(new Object[]{
@@ -170,7 +179,8 @@ public class modelCompras {
                 rs.getInt("id_sucursal"), 
                 rs.getString("fecha"),
                 rs.getObject("forma_pago"),
-                rs.getObject("estado_factura")});
+                rs.getObject("estado_factura"),
+                rs.getString("rfc_proveedor")});
         }}catch (SQLException e){
             JOptionPane.showMessageDialog(null, "Error modelCompra002 " + e.getMessage());}
     }
@@ -204,7 +214,7 @@ public class modelCompras {
                   
          public void sucursales_combobox(){
         try {
-            rs = st.executeQuery("Select * from sucursales;");
+            rs = st.executeQuery("Select * from sucursal;");
             while(rs.next()){
                 tiendas = (rs.getString("id")+" - "+rs.getString("calle"));
                 sucursales.add(tiendas);
@@ -219,14 +229,14 @@ public class modelCompras {
  * Metodo que actualiza los datos un registro de la base de datos.
  */
     public void modificar(){
-        //try {
-           String prueba=  "update compras set fecha ='"+fecha+"', rfc_proveedor = '"+rfc_prov+"', forma_pago = '"+forma_pago+"', estado_factura = '"+estado_factura+"' where no_factura = '"+no_factura+"';";
-           //st.executeUpdate(prueba);
+        try {
+           String prueba=  "update compra set  rfc_proveedor = '"+rfc_prov+"', forma_pago = '"+forma_pago+"', estado_factura = '"+estado_factura+"' where no_factura = '"+no_factura+"';";
+           st.executeUpdate(prueba);
            System.out.println(prueba);
             JOptionPane.showMessageDialog(null, "Producto actualizado");
-        //}catch (SQLException ex) {
-          //  JOptionPane.showMessageDialog(null, "Error modelCompra004" + ex.getMessage());
-       // }
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCompra004" + ex.getMessage());
+        }
     }
     /**
      * Metodo que ingresa un nuevo registro a la base de datos.
@@ -234,9 +244,8 @@ public class modelCompras {
     public void insertar(){
         try {
             String prueba = "Insert into compra(no_factura, id_sucursal, rfc_proveedor, total, fecha, forma_pago, estado_factura) values('"+no_factura+"',"+sucursal+",'"+rfc_prov+"', "+total+",'"+fecha+"' ,'"+forma_pago+"','"+estado_factura+"');";
-            //st.executeUpdate(prueba);
+            st.executeUpdate(prueba);
             System.out.println(prueba);
-            rs = st.executeQuery("Select * from compra;");
             JOptionPane.showMessageDialog(null, "Compra registrada, ingrese detalles");
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error modelCompra005" + ex.getMessage());}
@@ -246,15 +255,25 @@ public class modelCompras {
      * Metodo que elimina un registro de la base de datos.
      */
     public void borrar(){
-        int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la compra?","Eliminar",JOptionPane.YES_NO_OPTION);
-        if(confirmado == JOptionPane.YES_OPTION){
-            try{
-                st.executeUpdate("delete from compra where no_factura = '" + no_factura + "'; ");
-                JOptionPane.showMessageDialog(null, "Lista de productos actualizada, el producto ha sido eliminado");
-            }
-            catch(SQLException err){
-               JOptionPane.showMessageDialog(null, "Error modelCatalogo 006:" + err.getMessage()); }
+        try {
+            rs = st.executeQuery("SELECT * FROM detalle_compra where no_factura = '"+no_factura+"';");
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error modelCompra006" + ex.getMessage());
         }
-    }
+        try {
+            if(rs.first() == false){
+                int confirmado = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la compra?","Eliminar",JOptionPane.YES_NO_OPTION);
+                if(confirmado == JOptionPane.YES_OPTION){
+                    st.executeUpdate("delete from compra where no_factura = '" + no_factura + "'; ");
+                    JOptionPane.showMessageDialog(null, "Lista de productos actualizada, el producto ha sido eliminado");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "No se puede eliminar la compra, esta ya contiene datos usados");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCompra006-1" + ex.getMessage());
+        }
+}
+
 
     }
