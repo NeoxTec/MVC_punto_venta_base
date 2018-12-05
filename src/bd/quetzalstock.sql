@@ -123,10 +123,8 @@ CREATE TABLE IF NOT EXISTS compra(
     forma_pago ENUM('EFECTIVO','CREDITO','DEBITO','OTRO') NOT NULL,
     total DOUBLE UNSIGNED NOT NULL,
     estado_factura ENUM('FISICA','CORREO','PENDIENTE') NOT NULL,
-    id_inventario INT UNSIGNED NOT NULL,
     FOREIGN KEY (id_sucursal) REFERENCES sucursal(id),
-    FOREIGN KEY (rfc_proveedor) REFERENCES proveedor(rfc),
-    FOREIGN KEY (id_inventario) REFERENCES inventario(id));
+    FOREIGN KEY (rfc_proveedor) REFERENCES proveedor(rfc);
 
 CREATE TABLE IF NOT EXISTS detalle_compra(
 	id_detalle INT UNSIGNED PRIMARY KEY,
@@ -139,11 +137,7 @@ CREATE TABLE IF NOT EXISTS detalle_compra(
     FOREIGN KEY (id_producto) REFERENCES catalogo(id));
 
 CREATE USER 'quetzal'@'localhost' IDENTIFIED BY 'quetzal.2018';
-<<<<<<< HEAD
-GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'localhost';
-=======
 GRANT ALL PRIVILEGES ON quetzalstock.* TO 'quetzal'@'%';
->>>>>>> origin/master
 
 FLUSH PRIVILEGES;
 
