@@ -25,6 +25,7 @@ public class modelDetalleCompra {
     
     private String factura;
     private int producto;
+    private int id;
     private double subtotal;
     private double total;
     private double cantidad;
@@ -113,13 +114,21 @@ public class modelDetalleCompra {
     public void setListar_reg(ArrayList listar_reg) {
         this.listar_reg = listar_reg;
     }
+        public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
-         public void conectarDB() {
+ public void conectarDB() {
         try {
            conexion = ConnectDatabase.getConectar();
            st = conexion.createStatement();
            rs = st.executeQuery("SELECT * FROM  detalle_compra where no_factura = '"+factura+"';");
            rs.next();
+           id = rs.getInt("id_detalle");
            producto = rs.getInt("id_producto");
            cantidad = rs.getDouble("cantidad");
            subtotal = rs.getDouble("subtotal");
@@ -130,13 +139,13 @@ public class modelDetalleCompra {
         }
      }
     
-         public void mostrardetalles(){
+  public void mostrardetalles(){
         rs = ConnectDatabase.getTabla("Select * from detalle_compra where no_factura = '"+factura+"';");
         registros.setColumnIdentifiers(new Object[]{"Factura","Producto", "Cantidad", "Subtotal", "Total"});
         try {
            while (rs.next()){
             registros.addRow(new Object[]{
-            rs.getString("factura"),
+            rs.getString("no_factura"),
             rs.getInt("id_producto"),
             rs.getDouble("cantidad"),
             rs.getDouble("subtotal"),
@@ -145,7 +154,7 @@ public class modelDetalleCompra {
             JOptionPane.showMessageDialog(null, "Error ModelDetalleC002 " + e.getMessage());}
     }
          
-       public void llenarprov(){
+   public void registro_productos(){
         rs = ConnectDatabase.getTabla("select * from catalogo");
         productos.setColumnIdentifiers(new Object[]{"id","Nombre"});
         try {
@@ -157,4 +166,15 @@ public class modelDetalleCompra {
             JOptionPane.showMessageDialog(null, "Error ModelDetalleC002-1 " + e.getMessage());}
     }
          
+    public void datos_detc(){
+            try {
+               rs = st.executeQuery("SELECT * FROM detalle_compra where  factura = '"+factura+"' and id_producto = "+producto+";");
+               rs.first();
+               cantidad = rs.getDouble("cantidad");
+               subtotal =  rs.getDouble("subtotal");
+               total =  rs.getDouble("total");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelCompra003 " + ex.getMessage());}
+         }
+       
 }
