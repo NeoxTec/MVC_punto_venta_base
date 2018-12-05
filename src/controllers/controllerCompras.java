@@ -27,12 +27,16 @@ public class controllerCompras {
         viewCompra.jt_compra.addMouseListener(moul);
         viewCompra.jt_proveedor.addMouseListener(moul);
         viewCompra.setVisible(true);
+        viewCompra.jtf_rfc_proveedor.setEditable(false);
+        viewCompra.jtf_total.setEditable(false);
         modelCompras.llenarprov();
         viewCompra.jt_proveedor.setModel(modelCompras.getTable_prov());
         init();
     }
     
     public void init(){
+         inicio_b(true);
+        acciones_b(false);
     modelCompras.conectarDB();
     modelCompras.setSentencia("Select * from compra;");
     modelCompras.llenarcompras();
@@ -48,6 +52,12 @@ public class controllerCompras {
         public void mouseClicked(MouseEvent e) {
             if(e.getSource()== viewCompra.jt_compra)
                 jt_compras_mouseClicked();
+            else if (e.getSource()==viewCompra.jb_nueva_compra)
+                jb_nueva_mouseClicked();
+            else if(e.getSource()==viewCompra.jb_cancelar_compra)
+                jb_cancelar_mouseClicked();
+            else if(e.getSource()==viewCompra.jb_modificar_compra)
+                jb_modificar_mouseClicked();
         }
 
         @Override
@@ -80,5 +90,50 @@ public class controllerCompras {
           viewCompra.jcb_estado_factura.setSelectedItem(modelCompras.getEstado_factura());
           viewCompra.jcb_forma_pago.setSelectedItem(modelCompras.getForma_pago());
           viewCompra.jcb_idsucursal.setSelectedIndex(modelCompras.getSucursal()-1);
+    }
+
+    public void jb_nueva_mouseClicked(){
+        campos_vacios();
+        inicio_b(false);
+        acciones_b(true);
+    }
+    
+    public void jb_cancelar_mouseClicked(){
+            campos_vacios();
+            inicio_b(true);
+            acciones_b(false);
+    }
+    
+    public void jb_modificar_mouseClicked(){
+            inicio_b(false);
+            acciones_b(true);
+            viewCompra.jtf_nofactura.setEditable(false);
+    }
+    
+    public void inicio_b(boolean r){
+          viewCompra.jb_nueva_compra.setEnabled(r);
+          viewCompra.jb_modificar_compra.setEnabled(r);
+          viewCompra.jb_eliminar_compra.setEnabled(r);
+    }
+    public void acciones_b(boolean s){
+            viewCompra.jcb_idsucursal.setEnabled(s);
+            viewCompra.jcb_estado_factura.setEnabled(s);
+            viewCompra.jcb_forma_pago.setEnabled(s);
+            viewCompra.jtf_anio.setEditable(s);
+            viewCompra.jtf_dia.setEditable(s);
+            viewCompra.jtf_mes.setEditable(s);
+            viewCompra.jtf_nofactura.setEditable(s);
+            viewCompra.jb_guardar_compra.setEnabled(s);
+            viewCompra.jb_cancelar_compra.setEnabled(s);
+            viewCompra.jt_proveedor.setRowSelectionAllowed(s);
+    }
+    
+    public void campos_vacios(){
+         viewCompra.jtf_anio.setText(null);
+         viewCompra.jtf_dia.setText(null);
+         viewCompra.jtf_mes.setText(null);
+         viewCompra.jtf_nofactura.setText(null);
+         viewCompra.jtf_rfc_proveedor.setText(null);
+         viewCompra.jtf_total.setText(null);
     }
 }
