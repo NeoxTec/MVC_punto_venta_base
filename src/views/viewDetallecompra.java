@@ -48,10 +48,17 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jt_productos = new javax.swing.JTable();
         jb_finalizar = new javax.swing.JButton();
         jl_titulo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jtf_buscar = new javax.swing.JTextField();
+        jl_buscar = new javax.swing.JLabel();
+        jl_fondo = new javax.swing.JLabel();
 
         setLayout(null);
 
+        jt_detallecompra = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }
+        };
         jt_detallecompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -66,37 +73,47 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jt_detallecompra);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(50, 80, 813, 220);
+        jScrollPane1.setBounds(50, 80, 740, 220);
 
         jb_ingresar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_ingresar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_ingresar_detalle.setText("Ingresar detalle");
         jb_ingresar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_ingresar_detalle);
-        jb_ingresar_detalle.setBounds(880, 100, 117, 21);
+        jb_ingresar_detalle.setBounds(810, 80, 130, 30);
 
         jb_modificar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_modificar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_modificar_detalle.setText("Modificar detalle");
         jb_modificar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_modificar_detalle);
-        jb_modificar_detalle.setBounds(880, 130, 117, 21);
+        jb_modificar_detalle.setBounds(810, 110, 130, 30);
 
         jb_guardar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_guardar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_guardar_detalle.setText("Guardar detalle");
         jb_guardar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_guardar_detalle);
-        jb_guardar_detalle.setBounds(880, 170, 117, 21);
+        jb_guardar_detalle.setBounds(810, 203, 130, 30);
 
         jb_cancelar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_cancelar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_cancelar_detalle.setText("Cancelar detalle");
         jb_cancelar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jb_cancelar_detalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cancelar_detalleActionPerformed(evt);
+            }
+        });
         add(jb_cancelar_detalle);
-        jb_cancelar_detalle.setBounds(880, 200, 117, 21);
+        jb_cancelar_detalle.setBounds(810, 230, 130, 30);
 
         jb_eliminar_detalle.setBackground(new java.awt.Color(255, 102, 0));
+        jb_eliminar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_eliminar_detalle.setText("Eliminar detalle");
         jb_eliminar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_eliminar_detalle);
-        jb_eliminar_detalle.setBounds(880, 240, 117, 21);
+        jb_eliminar_detalle.setBounds(810, 140, 130, 30);
 
         jl_numero_factura.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_numero_factura.setForeground(new java.awt.Color(255, 102, 0));
@@ -105,7 +122,7 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jl_numero_factura.setBounds(60, 340, 136, 17);
 
         jl_nombre_factura.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
-        jl_nombre_factura.setForeground(new java.awt.Color(255, 102, 0));
+        jl_nombre_factura.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre_factura.setText(" ");
         add(jl_nombre_factura);
         jl_nombre_factura.setBounds(210, 340, 180, 17);
@@ -142,6 +159,11 @@ public class viewDetallecompra extends javax.swing.JPanel {
         add(jtf_total);
         jtf_total.setBounds(340, 400, 63, 19);
 
+        jt_productos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int ColumnIndex){
+                return false;
+            }
+        };
         jt_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -164,28 +186,40 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jt_productos);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(590, 330, 269, 133);
+        jScrollPane2.setBounds(560, 350, 269, 133);
 
         jb_finalizar.setBackground(new java.awt.Color(255, 102, 0));
+        jb_finalizar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_finalizar.setText("Finalizar");
         jb_finalizar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_finalizar);
-        jb_finalizar.setBounds(922, 453, 46, 21);
+        jb_finalizar.setBounds(860, 430, 80, 40);
 
         jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 46)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
         jl_titulo.setText("Detalle de compra");
         add(jl_titulo);
         jl_titulo.setBounds(290, 10, 410, 60);
+        add(jtf_buscar);
+        jtf_buscar.setBounds(623, 326, 200, 19);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(-10, -10, 1040, 560);
+        jl_buscar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
+        jl_buscar.setForeground(new java.awt.Color(255, 102, 0));
+        jl_buscar.setText("Producto:");
+        add(jl_buscar);
+        jl_buscar.setBounds(550, 330, 70, 17);
+
+        jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
+        add(jl_fondo);
+        jl_fondo.setBounds(0, 0, 1060, 540);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_cancelar_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancelar_detalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_cancelar_detalleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JButton jb_cancelar_detalle;
@@ -194,9 +228,11 @@ public class viewDetallecompra extends javax.swing.JPanel {
     public javax.swing.JButton jb_guardar_detalle;
     public javax.swing.JButton jb_ingresar_detalle;
     public javax.swing.JButton jb_modificar_detalle;
+    private javax.swing.JLabel jl_buscar;
     public javax.swing.JLabel jl_cantidad;
+    private javax.swing.JLabel jl_fondo;
     public javax.swing.JLabel jl_id_producto;
-    private javax.swing.JLabel jl_nombre_factura;
+    public javax.swing.JLabel jl_nombre_factura;
     public javax.swing.JLabel jl_numero_factura;
     public javax.swing.JLabel jl_subtotal;
     private javax.swing.JLabel jl_titulo;
@@ -204,6 +240,7 @@ public class viewDetallecompra extends javax.swing.JPanel {
     public javax.swing.JTable jt_detallecompra;
     public javax.swing.JTable jt_productos;
     public javax.swing.JTextField jtd_subtotal;
+    public javax.swing.JTextField jtf_buscar;
     public javax.swing.JTextField jtf_cantidad;
     public javax.swing.JTextField jtf_id_producto;
     public javax.swing.JTextField jtf_total;
