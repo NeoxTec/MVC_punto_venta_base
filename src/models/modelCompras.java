@@ -16,14 +16,16 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Método que realiza los procesos e interacciones con la base de datos.
  * @author Diego
  */
 public class modelCompras {
+    // Variables para la conexion.
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
     
+    // Variables para los registros, tablas y combobox.
     private String no_factura;
     private String rfc_prov;
     private String fecha;
@@ -35,10 +37,13 @@ public class modelCompras {
     private String sentencia;
     private String sentencia_prov;
     private boolean validar;
+    // Constructores para tener las tablas y registro de las sucursales para el combobox.
     DefaultTableModel table_compra = new DefaultTableModel();
     DefaultTableModel table_prov = new DefaultTableModel();
     ArrayList sucursales = new ArrayList();
 
+    
+    //Getters y Setters de las variables y los constructores.
     public String getNo_factura() {
         return no_factura;
     }
@@ -149,7 +154,9 @@ public class modelCompras {
         this.validar = validar;
     }
     
-    
+    /**
+     * Método que realiza la conexion a la base de datos y toma los valores del primer registro.
+     */
      public void conectarDB() {
         try {
            conexion = ConnectDatabase.getConectar();
@@ -169,6 +176,10 @@ public class modelCompras {
         }
      }
      
+     
+     /**
+      * Método para el llenadar la tabla de compras con los registros de la base e datos.
+      */
        public void llenarcompras(){
         rs = ConnectDatabase.getTabla(sentencia);
         table_compra.setColumnIdentifiers(new Object[]{"Factura","Sucursal", "Fecha", "Forma de pago", "Estado de factura","RFC proveedor"});
@@ -185,6 +196,9 @@ public class modelCompras {
             JOptionPane.showMessageDialog(null, "Error modelCompra002 " + e.getMessage());}
     }
        
+       /**
+        * Método que llama a los proveedores registrados y llena la tabla con los registros existentes. 
+        */
        public void llenarprov(){
         rs = ConnectDatabase.getTabla("select * from proveedor;");
         table_prov.setColumnIdentifiers(new Object[]{"RFC","Razon social"});
@@ -197,6 +211,9 @@ public class modelCompras {
             JOptionPane.showMessageDialog(null, "Error modelCompra002-1 " + e.getMessage());}
     }
        
+       /**
+        * Método que llama un registro especifico al seleccionar la tabla de compras y toma los valores del registro para ser visualizados en los campos de la vista.
+        */
          public void datos_compra(){
             try {
                rs = st.executeQuery("SELECT * FROM compra where  no_factura ='"+no_factura+"';");
@@ -211,8 +228,11 @@ public class modelCompras {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error modelCompra003 " + ex.getMessage());}
          }
-                  
-         public void sucursales_combobox(){
+   
+   /**
+    * Metodo que hace la consulta de las sucursales existentes y las almacena en un arreglo para agregarlos en el combobox.
+    */
+   public void sucursales_combobox(){
         try {
             rs = st.executeQuery("Select * from sucursal;");
             while(rs.next()){
