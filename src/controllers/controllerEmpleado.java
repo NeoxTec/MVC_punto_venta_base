@@ -268,6 +268,7 @@ public class controllerEmpleado {
         initDB();
         limpiarcampos();
         visibleFU();
+        
     }
     /**
      * Muestra los valores almacenados en el modelEmpleado al viewEmpleado

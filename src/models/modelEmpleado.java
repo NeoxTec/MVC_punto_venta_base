@@ -44,6 +44,7 @@ public class modelEmpleado {
     private int validacion = 123;
     private Object sucursal;
     private Object puesto;
+    private boolean eliminar = false;
     
     
     private String sentencia;
@@ -316,6 +317,7 @@ public class modelEmpleado {
     public void eliminarRegistro(){
         int confirmar = JOptionPane.showConfirmDialog(null, "¿Desea eiminar el registro?");
         if (JOptionPane.OK_OPTION== confirmar){
+            eliminar = true;
         try{
             String sql1 = "DELETE FROM usuario WHERE rfc_e = '" + rfc + "';";
             st.executeUpdate(sql1);
@@ -328,6 +330,14 @@ public class modelEmpleado {
         }
     }
    }
+
+    public boolean isEliminar() {
+        return eliminar;
+    }
+
+    public void setEliminar(boolean eliminar) {
+        this.eliminar = eliminar;
+    }
 
     
     

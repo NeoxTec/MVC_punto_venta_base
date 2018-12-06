@@ -21,6 +21,10 @@ public class controllerUsuario {
         this.viewUsuario = viewUsuario;
         initDB();
         setMouseListener();
+        if(modelUsuario.isEliminar()){
+            eliminar();
+        }
+            
     }
     
     /**
@@ -88,6 +92,23 @@ public class controllerUsuario {
            viewUsuario.jtf_rfc.setText(modelUsuario.getRfc_e());
            viewUsuario.jtf_sucursal.setText(String.valueOf(modelUsuario.getSucursal()));
            viewUsuario.jcb_puesto.setSelectedItem(modelUsuario.getTipo());
+       }
+       
+    /*
+    * Método que va depurando la tabla a la hora de la busqueda
+    */
+    private void limpiar(){
+        for (int i = 0; i < viewUsuario.jt_usuarios.getRowCount(); i++){
+            modelUsuario.getModelo().removeRow(i);
+            i -=1;
+        }
+    }
+       /*
+       * Método de actualización de la tabla al eliminar algun empleado
+       */
+       private void eliminar(){
+           limpiar();
+           initDB();
        }
 }
 
