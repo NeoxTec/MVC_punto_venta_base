@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import views.viewEmpleado;
 import models.modelEmpleado;
 
@@ -22,6 +23,7 @@ public class controllerEmpleado {
     public controllerEmpleado(modelEmpleado modelEmpleado, viewEmpleado viewEmpleado) {
         this.modelEmpleado = modelEmpleado;
         this.viewEmpleado = viewEmpleado;
+        visibleFU();
         setKeyListener();
         initDB();
         setMouseListener();
@@ -35,6 +37,18 @@ public class controllerEmpleado {
         viewEmpleado.jt_empleados.setModel(modelEmpleado.getModelo());
     }
     
+    private void visibleU(){
+        viewEmpleado.jl_puesto.setVisible(true);
+        viewEmpleado.jcb_puesto.setVisible(true);
+        viewEmpleado.jl_sucursal.setVisible(true);
+        viewEmpleado.jcb_sucursal.setVisible(true);
+    }
+    private void visibleFU(){
+        viewEmpleado.jl_puesto.setVisible(false);
+        viewEmpleado.jcb_puesto.setVisible(false);
+        viewEmpleado.jl_sucursal.setVisible(false);
+        viewEmpleado.jcb_sucursal.setVisible(false);
+    }
     /**
      * Método que modifica la propiedad editable a True de los JTextField 
      */
@@ -79,6 +93,7 @@ public class controllerEmpleado {
         @Override
         public void mouseClicked(MouseEvent e) {
             if(e.getSource()== viewEmpleado.jb_nuevo){
+                visibleU();
                 editable();
             }
             else if(e.getSource() == viewEmpleado.jb_modificar){
@@ -87,16 +102,17 @@ public class controllerEmpleado {
             else if(e.getSource() == viewEmpleado.jb_eliminar){
                 eliminar();
             }
-            else if(e.getSource() == viewEmpleado.jb_guardar){
-                guardar();
-            }
             else if(e.getSource() == viewEmpleado.jb_cancelar){
                 limpiarcampos();
                 editableF();
+                visibleFU();
                 
             }
             else if(e.getSource() == viewEmpleado.jt_empleados){
                 jt_empleado_mouseClicked();
+            }
+            else if (e.getSource() == viewEmpleado.jb_guardar){
+                guardar();
             }
                 
         }
@@ -206,6 +222,8 @@ public class controllerEmpleado {
         else{
             modelEmpleado.setNo_int(Integer.parseInt(viewEmpleado.jtf_no_int.getText()));
         }
+        modelEmpleado.setPuesto(viewEmpleado.jcb_puesto.getSelectedItem());
+        modelEmpleado.setSucursal(viewEmpleado.jcb_sucursal.getSelectedItem());
     }
     
     /*
@@ -237,6 +255,7 @@ public class controllerEmpleado {
         limpiar();
         initDB();
         limpiarcampos();
+        visibleFU();
         
     }
     /*
@@ -248,6 +267,7 @@ public class controllerEmpleado {
         limpiar();
         initDB();
         limpiarcampos();
+        visibleFU();
     }
     /**
      * Muestra los valores almacenados en el modelEmpleado al viewEmpleado
