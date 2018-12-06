@@ -10,13 +10,18 @@ import javax.swing.JOptionPane;
 import models.modelCompras;
 import views.viewCompra;
 /**
- *
+ * Metodo que realizara las interacciones entre modelo y vista.
  * @author Diego
  */
 public class controllerCompras {
     public modelCompras modelCompras;
     public viewCompra viewCompra;
         
+    /**
+     * Procedimiento que permite interaccion entre la vista y el modelo y donde se registra la lista de acciones que este puede realizar.
+     * @param modelCompras
+     * @param viewCompra 
+     */
     public controllerCompras(modelCompras modelCompras, viewCompra viewCompra) {
         this.modelCompras = modelCompras;
         this.viewCompra = viewCompra;
@@ -34,7 +39,9 @@ public class controllerCompras {
         viewCompra.jt_proveedor.setModel(modelCompras.getTable_prov());
         init();
     }
-    
+    /**
+     * Metodo que hace la conexion con la base de datos y realiza el llenado de las tablas y el combobox con los registros que existen el la base de datos.
+     */
     public void init(){
          inicio_b(true);
         acciones_b(false);
@@ -50,6 +57,10 @@ public class controllerCompras {
         viewCompra.jcb_idsucursal.addItem((String) modelCompras.getSucursales().get(x));    }
 };
     
+    /**
+     * metodo que tiene todas las accionde de los botones y las tablas de la vista.
+     * Acorde a la accion tomada se realizaran algunos procesos con la base de datos.
+     */
     MouseListener moul = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -82,6 +93,10 @@ public class controllerCompras {
         public void mouseExited(MouseEvent e) {        }
     };
     
+    /**
+     * Metodo que toma un registro de la tabla de comras y permite la visualizacion de los datos en los campos de la vista.
+     * Los botones de agregar_detalle y modificar_compra son permitidos su aceso una vez quelos campos esten llenos. 
+     */
     public void jt_compras_mouseClicked(){
         int linea;
         String fecha;
@@ -102,7 +117,10 @@ public class controllerCompras {
           viewCompra.jb_agregar_detalle.setEnabled(true);
           viewCompra.jb_modificar_compra.setEnabled(true);
     }
-
+    
+    /**
+     *Metodo que toma el rfc de los provedoores para poder registrar una compra, mostrando el dato en el jtf_provedor. 
+     */
     public void jt_proveedor_mouseClicked(){
         try{
             viewCompra.jtf_rfc_proveedor.setText(null);
@@ -114,6 +132,10 @@ public class controllerCompras {
         }catch(Exception err){}
     }
     
+    /**
+     * Método que vacia los datos de los campos , Inhabilita los botones de procesos y habilita los de guardado o cancelacion.
+     * Se habilita el acceso a los proveedores para asignarlo a una compra, ingresa un dato para la comprobacion a la hora de solicitar el guardado del registro.
+     */
     public void jb_nueva_mouseClicked(){
         viewCompra.jb_agregar_detalle.setEnabled(false);
         viewCompra.jb_modificar_compra.setEnabled(false);
@@ -124,6 +146,10 @@ public class controllerCompras {
         jt_proveedor_mouseClicked();
     }
     
+    /**
+     * Metodo que vacia los campos e inhabilita los botones para guardado de registros.
+     * Habilita los botones para eliminacion o agregacion.
+     */
     public void jb_cancelar_mouseClicked(){
             campos_vacios();
             inicio_b(true);
@@ -131,6 +157,10 @@ public class controllerCompras {
             viewCompra.jb_modificar_compra.setEnabled(false);
     }
     
+    /**
+     * Metodo que habilita algunos campos que pueden ser cambiados por error, 
+     * asigna un valor al momento de querer guardar el cambio y haci verificar dicho cambio.
+     */
     public void jb_modificar_mouseClicked(){
             viewCompra.jb_agregar_detalle.setEnabled(false);
             modelCompras.setValidar(false);
@@ -140,10 +170,14 @@ public class controllerCompras {
             viewCompra.jtf_nofactura.setEditable(false);
             viewCompra.jcb_idsucursal.setEnabled(false);
             viewCompra.jtf_anio.setEditable(false);
-            viewCompra.jtf_mes.setEditable(false);
-            viewCompra.jtf_dia.setEditable(false);
     }
     
+    /**
+     * Método que valida si los campos del registro estan vacios, de ser asi se mostrara un mensaje de peticion.
+     * Una vez ingresado los datos concatena la fecha y verifica la validacion para conocer si un registro tiene un cambio o es un nuevo registro.
+     * 
+     * Al realizar el proceso correspondiente actualiza la tabla de la vista y los campos de la vista seran limpiados.
+     */
     public void jb_guardar_mouseClicked(){
             String fecha;
             if (viewCompra.jtf_total.getText().isEmpty())
@@ -169,6 +203,10 @@ public class controllerCompras {
             init();
     }
     
+    /**
+     * Este metodo permitira la eliminacion de un dato registrado en la base de datos.
+     * Al realizar la accion se hara una limpieza en la tabla y los campos de la vista.
+     */
     public void jb_eliminar_mouseClicked(){
             viewCompra.jb_agregar_detalle.setEnabled(false);
             modelCompras.borrar();
@@ -177,6 +215,9 @@ public class controllerCompras {
             init();
     }
     
+    /**
+     * Metodo que limpia la tabla de los registros existentes
+     */
   public void limpiar_tabla(){
           for (int i = 0; i < viewCompra.jt_compra.getRowCount(); i++) {
             modelCompras.getTable_compra().removeRow(i);
@@ -184,10 +225,19 @@ public class controllerCompras {
         }
      }
     
+  /**
+   * Metodo que habilita o deshabilita los botones de nuevo y eliminar una compra.
+   * @param r variable para determinar la habilitacion de los botones.
+   */
     public void inicio_b(boolean r){
           viewCompra.jb_nueva_compra.setEnabled(r);
           viewCompra.jb_eliminar_compra.setEnabled(r);
     }
+    
+    /**
+     * Metodo que habilita o deshabiita los campos de la vista, los botones de guardar o cancelar y la visualizacion de proveedores.
+     * @param s Variable que determinara si se puede on no usar los campos, botones y tabla.
+     */
     public void acciones_b(boolean s){
             viewCompra.jcb_idsucursal.setEnabled(s);
             viewCompra.jcb_estado_factura.setEnabled(s);
@@ -201,6 +251,9 @@ public class controllerCompras {
             viewCompra.jt_proveedor.setVisible(s);
     }
     
+    /**
+     * Metodo que vacia los campos de la vista.
+     */
     public void campos_vacios(){
          viewCompra.jtf_anio.setText(null);
          viewCompra.jtf_dia.setText(null);
