@@ -49,11 +49,8 @@ public class controllerLogin {
      private viewDetallecompra viewDetallecompra;
      private viewVentasConsulta viewVentasConsulta;
      private viewSucursal viewSucursal;
-<<<<<<< HEAD
      private viewUsuario viewUsuario;
      private viewClientes viewCliente;
-=======
->>>>>>> origin/master
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
@@ -109,11 +106,9 @@ public class controllerLogin {
         viewDetallecompra = (viewDetallecompra) views[7];
         viewVentasConsulta = (viewVentasConsulta) views[8];
         viewSucursal = (viewSucursal) views[9];
-<<<<<<< HEAD
         viewUsuario = (viewUsuario) views [10];
         viewCliente = (viewClientes) views[11];
-=======
->>>>>>> origin/master
+
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
