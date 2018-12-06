@@ -32,6 +32,7 @@ public class controllerCatalogo {
         this.viewCatalogo.jb_guardar.addMouseListener(ml);
         this.viewCatalogo.jb_eliminar.addMouseListener(ml);
         this.viewCatalogo.jb_cancelar.addMouseListener(ml);
+        this.viewCatalogo.jb_actu_inv.addMouseListener(ml);
         this.viewCatalogo.jtf_buscar.addKeyListener(kl);
         initDB();
         viewCatalogo.setVisible(true);
@@ -66,6 +67,9 @@ public class controllerCatalogo {
             else if(e.getSource() == viewCatalogo.jb_modificar){
                 botones_p(false);
                 habilitar(true);
+            }
+            else if(e.getSource()== viewCatalogo.jb_actu_inv){
+                actualizar_inventarios_mouseClicked();
             }
             else if(e.getSource()==viewCatalogo.jb_cancelar){
             botones_p(true);
@@ -163,6 +167,7 @@ public class controllerCatalogo {
       */
      public void botones_p(boolean p){
      viewCatalogo.jb_nuevo.setEnabled(p);
+     viewCatalogo.jb_actu_inv.setEnabled(p);
      viewCatalogo.jb_eliminar.setEnabled(p);
      viewCatalogo.jb_modificar.setEnabled(p);
      }
@@ -200,7 +205,7 @@ public class controllerCatalogo {
          else
                 modelCatalogo.setCodigo_barras(Integer.parseInt(viewCatalogo.jtf_codigobarras.getText()));
          if (viewCatalogo.jtf_preciom.getText().isEmpty())
-                 modelCatalogo.setPrecio_mayoreo(0);
+                 modelCatalogo.setPrecio_mayoreo(Double.parseDouble(viewCatalogo.jtf_preciou.getText()));
          else
                   modelCatalogo.setPrecio_mayoreo(Double.parseDouble(viewCatalogo.jtf_preciom.getText()));
          if (viewCatalogo.jtf_nombre.getText().isEmpty() || viewCatalogo.jta_descripcion.getText().isEmpty() || viewCatalogo.jtf_preciou.getText().isEmpty())
@@ -220,5 +225,9 @@ public class controllerCatalogo {
           habilitar(false);
           limpiar();
           initDB();
+     }
+     
+     public void actualizar_inventarios_mouseClicked(){
+         modelCatalogo.insertando();
      }
  }

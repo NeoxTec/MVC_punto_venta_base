@@ -18,6 +18,8 @@ public class controllerDetalleCompra {
     public controllerDetalleCompra(modelDetalleCompra modelDetalleCompra, viewDetallecompra viewDetallecompra) {
         this.modelDetalleCompra = modelDetalleCompra;
         this.viewDetallecompra = viewDetallecompra;
+        viewDetallecompra.setVisible(true);
+        viewDetallecompra.jl_nombre_factura.setText(modelDetalleCompra.getFactura());
     }
     
 }
