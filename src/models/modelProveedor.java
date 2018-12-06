@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 
 
 import controllers.controllerProveedor;
+import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
 import views.viewSucursal;
 import views.viewProveedor;
 /**
@@ -25,24 +27,43 @@ public class modelProveedor {
     private Statement st;
     private ResultSet rs;
 
+    public PreparedStatement getPs() {
+        return ps;
+    }
+
+    public void setPs(PreparedStatement ps) {
+        this.ps = ps;
+    }
+
+    public DefaultTableModel getT_Proveedor() {
+        return t_proveedor;
+    }
+
+    public void setT_sucursal(DefaultTableModel t_proveedor) {
+        this.t_proveedor = t_proveedor;
+    }
+private PreparedStatement ps;
+    private DefaultTableModel t_proveedor = new DefaultTableModel();
+
     private String rfc;
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    private String nombre;
     private String calle;
     private String colonia;
-    private String noext;
+    private int noext;
     private String cp;
-    
     private String telefono;
     private String correo;
+    private String razons;
 
+    public String getSentencia() {
+        return sentencia;
+    }
+
+    public void setSentencia(String sentencia) {
+        this.sentencia = sentencia;
+    }
+    private String sentencia;
+    
+    
     public Connection getConexion() {
         return conexion;
     }
@@ -67,17 +88,6 @@ public class modelProveedor {
         this.rs = rs;
     }
 
-    public String getRazons() {
-        return razons;
-    }
-
-    public void setRazons(String razons) {
-        this.razons = razons;
-    }
-    private String razons;
-
-
-
     public String getRfc() {
         return rfc;
     }
@@ -85,7 +95,6 @@ public class modelProveedor {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
-
 
     public String getCalle() {
         return calle;
@@ -103,11 +112,11 @@ public class modelProveedor {
         this.colonia = colonia;
     }
 
-    public String getNoext() {
+    public int getNoext() {
         return noext;
     }
 
-    public void setNoext(String noext) {
+    public void setNoext(int noext) {
         this.noext = noext;
     }
 
@@ -134,6 +143,18 @@ public class modelProveedor {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getRazons() {
+        return razons;
+    }
+
+    public void setRazons(String razons) {
+        this.razons = razons;
+    }
+
+
+
+  
     public void conectarDB() {
         try {
           //  conexion = ConnectDatabase.getConectar();
@@ -145,7 +166,7 @@ public class modelProveedor {
             razons = rs.getString("razons");
             calle=rs.getString("calle");
             colonia=rs.getString("colonia");
-            noext=rs.getString("no_exterior");
+            noext=rs.getInt("no_exterior");
             cp=rs.getString("cp");
             telefono=rs.getString("telefono");
             correo=rs.getString("correo");
@@ -207,4 +228,47 @@ public class modelProveedor {
         }
     }
     
+/**
+  * Metodo que llena la tabla con los registros existentes de la base de datos.
+  */
+public void llenartabla(){
+        rs = ConnectDatabase.getTabla(sentencia);
+        t_proveedor.setColumnIdentifiers(new Object[]{"rfc","razons","Calle", "Colonia", "No_exterior","Código Postal", "Teléfono", "correo"});
+        try {
+           while (rs.next()){
+                 t_proveedor.addRow(new Object[]{
+                 rs.getString("rfc"),
+                     rs.getString("razons"),
+                rs.getString("calle"), 
+                rs.getString("colonia"),
+                rs.getInt("no_exterior"),
+                rs.getString("correo"),
+                rs.getString("cp"),
+                rs.getString("telefono")});
+                
+        }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelSucursal010 " + e.getMessage());
+        }
+    }    
+
+ /**
+* Metodo que obtiene datos de un registro especifico de la base de datos.
+*/
+public void datos(){
+      try {
+               rs = st.executeQuery("SELECT * FROM proveedor where rfc ='"+rfc+"';");
+               rs.first();
+               rfc = rs.getString("rfc");
+            razons = rs.getString("razons");
+            calle=rs.getString("calle");
+            colonia=rs.getString("colonia");
+            noext=rs.getInt("no_exterior");
+            cp=rs.getString("cp");
+            telefono=rs.getString("telefono");
+            correo=rs.getString("correo");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error modelProveedor003 " + ex.getMessage());}
+         } 
 }
+
