@@ -34,6 +34,8 @@ public class controllerLogin {
      private controllerDetalleCompra controllerDetalleCompra;
      private controllerVentasConsulta controllerVentasConsulta;
      private controllerSucursal controllerSucursal;
+     private controllerUsuario controllerUsuario;
+     private controllerClientes controllerClientes;
 
      /*
      * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
@@ -50,7 +52,7 @@ public class controllerLogin {
      private viewVentasConsulta viewVentasConsulta;
      private viewSucursal viewSucursal;
      private viewUsuario viewUsuario;
-     private viewClientes viewCliente;
+     private viewClientes viewClientes;
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
@@ -90,6 +92,8 @@ public class controllerLogin {
         controllerDetalleCompra = (controllerDetalleCompra) controllers[7];
         controllerVentasConsulta = (controllerVentasConsulta) controllers[8];
         controllerSucursal = (controllerSucursal) controllers[9];
+        controllerUsuario = (controllerUsuario) controllers[10];
+        controllerClientes = (controllerClientes) controllers[11];
     }
     /*
     * Separa cada uno de los views almacendados en views, de
@@ -107,7 +111,7 @@ public class controllerLogin {
         viewVentasConsulta = (viewVentasConsulta) views[8];
         viewSucursal = (viewSucursal) views[9];
         viewUsuario = (viewUsuario) views [10];
-        viewCliente = (viewClientes) views[11];
+        viewClientes = (viewClientes) views[11];
 
     }
     /*
@@ -150,6 +154,7 @@ public class controllerLogin {
         viewDetallecompra.jb_finalizar.addActionListener(actionListener);
         viewAdmin.jb_ventas.addActionListener(actionListener);
         viewAdmin.jb_sucursales.addActionListener(actionListener);
+        viewVendedor.jb_clientes.addActionListener(actionListener);
     }
 
     /**
@@ -168,9 +173,7 @@ public class controllerLogin {
                 admin_actionPerformed();
             }
             else if(e.getSource() == viewAdmin.jb_empleados){ 
-                empleado_actionPerformed();
-                controllerUsuario.modelUsuario.setEliminar(controllerEmpleado.modelEmpleado.isEliminar());
-                 
+                empleado_actionPerformed();    
             }
             else if(e.getSource() == viewAdmin.jb_proovedores){
                 proveedor_actionPerformed();
@@ -202,6 +205,9 @@ public class controllerLogin {
             }
             else if(e.getSource() == viewAdmin.jb_sucursales){
                 sucursal_actionPerformed();
+            }
+            else if(e.getSource() == viewVendedor.jb_clientes){
+                clientes_actionPerformed();
             }
         }
      };
@@ -374,6 +380,20 @@ public class controllerLogin {
         viewLogin.jmi_cambio_validacion.setVisible(false);
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
+        viewLogin.jmi_cerrar.setVisible(false);
+     }
+     
+     /*
+     * Método que hara el cambio al panel Clientes en la sesion de Vendedor
+     */
+     private void clientes_actionPerformed(){
+        viewLogin.setContentPane(controllerClientes.viewCliente);
+        viewLogin.revalidate();
+        viewLogin.repaint();
+        viewLogin.jmi_cambio.setVisible(false);
+        viewLogin.jmi_cambio_validacion.setVisible(false);
+        viewLogin.jmi_olvido.setVisible(false);
+        viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
      }
 }
