@@ -1,4 +1,4 @@
-
+ 
 package models;
 import bd.ConnectDatabase;
 import java.sql.Connection;
@@ -6,9 +6,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+import controllers.controllerClientes;
+import views.viewClientes;
 
 public class modelClientes {
     private Connection conexion;
@@ -118,14 +119,6 @@ public class modelClientes {
         this.colonia = colonia;
     }
 
-    public String getNo_exterior() {
-        return no_exterior;
-    }
-
-    public void setNo_exterior(String no_ext) {
-        this.no_exterior = no_exterior;
-    }
-
     public String getNo_interior() {
         return no_interior;
     }
@@ -144,60 +137,80 @@ public class modelClientes {
 
     public void conectarDB() {
         try {
-            conexion = ConnectDatabase.getConectar();
+            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net:3306/quetzalstock", "quetzal", "quetzal.2018");
             st = conexion.createStatement();
-            rs= st.executeQuery( "SELECT * FROM cliente;");
+            rs= st.executeQuery("SELECT * FROM cliente;");
             rs.next();
-             id= rs.getString("id");
+            id= rs.getString("id");
             nombre = rs.getString("nombre");
-            ape_p = rs.getString("apellido_paterno");
-            ape_m = rs.getString("apellido_materno");
+            ape_p = rs.getString("ape_p");
+            ape_m = rs.getString("ape_m");
             telefono = rs.getString("telefono");
             rfc = rs.getString("rfc");
             calle = rs.getString("calle");
             colonia = rs.getString("colonia");
-            no_exterior = rs.getString("numero_exterior");
-            no_interior = rs.getString("numero_interior");
-            cp = rs.getString("codigo_postal");
+            no_exterior = rs.getString("no_exterior");
+            no_interior = rs.getString("no_interior");
+            cp = rs.getString("cp");
             genero = (String) rs.getObject("genero");
-            correo = rs.getString("coreo");
-            no_compras= rs.getString("numero_compras");
+            correo = rs.getString("correo");
+            no_compras= rs.getString("no_compras");
+            
+            
         } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null, "Error ModelAgenda 001: " + err.getMessage());
+            JOptionPane.showMessageDialog(null, "Error modelClientes 001: " + err.getMessage());
             System.out.println(err.getMessage());
         }
     }
+    
+    
     public void insertar(){
         try {
 
-            String sql = "INSERT INTO cliente (id, nombre, apellido_paterno, apellido_materno, telefono, rfc, calle, colonia, numero_exterior, numero_interior, codigo_postal, numero_compras, genero, correo)" + "values('"+id+", "+nombre+"', '"+ape_p+"', '"+ape_m+"', , '"+telefono+"', '"+rfc+"', '"+calle+"', '"+colonia+"', '"+no_exterior+"', '"+no_interior+"', '"+cp+"', "+genero+", "+correo+", "+no_compras+");";
+            String sql = "INSERT INTO cliente (nombre, ape_p, ape_m, telefono, rfc, calle, colonia, no_exterior, no_interior, cp, genero, correo)" + "VALUES( '"+nombre+"', '"+ape_p+"', '"+ape_m+"' , '"+telefono+"', '"+rfc+"', '"+calle+"', '"+colonia+"', '"+no_exterior+"', '"+no_interior+"', '"+cp+"', '"+genero+"', '"+correo+"');";
             System.out.println(sql);
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"¡Registro exitoso!");
-            } catch (SQLException ex) {
-           Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,"¡Registro Guardado Exitosamente!");
+            } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null,"Error "+err.getMessage()); 
             }
+        System.out.println("Registro Guardado");
     }
     
     public void modificar(){
+         System.out.println("Registro Modificado");
         try {
 
-            String sql = "UPDATE cliente set telefono = '"+telefono+"' where nombre = '"+nombre+"';";
+            String sql = "UPDATE cliente SET nombre = '"+nombre+"', ape_p= '"+ape_p+"', ape_m= '"+ape_m+"', telefono= '"+telefono+"',  calle= '"+calle+"', colonia= '"+colonia+"', no_exterior=  '"+no_exterior+"', no_interior= '"+no_interior+"', cp= '"+cp+"', genero=  '"+genero+"', correo= '"+correo+"' WHERE rfc= '"+rfc+"';";
             System.out.println(sql);
             st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"¡Registro Modificado!");
-            } catch (SQLException ex) {
-            Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "¡Registro Modificado Correctamente!");
+            this.conectarDB();
+            
+        }
+        catch(SQLException err) { 
+            JOptionPane.showMessageDialog(null,"Error1 "+err.getMessage()); 
             }
             }
     public void eliminar(){
         try {
-            String sql= "DELETE from cliente where nombre = '"+nombre+"' and telefono= '"+telefono+"';";
-            st.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"¡Registro eliminado!");
-            } catch (SQLException ex) {
-            Logger.getLogger(modelClientes.class.getName()).log(Level.SEVERE, null, ex);
+            String sql= "DELETE FROM cliente WHERE rfc = '"+rfc+"'; ";
+             int respuesta = JOptionPane.showConfirmDialog(null, "¿Está Seguro de Eliminar este Registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                rfc = rs.getString("id");
+                st.executeUpdate(sql);
+                
+                this.conectarDB();
+                
             }
+            else {
+                this.conectarDB();
+                
+            }
+        }
+        catch(SQLException err) { 
+            JOptionPane.showMessageDialog(null,"Error en metodo eliminar"+err.getMessage()); 
+        }
     }
 
     public String getGenero() {
@@ -226,5 +239,13 @@ public class modelClientes {
 
     public void setSentencia(String select__id_nombre_apellido_paterno_apelli) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getNo_exterior() {
+        return no_exterior;
+    }
+
+    public void setNo_exterior(String no_exterior) {
+        this.no_exterior = no_exterior;
     }
 }
