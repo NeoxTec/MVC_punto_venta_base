@@ -26,6 +26,7 @@ public class modelInicio {
     
     private String username;
     private String pass;
+    private String passh;
     private String pass1;
     private String tipo;
     private int validacion;
@@ -109,7 +110,8 @@ public class modelInicio {
             rs = ps.executeQuery();
             rs.next();
             pass1 = rs.getString("pass");
-            if (pass1.equals(pass)){
+            passh = hash.sha1(pass);
+            if (pass1.equals(passh)){
                  return true;
             }      
         }catch(SQLException ex){
