@@ -312,6 +312,12 @@ public class controllerLogin {
      */
     
     private void compras_actionPerformed(){
+        if (controllerCompras.viewCompra.jt_compra.getRowSelectionAllowed()==true){
+        controllerDetalleCompra.modelDetalleCompra.setFactura(controllerCompras.modelCompras.getNo_factura());
+        System.out.println(controllerDetalleCompra.modelDetalleCompra.getFactura()+"impresion");}
+        else 
+            controllerDetalleCompra.modelDetalleCompra.setFactura("0");
+        System.out.println(controllerDetalleCompra.modelDetalleCompra.getFactura());
         viewLogin.setContentPane(controllerCompras.viewCompra);
         viewLogin.revalidate();
         viewLogin.repaint();
