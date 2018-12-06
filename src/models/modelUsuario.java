@@ -26,6 +26,7 @@ public class modelUsuario {
     private Object tipo;
     private int sucursal;
     private String rfc_e;
+    private boolean eliminar = false;
     
     private String sentencia;
     private DefaultTableModel modelo = new DefaultTableModel();
@@ -76,6 +77,14 @@ public class modelUsuario {
 
     public void setModelo(DefaultTableModel modelo) {
         this.modelo = modelo;
+    }
+    
+    public boolean isEliminar() {
+        return eliminar;
+    }
+
+    public void setEliminar(boolean eliminar) {
+        this.eliminar = eliminar;
     }
   /**
   * Metodo para crear una conexion a la base de datos y ver registros de la tabla catalogo.
@@ -136,4 +145,5 @@ public class modelUsuario {
         }
         
     }
+
 }
