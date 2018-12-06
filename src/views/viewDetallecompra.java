@@ -73,28 +73,28 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jt_detallecompra);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(50, 80, 740, 220);
+        jScrollPane1.setBounds(70, 80, 740, 220);
 
         jb_ingresar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_ingresar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_ingresar_detalle.setText("Ingresar detalle");
         jb_ingresar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_ingresar_detalle);
-        jb_ingresar_detalle.setBounds(810, 80, 130, 30);
+        jb_ingresar_detalle.setBounds(850, 100, 130, 30);
 
         jb_modificar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_modificar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_modificar_detalle.setText("Modificar detalle");
         jb_modificar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_modificar_detalle);
-        jb_modificar_detalle.setBounds(810, 110, 130, 30);
+        jb_modificar_detalle.setBounds(850, 130, 130, 30);
 
         jb_guardar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_guardar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_guardar_detalle.setText("Guardar detalle");
         jb_guardar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_guardar_detalle);
-        jb_guardar_detalle.setBounds(810, 203, 130, 30);
+        jb_guardar_detalle.setBounds(850, 220, 130, 30);
 
         jb_cancelar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_cancelar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
@@ -106,14 +106,14 @@ public class viewDetallecompra extends javax.swing.JPanel {
             }
         });
         add(jb_cancelar_detalle);
-        jb_cancelar_detalle.setBounds(810, 230, 130, 30);
+        jb_cancelar_detalle.setBounds(850, 250, 130, 30);
 
         jb_eliminar_detalle.setBackground(new java.awt.Color(255, 102, 0));
         jb_eliminar_detalle.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_eliminar_detalle.setText("Eliminar detalle");
         jb_eliminar_detalle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_eliminar_detalle);
-        jb_eliminar_detalle.setBounds(810, 140, 130, 30);
+        jb_eliminar_detalle.setBounds(850, 160, 130, 30);
 
         jl_numero_factura.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_numero_factura.setForeground(new java.awt.Color(255, 102, 0));
@@ -186,14 +186,14 @@ public class viewDetallecompra extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jt_productos);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(560, 350, 269, 133);
+        jScrollPane2.setBounds(560, 360, 269, 133);
 
         jb_finalizar.setBackground(new java.awt.Color(255, 102, 0));
         jb_finalizar.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jb_finalizar.setText("Finalizar");
         jb_finalizar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(jb_finalizar);
-        jb_finalizar.setBounds(860, 430, 80, 40);
+        jb_finalizar.setBounds(900, 450, 80, 40);
 
         jl_titulo.setFont(new java.awt.Font("AR DESTINE", 0, 46)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 102, 0));
@@ -211,7 +211,7 @@ public class viewDetallecompra extends javax.swing.JPanel {
 
         jl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         add(jl_fondo);
-        jl_fondo.setBounds(0, 0, 1060, 540);
+        jl_fondo.setBounds(0, 0, 1110, 590);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_cancelar_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cancelar_detalleActionPerformed
