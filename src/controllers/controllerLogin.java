@@ -169,7 +169,6 @@ public class controllerLogin {
             }
             else if(e.getSource() == viewAdmin.jb_empleados){ 
                 empleado_actionPerformed();
-                controllerUsuario.modelUsuario.setEliminar(controllerEmpleado.modelEmpleado.isEliminar());
                  
             }
             else if(e.getSource() == viewAdmin.jb_proovedores){
