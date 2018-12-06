@@ -229,13 +229,13 @@ public class viewClientes extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Cliente", "Apellido Paterno", "Apellido Materno", "Telefono"
+                "Nombre", "Apellido Paterno", "Apellido Materno", "Telefono"
             }
         ));
         jScrollPane1.setViewportView(jt_Tabla_Clientes);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 920, 103);
+        jScrollPane1.setBounds(20, 90, 990, 103);
 
         jl_Genero_Cliente.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_Genero_Cliente.setText("Genero");
@@ -246,19 +246,21 @@ public class viewClientes extends javax.swing.JPanel {
         jl_Correo_Cliente.setText("Correo");
         add(jl_Correo_Cliente);
         jl_Correo_Cliente.setBounds(580, 320, 46, 17);
+
+        jtf_Correo_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 12)); // NOI18N
         add(jtf_Correo_Cliente);
-        jtf_Correo_Cliente.setBounds(580, 340, 133, 20);
+        jtf_Correo_Cliente.setBounds(580, 340, 150, 20);
 
         jcb_Genero_Cliente.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jcb_Genero_Cliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "F", "M" }));
         add(jcb_Genero_Cliente);
         jcb_Genero_Cliente.setBounds(270, 340, 60, 23);
         add(jSeparator3);
-        jSeparator3.setBounds(0, 469, 1070, 10);
+        jSeparator3.setBounds(20, 469, 1050, 10);
 
         jl_Fondo_Cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jireh Castillo\\Documents\\acme\\fondo.jpg")); // NOI18N
         add(jl_Fondo_Cliente);
-        jl_Fondo_Cliente.setBounds(-30, 0, 1090, 600);
+        jl_Fondo_Cliente.setBounds(-30, 0, 1110, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtf_Exterior_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_Exterior_ClienteActionPerformed

@@ -120,9 +120,8 @@ public class controllerClientes {
     private void jb_eliminar_actionPerformed(){
     modelClientes.eliminar();
     viewCliente.jb_Modificar_Cliente.setEnabled(false);
-       viewCliente.jb_Eliminar_Cliente.setEnabled(false);
-       viewCliente.jb_Guardar_Cliente.setEnabled(false);
-       modelClientes.modificar();
+    viewCliente.jb_Eliminar_Cliente.setEnabled(false);
+    viewCliente.jb_Guardar_Cliente.setEnabled(false);
     }
      
 }
