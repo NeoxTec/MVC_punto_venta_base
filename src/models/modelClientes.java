@@ -1,23 +1,29 @@
  
 package models;
-import bd.ConnectDatabase;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-import controllers.controllerClientes;
+import bd.ConnectDatabase;
+import javax.swing.table.DefaultTableModel;
+import models.modelClientes;
 import views.viewClientes;
+
 
 public class modelClientes {
     private Connection conexion;
     private Statement st;
     private ResultSet rs;
+    private PreparedStatement ps;
+    private DefaultTableModel t_cliente = new DefaultTableModel();
 
     
-    private String id;
+    private int id;
     private String nombre;
     private String ape_p;
     private String ape_m;
@@ -25,12 +31,14 @@ public class modelClientes {
     private String rfc;
     private String calle;
     private String colonia;
-    private String no_exterior;
-    private String no_interior;
+    private int no_exterior;
+    private int no_interior;
     private String cp;
     private String genero;
     private String correo;
     private String no_compras;
+    private String sentencia;
+    
     public Connection getConexion() {
         return conexion;
     }
@@ -55,11 +63,11 @@ public class modelClientes {
         this.rs = rs;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -119,11 +127,11 @@ public class modelClientes {
         this.colonia = colonia;
     }
 
-    public String getNo_interior() {
+    public int getNo_interior() {
         return no_interior;
     }
 
-    public void setNo_interior(String no_int) {
+    public void setNo_interior(int no_int) {
         this.no_interior = no_int;
     }
 
@@ -134,14 +142,65 @@ public class modelClientes {
     public void setCp(String cp) {
         this.cp = cp;
     }
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getNo_compras() {
+        return no_compras;
+    }
+
+    public void setNo_compras(String no_compras) {
+        this.no_compras = no_compras;
+    }
+
+    public void setSentencia(String select__id_nombre_apellido_paterno_apelli) {
+    }
+
+    public int getNo_exterior() {
+         return no_exterior;
+    }
+
+    public void setNo_exterior(int no_exterior) {
+        this.no_exterior = no_exterior;
+    }
+
+    public PreparedStatement getPs() {
+        return ps;
+    }
+
+    public void setPs(PreparedStatement ps) {
+        this.ps = ps;
+    }
+
+    public DefaultTableModel getT_cliente() {
+        return t_cliente;
+    }
+
+    public void setT_cliente(DefaultTableModel t_cliente) {
+        this.t_cliente = t_cliente;
+    }
 
     public void conectarDB() {
+        
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://tic41.ddns.net:3306/quetzalstock", "quetzal", "quetzal.2018");
+            conexion = ConnectDatabase.getConectar();
             st = conexion.createStatement();
             rs= st.executeQuery("SELECT * FROM cliente;");
             rs.next();
-            id= rs.getString("id");
+            id= rs.getInt("id");
             nombre = rs.getString("nombre");
             ape_p = rs.getString("ape_p");
             ape_m = rs.getString("ape_m");
@@ -149,8 +208,8 @@ public class modelClientes {
             rfc = rs.getString("rfc");
             calle = rs.getString("calle");
             colonia = rs.getString("colonia");
-            no_exterior = rs.getString("no_exterior");
-            no_interior = rs.getString("no_interior");
+            no_exterior = rs.getInt("no_exterior");
+            no_interior = rs.getInt("no_interior");
             cp = rs.getString("cp");
             genero = (String) rs.getObject("genero");
             correo = rs.getString("correo");
@@ -162,7 +221,6 @@ public class modelClientes {
             System.out.println(err.getMessage());
         }
     }
-    
     
     public void insertar(){
         try {
@@ -189,7 +247,7 @@ public class modelClientes {
             
         }
         catch(SQLException err) { 
-            JOptionPane.showMessageDialog(null,"Error1 "+err.getMessage()); 
+            JOptionPane.showMessageDialog(null,"Error al modificar "+err.getMessage()); 
             }
             }
     public void eliminar(){
@@ -197,7 +255,7 @@ public class modelClientes {
             String sql= "DELETE FROM cliente WHERE rfc = '"+rfc+"'; ";
              int respuesta = JOptionPane.showConfirmDialog(null, "¿Está Seguro de Eliminar este Registro?", "Borrar", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
-                rfc = rs.getString("id");
+                rfc = rs.getString("rfc");
                 st.executeUpdate(sql);
                 
                 this.conectarDB();
@@ -212,40 +270,54 @@ public class modelClientes {
             JOptionPane.showMessageDialog(null,"Error en metodo eliminar"+err.getMessage()); 
         }
     }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getNo_compras() {
-        return no_compras;
-    }
-
-    public void setNo_compras(String no_compras) {
-        this.no_compras = no_compras;
-    }
-
-    public void setSentencia(String select__id_nombre_apellido_paterno_apelli) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getNo_exterior() {
-        return no_exterior;
-    }
-
-    public void setNo_exterior(String no_exterior) {
-        this.no_exterior = no_exterior;
-    }
+    /**
+  * Metodo que llena la tabla con los registros existentes de la base de datos.
+  */
+public void tabla(){
+        rs = ConnectDatabase.getTabla(sentencia);
+        t_cliente.setColumnIdentifiers(new Object[]{"id", "nombre", "ape_p", "ape_m", "telefono", "rfc", "calle", "colonia", "no_exterior", "no_interior", "cp", "genero", "correo", "no_compras"});
+        try {
+           while (rs.next()){
+                 t_cliente.addRow(new Object[]{
+                 rs.getInt("id"), 
+                 rs.getString("nombre"), 
+                 rs.getString("ape_p"),
+                 rs.getString("ape_m"),
+                 rs.getString("telefono"),
+                 rs.getString("rfc"),
+                 rs.getString("calle"), 
+                 rs.getString("colonia"), 
+                 rs.getInt("no_exterior"),
+                 rs.getInt("no_interior"),
+                 rs.getString("cp"),
+                 rs.getString("genero"),
+                 rs.getString("correo"), 
+                 rs.getString("no_compras")});
+        }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error modelClientes 010 " + e.getMessage());
+        }
+    }    
+            public void dato(){
+                try {
+                         rs = st.executeQuery("SELECT * FROM cliente where id ="+id+";");
+                         rs.first();
+                         id= rs.getInt("id");
+                        nombre = rs.getString("nombre");
+                        ape_p = rs.getString("ape_p");
+                        ape_m = rs.getString("ape_m");
+                        telefono = rs.getString("telefono");
+                        rfc = rs.getString("rfc");
+                        calle = rs.getString("calle");
+                        colonia = rs.getString("colonia");
+                        no_exterior = rs.getInt("no_exterior");
+                        no_interior = rs.getInt("no_interior");
+                        cp = rs.getString("cp");
+                        genero = (String) rs.getObject("genero");
+                        correo = rs.getString("correo");
+                        no_compras= rs.getString("no_compras");
+                  } catch (SQLException ex) {
+                      JOptionPane.showMessageDialog(null, "Error modelClientes 003 " + ex.getMessage());}
+                   }
+ 
 }

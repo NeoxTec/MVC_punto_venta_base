@@ -65,7 +65,7 @@ public class viewSucursal extends javax.swing.JPanel {
         add(jl_titulo);
         jl_titulo.setBounds(150, 10, 754, 77);
         add(jtf_buscar);
-        jtf_buscar.setBounds(230, 90, 661, 19);
+        jtf_buscar.setBounds(230, 90, 661, 20);
 
         jt_sucursales = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int ColumnIndex){
@@ -102,7 +102,7 @@ public class viewSucursal extends javax.swing.JPanel {
                 }
             });
             add(jtf_id);
-            jtf_id.setBounds(140, 300, 115, 25);
+            jtf_id.setBounds(140, 300, 115, 27);
 
             jl_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_colonia.setForeground(new java.awt.Color(255, 102, 0));
@@ -113,7 +113,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_colonia.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_colonia.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_colonia);
-            jtf_colonia.setBounds(720, 300, 213, 25);
+            jtf_colonia.setBounds(720, 300, 213, 27);
 
             jl_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_noexterior.setForeground(new java.awt.Color(255, 102, 0));
@@ -124,7 +124,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_noexterior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_noexterior.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_noexterior);
-            jtf_noexterior.setBounds(130, 350, 131, 25);
+            jtf_noexterior.setBounds(130, 350, 131, 27);
 
             jl_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_nointerior.setForeground(new java.awt.Color(255, 102, 0));
@@ -135,7 +135,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_nointerior.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_nointerior.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_nointerior);
-            jtf_nointerior.setBounds(420, 350, 140, 25);
+            jtf_nointerior.setBounds(420, 350, 140, 27);
 
             jl_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_telefono.setForeground(new java.awt.Color(255, 102, 0));
@@ -146,7 +146,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_telefono.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_telefono.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_telefono);
-            jtf_telefono.setBounds(130, 410, 162, 25);
+            jtf_telefono.setBounds(130, 410, 162, 27);
 
             jl_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_calle.setForeground(new java.awt.Color(255, 102, 0));
@@ -157,7 +157,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_calle.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_calle.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_calle);
-            jtf_calle.setBounds(410, 300, 147, 25);
+            jtf_calle.setBounds(410, 300, 147, 27);
 
             jl_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_cp.setForeground(new java.awt.Color(255, 102, 0));
@@ -168,7 +168,7 @@ public class viewSucursal extends javax.swing.JPanel {
             jtf_cp.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jtf_cp.setForeground(new java.awt.Color(255, 102, 0));
             add(jtf_cp);
-            jtf_cp.setBounds(720, 350, 156, 25);
+            jtf_cp.setBounds(720, 350, 156, 27);
 
             jl_datospersonales.setFont(new java.awt.Font("AR DESTINE", 0, 18)); // NOI18N
             jl_datospersonales.setForeground(new java.awt.Color(255, 102, 0));
