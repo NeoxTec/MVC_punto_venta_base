@@ -20,8 +20,8 @@ public class Main {
     public static void main(String[] args) {
         
         modelClientes modelClientes = new modelClientes();
-        viewCliente viewCliente = new viewCliente();
-        controllerClientes controllerClientes = new controllerClientes(modelClientes,viewCliente);
+        viewClientes viewClientes = new viewClientes();
+        controllerClientes controllerClientes = new controllerClientes(modelClientes,viewClientes);
         
         modelUsuario modelUsuario = new modelUsuario();
         viewUsuario viewUsuario = new viewUsuario();
@@ -100,7 +100,7 @@ public class Main {
         views[8]  = viewVentasConsulta;
         views[9] = viewSucursal;
         views[10] =  viewUsuario;
-        views[11] = viewCliente;
+        views[11] = viewClientes;
         
          
         modelLogin modelLogin = new modelLogin();

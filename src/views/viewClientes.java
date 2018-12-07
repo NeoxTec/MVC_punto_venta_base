@@ -9,12 +9,12 @@ package views;
  *
  * @author Jireh Castillo
  */
-public class viewCliente extends javax.swing.JPanel {
+public class viewClientes extends javax.swing.JPanel {
 
     /**
      * Creates new form viewCliente
      */
-    public viewCliente() {
+    public viewClientes() {
         initComponents();
     }
 
@@ -79,7 +79,7 @@ public class viewCliente extends javax.swing.JPanel {
         jl_Datos_Personales.setForeground(new java.awt.Color(255, 102, 0));
         jl_Datos_Personales.setText("DATOS PERSONALES");
         add(jl_Datos_Personales);
-        jl_Datos_Personales.setBounds(0, 229, 184, 21);
+        jl_Datos_Personales.setBounds(20, 220, 184, 21);
 
         jl_Nombre_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jl_Nombre_Cliente.setText("Nombre");
@@ -131,15 +131,15 @@ public class viewCliente extends javax.swing.JPanel {
         add(jtf_Telefono_Cliente);
         jtf_Telefono_Cliente.setBounds(30, 340, 140, 20);
         add(jSeparator1);
-        jSeparator1.setBounds(0, 213, 1070, 10);
+        jSeparator1.setBounds(20, 213, 1050, 10);
 
         jl_Direccion_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 18)); // NOI18N
         jl_Direccion_Cliente.setForeground(new java.awt.Color(255, 102, 0));
         jl_Direccion_Cliente.setText("DIRECCIÓN");
         add(jl_Direccion_Cliente);
-        jl_Direccion_Cliente.setBounds(10, 383, 92, 21);
+        jl_Direccion_Cliente.setBounds(20, 370, 92, 21);
         add(jSeparator2);
-        jSeparator2.setBounds(0, 367, 1070, 10);
+        jSeparator2.setBounds(20, 367, 1050, 10);
 
         jl_Calle_Clientes.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jl_Calle_Clientes.setText("Calle");
@@ -196,28 +196,28 @@ public class viewCliente extends javax.swing.JPanel {
         jb_Guardar_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         jb_Guardar_Cliente.setText("Guardar");
         add(jb_Guardar_Cliente);
-        jb_Guardar_Cliente.setBounds(60, 500, 130, 30);
+        jb_Guardar_Cliente.setBounds(50, 500, 140, 40);
 
         jb_Modificar_Cliente.setBackground(new java.awt.Color(255, 102, 0));
         jb_Modificar_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jb_Modificar_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         jb_Modificar_Cliente.setText("Modificar");
         add(jb_Modificar_Cliente);
-        jb_Modificar_Cliente.setBounds(270, 500, 130, 30);
+        jb_Modificar_Cliente.setBounds(270, 500, 150, 40);
 
         jb_Nuevo_Cliente.setBackground(new java.awt.Color(255, 102, 0));
         jb_Nuevo_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jb_Nuevo_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         jb_Nuevo_Cliente.setText("Nuevo");
         add(jb_Nuevo_Cliente);
-        jb_Nuevo_Cliente.setBounds(520, 500, 130, 30);
+        jb_Nuevo_Cliente.setBounds(520, 500, 140, 40);
 
         jb_Eliminar_Cliente.setBackground(new java.awt.Color(255, 102, 0));
         jb_Eliminar_Cliente.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jb_Eliminar_Cliente.setForeground(new java.awt.Color(255, 255, 255));
         jb_Eliminar_Cliente.setText("Eliminar");
         add(jb_Eliminar_Cliente);
-        jb_Eliminar_Cliente.setBounds(770, 500, 130, 30);
+        jb_Eliminar_Cliente.setBounds(770, 500, 150, 40);
 
         jt_Tabla_Clientes.setFont(new java.awt.Font("AR DESTINE", 1, 14)); // NOI18N
         jt_Tabla_Clientes.setForeground(new java.awt.Color(255, 102, 0));
@@ -235,7 +235,7 @@ public class viewCliente extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jt_Tabla_Clientes);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 90, 920, 103);
+        jScrollPane1.setBounds(20, 90, 920, 103);
 
         jl_Genero_Cliente.setFont(new java.awt.Font("AR DESTINE", 0, 14)); // NOI18N
         jl_Genero_Cliente.setText("Genero");
@@ -258,7 +258,7 @@ public class viewCliente extends javax.swing.JPanel {
 
         jl_Fondo_Cliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jireh Castillo\\Documents\\acme\\fondo.jpg")); // NOI18N
         add(jl_Fondo_Cliente);
-        jl_Fondo_Cliente.setBounds(-30, 0, 1070, 600);
+        jl_Fondo_Cliente.setBounds(-30, 0, 1090, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtf_Exterior_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_Exterior_ClienteActionPerformed

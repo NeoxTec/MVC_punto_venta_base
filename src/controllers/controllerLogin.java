@@ -6,8 +6,6 @@
 package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import models.modelLogin;
 import views.*;
@@ -19,9 +17,9 @@ import views.*;
 public class controllerLogin {
      private final modelLogin modelLogin;
      private final viewLogin viewLogin;
-     
-     
-     
+
+
+
      /**
      * Esta variable almacena los controllers para ser utilizados dentro del mismo JFrame
      */
@@ -38,7 +36,7 @@ public class controllerLogin {
      private controllerSucursal controllerSucursal;
      private controllerUsuario controllerUsuario;
      private controllerClientes controllerClientes;
-     
+
      /*
      * Esta variable almacena los views para ser utilizados dentro del mismo JFrame
      */
@@ -54,17 +52,17 @@ public class controllerLogin {
      private viewVentasConsulta viewVentasConsulta;
      private viewSucursal viewSucursal;
      private viewUsuario viewUsuario;
-     private viewCliente viewCliente;
+     private viewClientes viewClientes;
      /**
      * Controlador principal del proyecto que une el modelLogin y viewLogin, ademas
      * recibe los controllers de las demás interfaces
      * dentro del arreglo controllers, con esto se puede tener acceso a toda la
      * programación desarrollada dentro de cada controller.
-     * 
+     *
      * @param modelLogin
      * @param viewLogin
      * @param views arreglo con todas las vistas del proyecto.
-     * @param controllers arreglo con todos los controladores del proyecto. 
+     * @param controllers arreglo con todos los controladores del proyecto.
      */
     public controllerLogin(modelLogin modelLogin, viewLogin viewLogin, Object [] views, Object[] controllers) {
         this.modelLogin = modelLogin;
@@ -77,7 +75,7 @@ public class controllerLogin {
         initComponets();
     }
 
-    
+
     /**
      * Separa cada uno de los controlladores almacendados en controllers, de
      * esta forma se puede acceder a todas las variables y métodos publicos
@@ -94,7 +92,7 @@ public class controllerLogin {
         controllerDetalleCompra = (controllerDetalleCompra) controllers[7];
         controllerVentasConsulta = (controllerVentasConsulta) controllers[8];
         controllerSucursal = (controllerSucursal) controllers[9];
-        controllerUsuario = (controllerUsuario) controllers [10];
+        controllerUsuario = (controllerUsuario) controllers[10];
         controllerClientes = (controllerClientes) controllers[11];
     }
     /*
@@ -113,7 +111,8 @@ public class controllerLogin {
         viewVentasConsulta = (viewVentasConsulta) views[8];
         viewSucursal = (viewSucursal) views[9];
         viewUsuario = (viewUsuario) views [10];
-        viewCliente = (viewCliente) views[11];
+        viewClientes = (viewClientes) views[11];
+
     }
     /*
     * Método que oculta el JMenu al iniciar el JFrame
@@ -122,7 +121,7 @@ public class controllerLogin {
         viewLogin.jm_opciones.setVisible(false);
     }
     /*
-    * Método para descoltar el JMenu 
+    * Método para descoltar el JMenu
     */
     private void desocultar(){
         viewLogin.jm_opciones.setVisible(true);
@@ -136,9 +135,9 @@ public class controllerLogin {
         inicio_actionPerformed();
         viewLogin.setVisible(true);
     }
-    
+
     /**
-     * Asigna el actionListener al botón entrar de 
+     * Asigna el actionListener al botón entrar de
      * viewLogin.
      */
     private void setActionListener() {
@@ -155,43 +154,9 @@ public class controllerLogin {
         viewDetallecompra.jb_finalizar.addActionListener(actionListener);
         viewAdmin.jb_ventas.addActionListener(actionListener);
         viewAdmin.jb_sucursales.addActionListener(actionListener);
-        viewEmpleado.jb_usuario.addActionListener(actionListener);
-        viewUsuario.jl_salir.addMouseListener(ml);
         viewVendedor.jb_clientes.addActionListener(actionListener);
-        
-        
     }
-    
-    private final MouseListener ml = new MouseListener(){
-         @Override
-         public void mouseClicked(MouseEvent e) {
-             if(e.getSource() == viewUsuario.jl_salir){
-                 empleado_actionPerformed();
-             }
-         }
 
-         @Override
-         public void mousePressed(MouseEvent e) {
-             
-         }
-
-         @Override
-         public void mouseReleased(MouseEvent e) {
-             
-         }
-
-         @Override
-         public void mouseEntered(MouseEvent e) {
-             
-         }
-
-         @Override
-         public void mouseExited(MouseEvent e) {
-             
-         }
-        
-    };
-    
     /**
      * Evalua el componente que genero el evento y llama a un método en particular.
      */
@@ -200,15 +165,15 @@ public class controllerLogin {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == viewInicio.jb_entrar) {
                 login();
-            } 
+            }
             else if (e.getSource() == viewAdmin.jb_catalogo){
-                catalogo_actionPerformed();        
+                catalogo_actionPerformed();
             }
             else if(e.getSource() == viewLogin.jmi_volver){
                 admin_actionPerformed();
             }
-            else if(e.getSource() == viewAdmin.jb_empleados){
-                 empleado_actionPerformed();
+            else if(e.getSource() == viewAdmin.jb_empleados){ 
+                empleado_actionPerformed();    
             }
             else if(e.getSource() == viewAdmin.jb_proovedores){
                 proveedor_actionPerformed();
@@ -241,17 +206,13 @@ public class controllerLogin {
             else if(e.getSource() == viewAdmin.jb_sucursales){
                 sucursal_actionPerformed();
             }
-            else if(e.getSource() == viewEmpleado.jb_usuario){
-                usuario_actionPerformed();
-            }
             else if(e.getSource() == viewVendedor.jb_clientes){
-                cliente_actionPerformed();
+                clientes_actionPerformed();
             }
         }
      };
-    
-        
-    
+
+
     /**
      * Método para iniciar el frame con el panel Inicio y al momento de cerrar sesión
      */
@@ -265,7 +226,7 @@ public class controllerLogin {
         viewLogin.jmi_cerrar.setVisible(false);
     }
     /*
-    * Método para iniciar sesión y cambiar al panel de Admin o Vendedor segun el usuario
+    *
     */
     private void login(){
         controllerInicio.Datos();
@@ -276,7 +237,7 @@ public class controllerLogin {
                 controllerInicio.limpiar();
         }
         else if(controllerInicio.modelInicio.LoginPass() == true && modelLogin.getTipo().equals("VENDEDOR")){
-            controllerVendedor.viewVendedor.jl_tipo_user.setText("Vendedor: "+controllerInicio.modelInicio.getUsername());
+            controllerVendedor.viewVendedor.jl_tipo_user.setText("Administrador: "+controllerInicio.modelInicio.getUsername());
             controllerVendedor.modelVendedor.setSucursal(controllerInicio.modelInicio.getId_sucursal());
             controllerVendedor.viewVendedor.jl_sucursal.setText("Sucursal: "+controllerVendedor.modelVendedor.getSucursal());
             vendedor_actionPerformed();
@@ -286,7 +247,7 @@ public class controllerLogin {
                JOptionPane.showMessageDialog(null, "Ingrese datos validos");
                controllerInicio.limpiar();
         }
-        
+
     }
     /**
      * Método para hacer cambio al panel Admin
@@ -314,7 +275,7 @@ public class controllerLogin {
         viewLogin.jmi_cerrar.setVisible(true);
         viewLogin.jmi_volver.setVisible(false);
     }
-    
+
     /**
      * Método que hara que se cambie al panel catalogo
      */
@@ -327,9 +288,9 @@ public class controllerLogin {
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
-        
+
     }
-    
+
     /**
      * Método que hara que se cambie al panel empleado
      */
@@ -342,9 +303,9 @@ public class controllerLogin {
         viewLogin.jmi_olvido.setVisible(false);
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
-        
+
     }
-    
+
     /**
      * Método que hara que se cambie al panel proveedor
      */
@@ -358,12 +319,18 @@ public class controllerLogin {
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
     }
-    
+
     /**
      * Método que hara que se cambie al panel compras
      */
-    
+
     private void compras_actionPerformed(){
+        if (controllerCompras.viewCompra.jt_compra.getRowSelectionAllowed()==true){
+        controllerDetalleCompra.modelDetalleCompra.setFactura(controllerCompras.modelCompras.getNo_factura());
+        System.out.println(controllerDetalleCompra.modelDetalleCompra.getFactura()+"impresion");}
+        else
+            controllerDetalleCompra.modelDetalleCompra.setFactura("0");
+        System.out.println(controllerDetalleCompra.modelDetalleCompra.getFactura());
         viewLogin.setContentPane(controllerCompras.viewCompra);
         viewLogin.revalidate();
         viewLogin.repaint();
@@ -373,7 +340,7 @@ public class controllerLogin {
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
     }
-    
+
     /*
     * Método que hara que se cambie al panel de detalle compra
     */
@@ -387,7 +354,7 @@ public class controllerLogin {
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
      }
-    
+
      /*
      * Método que hara que se cambie al panel de Consulta de Ventas
      */
@@ -401,7 +368,7 @@ public class controllerLogin {
         viewLogin.jmi_volver.setVisible(true);
         viewLogin.jmi_cerrar.setVisible(false);
      }
-     
+
      /*
      * Método que hara que se cambie al panel de Sucrusales
      */
@@ -417,23 +384,9 @@ public class controllerLogin {
      }
      
      /*
-     *  Método para mostrar el panel de Usuario
+     * Método que hara el cambio al panel Clientes en la sesion de Vendedor
      */
-     private void usuario_actionPerformed(){
-        viewLogin.setContentPane(controllerUsuario.viewUsuario);
-        viewLogin.revalidate();
-        viewLogin.repaint();
-        viewLogin.jmi_cambio.setVisible(false);
-        viewLogin.jmi_cambio_validacion.setVisible(false);
-        viewLogin.jmi_olvido.setVisible(false);
-        viewLogin.jmi_volver.setVisible(false);
-        viewLogin.jmi_cerrar.setVisible(false);
-     }
-     
-     /*
-     * Método para realizar el cambio al panel de Clientes
-     */
-     private void cliente_actionPerformed(){
+     private void clientes_actionPerformed(){
         viewLogin.setContentPane(controllerClientes.viewCliente);
         viewLogin.revalidate();
         viewLogin.repaint();
@@ -443,4 +396,4 @@ public class controllerLogin {
         viewLogin.jmi_volver.setVisible(false);
         viewLogin.jmi_cerrar.setVisible(false);
      }
-} 
+}
