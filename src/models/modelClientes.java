@@ -11,8 +11,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import bd.ConnectDatabase;
 import javax.swing.table.DefaultTableModel;
-import models.modelClientes;
-import views.viewClientes;
 
 
 public class modelClientes {
@@ -87,6 +85,7 @@ public class modelClientes {
         this.ape_p = ape_p;
     }
 
+    
     public String getApe_m() {
         return ape_m;
     }
